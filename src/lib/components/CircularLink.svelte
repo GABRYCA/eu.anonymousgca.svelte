@@ -1,9 +1,8 @@
 <script>
     import {onMount} from "svelte";
 
-    export let icon = 'fas fa-code';
-    export let title = 'Code';
-    export let link = '#';
+    /** @type {{icon?: string, title?: string, link?: string}} */
+    let { icon = 'fas fa-code', title = 'Code', link = '#' } = $props();
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -12,7 +11,7 @@
 
 <div class="col-3">
     <a href="{link}" target="_blank" data-bs-toggle="tooltip"
-       data-bs-placement="top" title="{title}">
+       data-bs-placement="top" title="{title}" aria-label="{link}">
         <span class="fa-stack fa-2x light-span">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="{icon} fa-stack-1x fa-inverse hover-effect-icons"></i>

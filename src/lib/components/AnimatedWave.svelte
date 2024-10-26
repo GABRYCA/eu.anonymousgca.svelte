@@ -1,6 +1,6 @@
 <script>
-    export let rgb = "52, 0, 78";
-    export let data = "M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"; // Wave form
+    /** @type {{rgb?: string, data?: string}} */
+    let { rgb = "52, 0, 78", data = "M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" } = $props();
 </script>
 
 <div class="row mt-5 mb-5 pt-1 pt-5">

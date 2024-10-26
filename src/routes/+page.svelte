@@ -4,29 +4,11 @@
     import CircularLink from "$lib/components/CircularLink.svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import favicon from "$lib/images/favicon.webp";
-    import Seo from "sk-seo";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
-
 </script>
-
-<Seo
-    title="Home - AnonymousGCA"
-    description="AnonymousGCA - Web Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer, Free-Time Designer-Artist"
-    siteName="AnonymousGCA"
-    imageURL={favicon}
-    logo={favicon}
-    author="AnonymousGCA"
-    name="AnonymousGCA"
-    schemaOrg="true"
-    twitter="true"
-    index="true"
-    canonical="https://anonymousgca.eu/"
-    keywords="AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student"
-/>
-
 
 <!-- Image logo from img/logo.png -->
 <div class="row justify-content-center align-items-center pb-5 pb-md-0 bg-black bg-opacity-25">

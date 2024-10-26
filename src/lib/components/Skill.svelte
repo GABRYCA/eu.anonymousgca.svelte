@@ -1,10 +1,13 @@
 <script>
     import SVGWave from "$lib/components/SVGWave.svelte";
 
-    export let title = "Skill Title";
-    export let icon = "fas fa-code";
-    export let icon_color = "";
-    export let title_color = "";
+    /** @type {{title?: string, icon?: string, icon_color?: string, title_color?: string}} */
+    let {
+        title = "Skill Title",
+        icon = "fas fa-code",
+        icon_color = "",
+        title_color = ""
+    } = $props();
 
 </script>
 

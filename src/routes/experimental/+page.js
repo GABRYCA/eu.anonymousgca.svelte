@@ -55,8 +55,6 @@ async function getHoldersFromUrl(url) {
 
 export const load = async ({}) => {
 
-    console.log('Started...');
-
     //const pages = 3901;
     /*const pages = 100;
     const limit = 50;
@@ -65,4 +63,9 @@ export const load = async ({}) => {
     const holders = await getFromEndpoint(url, pages, limit)
 
     return { holders: holders };*/
+    return {
+        title: 'SolScan GCA\'s API',
+        description: 'SolScan API of GCA.',
+        keywords: 'SolScan, GCA, API, NFT, Collection, Holders'
+    }
 }

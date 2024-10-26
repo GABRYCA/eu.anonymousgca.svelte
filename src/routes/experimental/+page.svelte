@@ -1,35 +1,17 @@
 <script>
-    import Seo from "sk-seo";
-    /*export let data;
-
-    const { holders } = data;
-
-    // Make a CSV from the data, the data is an array of objects, each object is a row and the columns are:
-    // value, wallet_address, percentage
-    // but we will rename them to:
-    // wallet_address -> Holder, value -> Quantity, percentage -> Percentage
-
-    const csv = [
-        ['Holder', 'Quantity', 'Percentage'],
-        ...holders.map(({ wallet_address, value, percentage }) => [wallet_address, value, percentage])
-    ].map(row => row.join(',')).join('\n');
-
-    const blob = new Blob([csv], { type: 'text/csv' });
-
-    const url = URL.createObjectURL(blob);*/
-
     const pages = 10000;
     const limit = 50;
     const limitCountEmpty = 5;
-    let collectionId = '';
-    let isCollectionActive = false;
-    let csvCollectionHoldersUrl = '';
-    let fetchCollectionHoldersError = '';
-    let holdersTempTotal = null;
-    let holdersProgressCounter = null;
+    let collectionId = $state('');
+    let isCollectionActive = $state(false);
+    let csvCollectionHoldersUrl = $state('');
+    let fetchCollectionHoldersError = $state('');
+    let holdersTempTotal = $state(null);
+    let holdersProgressCounter = $state(null);
     let pagesHoldersProgressCounter = null;
 
-    async function handleCollectionHoldersFetch(){
+    async function handleCollectionHoldersFetch(event){
+        event.preventDefault();
         if (isCollectionActive) return;
         if (collectionId.length !== 64) {
             fetchCollectionHoldersError = 'Collection ID must be 64 characters long';
@@ -112,24 +94,12 @@
     }
 </script>
 
-<Seo
-    title="SolScan GCA API"
-    description="SolScan GCA API"
-    siteName="SolScan GCA API"
-    imageURL="https://anonymousgca.eu/images/anonymousgca.webp"
-    logo="https://anonymousgca.eu/images/anonymousgca.webp"
-    author="AnonymousGCA"
-    name="AnonymousGCA"
-    schemaOrg="true"
-    twitter="true"
-    index="true"
-    keywords="SolScan, GCA, API, NFT, Collection, Holders"
-/>
-
 <div class="container">
-    <div class="row text-center mt-2">
+    <div class="row text-center mt-4">
         <div class="col">
             <h1>SolScan GCA API</h1>
+            <!-- Small text red, patched with neon -->
+            <p class="text-danger-emphasis">Solana changed again, may not work!</p>
         </div>
     </div>
     <div class="row text-center border border-primary rounded-4 bg-black bg-opacity-50 p-3 pt-2 mt-2">
@@ -138,7 +108,7 @@
         </div>
         <!-- Form to input NFT collection id and then send request to the API -->
         <div class="col">
-            <form on:submit|preventDefault={handleCollectionHoldersFetch}>
+            <form onsubmit={handleCollectionHoldersFetch}>
                 <div class="form-group text-start">
                     <label for="collectionId">Collection ID</label>
                     <input type="text" class="form-control" id="collectionId" placeholder="Example: 4a2d96b22ab0c8f01cb5ce5bc960b627c2a8271529ae5132d5352b7c86b3b54d" bind:value={collectionId} minlength="64" maxlength="64" required>

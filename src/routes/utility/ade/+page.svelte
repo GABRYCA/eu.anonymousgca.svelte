@@ -2,25 +2,25 @@
     import {onMount} from "svelte";
     import Seo from "sk-seo";
 
-    let numberInput = 2;
-    let unitSelect = 'Byte';
-    let result = '';
-    let bitInput = 0;
-    let byteResult = '';
-    let byteResultOffset = '';
-    let resultCache = '';
-    let resultMemory = '';
-    let exponentInput = 0;
-    let powerResult = '';
-    let memoryInput = 0;
-    let memoryScale = 'Byte';
-    let wordInput = 0;
-    let cacheInput = 0;
-    let cacheScale = 'Byte';
-    let binaryInput = '';
-    let decimalInput = '';
-    let binaryResult = '';
-    let decimalResult = '';
+    let numberInput = $state(2);
+    let unitSelect = $state('Byte');
+    let result = $state('');
+    let bitInput = $state(0);
+    let byteResult = $state('');
+    let byteResultOffset = $state('');
+    let resultCache = $state('');
+    let resultMemory = $state('');
+    let exponentInput = $state(0);
+    let powerResult = $state('');
+    let memoryInput = $state(0);
+    let memoryScale = $state('Byte');
+    let wordInput = $state(0);
+    let cacheInput = $state(0);
+    let cacheScale = $state('Byte');
+    let binaryInput = $state('');
+    let decimalInput = $state('');
+    let binaryResult = $state('');
+    let decimalResult = $state('');
 
     const unitPowers = {
         'Byte': 0,
@@ -54,15 +54,19 @@
         return bits / 8;
     }
 
-    function binaryToDecimal() {
+    function binaryToDecimal(e) {
+        e.preventDefault();
         binaryResult = parseInt(binaryInput, 2).toString(10);
     }
 
-    function decimalToBinary() {
+    function decimalToBinary(e) {
+        e.preventDefault();
         decimalResult = parseInt(decimalInput, 10).toString(2);
     }
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(numberInput, unitSelect);
         let power = numberInput !== 0 ? calculatePowerOfTwo(numberInput) : 0;
 
         if (isNaN(power)) {
@@ -76,7 +80,8 @@
         result = `<p class='mt-2 mb-0 fs-3 text-info'>2<sup class='text-warning'>${totalPower}</sup> (${parola} ${totalPower} ${parolaBit})</p>`;
     }
 
-    function handleBitSubmit() {
+    function handleBitSubmit(e) {
+        e.preventDefault();
         let bytes = convertBitsToBytes(bitInput);
         if (isNaN(bytes)) {
             byteResult = bytes;
@@ -96,7 +101,8 @@
         byteResult = `<p class='mt-2 mb-0 fs-3 text-info'>${bytes} Byte - 2<sup class='text-warning'>${power}</sup> (${parola} ${power} ${parolaBit})</p>`;
     }
 
-    function handlePowerSubmit() {
+    function handlePowerSubmit(e) {
+        e.preventDefault();
         if (exponentInput < 0) {
             powerResult = '<p class="text-danger mb-0">Inserire un valore maggiore o uguale a 0</p>';
             return;
@@ -105,7 +111,8 @@
     }
 
 
-    function handleMemorySubmit() {
+    function handleMemorySubmit(e) {
+        e.preventDefault();
         let power = memoryInput !== 0 ? calculatePowerOfTwo(memoryInput) : 0;
 
         if (isNaN(power)) {
@@ -119,7 +126,8 @@
         resultMemory = `<p class='mt-2 mb-0 fs-3 text-info'>2<sup class='text-warning'>${totalPower}</sup> (${parola} ${totalPower} ${parolaBit})</p>`;
     }
 
-    function handleBlockSubmit() {
+    function handleBlockSubmit(e) {
+        e.preventDefault();
         let bytes = convertBitsToBytes(bitInput);
         if (isNaN(bytes)) {
             byteResultOffset = bytes;
@@ -145,7 +153,8 @@
         byteResultOffset = `<p class='mt-2 mb-0 fs-3 text-info'>2<sup class='text-warning'>${totalPower}</sup> (${parola} ${totalPower} ${parolaBit})</p>`;
     }
 
-    function handleCacheSubmit() {
+    function handleCacheSubmit(e) {
+        e.preventDefault();
         let power = cacheInput !== 0 ? calculatePowerOfTwo(cacheInput) : 0;
 
         if (isNaN(power)) {
@@ -181,7 +190,7 @@
             <h5 class="mb-0"><i class="fas fa-calculator"></i> Calcolatore Bit Memoria/Cache</h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handleSubmit}>
+            <form onsubmit={handleSubmit}>
                 <div class="row mb-3">
                     <div class="col-md-10 col-sm-12">
                         <label for="numberInput" class="form-label">Inserire potenza di 2, come 2, 4, 8... ossia <strong
@@ -200,8 +209,8 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-primary bg-black bg-opacity-25 w-100"><i
-                        class="fas fa-check"></i> Calcola
+                <button type="submit" class="btn btn-outline-primary bg-black bg-opacity-25 w-100">
+                    <i class="fas fa-check"></i> Calcola
                 </button>
             </form>
             {#if result !== ''}
@@ -220,7 +229,7 @@
             <h5 class="mb-0"><i class="fas fa-calculator"></i> Convertitore Bit a Byte</h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handleBitSubmit}>
+            <form onsubmit={handleBitSubmit}>
                 <div class="row mb-3">
                     <div class="col-12">
                         <label for="bitInput" class="form-label">Numero di Bit (multiplo di 8, solitamente 16, 32, 64
@@ -249,7 +258,7 @@
             <h5 class="mb-0"><i class="fas fa-calculator"></i> Calcolatore Potenza di 2</h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handlePowerSubmit}>
+            <form onsubmit={handlePowerSubmit}>
                 <div class="row justify-content-start">
                     <div class="col-12 mb-2">
                         <label for="exponentInput" class="form-label">Inserire esponente di <strong
@@ -279,7 +288,6 @@
 </div>
 
 <div class="container mt-5">
-    <hr class="text-light">
     <p class="h1 text-center">Calcolatori Indirizzamenti di memoria</p>
     <hr class="text-light">
 
@@ -289,7 +297,7 @@
             <h5 class="mb-0"><i class="fas fa-calculator"></i> Calcolatore dimensione memoria totale:</h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handleMemorySubmit}>
+            <form onsubmit={handleMemorySubmit}>
                 <div class="row mb-3">
                     <div class="col-md-10 col-sm-12">
                         <label for="memoryInput" class="form-label">Inserire la quantità di memoria</label>
@@ -328,7 +336,7 @@
             </h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handleBlockSubmit}>
+            <form onsubmit={handleBlockSubmit}>
                 <div class="row mb-3">
                     <div class="col-md-6 col-sm-12">
                         <label for="wordInput" class="form-label">Inserire il numero di parole</label>
@@ -363,7 +371,7 @@
             <h5 class="mb-0"><i class="fas fa-calculator"></i> Calcolatore dimensione memoria cache:</h5>
         </div>
         <div class="card-body">
-            <form on:submit|preventDefault={handleCacheSubmit}>
+            <form onsubmit={handleCacheSubmit}>
                 <div class="row mb-3">
                     <div class="col-md-10 col-sm-12">
                         <label for="cacheInput" class="form-label">Inserire la dimensione della cache</label>
@@ -396,8 +404,6 @@
 
 <div class="container mt-5">
 
-    <hr class="text-light">
-
     <div class="row">
         <div class="col">
             <p class="h2 text-center mt-1">Calcolatori binari</p>
@@ -413,11 +419,12 @@
                     <h5 class="mb-0"><i class="fas fa-calculator"></i> Convertitore Binario Decimale</h5>
                 </div>
                 <div class="card-body">
-                    <form on:submit|preventDefault={binaryToDecimal}>
+                    <form onsubmit={binaryToDecimal}>
                         <div class="input-group mb-3">
                             <input bind:value={binaryInput} type="text" class="form-control"
                                    placeholder="Inserire numero binario">
-                            <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-arrow-right"></i>
+                            <button class="btn btn-outline-secondary" type="submit" aria-label="Binario a Decimale">
+                                <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </form>
@@ -436,11 +443,11 @@
                     <h5 class="mb-0"><i class="fas fa-calculator"></i> Convertitore Decimale Binario</h5>
                 </div>
                 <div class="card-body">
-                    <form on:submit|preventDefault={decimalToBinary}>
+                    <form onsubmit={decimalToBinary}>
                         <div class="input-group mb-3">
                             <input bind:value={decimalInput} type="text" class="form-control"
                                    placeholder="Inserire numero decimale">
-                            <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-arrow-right"></i>
+                            <button class="btn btn-outline-secondary" type="submit" aria-label="Decimale a Binario"><i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </form>

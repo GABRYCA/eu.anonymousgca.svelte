@@ -1,25 +1,10 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "sk-seo";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
-
-<Seo
-    title="Gallery - AnonymousGCA"
-    description="AnonymousGCA's gallery"
-    siteName="AnonymousGCA"
-    imageURL="https://anonymousgca.eu/images/anonymousgca.webp"
-    logo="https://anonymousgca.eu/images/anonymousgca.webp"
-    author="AnonymousGCA"
-    name="AnonymousGCA"
-    schemaOrg="true"
-    twitter="true"
-    index="true"
-    keywords="AnonymousGCA, Gallery, Art, AI, Dall-E"
-/>
 
 <div class="container">
     <div class="row mb-5">

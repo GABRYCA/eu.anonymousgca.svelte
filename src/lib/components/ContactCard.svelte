@@ -1,9 +1,12 @@
 <script>
-    export let aos_animation = "fade-up";
-    export let aos_delay = "100";
-    export let title = "Github";
-    export let icon = "fab fa-github";
-    export let link = "https://github.com/GABRYCA";
+    /** @type {{aos_animation?: string, aos_delay?: string, title?: string, icon?: string, link?: string}} */
+    let {
+        aos_animation = "fade-up",
+        aos_delay = "100",
+        title = "Github",
+        icon = "fab fa-github",
+        link = "https://github.com/GABRYCA"
+    } = $props();
 </script>
 
 <div class="col-md-6 col-lg-4 mb-4" data-aos="{aos_animation}" data-aos-delay="{aos_delay}">

@@ -1,6 +1,5 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "sk-seo";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -183,20 +182,6 @@
         return tempo;
     }
 </script>
-
-<Seo
-    title="Mercoledì - Insubria - AnonymousGCA"
-    description="AnonymousGCA's Insubria"
-    siteName="AnonymousGCA"
-    imageURL="https://anonymousgca.eu/images/anonymousgca.webp"
-    logo="https://anonymousgca.eu/images/anonymousgca.webp"
-    author="AnonymousGCA"
-    name="AnonymousGCA"
-    schemaOrg="true"
-    twitter="true"
-    index="true"
-    keywords="AnonymousGCA, Insubria, Varese, Laveno Mombello, Lombardia, Italia"
-/>
 
 <div class="row text-center rounded-5 border border-light-subtle pt-5 pb-5 mx-1 mb-4 shadow">
     <div class="col text-white">

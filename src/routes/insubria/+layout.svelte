@@ -1,5 +1,7 @@
 <script>
     import {onMount} from "svelte";
+    /** @type {{children?: import('svelte').Snippet}} */
+    let { children } = $props();
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -24,7 +26,7 @@
     </div>
 </div>
 
-<slot></slot>
+{@render children?.()}
 
 <!-- Link agli orari degli autobus, sito trenitalia, e navigazione laghi -->
 <div class="row justify-content-center mt-4 mb-4">
