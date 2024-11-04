@@ -9,11 +9,6 @@
     });
 </script>
 
-<svelte:head>
-    <title>Collection - AnonymousGCA</title>
-    <meta name="description" content="AnonymousGCA's contacts">
-</svelte:head>
-
 <div class="container-xxl">
     <div class="row justify-content-center mt-4">
         <div class="col text-center">

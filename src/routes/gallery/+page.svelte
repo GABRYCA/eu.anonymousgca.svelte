@@ -6,11 +6,6 @@
     });
 </script>
 
-<svelte:head>
-    <title>Gallery - AnonymousGCA</title>
-    <meta name="description" content="AnonymousGCA's gallery">
-</svelte:head>
-
 <div class="container">
     <div class="row mb-5">
         <div class="col text-center">

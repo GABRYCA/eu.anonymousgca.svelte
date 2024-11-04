@@ -2,6 +2,6 @@ import * as sitemap from 'super-sitemap';
 
 export const GET = async () => {
     return await sitemap.response({
-        origin: 'https://www.anonymousgca.eu',
+        origin: 'https://anonymousgca.eu',
     });
 };

@@ -1,14 +1,17 @@
 <script>
     import SVGWave from "$lib/components/SVGWave.svelte";
 
-    export let title = "Skill Title";
-    export let icon = "fas fa-code";
-    export let icon_color = "";
-    export let title_color = "";
+    /** @type {{title?: string, icon?: string, icon_color?: string, title_color?: string}} */
+    let {
+        title = "Skill Title",
+        icon = "fas fa-code",
+        icon_color = "",
+        title_color = ""
+    } = $props();
 
 </script>
 
-<div class="col-12 col-sm-11 col-lg-5 rounded-5 bg-black bg-opacity-10 border border-danger border-opacity-25 pb-5 mb-4 element-skill" data-aos="zoom-in"
+<div class="col-12 col-lg-5 rounded-5 bg-black bg-opacity-10 border border-custom pb-5 element-skill" data-aos="zoom-in"
      data-aos-duration="600">
     <div class="row bg-black bg-opacity-10 pt-4 rounded-top-5">
         <div class="col">
@@ -70,18 +73,26 @@
 
     .element-skill {
         transition-duration: 0.3s !important;
-        box-shadow: 2px 2px 2px #000000 !important;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5) !important;
     }
 
     .element-skill:hover {
         transform: scale(1.05) !important;
-        box-shadow: 0 0 10px #ff2b2b !important;
+        box-shadow: 0 0 10px #7a129c !important;
+    }
+
+    .fas {
+        filter: drop-shadow(0 0 0.5rem #d34cff);
     }
 
     .second-text {
         margin: auto;
         font-weight: 300;
         animation: lights 5s 750ms linear infinite;
+    }
+
+    .border-custom {
+        border: 1px outset rgba(122, 18, 156, 0.9) !important;
     }
 
     .fa-5x {

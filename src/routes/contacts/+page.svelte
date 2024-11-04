@@ -7,11 +7,6 @@
     });
 </script>
 
-<svelte:head>
-    <title>Contacts - AnonymousGCA</title>
-    <meta name="description" content="AnonymousGCA's contacts">
-</svelte:head>
-
 <div class="row p-3 p-md-5">
     <div class="col">
         <h1 class="text-center mb-5 mt-4 mt-md-2" data-aos="fade-up">Contacts</h1>

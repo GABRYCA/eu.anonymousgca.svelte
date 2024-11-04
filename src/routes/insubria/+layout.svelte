@@ -1,12 +1,14 @@
 <script>
     import {onMount} from "svelte";
+    /** @type {{children?: import('svelte').Snippet}} */
+    let { children } = $props();
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
 
-<div class="row justify-content-around border-bottom border-light-subtle pt-2 pb-2 mb-4 shadow">
+<div class="row justify-content-around border-bottom border-light-subtle pt-3 pb-2 mb-4 shadow">
     <div class="col-auto">
         <a class="btn btn-outline-light" id="lunedi" href="/insubria/lunedi">Lunedì</a>
     </div>
@@ -24,7 +26,7 @@
     </div>
 </div>
 
-<slot></slot>
+{@render children?.()}
 
 <!-- Link agli orari degli autobus, sito trenitalia, e navigazione laghi -->
 <div class="row justify-content-center mt-4 mb-4">
