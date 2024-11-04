@@ -1,6 +1,5 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "sk-seo";
 
     let numberInput = $state(2);
     let unitSelect = $state('Byte');
@@ -168,21 +167,6 @@
         resultCache = `<p class='mt-2 mb-0 fs-3 text-info'>2<sup class='text-warning'>${totalPower}</sup> (${parola} ${totalPower} ${parolaBit})</p>`;
     }
 </script>
-
-<Seo
-        title="ADE - Calcolatore Bit Memoria"
-        description="Bit memoria e cache, calcolatore e convertitore bit a bytes per architettura degli elaboratori"
-        siteName="AnonymousGCA"
-        imageURL="https://anonymousgca.eu/favicon.webp"
-        logo="https://anonymousgca.eu/favicon.webp"
-        author="AnonymousGCA"
-        name="AnonymousGCA"
-        schemaOrg="true"
-        twitter="true"
-        index="true"
-        keywords="bit, byte, memoria, cache, calcolatore, convertitore, architettura, elaboratori"
-/>
-
 
 <div class="container mt-5">
     <div class="card shadow">

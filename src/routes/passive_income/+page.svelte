@@ -1,6 +1,5 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "sk-seo";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
