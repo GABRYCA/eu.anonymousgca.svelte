@@ -25,10 +25,6 @@
         color: #575757;
     }
 
-    .fa-circle {
-        text-shadow: 2px 2px #000000;
-    }
-
     .hover-effect-icons {
         transition-duration: 0.2s;
     }
@@ -38,6 +34,7 @@
     }
 
     .fa-circle {
+        text-shadow: 2px 2px #000000;
         color: rgba(255, 0, 170, 0.5);
         filter: drop-shadow(0 0 0.5rem #d34cff);
         animation: shadow 3s infinite;

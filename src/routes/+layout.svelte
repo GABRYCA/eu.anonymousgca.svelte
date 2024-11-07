@@ -76,8 +76,12 @@
                 <!--<li class="nav-item">
                     <a class="nav-link" href="passive_income"><i class="fas fa-money-bill-wave"></i> Passive Income</a>
                 </li>-->
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" href="collection"><i class="fa-brands fa-raspberry-pi"></i> Pi</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link" href="projects"><i class="fas fa-project-diagram"></i> Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="External Link"><i class="fas fa-external-link-alt"></i> Discord</a>
