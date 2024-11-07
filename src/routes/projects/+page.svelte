@@ -66,23 +66,23 @@
 
 <style>
     .btn {
-        background-color: rgba(255, 0, 170, 0.5);
-        box-shadow: 3px 3px #000000;
-        border: 1px solid rgba(255, 0, 170, 0.5);
-        filter: drop-shadow(0 0 0.5rem #d34cff);
+        background-color: rgba(255, 0, 170, 0.5) !important;
+        box-shadow: 3px 3px #000000 !important;
+        border: 1px solid rgba(255, 0, 170, 0.5) !important;
+        filter: drop-shadow(0 0 0.5rem #d34cff) !important;
         transition: all 0.15s ease-in-out;
     }
 
     .btn:hover {
-        background-color: rgba(255, 0, 170, 0.3);
-        border: 1px solid rgba(255, 0, 170, 1);
-        color: #ffffff;
+        background-color: rgba(255, 0, 170, 0.3) !important;
+        border: 1px solid rgba(255, 0, 170, 1) !important;
+        color: #ffffff !important;
     }
 
     .btn:focus {
-        background-color: rgba(255, 0, 170, 0.3);
-        border: 1px solid rgba(255, 0, 170, 0.5);
-        color: #ffffff;
+        background-color: rgba(255, 0, 170, 0.3) !important;
+        border: 1px solid rgba(255, 0, 170, 0.5) !important;
+        color: #ffffff !important;
     }
 
     .fa-stack {
