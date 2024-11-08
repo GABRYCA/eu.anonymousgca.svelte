@@ -2,7 +2,6 @@
     import {onMount} from "svelte";
     import AOS from 'aos';
     import SVGWave from "$lib/components/SVGWave.svelte";
-    import favicon from "$lib/images/favicon.webp";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import Seo from "sk-seo";
     import { page } from "$app/stores";
@@ -36,13 +35,12 @@
     const currentYear = new Date().getFullYear();
 </script>
 
-<!--
 <Seo
         title={$page.data.title ?? "AnonymousGCA's Website"}
-        description={$page.data.description ?? "AnonymousGCA - Web Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer, Free-Time Designer-Artist"}
+        description={$page.data.description ?? "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer"}
         siteName={$page.data.siteName ?? "AnonymousGCA"}
-        imageURL={$page.data.imageURL ?? favicon}
-        logo={$page.data.logo ?? favicon}
+        imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-1024.webp"}
+        logo={$page.data.logo ?? $page.url.origin + "/favicon-1024.webp"}
         author={$page.data.author ?? "AnonymousGCA"}
         name={$page.data.name ?? "AnonymousGCA"}
         schemaOrg={$page.data.schemaOrg ?? true}
@@ -51,16 +49,6 @@
         canonical={$page.data.canonical ?? "https://anonymousgca.eu/"}
         keywords={$page.data.keywords ?? "AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student"}
 />
--->
-
-<svelte:head>
-    <title>{$page.data.title ?? 'AnonymousGCA'}</title>
-    <meta name="robots" content="{$page.data.index === false ? 'noindex': 'index, follow, max-image-preview:large'}">
-    <meta name="description" content="{$page.data.description ?? 'AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer'}">
-    <meta name="keywords" content="{$page.data.keywords ?? 'AnonymousGCA, Developer, Full-Stack, Frontend, Backend, Designer, Web Development, Svelte, SvelteKit, University Student'}">
-    <meta name="author" content="{$page.data.author ?? 'AnonymousGCA'}">
-    <link rel="canonical" href="{$page.data.canonical ?? $page.url}">
-</svelte:head>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black px-2 px-md-0 mt-1 mx-1 bg-opacity-50 rounded-5" style="backdrop-filter: blur(8px);">
     <div class="container-xxl">
