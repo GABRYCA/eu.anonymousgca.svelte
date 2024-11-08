@@ -33,7 +33,7 @@
 </script>
 
 <Seo
-        title={$page.data.title ?? "AnonymousGCA's Website"}
+        title={$page.data.title ?? "AnonymousGCA - Official"}
         description={$page.data.description ?? "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer"}
         siteName={$page.data.siteName ?? "AnonymousGCA"}
         imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-512.webp"}
