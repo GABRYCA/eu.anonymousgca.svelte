@@ -3,6 +3,7 @@
     import AOS from 'aos';
     import SVGWave from "$lib/components/SVGWave.svelte";
     import favicon from "$lib/images/favicon.webp";
+    import faviconPNG from "$lib/images/favicon.png";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import Seo from "sk-seo";
     import { page } from "$app/stores";
@@ -40,8 +41,8 @@
         title={$page.data.title ?? "AnonymousGCA's Website"}
         description={$page.data.description ?? "AnonymousGCA - Web Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer, Free-Time Designer-Artist"}
         siteName={$page.data.siteName ?? "AnonymousGCA"}
-        imageURL={$page.data.imageURL ?? favicon}
-        logo={$page.data.logo ?? favicon}
+        imageURL={$page.data.imageURL ?? faviconPNG}
+        logo={$page.data.logo ?? faviconPNG}
         author={$page.data.author ?? "AnonymousGCA"}
         name={$page.data.name ?? "AnonymousGCA"}
         schemaOrg={$page.data.schemaOrg ?? "true"}
