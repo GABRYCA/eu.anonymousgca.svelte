@@ -30,17 +30,14 @@
             window.AOS.refresh();
         }
     }
-
-    // Automatically update footer year
-    const currentYear = new Date().getFullYear();
 </script>
 
 <Seo
         title={$page.data.title ?? "AnonymousGCA's Website"}
         description={$page.data.description ?? "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer"}
         siteName={$page.data.siteName ?? "AnonymousGCA"}
-        imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-1024.webp"}
-        logo={$page.data.logo ?? $page.url.origin + "/favicon-1024.webp"}
+        imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-512.webp"}
+        logo={$page.data.logo ?? $page.url.origin + "/favicon-512.webp"}
         author={$page.data.author ?? "AnonymousGCA"}
         name={$page.data.name ?? "AnonymousGCA"}
         schemaOrg={$page.data.schemaOrg ?? true}
@@ -130,7 +127,7 @@
     <SVGWave data="M0,174L48,174C96,174,192,174,288,183.7C384,193,480,213,576,188.5C672,164,768,97,864,96.7C960,97,1056,164,1152,198.2C1248,232,1344,232,1440,232C1536,232,1632,232,1728,227.2C1824,222,1920,213,2016,212.7C2112,213,2208,222,2304,222.3C2400,222,2496,213,2592,188.5C2688,164,2784,126,2880,125.7C2976,126,3072,164,3168,188.5C3264,213,3360,222,3456,198.2C3552,174,3648,116,3744,91.8C3840,68,3936,77,4032,101.5C4128,126,4224,164,4320,174C4416,184,4512,164,4608,154.7C4704,145,4800,145,4896,140.2C4992,135,5088,126,5184,140.2C5280,155,5376,193,5472,183.7C5568,174,5664,116,5760,120.8C5856,126,5952,193,6048,227.2C6144,261,6240,261,6336,251.3C6432,242,6528,222,6624,188.5C6720,155,6816,106,6864,82.2L6912,58L6912,290L6864,290C6816,290,6720,290,6624,290C6528,290,6432,290,6336,290C6240,290,6144,290,6048,290C5952,290,5856,290,5760,290C5664,290,5568,290,5472,290C5376,290,5280,290,5184,290C5088,290,4992,290,4896,290C4800,290,4704,290,4608,290C4512,290,4416,290,4320,290C4224,290,4128,290,4032,290C3936,290,3840,290,3744,290C3648,290,3552,290,3456,290C3360,290,3264,290,3168,290C3072,290,2976,290,2880,290C2784,290,2688,290,2592,290C2496,290,2400,290,2304,290C2208,290,2112,290,2016,290C1920,290,1824,290,1728,290C1632,290,1536,290,1440,290C1344,290,1248,290,1152,290C1056,290,960,290,864,290C768,290,672,290,576,290C480,290,384,290,288,290C192,290,96,290,48,290L0,290Z" />
     <div class="row text-center bg-black bg-opacity-25 pb-3">
         <div class="col">
-            <p class="h6">© {currentYear} AnonymousGCA</p>
+            <p class="h6">© {new Date().getFullYear()} AnonymousGCA</p>
         </div>
     </div>
 </footer>

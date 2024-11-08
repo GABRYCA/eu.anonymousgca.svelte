@@ -4,7 +4,7 @@ import adapter from '@sveltejs/adapter-node'; // Depending on deployment target,
 const config = {
 	kit: {
 		adapter: adapter({
-
+			precompress: true,
 		})
 	}
 };
