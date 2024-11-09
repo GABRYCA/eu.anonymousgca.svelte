@@ -4,7 +4,6 @@
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
 
-
         const url = window.location.href;
         const day = url.split('/insubria/')[1];
         if (day) {
