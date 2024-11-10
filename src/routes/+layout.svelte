@@ -3,7 +3,7 @@
     import AOS from 'aos';
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
-    import Seo from "sk-seo";
+    import Seo from "$lib/components/Seo.svelte";
     import { page } from "$app/stores";
     /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
@@ -32,20 +32,7 @@
     }
 </script>
 
-<Seo
-        title={$page.data.title ?? "AnonymousGCA - Official"}
-        description={$page.data.description ?? "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer"}
-        siteName={$page.data.siteName ?? "AnonymousGCA - Official"}
-        imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-512.webp"}
-        logo={$page.data.logo ?? $page.url.origin + "/favicon-512.webp"}
-        author={$page.data.author ?? "AnonymousGCA"}
-        name={$page.data.name ?? "AnonymousGCA"}
-        twitter={$page.data.twitter ?? true}
-        schemaOrg={$page.data.schemaOrg ?? true}
-        index={$page.data.index ?? true}
-        canonical={$page.data.canonical ?? "https://anonymousgca.eu/"}
-        keywords={$page.data.keywords ?? "AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student"}
-/>
+<Seo />
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black px-2 px-md-0 mt-1 mx-1 bg-opacity-50 rounded-5" style="backdrop-filter: blur(8px);">
     <div class="container-xxl">
