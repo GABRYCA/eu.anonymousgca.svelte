@@ -35,13 +35,13 @@
 <Seo
         title={$page.data.title ?? "AnonymousGCA - Official"}
         description={$page.data.description ?? "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer"}
-        siteName={$page.data.siteName ?? "AnonymousGCA"}
+        siteName={$page.data.siteName ?? "AnonymousGCA - Official"}
         imageURL={$page.data.imageURL ?? $page.url.origin + "/favicon-512.webp"}
         logo={$page.data.logo ?? $page.url.origin + "/favicon-512.webp"}
         author={$page.data.author ?? "AnonymousGCA"}
         name={$page.data.name ?? "AnonymousGCA"}
-        schemaOrg={$page.data.schemaOrg ?? true}
         twitter={$page.data.twitter ?? true}
+        schemaOrg={$page.data.schemaOrg ?? true}
         index={$page.data.index ?? true}
         canonical={$page.data.canonical ?? "https://anonymousgca.eu/"}
         keywords={$page.data.keywords ?? "AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student"}
