@@ -4,7 +4,6 @@
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import Seo from "$lib/components/Seo.svelte";
-    import { page } from "$app/stores";
     /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
 
@@ -47,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link" href="/" prel><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contacts"><i class="fas fa-address-book"></i> Contacts</a>

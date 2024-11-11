@@ -2,11 +2,25 @@
 <script>
     import { page } from "$app/stores";
 
-    export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
-        author = $page.data.author ?? "", name =$page.data.name ?? "";
-    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
-    export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
-    export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
+    let {
+        title = $page.data.title ?? "",
+        description = $page.data.description ?? "",
+        keywords = $page.data.keywords ?? "",
+        canonical = $page.data.canonical ?? "",
+        siteName = $page.data.siteName ?? "",
+        imageURL = $page.data.imageURL ?? "",
+        logo = $page.data.logo ?? "",
+        author = $page.data.author ?? "",
+        name = $page.data.name ?? "",
+        index = $page.data.index ?? true,
+        twitter = $page.data.twitter ?? true,
+        openGraph = $page.data.openGraph ?? true,
+        schemaOrg = $page.data.schemaOrg ?? false,
+        schemaType = $page.data.schemaType ?? ['Person', 'Organization'],
+        socials = $page.data.socials ?? [],
+        jsonld = $page.data.jsonld ?? {},
+        children
+    } = $props();
 
     let Ld = {
         "@context": "https://schema.org",
@@ -77,7 +91,7 @@
             <meta name="twitter:image" content="{imageURL}">
         {/if}
     {/if}
-    <slot/>
+    {@render children?.()}
     {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
         {@html LdScript}
     {/if}
