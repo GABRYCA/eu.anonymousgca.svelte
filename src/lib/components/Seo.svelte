@@ -37,6 +37,7 @@
         },
         "sameAs": socials
     };
+
     Ld = { ...Ld, ...jsonld };
     let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
@@ -48,7 +49,7 @@
             <meta name="robots" content={index ? "index, follow" : "noindex"}>
         {/if}
         <title>{title}</title>
-        <link rel="canonical" href="{canonical ?? $page.url.href}">
+        <link rel="canonical" href="{canonical ? canonical : $page.url.href}">
     {/if}
     {#if description !== ""}
         <meta name="description" content="{description}">

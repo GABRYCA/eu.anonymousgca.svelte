@@ -30,7 +30,7 @@ export const load = async ({}) => {
         websites,
         stacks,
         title: 'Projects - AnonymousGCA',
-        description: 'Projects page of AnonymousGCA, including websites, apps, and other projects.',
-        keywords: 'projects, anonymousgca, anonymous, gca, websites, apps, other, projects, svelte, sveltekit',
+        /*description: 'Projects page of AnonymousGCA, including websites, apps, and other projects.',
+        keywords: 'projects, anonymousgca, anonymous, gca, websites, apps, other, projects, svelte, sveltekit'*/
     }
 }
