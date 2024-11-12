@@ -23,9 +23,6 @@
         children
     } = $props();
 
-    $inspect($page.data.schemaOrg);
-    $inspect(schemaOrg);
-
     let Ld = {
         "@context": "https://schema.org",
         "@type": schemaType.length > 1 ? schemaType : schemaType[0],
