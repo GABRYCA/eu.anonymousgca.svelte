@@ -23,6 +23,9 @@
         children
     } = $props();
 
+    $inspect($page.data.jsonld);
+    $inspect(jsonld);
+
     let Ld = {
         "@context": "https://schema.org",
         "@type": schemaType.length > 1 ? schemaType : schemaType[0],
@@ -93,7 +96,7 @@
         {/if}
     {/if}
     {@render children?.()}
-    {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
+    {#if schemaOrg && (socials[0] !== undefined || logo !== "" || name !== "")}
         {@html LdScript}
     {/if}
 </svelte:head>
