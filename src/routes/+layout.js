@@ -7,7 +7,8 @@ export const load = async ({ url }) => {
         logo: `${url.origin}/favicon-512.webp`,
         author: 'AnonymousGCA',
         name: 'AnonymousGCA',
-        index: true,
+        twitter: false,
+        openGraph: false,
         canonical: url.href,
         keywords: 'AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student'
     }
