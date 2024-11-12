@@ -23,8 +23,8 @@
         children
     } = $props();
 
-    $inspect($page.data.jsonld);
-    $inspect(jsonld);
+    $inspect($page.data.schemaOrg);
+    $inspect(schemaOrg);
 
     let Ld = {
         "@context": "https://schema.org",
