@@ -1,0 +1,55 @@
+{
+  "name": "AnonymousGCA - Official",
+  "short_name": "GCA",
+  "description": "AnonymousGCA - Web Developer, Full-Stack Developer, University Student, SvelteKit enthusiast, Soccer-Robocup programmer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f002e",
+  "theme_color": "#d34cff",
+  "icons": [
+    {
+      "src": "/favicon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    },
+    {
+      "src": "/favicon-1024.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-1024.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp"
+    },
+    {
+      "src": "/favicon.webp",
+      "sizes": "1292x1292",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.webp",
+      "sizes": "1292x1292",
+      "type": "image/webp"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "1292x1292",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "1292x1292",
+      "type": "image/png"
+    }
+  ]
+}
