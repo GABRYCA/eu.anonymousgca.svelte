@@ -153,6 +153,20 @@
         background: linear-gradient(105deg, #1f002e 50%, #330000 140%);
     }
 
+    :global(body::-webkit-scrollbar) {
+        width: 10px;
+        background: #1f002e;
+    }
+
+    :global(body::-webkit-scrollbar-thumb) {
+        background: #370050;
+        border-radius: 20px;
+    }
+
+    :global(body::-webkit-scrollbar-thumb:hover) {
+        background: #5b0083;
+    }
+
     .navbar-brand {
         text-shadow: 2px 2px #000;
         transition: color 0.25s, filter 0.25s;
