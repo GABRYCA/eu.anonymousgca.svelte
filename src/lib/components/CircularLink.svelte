@@ -30,7 +30,8 @@
     }
 
     .hover-effect-icons:hover {
-        color: #d34cff !important;
+        color: rgb(223, 152, 246) !important;
+        /* color: rgb(211, 76, 255) !important; */
     }
 
     .fa-circle {

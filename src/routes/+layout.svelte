@@ -40,28 +40,11 @@
 </script>
 
 <Seo>
-    <!-- CSS -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.3/aos.css"
-          integrity="sha512-hoGlO+71fSG6lgS60I4bKvsFVB+bAnrVFDYlwSXoyNLppDcoupwJB7KbWq/63iACKn3gcgK9jMXd+T+YDeVrGQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-          integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
-
     <!-- JS -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
-            integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
     <script src={scriptSrc}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-beta.2/jquery.min.js"
             integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.3/aos.js"
-            integrity="sha512-g+Et9AnYbWPRrEbyTHTiCJNNdvCKudRpd8a5fmPMuJhNj5gzVjMSw6qGoNU09EJdv0DlSeiSFAwmtcAhT1QvsA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 </Seo>
 
 <div style="overflow-x: hidden">
@@ -80,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/" prel><i class="fas fa-home"></i> Home</a>
+                            <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacts"><i class="fas fa-address-book"></i> Contacts</a>

@@ -32,11 +32,13 @@
 </div>
 
 <!-- Skills -->
-<div class="row justify-content-around gy-4 px-2 px-md-0">
-    <Skill title="A Web-Developer ✨" icon="fas fa-code"/>
-    <Skill title="A Web-Designer 📏" icon="fas fa-layer-group"/>
-    <Skill title="A SvelteKit Enthusiast 🚀" icon="fas fa-server"/>
-    <Skill title="A University Student 🎓" icon="fas fa-graduation-cap"/>
+<div class="container">
+    <div class="row justify-content-around gy-4 px-2 px-md-0">
+        <Skill title="A Web-Developer ✨" icon="fas fa-code"/>
+        <Skill title="A Web-Designer 📏" icon="fas fa-layer-group"/>
+        <Skill title="A SvelteKit Enthusiast 🚀" icon="fas fa-server"/>
+        <Skill title="A University Student 🎓" icon="fas fa-graduation-cap"/>
+    </div>
 </div>
 
 

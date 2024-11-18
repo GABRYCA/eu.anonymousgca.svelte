@@ -11,9 +11,9 @@
 
 </script>
 
-<div class="col-12 col-lg-5 rounded-5 bg-black bg-opacity-10 border border-custom pb-5 element-skill" data-aos="zoom-in"
+<div class="col-12 col-lg-5 rounded-4 bg-black bg-opacity-10 border border-0 pb-5 element-skill" data-aos="zoom-in"
      data-aos-duration="600">
-    <div class="row bg-black bg-opacity-10 pt-4 rounded-top-5">
+    <div class="row bg-black bg-opacity-25 pt-4 rounded-top-5">
         <div class="col">
             <p class="h2 text-center fw-bold second-text" style="color: {title_color} !important:">{title}</p>
         </div>
@@ -73,12 +73,12 @@
 
     .element-skill {
         transition-duration: 0.3s !important;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), -1px -1px 5px #7a129c;
     }
 
     .element-skill:hover {
         transform: scale(1.05) !important;
-        box-shadow: 0 0 10px #7a129c !important;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), -1px -1px 10px #7a129c;
     }
 
     .fas {
@@ -88,7 +88,8 @@
     .second-text {
         margin: auto;
         font-weight: 300;
-        animation: lights 5s 750ms linear infinite;
+        color: hsl(230, 80%, 90%);
+        text-shadow: 0 0 0.5rem #d34cff;
     }
 
     .border-custom {
