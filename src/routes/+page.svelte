@@ -13,7 +13,7 @@
 <!-- Image logo from img/logo.png -->
 <div class="row justify-content-center align-items-center pb-5 pb-md-0 bg-black bg-opacity-25">
     <div class="col-12 col-lg-6 text-center pe-lg-0">
-        <img src={favicon} class="img-fluid p-5 favicon-image custom-shadow" style="max-height: 75vh;" alt="AnonymousGCA Logo" data-aos="fade-down" data-aos-duration="1500"/>
+        <img src={favicon} class="img-fluid p-5 custom-shadow" style="max-height: 75vh;" alt="AnonymousGCA Logo" data-aos="fade-down" data-aos-duration="1500"/>
     </div>
     <div class="col-12 col-lg-6 text-center ps-lg-0">
         <p class="h1" id="text-glitched-effect" data-aos="slide-left" data-aos-duration="1500">Hi! I'm
@@ -101,11 +101,7 @@
 
     .custom-shadow {
         filter: drop-shadow(0 0 0.5rem #d34cff);
-        animation: shadow 3s infinite;
-    }
-
-    .favicon-image {
-        animation: float 4s ease-in-out infinite;
+        animation: shadow 4s infinite, float 4s ease-in-out infinite;
     }
 
     @keyframes float {
