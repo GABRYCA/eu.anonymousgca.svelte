@@ -16,18 +16,21 @@ export const load = async ({}) => {
     const stacks = [
         {
             title: 'SvelteKit',
-            description: 'A framework for building web applications of all sized with a powerful development experience.',
+            description: 'A framework for building web applications of all sizes with a powerful development experience.',
             url: 'https://kit.svelte.dev',
+            aos_delay: '150',
         },
         {
             title: 'Bootstrap',
             description: 'A powerful, extensible, and feature-packed frontend toolkit for responsive web development.',
             url: 'https://getbootstrap.com/',
+            aos_delay: '300',
         },
         {
             title: 'PocketBase',
             description: 'An open source backend consisting of embedded database with realtime subscriptions and built-in auth.',
-            url: 'https://pocketbase.io/'
+            url: 'https://pocketbase.io/',
+            aos_delay: '450',
         }
         ];
 

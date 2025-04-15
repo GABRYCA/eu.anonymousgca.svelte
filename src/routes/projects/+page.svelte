@@ -65,7 +65,7 @@
         </div>
         <div class="row justify-content-center gy-2 gx-0 gx-md-4">
             {#each stacks as stack (stack.url)}
-                <StackCard title={stack.title} description={stack.description} link={stack.url}/>
+                <StackCard title={stack.title} description={stack.description} link={stack.url} aos_delay={stack.aos_delay}/>
             {/each}
         </div>
     </div>
