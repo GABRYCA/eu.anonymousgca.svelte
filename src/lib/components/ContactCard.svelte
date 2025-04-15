@@ -4,17 +4,36 @@
         aos_animation = "fade-up",
         aos_delay = "100",
         title = "Github",
+        description = "",
         icon = "fab fa-github",
         link = "https://github.com/GABRYCA"
     } = $props();
+
+    // Function that returns a text url without https:// and www if present
+    function getUrlWithoutHttps(url) {
+        return url.replace(/https?:\/\/(www\.)?/, '').replace(/\/$/, '').replace(/mailto:/, '');
+    }
 </script>
 
-<div class="col-md-6 col-lg-4 mb-4" data-aos="{aos_animation}" data-aos-delay="{aos_delay}">
+<div class="col-md-6 col-lg-4" data-aos="{aos_animation}" data-aos-delay="{aos_delay}">
     <div class="card shadow h-100 rounded-4 bg-black bg-opacity-25 border-custom">
-        <div class="card-body d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center mb-3"><i class="{icon}"></i> {title}</h5>
-            <p class="card-text text-center"><a class="link-custom" href="{link}" target="_blank" rel="author" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Open {title}"><i
-                    class="fas fa-external-link-alt"></i> {title}</a></p>
+        <div class="card-body ps-4">
+            <div class="row py-2 px-1">
+                <div class="col-12">
+                    <i class="{icon} bg-icon"></i>
+                </div>
+                <div class="col-12 mt-3">
+                    <h5 class="card-title fw-bold">{title}</h5>
+                </div>
+                <div class="col-12">
+                    <p class="card-text text-muted">{description}</p>
+                </div>
+                <div class="col-12 mt-3">
+                    <a href="{link}" target="_blank" class="text-decoration-none link-custom" data-bs-toggle="tooltip" data-bs-placement="top" title="Open in a new tab">
+                        {getUrlWithoutHttps(link)}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -30,7 +49,7 @@
     }
 
     .border-custom {
-        border: 1px solid rgba(122, 18, 156, 0.9) !important;
+        border: 1px solid rgba(122, 18, 156, 0.2) !important;
     }
 
     .card {
@@ -41,4 +60,14 @@
         transform: scale(1.05);
         box-shadow: 0 0 10px #7a129c !important;
     }
+
+    .bg-icon {
+        background: linear-gradient(45deg, #d34cff, #ff2b2b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 3rem;
+        filter: drop-shadow(0 0 0.65rem #d34cff);
+        animation: lights 5s 750ms linear infinite;
+    }
+
 </style>
