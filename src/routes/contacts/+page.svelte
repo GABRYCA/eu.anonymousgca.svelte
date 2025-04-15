@@ -66,8 +66,8 @@
             <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to new connections, collaborations, and conversations...</p>
         </div>
         <div class="col-12 mt-4">
-            <div class="row justify-content-center gy-2 gy-md-4">
-                {#each contacts as contact}
+            <div class="row justify-content-center gy-2 gy-md-4 gx-0 gx-md-3">
+                {#each contacts as contact (contact.title)}
                     <ContactCard
                             title={contact.title}
                             description={contact.description}

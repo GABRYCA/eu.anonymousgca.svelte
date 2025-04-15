@@ -14,14 +14,17 @@ export const load = async ({}) => {
     const stacks = [
         {
             title: 'SvelteKit',
+            description: 'A framework for building web applications of all sized with a powerful development experience.',
             url: 'https://kit.svelte.dev',
         },
         {
             title: 'Bootstrap',
+            description: 'A powerful, extensible, and feature-packed frontend toolkit for responsive web development.',
             url: 'https://getbootstrap.com/',
         },
         {
-            title: 'Pocketbase',
+            title: 'PocketBase',
+            description: 'An open source backend consisting of embedded database with realtime subscriptions and built-in auth.',
             url: 'https://pocketbase.io/'
         }
         ];

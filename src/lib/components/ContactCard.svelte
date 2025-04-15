@@ -1,5 +1,5 @@
 <script>
-    /** @type {{aos_animation?: string, aos_delay?: string, title?: string, icon?: string, link?: string}} */
+    /** @type {{aos_animation?: string, aos_delay?: string, title?: string, description?: string, icon?: string, link?: string}} */
     let {
         aos_animation = "fade-up",
         aos_delay = "100",
