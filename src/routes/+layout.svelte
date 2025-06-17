@@ -67,9 +67,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacts"><i class="fas fa-address-book"></i> Contacts</a>
+                        </li>                        <li class="nav-item">
+                            <a class="nav-link" href="projects"><i class="fas fa-project-diagram"></i> Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="projects"><i class="fas fa-project-diagram"></i> Projects</a>
+                            <a class="nav-link" href="utility/universita"><i class="fas fa-graduation-cap"></i> Università</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank"
