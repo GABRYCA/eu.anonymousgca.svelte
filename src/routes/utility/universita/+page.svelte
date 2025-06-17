@@ -14,28 +14,26 @@
     let totalLode = $derived(exams.filter(exam => exam.hasLode).length);
     let weightedSum = $derived(exams.reduce((sum, exam) => sum + (parseInt(exam.grade) * parseInt(exam.cfu)), 0));
     let currentAverage = $derived(totalCfu > 0 ? weightedSum / totalCfu : 0);
-
-    // Calculate final score (110 scale)
     let baseScore = $derived(currentAverage > 0 ? (currentAverage * 110) / 30 : 0);
     let lodeBonus = $derived(totalLode * 0.33);
-    let currentFinalScore = $derived(Math.min(110, baseScore + lodeBonus));
-
-    // Calculate projections for remaining CFU
+    let currentFinalScore = $derived(baseScore);
+    let currentCanBeLode = $derived(baseScore >= 110);
     let remainingCfu = $derived(Math.max(0, 180 - totalCfu));
-
-    // Maximum projection (all 30 with "lode")
     let maxProjectedSum = $derived(weightedSum + (remainingCfu * 30));
     let maxProjectedAverage = $derived(maxProjectedSum / 180);
     let maxProjectedBase = $derived((maxProjectedAverage * 110) / 30);
-    let maxPossibleLode = $derived(totalLode + remainingCfu);
-    let maxLodeBonus = $derived(maxPossibleLode * 0.33);
-    let maxFinalScore = $derived(Math.min(110, maxProjectedBase + maxLodeBonus));
 
-    // Minimum projection (all 18)
+    // Calculate estimated remaining exams (assuming average 6 CFU per exam)
+    let averageCfuPerExam = $derived(exams.length > 0 ? totalCfu / exams.length : 6);
+    let estimatedRemainingExams = $derived(Math.round(remainingCfu / averageCfuPerExam));
+    let maxPossibleLode = $derived(totalLode + estimatedRemainingExams);
+    let maxFinalScore = $derived(maxProjectedBase);
+    let canReach110Lode = $derived(maxProjectedBase >= 110);
     let minProjectedSum = $derived(weightedSum + (remainingCfu * 18));
     let minProjectedAverage = $derived(minProjectedSum / 180);
     let minProjectedBase = $derived((minProjectedAverage * 110) / 30);
-    let minFinalScore = $derived(Math.min(110, minProjectedBase + lodeBonus));
+    let minFinalScore = $derived(minProjectedBase);
+    let minCanReach110Lode = $derived(minProjectedBase >= 110);
 
     // Form validation
     let isFormValid = $derived(
@@ -121,9 +119,11 @@
     /**
      * Formats the score for display
      * @param score
+     * @param canBeLode - whether this score can actually achieve "e lode"
      */
-    function formatScore(score) {
-        if (score >= 110) return '110 e lode';
+    function formatScore(score, canBeLode = false) {
+        if (score >= 110 && canBeLode) return '110 e lode';
+        if (score >= 110) return '110';
         return Math.round(score * 100) / 100;
     }
 </script>
@@ -293,11 +293,16 @@
                                         <span class="score-label">Voto Attuale</span>
                                     </div>
                                     <div class="score-value current-score">
-                                        {formatScore(currentFinalScore)}<span class="score-max">/110</span>
+                                        {formatScore(currentFinalScore, currentCanBeLode)}<span
+                                            class="score-max">/110</span>
                                     </div>
                                     <div class="score-details">
                                         <small class="text-light opacity-75">
                                             Basato su {totalCfu} CFU completati
+                                            {#if totalLode > 0}
+                                                <br>Hai {totalLode} lod{totalLode === 1 ? 'e' : 'i'}
+                                                (+{lodeBonus.toFixed(2)} punti)
+                                            {/if}
                                         </small>
                                     </div>
                                 </div>
@@ -310,23 +315,32 @@
                                                 <span class="scenario-label">Scenario Migliore</span>
                                             </div>
                                             <div class="scenario-score best-score">
-                                                {formatScore(maxFinalScore)}<span class="score-max">/110</span>
+                                                {formatScore(maxFinalScore, canReach110Lode)}<span class="score-max">/110</span>
                                             </div>
                                             <div class="scenario-details">
-                                                <small>Tutti 30 e lode nei restanti {remainingCfu} CFU</small>
+                                                <small>
+                                                    Tutti 30 nei restanti ~{estimatedRemainingExams} esami
+                                                    <br>Potenziali lodi: {maxPossibleLode}
+                                                    (+{(maxPossibleLode * 0.33).toFixed(2)} punti extra)
+                                                </small>
                                             </div>
                                         </div>
-
                                         <div class="scenario-card worst-scenario">
                                             <div class="scenario-header">
                                                 <i class="fas fa-arrow-trend-down me-2"></i>
                                                 <span class="scenario-label">Scenario Peggiore</span>
                                             </div>
                                             <div class="scenario-score worst-score">
-                                                {formatScore(minFinalScore)}<span class="score-max">/110</span>
+                                                {formatScore(minFinalScore, minCanReach110Lode)}<span class="score-max">/110</span>
                                             </div>
                                             <div class="scenario-details">
-                                                <small>Tutti 18 nei restanti {remainingCfu} CFU</small>
+                                                <small>
+                                                    Tutti 18 nei restanti ~{estimatedRemainingExams} esami
+                                                    {#if totalLode > 0}
+                                                        <br>Con le tue {totalLode} lod{totalLode === 1 ? 'e' : 'i'}
+                                                        attuali
+                                                    {/if}
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
