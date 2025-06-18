@@ -146,6 +146,68 @@
                     Calcola la tua media ponderata e simula il voto di laurea finale
                 </p>
             </div>
+
+            <!-- Instructions Section -->
+            <div class="col-12 mb-4" data-aos="fade-up">
+                <div class="card border-custom bg-dark bg-opacity-75">
+                    <div class="card-header bg-transparent border-bottom border-custom">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2 text-accent"></i>
+                            Come Funziona il Calcolatore
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gy-3">
+                            <div class="col-12 col-md-6">
+                                <div class="info-section">
+                                    <h6 class="text-accent mb-2">
+                                        <i class="fas fa-calculator me-2"></i>
+                                        Media Ponderata Italiana
+                                    </h6>
+                                    <p class="mb-0 text-light opacity-75">
+                                        Questo strumento calcola la <strong>media ponderata</strong> secondo il sistema
+                                        universitario italiano,
+                                        dove ogni esame contribuisce in base ai suoi <strong>CFU (Crediti Formativi
+                                        Universitari)</strong>.
+                                        La formula è: <em>(somma di voti × CFU) ÷ CFU totali</em>.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info-section">
+                                    <h6 class="text-accent mb-2">
+                                        <i class="fas fa-crown me-2"></i>
+                                        Sistema Lode - Università Insubria
+                                    </h6>
+                                    <p class="mb-0 text-light opacity-75">
+                                        Il calcolatore segue il metodo dell'<strong>Università degli Studi
+                                        dell'Insubria</strong> dove la "lode"
+                                        vale <strong>30 punti</strong> e aggiunge <strong>0.33 punti bonus</strong>
+                                        al voto finale per ogni lode ottenuta durante il percorso.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="info-section">
+                                    <h6 class="text-accent mb-2">
+                                        <i class="fas fa-graduation-cap me-2"></i>
+                                        Calcolo Voto di Laurea
+                                    </h6>
+                                    <p class="mb-2 text-light opacity-75">
+                                        Il voto di laurea si calcola così:
+                                    </p>
+                                    <ul class="text-light opacity-75 mb-0 ps-3">
+                                        <li><strong>Base:</strong> (Media Ponderata × 110) ÷ 30</li>
+                                        <li><strong>Bonus Lodi:</strong> Numero di lodi × 0.33 punti</li>
+                                        <li><strong>Massimo:</strong> 110 e lode (se base ≥ 110)</li>
+                                        <li><strong>CFU Totali:</strong> La laurea triennale si compone di 180 CFU</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -437,6 +499,22 @@
             </div>
         </div>
     {/if}
+
+    <!-- Disclaimer -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="disclaimer-section text-center" data-aos="fade-up">
+                <small class="text-muted disclaimer-text">
+                    <i class="fas fa-exclamation-triangle me-1"></i>
+                    I calcoli e le proiezioni mostrate sono puramente indicativi e possono contenere errori.
+                    Non si assumono responsabilità per eventuali inesattezze o differenze rispetto ai calcoli ufficiali
+                    dell'ateneo.
+                    Nessun genere di informazione sui dati inseriti viene salvata o condivisa, lo strumento funziona
+                    totalmente sul dispositivo dell'utente finale.
+                </small>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -804,6 +882,38 @@
         box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4);
     }
 
+    .form-check-input:focus {
+        box-shadow: 0 0 0 0.25rem rgba(211, 76, 255, 0.25);
+    }
+
+    .info-section {
+        background: rgba(31, 0, 46, 0.3);
+        border: 1px solid rgba(211, 76, 255, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .info-section:hover {
+        border-color: rgba(211, 76, 255, 0.4);
+        box-shadow: 0 4px 15px rgba(211, 76, 255, 0.1);
+    }
+
+    .info-section h6 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-section p, .info-section ul {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .info-section ul li {
+        margin-bottom: 0.25rem;
+    }
+
     @keyframes shimmer {
         0% {
             left: -100%;
@@ -854,6 +964,26 @@
         .exam-row td {
             padding: 0.75rem 0.5rem;
         }
+
+        .university-title {
+            font-size: 2rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+        }
+
+        .info-section {
+            padding: 0.75rem;
+        }
+
+        .info-section h6 {
+            font-size: 1rem;
+        }
+
+        .info-section p, .info-section ul {
+            font-size: 0.85rem;
+        }
     }
 
     .exam-row {
@@ -875,6 +1005,31 @@
 
     .form-check-input:focus {
         box-shadow: 0 0 0 0.25rem rgba(211, 76, 255, 0.25);
+    }
+
+    .disclaimer-section {
+        margin-top: 2rem;
+        padding: 1rem;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+    }
+
+    .disclaimer-section:hover {
+        opacity: 0.8;
+    }
+
+    .disclaimer-text {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.4) !important;
+        line-height: 1.4;
+        font-style: italic;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .disclaimer-text i {
+        color: rgba(251, 191, 36, 0.5);
+        font-size: 0.7rem;
     }
 
     @keyframes lights {
