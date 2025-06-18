@@ -66,12 +66,14 @@
                             <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacts"><i class="fas fa-address-book"></i> Contacts</a>
-                        </li>                        <li class="nav-item">
-                            <a class="nav-link" href="projects"><i class="fas fa-project-diagram"></i> Projects</a>
+                            <a class="nav-link" href="/contacts"><i class="fas fa-address-book"></i> Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="utility/universita"><i class="fas fa-graduation-cap"></i> Università</a>
+                            <a class="nav-link" href="/projects"><i class="fas fa-project-diagram"></i> Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/utility/universita"><i class="fas fa-graduation-cap"></i>
+                                Università</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank"
@@ -121,7 +123,8 @@
                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Open">Discord</a>
                             </li>
                             <li>
-                                <a href="mailto:anonymousgca@anonymousgca.eu" class="text-light" data-bs-toggle="tooltip"
+                                <a href="mailto:anonymousgca@anonymousgca.eu" class="text-light"
+                                   data-bs-toggle="tooltip"
                                    data-bs-placement="right" title="Open">Email</a>
                             </li>
                             <li>
