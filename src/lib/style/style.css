@@ -1,4 +1,31 @@
+:root {
+    --primary-color: hsl(287, 100%, 65%);
+    --background-gradient-start: hsl(279, 100%, 9%);
+    --background-gradient-end: hsl(0, 100%, 10%);
+    --scrollbar-thumb-color: hsl(281, 100%, 16%);
+    --scrollbar-thumb-hover-color: hsl(281, 100%, 26%);
+    --text-color-light: hsl(0, 0%, 100%);
+    --text-shadow-color: hsl(0, 0%, 0%);
+    --font-family-sans-serif: 'Roboto', sans-serif;
+    --text-shadow: 2px 2px var(--text-shadow-color);
+}
+
 body {
-    font-family: 'Roboto', sans-serif !important;
-    background: linear-gradient(105deg, #1f002e 50%, #330000 140%);
+    font-family: var(--font-family-sans-serif) !important;
+    background: linear-gradient(105deg, var(--background-gradient-start) 50%, var(--background-gradient-end) 140%);
+    color: var(--text-color-light);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background: var(--background-gradient-start);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover-color);
 }
