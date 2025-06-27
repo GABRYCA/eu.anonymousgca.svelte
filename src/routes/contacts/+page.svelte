@@ -59,42 +59,26 @@
     ];
 </script>
 
-<div class="container-xxl mt-4 mt-md-5">
-    <div class="row">
-        <div class="col-12" data-aos="fade-up">
-            <h1 class="contacts-title">Connect With Me</h1>
-            <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to new connections, collaborations, and conversations...</p>
-        </div>
-        <div class="col-12 mt-4">
-            <div class="row justify-content-center gy-2 gy-md-4 gx-0 gx-md-3">
-                {#each contacts as contact (contact.title)}
-                    <ContactCard
-                            title={contact.title}
-                            description={contact.description}
-                            icon={contact.icon}
-                            link={contact.link}
-                            aos_delay={contact.aos_delay}
-                    />
-                {/each}
+<div class="contacts-page">
+    <div class="container-xxl mt-4 mt-md-5">
+        <div class="row">
+            <div class="col-12" data-aos="fade-up">
+                <h1 class="contacts-title">Connect With Me</h1>
+                <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to new connections, collaborations, and conversations...</p>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="row justify-content-center gy-2 gy-md-4 gx-0 gx-md-3">
+                    {#each contacts as contact (contact.title)}
+                        <ContactCard
+                                title={contact.title}
+                                description={contact.description}
+                                icon={contact.icon}
+                                link={contact.link}
+                                aos_delay={contact.aos_delay}
+                        />
+                    {/each}
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    /* gradient title for Connect with me */
-    .contacts-title {
-        background: linear-gradient(45deg, #d34cff, #ff2b2b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: lights 3s ease-in-out infinite;
-        font-size: 3rem;
-    }
-
-    /** desktop only */
-    @media (min-width: 768px) {
-        .w-md-50 {
-            width: 50% !important;
-        }
-    }
-</style>

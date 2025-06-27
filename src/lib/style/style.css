@@ -29,3 +29,603 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover-color);
 }
+
+.home-page .animate-text {
+    background-image: linear-gradient(
+            -225deg,
+            var(--primary-color) 0%,
+            hsl(1, 100%, 61%) 29%,
+            hsl(29, 100%, 63%) 67%,
+            var(--primary-color) 100%
+    );
+    background-size: 200% auto;
+    color: var(--text-color-light);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
+    transform: translateZ(0);
+    will-change: transform, background-position;
+}
+
+.home-page .custom-shadow {
+    filter: drop-shadow(0 0 0.5rem var(--primary-color));
+    animation: shadow 4s infinite, float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadow {
+    0% {
+        filter: drop-shadow(0 0 0.5rem var(--primary-color));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 0.5rem hsl(0, 100%, 58%));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 0.5rem var(--primary-color));
+    }
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* From contacts/+page.svelte */
+.contacts-page .contacts-title {
+    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lights 3s ease-in-out infinite;
+    font-size: 3rem;
+}
+
+@media (min-width: 768px) {
+    .w-md-50 {
+        width: 50% !important;
+    }
+}
+
+/* From projects/+page.svelte */
+.projects-page .btn {
+    background-color: hsla(310, 100%, 50%, 0.45) !important;
+    box-shadow: 3px 3px #000000 !important;
+    border: 1px solid hsla(310, 100%, 50%, 0) !important;
+    filter: drop-shadow(0 0 0.5rem var(--primary-color)) !important;
+    transition: all 0.15s ease-in-out;
+}
+
+.projects-page .btn:hover {
+    background-color: hsla(310, 100%, 50%, 0.3) !important;
+    border: 1px solid hsla(310, 100%, 50%, 0.8) !important;
+    color: var(--text-color-light) !important;
+}
+
+.projects-page .btn:focus {
+    background-color: hsla(310, 100%, 50%, 0.3) !important;
+    border: 1px solid hsla(310, 100%, 50%, 0.5) !important;
+    color: var(--text-color-light) !important;
+}
+
+.projects-page .fa-stack {
+    color: rgba(48, 0, 35, 0.5);
+}
+
+.projects-page .projects-title {
+    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lights 3s ease-in-out infinite;
+    font-size: 3rem;
+}
+
+.projects-page .webstack-title {
+    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lights 3s ease-in-out infinite;
+    font-size: 2rem;
+}
+
+.university-page .university-title {
+    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lights 3s ease-in-out infinite;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.university-page .text-accent {
+    color: var(--primary-color) !important;
+}
+
+.university-page .border-custom {
+    border: 1px solid hsla(287, 100%, 65%, 0.3) !important;
+}
+
+.university-page .form-control-custom {
+    background-color: hsla(281, 100%, 9%, 0.8) !important;
+    border: 1px solid hsla(287, 100%, 65%, 0.3) !important;
+    color: var(--text-color-light) !important;
+    transition: all 0.3s ease;
+}
+
+.university-page .form-control-custom:focus {
+    background-color: hsla(281, 100%, 9%, 0.9) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem hsla(287, 100%, 65%, 0.25) !important;
+    color: var(--text-color-light) !important;
+}
+
+.university-page .form-control-custom::placeholder {
+    color: hsla(0, 0%, 100%, 0.5) !important;
+}
+
+.university-page .btn-custom {
+    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.3);
+}
+
+.university-page .btn-custom:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(287, 100%, 65%, 0.4);
+    filter: brightness(1.1);
+}
+
+.university-page .btn-custom:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.university-page .stat-card {
+    background: hsla(281, 100%, 9%, 0.6);
+    border: 1px solid hsla(287, 100%, 65%, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.university-page .stat-card:hover {
+    border-color: hsla(287, 100%, 65%, 0.5);
+    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.2);
+}
+
+.university-page .stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color-light);
+}
+
+.university-page .stat-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+.university-page .projection-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-shadow: 0 0 10px hsla(287, 100%, 65%, 0.3);
+}
+
+.university-page .projection-section {
+    padding: 1.5rem;
+    background: hsla(281, 100%, 9%, 0.3);
+    border-radius: 15px;
+    border: 1px solid hsla(287, 100%, 65%, 0.2);
+}
+
+.university-page .current-score-card {
+    background: linear-gradient(135deg, hsla(287, 100%, 65%, 0.1), hsla(0, 100%, 58%, 0.1));
+    border: 2px solid hsla(287, 100%, 65%, 0.4);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.university-page .current-score-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.university-page .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.university-page .score-label {
+    font-size: 1.1rem;
+}
+
+.university-page .score-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.university-page .current-score {
+    color: var(--text-color-light);
+    text-shadow: 0 0 15px hsla(287, 100%, 65%, 0.8);
+}
+
+.university-page .score-max {
+    font-size: 1.5rem;
+    color: hsla(0, 0%, 100%, 0.7);
+}
+
+.university-page .score-details {
+    margin-top: 0.5rem;
+}
+
+.university-page .scenarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.university-page .scenario-card {
+    background: hsla(281, 100%, 9%, 0.5);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.university-page .best-scenario {
+    border: 2px solid hsla(145, 63%, 49%, 0.5);
+    background: linear-gradient(135deg, hsla(145, 63%, 49%, 0.1), hsla(281, 100%, 9%, 0.5));
+}
+
+.university-page .best-scenario:hover {
+    border-color: hsla(145, 63%, 49%, 0.8);
+    box-shadow: 0 8px 25px hsla(145, 63%, 49%, 0.2);
+    transform: translateY(-2px);
+}
+
+.university-page .worst-scenario {
+    border: 2px solid hsla(0, 84%, 60%, 0.5);
+    background: linear-gradient(135deg, hsla(0, 84%, 60%, 0.1), hsla(281, 100%, 9%, 0.5));
+}
+
+.university-page .worst-scenario:hover {
+    border-color: hsla(0, 84%, 60%, 0.8);
+    box-shadow: 0 8px 25px hsla(0, 84%, 60%, 0.2);
+    transform: translateY(-2px);
+}
+
+.university-page .scenario-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.university-page .best-scenario .scenario-header {
+    color: #22c55e;
+}
+
+.university-page .worst-scenario .scenario-header {
+    color: #ef4444;
+}
+
+.university-page .scenario-score {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.university-page .best-score {
+    color: #22c55e;
+    text-shadow: 0 0 10px hsla(145, 63%, 49%, 0.5);
+}
+
+.university-page .worst-score {
+    color: #ef4444;
+    text-shadow: 0 0 10px hsla(0, 84%, 60%, 0.5);
+}
+
+.university-page .scenario-details {
+    margin-top: 0.5rem;
+    color: hsla(0, 0%, 100%, 0.7);
+}
+
+.university-page .exams-table {
+    --bs-table-bg: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.university-page .table-header th {
+    background: linear-gradient(135deg, hsla(287, 100%, 65%, 0.2), hsla(0, 100%, 58%, 0.2));
+    border: none;
+    padding: 1rem 0.75rem;
+    font-weight: 600;
+    text-shadow: 0 0 8px hsla(287, 100%, 65%, 0.5);
+    position: relative;
+}
+
+.university-page .table-header th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), hsl(0, 100%, 58%));
+}
+
+.university-page .exam-name-col {
+    border-top-left-radius: 12px;
+}
+
+.university-page .actions-col {
+    border-top-right-radius: 12px;
+}
+
+.university-page .exam-row {
+    transition: all 0.3s ease;
+    background: hsla(281, 100%, 9%, 0.3);
+}
+
+.university-page .exam-row:hover {
+    background: hsla(287, 100%, 65%, 0.1) !important;
+    transform: scale(1.01);
+}
+
+.university-page .exam-row td {
+    border: none;
+    padding: 1rem 0.75rem;
+    vertical-align: middle;
+}
+
+.university-page .exam-name {
+    color: var(--text-color-light);
+    font-size: 1rem;
+}
+
+.university-page .cfu-badge {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px hsla(224, 89%, 59%, 0.3);
+    border: 1px solid hsla(224, 89%, 59%, 0.5);
+}
+
+.university-page .grade-badge {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
+    border: 1px solid;
+}
+
+.university-page .grade-excellent {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border-color: hsla(145, 63%, 49%, 0.5);
+    box-shadow: 0 4px 10px hsla(145, 63%, 49%, 0.3);
+}
+
+.university-page .grade-good {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border-color: hsla(38, 92%, 52%, 0.5);
+    box-shadow: 0 4px 10px hsla(38, 92%, 52%, 0.3);
+}
+
+.university-page .grade-passing {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+    border-color: hsla(220, 8%, 53%, 0.5);
+    box-shadow: 0 4px 10px hsla(220, 8%, 53%, 0.3);
+}
+
+.university-page .lode-cell {
+    padding: 1rem !important;
+}
+
+.university-page .lode-icon {
+    color: #fbbf24;
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 8px hsla(45, 96%, 56%, 0.6));
+    animation: pulse-gold 2s infinite;
+}
+
+.university-page .no-lode {
+    color: hsla(0, 0%, 100%, 0.3);
+    font-size: 1.1rem;
+}
+
+.university-page .weight-cell {
+    font-family: 'Courier New', monospace;
+}
+
+.university-page .weight-value {
+    background: hsla(287, 100%, 65%, 0.2);
+    color: var(--primary-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 1px solid hsla(287, 100%, 65%, 0.3);
+}
+
+.university-page .btn-delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: 1px solid hsla(0, 84%, 60%, 0.5);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px hsla(0, 84%, 60%, 0.3);
+}
+
+.university-page .btn-delete:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px hsla(0, 84%, 60%, 0.4);
+}
+
+.university-page .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem hsla(287, 100%, 65%, 0.25);
+}
+
+.university-page .info-section {
+    background: hsla(281, 100%, 9%, 0.3);
+    border: 1px solid hsla(287, 100%, 65%, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.university-page .info-section:hover {
+    border-color: hsla(287, 100%, 65%, 0.4);
+    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.1);
+}
+
+.university-page .info-section h6 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.university-page .info-section p, .university-page .info-section ul {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.university-page .info-section ul li {
+    margin-bottom: 0.25rem;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes pulse-gold {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px hsla(45, 96%, 56%, 0.6));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px hsla(45, 96%, 56%, 0.9));
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .university-page .scenarios-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .university-page .scenario-score,
+    .university-page .score-value {
+        font-size: 1.8rem;
+    }
+
+    .university-page .projection-section {
+        padding: 1rem;
+    }
+
+    .university-page .current-score-card {
+        padding: 1rem;
+    }
+
+    .university-page .exams-table {
+        font-size: 0.875rem;
+    }
+
+    .university-page .table-header th {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .university-page .exam-row td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .university-page .university-title {
+        font-size: 2rem;
+    }
+
+    .university-page .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .university-page .info-section {
+        padding: 0.75rem;
+    }
+
+    .university-page .info-section h6 {
+        font-size: 1rem;
+    }
+
+    .university-page .info-section p, .university-page .info-section ul {
+        font-size: 0.85rem;
+    }
+}
+
+.university-page .exam-row {
+    transition: all 0.3s ease;
+}
+
+.university-page .exam-row:hover {
+    background-color: hsla(287, 100%, 65%, 0.1) !important;
+    transform: scale(1.01);
+}
