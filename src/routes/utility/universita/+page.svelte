@@ -144,7 +144,7 @@
                         Simulatore Laurea Università
                     </h1>
                     <p class="text-muted lead">
-                        Calcola la tua media ponderata e simula il voto di laurea finale
+                        Calcolatore e simulatore media ponderata + voto di laurea finale
                     </p>
                 </div>
 
@@ -154,7 +154,7 @@
                         <div class="card-header bg-transparent border-bottom border-custom">
                             <h5 class="mb-0">
                                 <i class="fas fa-info-circle me-2 text-accent"></i>
-                                Come Funziona il Calcolatore
+                                Come Funziona
                             </h5>
                         </div>
                         <div class="card-body">
@@ -163,14 +163,12 @@
                                     <div class="info-section">
                                         <h6 class="text-accent mb-2">
                                             <i class="fas fa-calculator me-2"></i>
-                                            Media Ponderata Italiana
+                                            Media Ponderata (Italia)
                                         </h6>
                                         <p class="mb-0 text-light opacity-75">
-                                            Questo strumento calcola la <strong>media ponderata</strong> secondo il sistema
-                                            universitario italiano,
-                                            dove ogni esame contribuisce in base ai suoi <strong>CFU (Crediti Formativi
-                                            Universitari)</strong>.
-                                            La formula è: <em>(somma di voti × CFU) ÷ CFU totali</em>.
+                                            Calcoliamo la <strong>media ponderata</strong> secondo il sistema
+                                            universitario italiano, nello specifico quello dell'Università degli Studi
+                                            dell'Insubria.
                                         </p>
                                     </div>
                                 </div>
@@ -178,13 +176,12 @@
                                     <div class="info-section">
                                         <h6 class="text-accent mb-2">
                                             <i class="fas fa-crown me-2"></i>
-                                            Sistema Lode - Università Insubria
+                                            Lode
                                         </h6>
                                         <p class="mb-0 text-light opacity-75">
-                                            Il calcolatore segue il metodo dell'<strong>Università degli Studi
-                                            dell'Insubria</strong> dove la "lode"
-                                            vale <strong>30 punti</strong> e aggiunge <strong>0.33 punti bonus</strong>
-                                            al voto finale per ogni lode ottenuta durante il percorso.
+                                            La nostra "lode"
+                                            vale come un normale <strong>30 </strong>, ma aggiunge <strong>0.33 punti bonus</strong>
+                                            al voto finale (ogni singola lode aggiunge 0.33 punti indipendentemente dal peso dell'esame a livello di CFU).
                                         </p>
                                     </div>
                                 </div>
@@ -192,16 +189,16 @@
                                     <div class="info-section">
                                         <h6 class="text-accent mb-2">
                                             <i class="fas fa-graduation-cap me-2"></i>
-                                            Calcolo Voto di Laurea
+                                            Altri dettagli
                                         </h6>
                                         <p class="mb-2 text-light opacity-75">
-                                            Il voto di laurea si calcola così:
+                                            Alcuni dettagli (componenti dei calcoli):
                                         </p>
                                         <ul class="text-light opacity-75 mb-0 ps-3">
                                             <li><strong>Base:</strong> (Media Ponderata × 110) ÷ 30</li>
                                             <li><strong>Bonus Lodi:</strong> Numero di lodi × 0.33 punti</li>
                                             <li><strong>Massimo:</strong> 110 e lode (se base ≥ 110)</li>
-                                            <li><strong>CFU Totali:</strong> La laurea triennale si compone di 180 CFU</li>
+                                            <li><strong>CFU Totali:</strong> 180 CFU</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -226,7 +223,7 @@
                         <form onsubmit={addExam}>
                             <div class="mb-3">
                                 <label for="examName" class="form-label fw-bold">
-                                    <i class="fas fa-book me-2"></i>Nome Esame
+                                    <i class="fas fa-book me-2"></i>Esame
                                 </label>
                                 <input
                                         type="text"
@@ -518,3 +515,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    .bg-dark {
+        background-color: hsla(285, 100%, 10%, 0.40) !important;
+    }
+</style>
