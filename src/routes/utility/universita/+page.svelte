@@ -151,10 +151,10 @@
                 <!-- Instructions Section -->
                 <div class="col-12 mb-4" data-aos="fade-up">
                     <div class="card border-custom bg-dark bg-opacity-75">
-                        <div class="card-header bg-transparent border-bottom border-custom">
+                        <div class="card-header bg-transparent border-bottom-0 pt-3">
                             <h5 class="mb-0">
                                 <i class="fas fa-info-circle me-2 text-accent"></i>
-                                Come Funziona
+                                Informazioni Utili
                             </h5>
                         </div>
                         <div class="card-body">
@@ -213,7 +213,7 @@
             <!-- Form -->
             <div class="col-12 col-lg-6" data-aos="fade-right">
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
-                    <div class="card-header bg-transparent border-bottom border-custom">
+                    <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
                             <i class="fas fa-plus-circle me-2 text-accent"></i>
                             Aggiungi Esame
@@ -302,7 +302,7 @@
             <!-- Statistics -->
             <div class="col-12 col-lg-6" data-aos="fade-left">
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
-                    <div class="card-header bg-transparent border-bottom border-custom">
+                    <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
                             <i class="fas fa-chart-line me-2 text-accent"></i>
                             Statistiche
@@ -341,12 +341,12 @@
                         </div>
                         {#if totalCfu > 0}
                             <div class="mt-4 pt-4 border-top border-custom rounded-3">
-                                <h5 class="projection-title mb-4 ms-3">
+                                <h5 class="projection-title ms-3">
                                     <i class="fas fa-trophy me-2"></i>
-                                    Proiezioni Voto di Laurea
+                                    Proiezione Voto di Laurea
                                 </h5>
 
-                                <div class="projection-section rounded-0">
+                                <div class="projection-section border-top-0 rounded-0">
                                     <div class="current-score-card mb-4">
                                         <div class="score-header">
                                             <i class="fas fa-chart-line me-2"></i>
@@ -418,7 +418,7 @@
             <div class="row mt-4">
                 <div class="col-12" data-aos="fade-up">
                     <div class="card border-custom bg-dark bg-opacity-75">
-                        <div class="card-header bg-transparent border-bottom border-custom d-flex justify-content-between align-items-center">
+                        <div class="card-header bg-transparent border-bottom-0 pt-3 d-flex justify-content-between align-items-center">
                             <h4 class="mb-0">
                                 <i class="fas fa-list me-2 text-accent"></i>
                                 I Tuoi Esami ({exams.length})
