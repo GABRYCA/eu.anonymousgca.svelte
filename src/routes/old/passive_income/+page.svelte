@@ -23,7 +23,7 @@
     <div class="container text-center text-success bg-success bg-opacity-25 rounded-3 mt-5 pt-3 pb-3 border border-1 border-dark">
         <div class="row">
             <div class="col">
-                <img src="img/earnapp-logo.jpg" class="img-fluid rounded-3" alt="Logo">
+                <img src="/img/earnapp-logo.jpg" class="img-fluid rounded-3" alt="Logo">
             </div>
             <div class="col pt-2">
                 <p class="h2"><a class="link-success text-decoration-none" href="https://earnapp.com/i/6fnma8w">EARNAPP</a></p>
@@ -118,7 +118,7 @@
     <div class="container text-center text-success bg-success bg-opacity-25 rounded-3 mt-5 pt-3 pb-3 border border-1 border-dark">
         <div class="row">
             <div class="col">
-                <img src="img/traffmonetizer.png" class="img-fluid w-100 rounded-3" alt="Logo">
+                <img src="/img/traffmonetizer.png" class="img-fluid w-100 rounded-3" alt="Logo">
             </div>
             <div class="col pt-2">
                 <p class="h2"><a class="link-success text-decoration-none" href="https://traffmonetizer.com/?aff=197243">TraffMonetizer</a></p>
@@ -148,7 +148,7 @@
     <div class="container text-center text-success bg-success bg-opacity-25 rounded-3 mt-5 pt-3 pb-3 border border-1 border-dark">
         <div class="row">
             <div class="col">
-                <img src="img/honeygain.webp" class="img-fluid w-100 rounded-3" alt="Logo">
+                <img src="/img/honeygain.webp" class="img-fluid w-100 rounded-3" alt="Logo">
             </div>
             <div class="col pt-2">
                 <p class="h2"><a class="link-success text-decoration-none" href="https://r.honeygain.me/GABRYAE5B4">HoneyGain</a></p>
@@ -179,7 +179,7 @@
     <div class="container text-center text-success bg-success bg-opacity-25 rounded-3 mt-5 pt-3 pb-3 border border-1 border-dark">
         <div class="row">
             <div class="col">
-                <img src="img/packetstream.jpg" class="img-fluid w-100 rounded-3" alt="Logo">
+                <img src="/img/packetstream.jpg" class="img-fluid w-100 rounded-3" alt="Logo">
             </div>
             <div class="col pt-2">
                 <p class="h2"><a class="link-success text-decoration-none" href="https://packetstream.io/?psr=2Ll9">PacketStream</a></p>
@@ -209,7 +209,7 @@
     <div class="container text-center text-success bg-success bg-opacity-25 rounded-3 mt-5 pt-3 pb-3 border border-1 border-dark">
         <div class="row">
             <div class="col">
-                <img src="img/speedshare.png" class="img-fluid w-100 rounded-3" alt="Logo">
+                <img src="/img/speedshare.png" class="img-fluid w-100 rounded-3" alt="Logo">
             </div>
             <div class="col pt-2">
                 <p class="h2"><a class="link-success text-decoration-none" href="https://earnapp.com/i/6fnma8w">SpeedShare</a></p>

@@ -19,10 +19,10 @@
         <a class="btn btn-outline-light" id="mercoledi" href="/insubria/mercoledi">Mercoledì</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/giovedi" href="giovedi">Giovedì</a>
+        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/giovedi" href="/insubria/giovedi">Giovedì</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/venerdi" href="venerdi">Venerdi</a>
+        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/venerdi" href="/insubria/venerdi">Venerdi</a>
     </div>
 </div>
 
