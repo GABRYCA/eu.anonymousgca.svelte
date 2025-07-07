@@ -70,6 +70,7 @@
         "sameAs": finalSocials
         , ...finalJsonld}
     )}${'<'}/script>`);
+
 </script>
 <svelte:head>
     {#if finalTitle !== ""}

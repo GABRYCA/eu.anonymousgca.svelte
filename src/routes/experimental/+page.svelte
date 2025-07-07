@@ -1,5 +1,5 @@
 <script>
-    import Seo from "$lib/components/Seo.svelte";
+
 
     const pages = 10000;
     const limit = 50;
@@ -95,8 +95,6 @@
         return result;
     }
 </script>
-
-<Seo></Seo>
 
 <div class="container">
     <div class="row text-center mt-4">

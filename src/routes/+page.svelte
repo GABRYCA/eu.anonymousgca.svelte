@@ -4,14 +4,12 @@
     import CircularLink from "$lib/components/CircularLink.svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import favicon from "$lib/images/favicon.webp";
-    import Seo from "$lib/components/Seo.svelte";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
-</script>
 
-<Seo></Seo>
+</script>
 
 <div class="home-page">
     <!-- Image logo -->

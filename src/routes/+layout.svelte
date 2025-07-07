@@ -1,35 +1,32 @@
 <script>
-    import {onMount} from "svelte";
+    import { onMount } from "svelte";
     import AOS from 'aos';
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
-    import Seo from "$lib/components/Seo.svelte";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import scriptSrc from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
     import '@fortawesome/fontawesome-free/css/all.min.css';
     import 'aos/dist/aos.css';
     import 'aos/dist/aos.js';
     import '$lib/style/style.css';
+    import Seo from "$lib/components/Seo.svelte";
 
 
     /** @type {{children?: import('svelte').Snippet}} */
-    let {children} = $props();
+    let { children } = $props();
 
     onMount(() => {
-
-        // Close navbar when open another page, with animation
         document.querySelectorAll('.nav-link').forEach((element) => {
             element.addEventListener('click', () => {
-                document.querySelector('.navbar-collapse').classList.remove('show');
+                document.querySelector('.navbar-collapse')?.classList.remove('show');
             });
         });
 
-        window.$('[data-bs-toggle="tooltip"]').tooltip();
+        if (window.$) {
+            window.$('[data-bs-toggle="tooltip"]').tooltip();
+        }
 
-        // Init AOS
-        AOS.init({
-            once: true,
-        });
+        AOS.init({ once: true });
         window.AOS = AOS;
     });
 
@@ -38,9 +35,13 @@
             window.AOS.refresh();
         }
     }
+
 </script>
 
+<Seo></Seo>
+
 <svelte:head>
+    <!-- Scripts -->
     <script src={scriptSrc}></script>
     <script rel="preconnect" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-beta.2/jquery.min.js"
             integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A=="

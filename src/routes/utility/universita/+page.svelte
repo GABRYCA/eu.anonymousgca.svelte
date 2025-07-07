@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte';
-    import Seo from "$lib/components/Seo.svelte";
+
 
     let exams = $state([]);
     let currentExam = $state({
@@ -128,8 +128,6 @@
         return Math.round(score * 100) / 100;
     }
 </script>
-
-<Seo></Seo>
 
 <div class="university-page">
     <div class="container-xxl mt-4 mt-md-5">

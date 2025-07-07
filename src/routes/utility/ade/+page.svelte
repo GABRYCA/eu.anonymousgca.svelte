@@ -1,6 +1,6 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "$lib/components/Seo.svelte";
+
 
     let numberInput = $state(2);
     let unitSelect = $state('Byte');
@@ -168,8 +168,6 @@
         resultCache = `<p class='mt-2 mb-0 fs-3 text-info'>2<sup class='text-warning'>${totalPower}</sup> (${parola} ${totalPower} ${parolaBit})</p>`;
     }
 </script>
-
-<Seo></Seo>
 
 <div class="container mt-5">
     <div class="card shadow">

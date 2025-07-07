@@ -2,7 +2,7 @@
     import {onMount} from "svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import StackCard from "$lib/components/StackCard.svelte";
-    import Seo from "$lib/components/Seo.svelte";
+
 
     let {data} = $props();
     let {websites, stacks} = $state(data);
@@ -11,8 +11,6 @@
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
-
-<Seo></Seo>
 
 <div class="projects-page">
     <!-- Page title -->

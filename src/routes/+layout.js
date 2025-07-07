@@ -1,6 +1,7 @@
 export const prerender = true;
 
 export const load = async ({ url }) => {
+
     return {
         title: 'AnonymousGCA - Official',
         twitter: true,
@@ -14,7 +15,7 @@ export const load = async ({ url }) => {
         logo: `https://avatars.githubusercontent.com/u/39743848?v=4`,
         author: 'AnonymousGCA',
         name: 'AnonymousGCA',
-        canonical: url.href,
+        canonical: 'https://anonymousgca.eu' + url.pathname,
         keywords: 'AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student'
     }
 }

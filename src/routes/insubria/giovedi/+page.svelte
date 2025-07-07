@@ -1,6 +1,6 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "$lib/components/Seo.svelte";
+
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -182,8 +182,6 @@
         return tempo;
     }
 </script>
-
-<Seo></Seo>
 
 <div class="row text-center rounded-5 border border-light-subtle pt-5 pb-5 mx-1 mb-4 shadow">
     <div class="col text-white">

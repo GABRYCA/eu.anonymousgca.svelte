@@ -1,13 +1,11 @@
 <script>
     import {onMount} from "svelte";
-    import Seo from "$lib/components/Seo.svelte";
+
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
-
-<Seo></Seo>
 
 <div class="container mb-5">
     <div class="container text-center bg-primary bg-opacity-25 rounded-3 pb-3 pt-2 mt-5 border border-1 border-dark">
