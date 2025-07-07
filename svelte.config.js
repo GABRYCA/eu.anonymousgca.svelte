@@ -5,7 +5,10 @@ const config = {
 	kit: {
 		adapter: adapter({
 			precompress: true,
-			fallback: undefined
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			strict: true
 		}),
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {

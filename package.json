@@ -15,7 +15,7 @@
 		"bootstrap": "^5.3.7",
 		"jquery": "^4.0.0-beta.2",
 		"sk-seo": "^0.5.4",
-		"super-sitemap": "^1.0.3",
+		"super-sitemap": "^1.0.4",
 		"svelte": "^5.35.4",
 		"vite": "^6.3.5"
 	},
