@@ -1,5 +1,6 @@
 <script>
     import {onMount} from 'svelte';
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
 
     let exams = $state([]);
@@ -133,7 +134,7 @@
     <div class="container-xxl mt-4 mt-md-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="text-center mb-5" data-aos="fade-up">
+                <div class="text-center mb-5" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <h1 class="university-title mb-3">
                         <i class="fas fa-graduation-cap me-3"></i>
                         Simulatore Laurea Università
@@ -144,7 +145,7 @@
                 </div>
 
                 <!-- Instructions Section -->
-                <div class="col-12 mb-4" data-aos="fade-up">
+                <div class="col-12 mb-4" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <div class="card border-custom bg-dark bg-opacity-75">
                         <div class="card-header bg-transparent border-bottom-0 pt-3">
                             <h5 class="mb-0">
@@ -206,7 +207,7 @@
 
         <div class="row gy-4">
             <!-- Form -->
-            <div class="col-12 col-lg-6" data-aos="fade-right">
+            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-right', duration: 350 }}>
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
                     <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
@@ -295,7 +296,7 @@
             </div>
 
             <!-- Statistics -->
-            <div class="col-12 col-lg-6" data-aos="fade-left">
+            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-left', duration: 350 }}>
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
                     <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
@@ -411,7 +412,7 @@
         <!-- Exams -->
         {#if exams.length > 0}
             <div class="row mt-4">
-                <div class="col-12" data-aos="fade-up">
+                <div class="col-12" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <div class="card border-custom bg-dark bg-opacity-75">
                         <div class="card-header bg-transparent border-bottom-0 pt-3 d-flex justify-content-between align-items-center">
                             <h4 class="mb-0">
@@ -496,7 +497,7 @@
         <!-- Disclaimer -->
         <div class="row mt-4">
             <div class="col-12">
-                <div class="disclaimer-section text-center" data-aos="fade-up">
+                <div class="disclaimer-section text-center" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <small class="text-muted disclaimer-text">
                         <i class="fas fa-exclamation-triangle me-1"></i>
                         I calcoli e le proiezioni mostrate sono puramente indicativi e possono contenere errori.

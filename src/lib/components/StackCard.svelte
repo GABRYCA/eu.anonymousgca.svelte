@@ -1,7 +1,9 @@
 <script>
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
+    
     let {
         aos_animation = "fade-up",
-        aos_delay = "100",
+        aos_delay = 100,
         icon = "fas fa-code",
         title = "Code",
         description = "",
@@ -9,7 +11,7 @@
     } = $props();
 </script>
 
-    <div class="col-md-6 col-lg-4" data-aos="{aos_animation}" data-aos-delay="{aos_delay}">
+    <div class="col-md-6 col-lg-4" use:scrollAnimation={{ animation: aos_animation, delay: aos_delay }}>
         <a href={link} target="_blank" class="text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="top" title="Open in a new tab">
         <div class="card shadow h-100 rounded-4 bg-black bg-opacity-25 border-custom">
             <div class="card-body ps-4 pe-xl-5">

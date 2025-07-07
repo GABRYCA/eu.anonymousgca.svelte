@@ -4,6 +4,7 @@
     import CircularLink from "$lib/components/CircularLink.svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import favicon from "$lib/images/favicon.webp";
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -15,10 +16,10 @@
     <!-- Image logo -->
     <div class="row justify-content-center align-items-center pb-5 pb-md-0 bg-black bg-opacity-25">
         <div class="col-12 col-lg-6 text-center pe-lg-0">
-            <img src={favicon} class="img-fluid p-5 rounded-circle custom-shadow" style="max-height: 75vh;" alt="AnonymousGCA Logo" data-aos="fade-down" data-aos-duration="1500"/>
+            <img src={favicon} class="img-fluid p-5 rounded-circle custom-shadow" style="max-height: 75vh;" alt="AnonymousGCA Logo" use:scrollAnimation={{ animation: 'fade-down', duration: 1500 }}/>
         </div>
         <div class="col-12 col-lg-6 text-center ps-lg-0">
-            <p class="h1" id="text-glitched-effect" data-aos="slide-left" data-aos-duration="1500">Hi! I'm
+            <p class="h1" id="text-glitched-effect" use:scrollAnimation={{ animation: 'slide-left', duration: 800 }}>Hi! I'm
                 <b class="animate-text text-uppercase">AnonymousGCA!</b></p>
         </div>
     </div>
@@ -52,7 +53,7 @@
             <p class="h1 text-center animate-text fw-normal">Contact me:</p>
         </div>
         <div class="col-12 mb-2">
-            <div class="row justify-content-center text-center mt-4" data-aos="zoom-in" data-aos-duration="600">
+            <div class="row justify-content-center text-center mt-4" use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}>
                 <CircularLink link="https://discord.gg/RSp2CSuMny" icon="fab fa-discord" title="Open Discord"/>
                 <CircularLink link="https://www.linkedin.com/in/gabriele-caretti-046408270/" icon="fab fa-linkedin"
                               title="Open Linkedin"/>
@@ -71,7 +72,7 @@
             <p class="h1 text-center animate-text fw-normal">Socials and Development:</p>
         </div>
         <div class="col-12">
-            <div class="row justify-content-center text-center mt-4" data-aos="zoom-in" data-aos-duration="600">
+            <div class="row justify-content-center text-center mt-4" use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}>
                 <CircularLink link="https://github.com/GABRYCA" icon="fab fa-github" title="Open Github"/>
                 <CircularLink link="https://www.youtube.com/channel/UCJgmoEFd6b9oOj2OvafuezQ" icon="fab fa-youtube"
                               title="Open Youtube"/>

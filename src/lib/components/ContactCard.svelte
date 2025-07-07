@@ -1,8 +1,10 @@
 <script>
-    /** @type {{aos_animation?: string, aos_delay?: string, title?: string, description?: string, icon?: string, link?: string}} */
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
+    
+    /** @type {{aos_animation?: string, aos_delay?: number, title?: string, description?: string, icon?: string, link?: string}} */
     let {
         aos_animation = "fade-up",
-        aos_delay = "100",
+        aos_delay = 100,
         title = "Github",
         description = "",
         icon = "fab fa-github",
@@ -15,7 +17,7 @@
     }
 </script>
 
-<div class="col-md-6 col-lg-4" data-aos="{aos_animation}" data-aos-delay="{aos_delay}">
+<div class="col-md-6 col-lg-4" use:scrollAnimation={{ animation: aos_animation, duration: 359, delay: aos_delay }}>
     <div class="card shadow h-100 rounded-4 bg-black bg-opacity-25 border-custom">
         <div class="card-body ps-4">
             <div class="row py-2 px-1">

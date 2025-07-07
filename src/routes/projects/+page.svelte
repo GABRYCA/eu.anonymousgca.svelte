@@ -2,6 +2,7 @@
     import {onMount} from "svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import StackCard from "$lib/components/StackCard.svelte";
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
 
     let {data} = $props();
@@ -16,7 +17,7 @@
     <!-- Page title -->
     <div class="container-xxl">
         <div class="row justify-content-center mt-5">
-            <div class="col-12" data-aos="fade-up">
+            <div class="col-12" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                 <h1 class="projects-title">Projects</h1>
                 <p class="text-muted w-md-50">A showcase of my web development work and the technologies I use to build
                     modern, responsive websites.</p>
@@ -30,12 +31,12 @@
 
     <!-- Websites projects -->
     <div class="row justify-content-center pt-3 pb-5 bg-black bg-opacity-25 mt-0 gy-3">
-        <div class="col-12 text-center mb-2" data-aos="zoom-in">
+        <div class="col-12 text-center mb-2" use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}>
             <p class="h2 mb-0">Websites</p>
             <p class="text-muted">Some websites I've built in the past</p>
         </div>
         {#each websites as website, index (website.url)}
-            <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay={150*(index+1)}>
+            <div class="col-12 col-md-6 col-lg-4" use:scrollAnimation={{ animation: 'zoom-in', duration: 350, delay: 50 * (index + 1) }}>
                 <button class="btn btn-primary w-100 rounded-5 p-1" type="button" data-bs-toggle="collapse"
                         data-bs-target="#{website.url}" aria-expanded="false" aria-controls="{website.url}">
                     {website.title}
@@ -61,7 +62,7 @@
     <!-- Web Stack -->
     <div class="container-xxl">
         <div class="row justify-content-center gy-2 mt-3 pb-md-5">
-            <div class="col-12 text-center mb-2" data-aos="zoom-in">
+            <div class="col-12 text-center mb-2" use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}>
                 <p class="h2 webstack-title">My Web Stack</p>
                 <p class="text-muted">Some of my favourite tools for building websites</p>
             </div>

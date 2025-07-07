@@ -1,5 +1,6 @@
 <script>
     import {onMount} from "svelte";
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
 
     onMount(() => {
@@ -16,7 +17,7 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="row justify-content-center" data-aos="slide-up" data-aos-duration="1000">
+                    <div class="row justify-content-center" use:scrollAnimation={{ animation: 'slide-up', duration: 1000 }}>
                         <div class="col col-xxl-10">
                             <p class="h2">How did I get here?</p>
                             <a href="/img/story-tfs/1%20-%20Unknown%20place.webp" target="_blank">
@@ -27,7 +28,7 @@
 
                     <hr class="mt-5 mb-5">
 
-                    <div class="row justify-content-center" data-aos="slide-up" data-aos-duration="1000">
+                    <div class="row justify-content-center" use:scrollAnimation={{ animation: 'slide-up', duration: 1000 }}>
                         <div class="col col-xxl-10">
                             <p class="h2">Cold night...</p>
                             <a href="/img/story-tfs/2%20-%20Basics%20for%20surviving.webp" target="_blank"><img class="img-fluid w-75 rounded-5 zoom" src="/img/story-tfs/2%20-%20Basics%20for%20surviving.png" alt="The first story"></a>
@@ -36,7 +37,7 @@
 
                     <hr class="mt-5 mb-5">
 
-                    <div class="row justify-content-center" data-aos="slide-up" data-aos-duration="1000">
+                    <div class="row justify-content-center" use:scrollAnimation={{ animation: 'slide-up', duration: 1000 }}>
                         <div class="col col-xxl-10">
                             <p class="h2">Civilization on view...</p>
                             <a href="/img/story-tfs/3%20-%20Some%20civilization.webp" target="_blank"><img class="img-fluid w-75 rounded-5 zoom" src="/img/story-tfs/3%20-%20Some%20civilization.png" alt="The first story"></a>

@@ -1,5 +1,6 @@
 <script>
     import SVGWave from "$lib/components/SVGWave.svelte";
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
     /** @type {{title?: string, icon?: string, icon_color?: string, title_color?: string}} */
     let {
@@ -11,8 +12,7 @@
 
 </script>
 
-<div class="col-12 col-lg-5 rounded-4 bg-black bg-opacity-10 border border-0 pb-5 element-skill" data-aos="zoom-in"
-     data-aos-duration="600">
+<div class="col-12 col-lg-5 rounded-4 bg-black bg-opacity-10 border border-0 pb-5 element-skill" use:scrollAnimation={{ animation: 'zoom-in', duration: 600 }}>
     <div class="row bg-black bg-opacity-25 pt-4 rounded-top-5">
         <div class="col">
             <p class="h2 text-center fw-bold second-text" style="color: {title_color} !important:">{title}</p>

@@ -1,6 +1,7 @@
 <script>
     import {onMount} from "svelte";
     import ContactCard from "$lib/components/ContactCard.svelte";
+    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
 
 
     onMount(() => {
@@ -13,49 +14,49 @@
             description: "Check out my code repositories and projects",
             icon: "fab fa-github",
             link: "https://github.com/GABRYCA",
-            aos_delay: "100"
+            aos_delay: 100
         },
         {
             title: "Linkedin",
             description: "Connect with me professionally",
             icon: "fab fa-linkedin",
             link: "https://www.linkedin.com/in/gabriele-caretti-046408270/",
-            aos_delay: "200"
+            aos_delay: 200
         },
         {
             title: "Youtube",
             description: "Watch my videos",
             icon: "fab fa-youtube",
             link: "https://www.youtube.com/@anonymousgca5331",
-            aos_delay: "300"
+            aos_delay: 300
         },
         {
             title: "Crypto",
             description: "Innovative 'currencies'",
             icon: "fas fa-globe",
             link: "https://ud.me/anonymousgca.crypto",
-            aos_delay: "400"
+            aos_delay: 400
         },
         {
             title: "Reddit",
             description: "Join discussions with me on Reddit",
             icon: "fab fa-reddit",
             link: "https://www.reddit.com/u/AnonymousGCA",
-            aos_delay: "500"
+            aos_delay: 500
         },
         {
             title: "Discord",
             description: "Chat with me on Discord",
             icon: "fab fa-discord",
             link: "https://discord.gg/RSp2CSuMny",
-            aos_delay: "600"
+            aos_delay: 600
         },
         {
             title: "Email",
             description: "Send me a direct message",
             icon: "fas fa-envelope",
             link: "mailto:anonymousgca@anonymousgca.eu",
-            aos_delay: "700"
+            aos_delay: 700
         }
     ];
 </script>
@@ -63,7 +64,7 @@
 <div class="contacts-page">
     <div class="container-xxl mt-4 mt-md-5">
         <div class="row">
-            <div class="col-12" data-aos="fade-up">
+            <div class="col-12" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                 <h1 class="contacts-title">Connect With Me</h1>
                 <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to new connections, collaborations, and conversations...</p>
             </div>

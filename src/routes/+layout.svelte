@@ -1,13 +1,10 @@
 <script>
     import { onMount } from "svelte";
-    import AOS from 'aos';
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import 'bootstrap/dist/css/bootstrap.min.css';
     import scriptSrc from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
     import '@fortawesome/fontawesome-free/css/all.min.css';
-    import 'aos/dist/aos.css';
-    import 'aos/dist/aos.js';
     import '$lib/style/style.css';
     import Seo from "$lib/components/Seo.svelte";
 
@@ -25,16 +22,7 @@
         if (window.$) {
             window.$('[data-bs-toggle="tooltip"]').tooltip();
         }
-
-        AOS.init({ once: true });
-        window.AOS = AOS;
     });
-
-    export function handlePageChange() {
-        if (window.AOS) {
-            window.AOS.refresh();
-        }
-    }
 
 </script>
 
