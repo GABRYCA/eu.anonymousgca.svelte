@@ -3,11 +3,14 @@
     import ozeroangle from "$lib/images/o-zero2w-angled-optimized.webp";
     import orangelogo from "$lib/images/orange-logo-optimized.webp";
     import {onMount} from "svelte";
+    import Seo from "$lib/components/Seo.svelte";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<Seo></Seo>
 
 <div class="container-xxl">
     <div class="row justify-content-center mt-4">

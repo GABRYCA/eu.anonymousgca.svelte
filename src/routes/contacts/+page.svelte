@@ -1,6 +1,7 @@
 <script>
     import {onMount} from "svelte";
     import ContactCard from "$lib/components/ContactCard.svelte";
+    import Seo from "$lib/components/Seo.svelte";
 
     onMount(() => {
         window.$('[data-bs-toggle="tooltip"]').tooltip();
@@ -58,6 +59,8 @@
         }
     ];
 </script>
+
+<Seo></Seo>
 
 <div class="contacts-page">
     <div class="container-xxl mt-4 mt-md-5">

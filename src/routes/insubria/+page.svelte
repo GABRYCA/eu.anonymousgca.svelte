@@ -1,5 +1,8 @@
 <script>
+import Seo from "$lib/components/Seo.svelte";
 </script>
+
+<Seo></Seo>
 
 <div class="row mb-3 mt-3">
     <div class="col">

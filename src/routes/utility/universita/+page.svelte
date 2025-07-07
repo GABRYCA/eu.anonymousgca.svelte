@@ -1,5 +1,6 @@
 <script>
     import {onMount} from 'svelte';
+    import Seo from "$lib/components/Seo.svelte";
 
     let exams = $state([]);
     let currentExam = $state({
@@ -128,11 +129,7 @@
     }
 </script>
 
-<svelte:head>
-    <title>Simulatore Laurea Università - AnonymousGCA</title>
-    <meta name="description"
-          content="Simula i tuoi voti universitari e calcola la media ponderata e il voto di laurea finale. Supporta CFU e lode.">
-</svelte:head>
+<Seo></Seo>
 
 <div class="university-page">
     <div class="container-xxl mt-4 mt-md-5">

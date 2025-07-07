@@ -40,13 +40,12 @@
     }
 </script>
 
-<Seo>
-    <!-- JS -->
+<svelte:head>
     <script src={scriptSrc}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-beta.2/jquery.min.js"
             integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</Seo>
+</svelte:head>
 
 <div style="overflow-x: hidden">
     <div class="container-fluid px-0">
