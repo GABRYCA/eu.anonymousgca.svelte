@@ -13,7 +13,8 @@ const config = {
 			},
 			handleMissingId: ({ path, id, referrers, message }) => {
 				console.warn(`Warning: ${message} - ${id} in ${path} (referenced from ${referrers})`);
-			}
+			},
+			origin: 'https://anonymousgca.eu',
 		}
 	}
 };
