@@ -1,6 +1,7 @@
 <script>
-    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
-    
+    import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
+    import {tooltip} from '$lib/actions/tooltip.js';
+
     let {
         aos_animation = "fade-up",
         aos_delay = 100,
@@ -11,8 +12,9 @@
     } = $props();
 </script>
 
-    <div class="col-md-6 col-lg-4" use:scrollAnimation={{ animation: aos_animation, delay: aos_delay }}>
-        <a href={link} target="_blank" class="text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="top" title="Open in a new tab">
+<div class="col-md-6 col-lg-4" use:scrollAnimation={{ animation: aos_animation, delay: aos_delay }}>
+    <a href={link} target="_blank" class="text-decoration-none"
+       use:tooltip={{ text: "Open in a new tab", placement: 'top', theme: 'primary' }}>
         <div class="card shadow h-100 rounded-4 bg-black bg-opacity-25 border-custom">
             <div class="card-body ps-4 pe-xl-5">
                 <div class="row pt-2 px-1">
@@ -33,8 +35,8 @@
                 </div>
             </div>
         </div>
-        </a>
-    </div>
+    </a>
+</div>
 
 <style>
     .link-custom {

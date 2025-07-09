@@ -8,6 +8,6 @@ export const GET = async () => {
         excludeRoutePatterns: [
             '^/.well-known.*',
             '^/old.*',
-            ],
+        ],
     });
 };

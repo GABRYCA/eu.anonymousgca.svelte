@@ -13,7 +13,6 @@
 		"@sveltejs/kit": "^2.22.2",
 		"@sveltejs/vite-plugin-svelte": "^5.1.0",
 		"bootstrap": "^5.3.7",
-		"jquery": "^4.0.0-beta.2",
 		"sk-seo": "^0.5.4",
 		"super-sitemap": "^1.0.4",
 		"svelte": "^5.35.4",

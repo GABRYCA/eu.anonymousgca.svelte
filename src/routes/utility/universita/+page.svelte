@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte';
-    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
+    import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
 
 
     let exams = $state([]);
@@ -176,8 +176,10 @@
                                         </h6>
                                         <p class="mb-0 text-light opacity-75">
                                             La nostra "lode"
-                                            vale come un normale <strong>30 </strong>, ma aggiunge <strong>0.33 punti bonus</strong>
-                                            al voto finale (ogni singola lode aggiunge 0.33 punti indipendentemente dal peso dell'esame a livello di CFU).
+                                            vale come un normale <strong>30 </strong>, ma aggiunge <strong>0.33 punti
+                                            bonus</strong>
+                                            al voto finale (ogni singola lode aggiunge 0.33 punti indipendentemente dal
+                                            peso dell'esame a livello di CFU).
                                         </p>
                                     </div>
                                 </div>
@@ -371,7 +373,8 @@
                                                     <span class="scenario-label">Scenario Migliore</span>
                                                 </div>
                                                 <div class="scenario-score best-score">
-                                                    {formatScore(maxFinalScore, canReach110Lode)}<span class="score-max">/110</span>
+                                                    {formatScore(maxFinalScore, canReach110Lode)}<span
+                                                        class="score-max">/110</span>
                                                 </div>
                                                 <div class="scenario-details">
                                                     <small>
@@ -387,7 +390,8 @@
                                                     <span class="scenario-label">Scenario Peggiore</span>
                                                 </div>
                                                 <div class="scenario-score worst-score">
-                                                    {formatScore(minFinalScore, minCanReach110Lode)}<span class="score-max">/110</span>
+                                                    {formatScore(minFinalScore, minCanReach110Lode)}<span
+                                                        class="score-max">/110</span>
                                                 </div>
                                                 <div class="scenario-details">
                                                     <small>
@@ -497,11 +501,13 @@
         <!-- Disclaimer -->
         <div class="row mt-4">
             <div class="col-12">
-                <div class="disclaimer-section text-center" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
+                <div class="disclaimer-section text-center"
+                     use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <small class="text-muted disclaimer-text">
                         <i class="fas fa-exclamation-triangle me-1"></i>
                         I calcoli e le proiezioni mostrate sono puramente indicativi e possono contenere errori.
-                        Non si assumono responsabilità per eventuali inesattezze o differenze rispetto ai calcoli ufficiali
+                        Non si assumono responsabilità per eventuali inesattezze o differenze rispetto ai calcoli
+                        ufficiali
                         dell'ateneo.
                         Nessun genere di informazione sui dati inseriti viene salvata o condivisa, lo strumento funziona
                         totalmente sul dispositivo dell'utente finale.

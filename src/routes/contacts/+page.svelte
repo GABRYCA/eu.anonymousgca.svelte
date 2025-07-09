@@ -1,12 +1,6 @@
 <script>
-    import {onMount} from "svelte";
     import ContactCard from "$lib/components/ContactCard.svelte";
-    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
-
-
-    onMount(() => {
-        window.$('[data-bs-toggle="tooltip"]').tooltip();
-    });
+    import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
 
     const contacts = [
         {
@@ -66,7 +60,8 @@
         <div class="row">
             <div class="col-12" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                 <h1 class="contacts-title">Connect With Me</h1>
-                <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to new connections, collaborations, and conversations...</p>
+                <p class="text-muted w-md-50">Feel free to reach out through any of these platforms. I'm always open to
+                    new connections, collaborations, and conversations...</p>
             </div>
             <div class="col-12 mt-4">
                 <div class="row justify-content-center gy-2 gy-md-4 gx-0 gx-md-3">

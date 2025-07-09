@@ -1,0 +1,157 @@
+.svelte-tooltip {
+    position: absolute;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    max-width: 200px;
+    word-wrap: break-word;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.svelte-tooltip__content {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.svelte-tooltip__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px;
+}
+
+/* Dark theme (default) */
+.svelte-tooltip--dark .svelte-tooltip__content {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.svelte-tooltip--dark.svelte-tooltip--top .svelte-tooltip__arrow {
+    bottom: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+.svelte-tooltip--dark.svelte-tooltip--bottom .svelte-tooltip__arrow {
+    top: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.9) transparent;
+}
+
+.svelte-tooltip--dark.svelte-tooltip--left .svelte-tooltip__arrow {
+    right: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.9);
+}
+
+.svelte-tooltip--dark.svelte-tooltip--right .svelte-tooltip__arrow {
+    left: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent rgba(0, 0, 0, 0.9) transparent transparent;
+}
+
+/* Light theme */
+.svelte-tooltip--light .svelte-tooltip__content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.svelte-tooltip--light.svelte-tooltip--top .svelte-tooltip__arrow {
+    bottom: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
+}
+
+.svelte-tooltip--light.svelte-tooltip--bottom .svelte-tooltip__arrow {
+    top: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+}
+
+.svelte-tooltip--light.svelte-tooltip--left .svelte-tooltip__arrow {
+    right: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.95);
+}
+
+.svelte-tooltip--light.svelte-tooltip--right .svelte-tooltip__arrow {
+    left: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent rgba(255, 255, 255, 0.95) transparent transparent;
+}
+
+/* Primary theme */
+.svelte-tooltip--primary .svelte-tooltip__content {
+    background: linear-gradient(135deg, hsl(287, 100%, 65%), hsl(0, 100%, 58%));
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(205, 61, 251, 0.3);
+}
+
+.svelte-tooltip--primary.svelte-tooltip--top .svelte-tooltip__arrow {
+    bottom: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: hsl(287, 100%, 65%) transparent transparent transparent;
+}
+
+.svelte-tooltip--primary.svelte-tooltip--bottom .svelte-tooltip__arrow {
+    top: -12px;
+    left: 50%;
+    margin-left: -6px;
+    border-color: transparent transparent hsl(287, 100%, 65%) transparent;
+}
+
+.svelte-tooltip--primary.svelte-tooltip--left .svelte-tooltip__arrow {
+    right: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent transparent transparent hsl(287, 100%, 65%);
+}
+
+.svelte-tooltip--primary.svelte-tooltip--right .svelte-tooltip__arrow {
+    left: -12px;
+    top: 50%;
+    margin-top: -6px;
+    border-color: transparent hsl(287, 100%, 65%) transparent transparent;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .svelte-tooltip {
+        max-width: 150px;
+        font-size: 0.8rem;
+    }
+    
+    .svelte-tooltip__content {
+        padding: 6px 10px;
+    }
+}
+
+/* Animations */
+.svelte-tooltip {
+    transform: scale(0.8);
+    transition: opacity 200ms ease-in-out, transform 200ms ease !important;
+}
+
+.svelte-tooltip[style*="opacity: 1"] {
+    transform: scale(1);
+}

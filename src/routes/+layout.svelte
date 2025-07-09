@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import {onMount} from "svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,10 +7,10 @@
     import '@fortawesome/fontawesome-free/css/all.min.css';
     import '$lib/style/style.css';
     import Seo from "$lib/components/Seo.svelte";
-
+    import {tooltip} from '$lib/actions/tooltip.js';
 
     /** @type {{children?: import('svelte').Snippet}} */
-    let { children } = $props();
+    let {children} = $props();
 
     onMount(() => {
         document.querySelectorAll('.nav-link').forEach((element) => {
@@ -18,10 +18,6 @@
                 document.querySelector('.navbar-collapse')?.classList.remove('show');
             });
         });
-
-        if (window.$) {
-            window.$('[data-bs-toggle="tooltip"]').tooltip();
-        }
     });
 
 </script>
@@ -31,9 +27,6 @@
 <svelte:head>
     <!-- Scripts -->
     <script src={scriptSrc}></script>
-    <script rel="preconnect" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-beta.2/jquery.min.js"
-            integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </svelte:head>
 
 <div style="overflow-x: hidden">
@@ -65,8 +58,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank"
-                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="External Link"><i
-                                    class="fas fa-external-link-alt"></i> Discord</a>
+                               use:tooltip={{ text: "External Link", placement: 'bottom', theme: 'primary' }}>
+                                <i class="fas fa-external-link-alt"></i> Discord</a>
                         </li>
                     </ul>
                 </div>
@@ -104,21 +97,20 @@
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <a href="https://github.com/GABRYCA" target="_blank" class="text-light-hover"
-                                   data-bs-toggle="tooltip" data-bs-placement="right" title="Open">Github</a>
+                                   use:tooltip={{ text: "Open Github", placement: 'right', theme: 'primary' }}>Github</a>
                             </li>
                             <li>
                                 <a href="https://discord.gg/RSp2CSuMny" target="_blank" class="text-light-hover"
-                                   data-bs-toggle="tooltip" data-bs-placement="right" title="Open">Discord</a>
+                                   use:tooltip={{ text: "Join Discord Server", placement: 'right', theme: 'primary' }}>Discord</a>
                             </li>
                             <li>
                                 <a href="mailto:anonymousgca@anonymousgca.eu" class="text-light-hover"
-                                   data-bs-toggle="tooltip"
-                                   data-bs-placement="right" title="Open">Email</a>
+                                   use:tooltip={{ text: "Send Email", placement: 'right', theme: 'primary' }}>Email</a>
                             </li>
                             <li>
                                 <a href="https://www.linkedin.com/in/gabriele-caretti-046408270/" target="_blank"
-                                   class="text-light-hover" data-bs-toggle="tooltip" data-bs-placement="right"
-                                   title="Open">Linkedin</a>
+                                   class="text-light-hover"
+                                   use:tooltip={{ text: "View LinkedIn Profile", placement: 'right', theme: 'primary' }}>Linkedin</a>
                             </li>
                         </ul>
                     </div>

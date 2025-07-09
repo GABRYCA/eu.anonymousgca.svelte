@@ -1,16 +1,11 @@
 <script>
-    import {onMount} from "svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import StackCard from "$lib/components/StackCard.svelte";
-    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
-
+    import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
+    import {tooltip} from '$lib/actions/tooltip.js';
 
     let {data} = $props();
     let {websites, stacks} = $state(data);
-
-    onMount(() => {
-        window.$('[data-bs-toggle="tooltip"]').tooltip();
-    });
 </script>
 
 <div class="projects-page">
@@ -36,12 +31,13 @@
             <p class="text-muted">Some websites I've built in the past</p>
         </div>
         {#each websites as website, index (website.url)}
-            <div class="col-12 col-md-6 col-lg-4" use:scrollAnimation={{ animation: 'zoom-in', duration: 350, delay: 50 * (index + 1) }}>
+            <div class="col-12 col-md-6 col-lg-4"
+                 use:scrollAnimation={{ animation: 'zoom-in', duration: 350, delay: 50 * (index + 1) }}>
                 <button class="btn btn-primary w-100 rounded-5 p-1" type="button" data-bs-toggle="collapse"
                         data-bs-target="#{website.url}" aria-expanded="false" aria-controls="{website.url}">
                     {website.title}
-                    <a href="{website.url}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top"
-                       title="Open in a new tab" aria-label="{website.url}">
+                    <a href="{website.url}" target="_blank" aria-label="{website.url}"
+                       use:tooltip={{ text: "Open in a new tab", placement: 'top', theme: 'primary' }}>
                     <span class="fa-stack">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-external-link-alt fa-stack-1x fa-inverse"></i>
@@ -68,7 +64,8 @@
             </div>
             <div class="row justify-content-center gy-2 gx-0 gx-md-4">
                 {#each stacks as stack (stack.url)}
-                    <StackCard title={stack.title} description={stack.description} link={stack.url} aos_delay={stack.aos_delay}/>
+                    <StackCard title={stack.title} description={stack.description} link={stack.url}
+                               aos_delay={stack.aos_delay}/>
                 {/each}
             </div>
         </div>

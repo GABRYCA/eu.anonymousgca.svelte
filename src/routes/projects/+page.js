@@ -32,7 +32,7 @@ export const load = async ({}) => {
             url: 'https://pocketbase.io/',
             aos_delay: 450,
         }
-        ];
+    ];
 
     return {
         websites,

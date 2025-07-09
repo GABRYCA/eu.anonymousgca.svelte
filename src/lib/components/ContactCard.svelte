@@ -1,6 +1,7 @@
 <script>
-    import { scrollAnimation } from "$lib/actions/scrollAnimation.js";
-    
+    import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
+    import {tooltip} from '$lib/actions/tooltip.js';
+
     /** @type {{aos_animation?: string, aos_delay?: number, title?: string, description?: string, icon?: string, link?: string}} */
     let {
         aos_animation = "fade-up",
@@ -31,7 +32,8 @@
                     <p class="card-text text-muted">{description}</p>
                 </div>
                 <div class="col-12 mt-3">
-                    <a href="{link}" target="_blank" class="text-decoration-none link-custom" data-bs-toggle="tooltip" data-bs-placement="top" title="Open in a new tab">
+                    <a href="{link}" target="_blank" class="text-decoration-none link-custom"
+                       use:tooltip={{text: "Open in a new tab", placement: 'top'}}>
                         {getUrlWithoutHttps(link)}
                     </a>
                 </div>

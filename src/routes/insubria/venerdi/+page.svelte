@@ -1,10 +1,8 @@
 <script>
     import {onMount} from "svelte";
-
+    import {tooltip} from '$lib/actions/tooltip.js';
 
     onMount(() => {
-        window.$('[data-bs-toggle="tooltip"]').tooltip();
-
         const url = window.location.href;
         const day = url.split('/insubria/')[1];
         if (day) {
@@ -207,8 +205,8 @@
             {#each viaggio.andata.normale as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoPartenza}">{mezzo.oraPartenza}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoArrivo}">{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{text: mezzo.luogoPartenza, placement: 'top'}}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{text: mezzo.luogoArrivo, placement: 'top'}}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.andata.normale, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.andata.normale, i)} min</td>
                 </tr>
@@ -237,22 +235,24 @@
             {#each viaggio.ritorno.normale as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoPartenza}">{mezzo.oraPartenza}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoArrivo}">{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{text: mezzo.luogoPartenza, placement: 'top'}}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{text: mezzo.luogoArrivo, placement: 'top'}}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.ritorno.normale, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.ritorno.normale, i)} min</td>
                 </tr>
             {/each}
             </tbody>
         </table>-->
-        <p class="h3 text-danger-emphasis bg-light-subtle bg-opacity-25 pt-1 pb-2 rounded-4 mt-4">Sul momento, <span class="text-primary-emphasis">ormai abbiamo imparato!</span></p>
+        <p class="h3 text-danger-emphasis bg-light-subtle bg-opacity-25 pt-1 pb-2 rounded-4 mt-4">Sul momento, <span
+                class="text-primary-emphasis">ormai abbiamo imparato!</span></p>
 
 
         <hr class="mt-5 mb-5">
 
         <div class="row justify-content-center">
             <div class="col-auto">
-                <h2 class="shadow px-5 pt-1 pb-1 rounded bg-primary bg-opacity-10">Anticipatario Andata <strong class="text-danger-emphasis">(NO)</strong>:</h2>
+                <h2 class="shadow px-5 pt-1 pb-1 rounded bg-primary bg-opacity-10">Anticipatario Andata <strong
+                        class="text-danger-emphasis">(NO)</strong>:</h2>
             </div>
         </div>
 
@@ -271,8 +271,8 @@
             {#each viaggio.andata.anticipatario as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoPartenza}">{mezzo.oraPartenza}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoArrivo}">{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{text: mezzo.luogoPartenza, placement: 'top'}}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{text: mezzo.luogoArrivo, placement: 'top'}}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.andata.anticipatario, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.andata.anticipatario, i)} min</td>
                 </tr>
@@ -282,7 +282,8 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-auto">
-                <h2 class="shadow px-5 pt-1 pb-1 rounded bg-primary bg-opacity-10">Anticipatario Ritorno <strong class="text-danger-emphasis">(NO)</strong>:</h2>
+                <h2 class="shadow px-5 pt-1 pb-1 rounded bg-primary bg-opacity-10">Anticipatario Ritorno <strong
+                        class="text-danger-emphasis">(NO)</strong>:</h2>
             </div>
         </div>
 
@@ -301,8 +302,8 @@
             {#each viaggio.ritorno.anticipatario as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoPartenza}">{mezzo.oraPartenza}</td>
-                    <td data-bs-toggle="tooltip" data-bs-placement="top" title="{mezzo.luogoArrivo}">{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{text: mezzo.luogoPartenza, placement: 'top'}}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{text: mezzo.luogoArrivo, placement: 'top'}}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.ritorno.anticipatario, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.ritorno.anticipatario, i)} min</td>
                 </tr>

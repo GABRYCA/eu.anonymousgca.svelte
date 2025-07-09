@@ -1,7 +1,4 @@
 <script>
-    import {onMount} from "svelte";
-
-
     let numberInput = $state(2);
     let unitSelect = $state('Byte');
     let result = $state('');
@@ -28,10 +25,6 @@
         'MB': 20,
         'GB': 30
     };
-
-    onMount(() => {
-        window.$('[data-bs-toggle="tooltip"]').tooltip();
-    });
 
     function calculatePowerOfTwo(number) {
         if ((number & (number - 1)) === 0 && number !== 0) {
@@ -432,7 +425,8 @@
                         <div class="input-group mb-3">
                             <input bind:value={decimalInput} type="text" class="form-control"
                                    placeholder="Inserire numero decimale">
-                            <button class="btn btn-outline-secondary" type="submit" aria-label="Decimale a Binario"><i class="fas fa-arrow-right"></i>
+                            <button class="btn btn-outline-secondary" type="submit" aria-label="Decimale a Binario"><i
+                                    class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </form>

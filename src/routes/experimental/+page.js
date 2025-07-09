@@ -26,9 +26,9 @@ async function getHoldersFromUrl(url) {
 
         // Fetch data
         await fetch(tempUrl)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json();
-            }).then(function(data) {
+            }).then(function (data) {
                 if (total == null) {
                     total = data.data.total;
                     console.log('Total: ', total);
@@ -39,7 +39,7 @@ async function getHoldersFromUrl(url) {
                 }
                 for (let j = 0; j < tempData.length; j++) {
                     const alreadyExists = result.some(item => item.wallet_address === tempData[j].wallet_address);
-                    if (!alreadyExists){
+                    if (!alreadyExists) {
                         result.push(tempData[j]);
                     }
                 }

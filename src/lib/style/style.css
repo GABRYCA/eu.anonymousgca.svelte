@@ -1,3 +1,5 @@
+@import './tooltip.css';
+
 :root {
     --primary-color: hsl(287, 100%, 65%);
     --background-gradient-start: hsl(279, 100%, 9%);
@@ -110,7 +112,6 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-/* From projects/+page.svelte */
 .projects-page .btn {
     background-color: hsla(310, 100%, 50%, 0.45) !important;
     box-shadow: 3px 3px #000000 !important;
