@@ -52,38 +52,59 @@ export function tooltip(node, params = {}) {
         if (!tooltipElement) return;
 
         const nodeRect = node.getBoundingClientRect();
-        const tooltipRect = tooltipElement.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
+
+        // Temporary clone
+        const tempTooltip = tooltipElement.cloneNode(true);
+        tempTooltip.style.position = 'absolute';
+        tempTooltip.style.left = '0';
+        tempTooltip.style.top = '0';
+        tempTooltip.style.opacity = '1';
+        tempTooltip.style.visibility = 'visible';
+        tempTooltip.style.pointerEvents = 'none';
+        tempTooltip.style.zIndex = '-1';
+
+        document.body.appendChild(tempTooltip);
+
+        // Force reflow and get accurate dimensions
+        tempTooltip.offsetWidth;
+        tempTooltip.offsetHeight;
+
+        const tooltipWidth = tempTooltip.offsetWidth;
+        const tooltipHeight = tempTooltip.offsetHeight;
+
+        // Remove temporary clone
+        document.body.removeChild(tempTooltip);
 
         let left = 0;
         let top = 0;
 
-        // Calculate base position
+        // Calculate base position with pixel-perfect centering
         switch (placement) {
             case 'top':
-                left = nodeRect.left + nodeRect.width / 2 - tooltipRect.width / 2;
-                top = nodeRect.top - tooltipRect.height - offset;
+                left = Math.round(nodeRect.left + (nodeRect.width - tooltipWidth) / 2);
+                top = Math.round(nodeRect.top - tooltipHeight - offset);
                 break;
             case 'bottom':
-                left = nodeRect.left + nodeRect.width / 2 - tooltipRect.width / 2;
-                top = nodeRect.bottom + offset;
+                left = Math.round(nodeRect.left + (nodeRect.width - tooltipWidth) / 2);
+                top = Math.round(nodeRect.bottom + offset);
                 break;
             case 'left':
-                left = nodeRect.left - tooltipRect.width - offset;
-                top = nodeRect.top + nodeRect.height / 2 - tooltipRect.height / 2;
+                left = Math.round(nodeRect.left - tooltipWidth - offset);
+                top = Math.round(nodeRect.top + (nodeRect.height - tooltipHeight) / 2);
                 break;
             case 'right':
-                left = nodeRect.right + offset;
-                top = nodeRect.top + nodeRect.height / 2 - tooltipRect.height / 2;
+                left = Math.round(nodeRect.right + offset);
+                top = Math.round(nodeRect.top + (nodeRect.height - tooltipHeight) / 2);
                 break;
         }
 
         // Keep tooltip within viewport bounds
         if (left < 0) left = 8;
-        if (left + tooltipRect.width > viewportWidth) left = viewportWidth - tooltipRect.width - 8;
+        if (left + tooltipWidth > viewportWidth) left = viewportWidth - tooltipWidth - 8;
         if (top < 0) top = 8;
-        if (top + tooltipRect.height > viewportHeight) top = viewportHeight - tooltipRect.height - 8;
+        if (top + tooltipHeight > viewportHeight) top = viewportHeight - tooltipHeight - 8;
 
         tooltipElement.style.left = `${left + window.scrollX}px`;
         tooltipElement.style.top = `${top + window.scrollY}px`;

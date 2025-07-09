@@ -162,6 +162,60 @@
         </div>
     </div>
 
+    <!-- Offset Testing Section -->
+    <div class="row mb-5">
+        <div class="col">
+            <div class="card bg-dark bg-opacity-50">
+                <div class="card-header">
+                    <h6>Offset Testing - Different offset values</h6>
+                    <small class="text-muted">Testing tooltips with different offset values to verify centering</small>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-3 justify-content-center">
+                        <button class="btn btn-sm btn-outline-success"
+                                use:tooltip={{ text: 'Offset: 5px', placement: 'top', offset: 5 }}>
+                            Offset 5
+                        </button>
+                        <button class="btn btn-sm btn-outline-warning"
+                                use:tooltip={{ text: 'Offset: 10px (default)', placement: 'top', offset: 10 }}>
+                            Offset 10
+                        </button>
+                        <button class="btn btn-sm btn-outline-info"
+                                use:tooltip={{ text: 'Offset: 20px', placement: 'top', offset: 20 }}>
+                            Offset 20
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger"
+                                use:tooltip={{ text: 'Offset: 30px', placement: 'top', offset: 30 }}>
+                            Offset 30
+                        </button>
+                        <button class="btn btn-sm btn-outline-light"
+                                use:tooltip={{ text: 'Offset: 50px - very large', placement: 'top', offset: 50 }}>
+                            Offset 50
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="text-center">
+                        <h6 class="mb-3">Bottom placement with different offsets:</h6>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <span class="badge bg-success fs-6 p-2"
+                                  use:tooltip={{ text: 'Bottom with 15px offset', placement: 'bottom', offset: 15 }}>
+                                Bottom 15px
+                            </span>
+                            <span class="badge bg-warning text-dark fs-6 p-2"
+                                  use:tooltip={{ text: 'Bottom with 25px offset', placement: 'bottom', offset: 25 }}>
+                                Bottom 25px
+                            </span>
+                            <span class="badge bg-info fs-6 p-2"
+                                  use:tooltip={{ text: 'Bottom with 40px offset', placement: 'bottom', offset: 40 }}>
+                                Bottom 40px
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <hr class="mb-5">
 
     <!-- Original experimental content -->
