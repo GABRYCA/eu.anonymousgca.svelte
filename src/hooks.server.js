@@ -1,10 +1,10 @@
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-    const origin = event.request.headers.get('origin');
+    const userAgent = event.request.headers.get('user-agent') || '';
 
-    if (origin && origin.includes('discord.com')) {
+    if (userAgent.includes('Discordbot')) {
 
-        console.log('Discord.com crawler detected, modifying response...');
+        console.log('Discordbot crawler detected, modifying response...');
 
         const response = await resolve(event);
         const originalHtml = await response.text();
