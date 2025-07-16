@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+.git
+.gitignore
+.vscode
+build/
+node_modules/
+npm-debug.log*
+README.md
