@@ -2,6 +2,9 @@
 	"name": "anonymousgca-website",
 	"version": "1.1.2",
 	"private": true,
+	"engines": {
+		"node": "22"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -15,7 +18,7 @@
 		"bootstrap": "^5.3.7",
 		"sk-seo": "^0.5.4",
 		"super-sitemap": "^1.0.4",
-		"svelte": "^5.36.2",
+		"svelte": "^5.36.4",
 		"vite": "^7.0.4"
 	},
 	"type": "module"
