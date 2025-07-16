@@ -22,8 +22,11 @@
 
 </script>
 
-<Seo>
+<svelte:head>
     <script rel="preload" src={scriptSrc}></script>
+</svelte:head>
+
+<Seo>
 </Seo>
 
 <div style="overflow-x: hidden">
