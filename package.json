@@ -1,9 +1,9 @@
 {
 	"name": "anonymousgca-website",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"private": true,
 	"engines": {
-		"node": "24"
+		"node": "25"
 	},
 	"scripts": {
 		"dev": "vite dev",
@@ -13,12 +13,12 @@
 	"devDependencies": {
 		"@fortawesome/fontawesome-free": "^7.1.0",
 		"@sveltejs/adapter-static": "^3.0.10",
-		"@sveltejs/kit": "^2.48.3",
+		"@sveltejs/kit": "^2.48.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"bootstrap": "^5.3.8",
 		"sk-seo": "^0.5.4",
 		"super-sitemap": "^1.0.5",
-		"svelte": "^5.43.0",
+		"svelte": "^5.43.2",
 		"vite": "7.1.11",
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
