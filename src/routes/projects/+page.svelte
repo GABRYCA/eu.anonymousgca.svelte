@@ -5,7 +5,7 @@
     import {tooltip} from '$lib/actions/tooltip.js';
 
     let {data} = $props();
-    let {websites, stacks} = $state(data);
+    // let {websites, stacks} = $state(data);
 </script>
 
 <div class="projects-page">
@@ -30,7 +30,7 @@
             <p class="h2 mb-0">Websites</p>
             <p class="text-muted">Some websites I've built in the past</p>
         </div>
-        {#each websites as website, index (website.url)}
+        {#each data.websites as website, index (website.url)}
             <div class="col-12 col-md-6 col-lg-4"
                  use:scrollAnimation={{ animation: 'zoom-in', duration: 350, delay: 50 * (index + 1) }}>
                 <button class="btn btn-primary w-100 rounded-5 p-1" type="button" data-bs-toggle="collapse"
@@ -63,7 +63,7 @@
                 <p class="text-muted">Some of my favourite tools for building websites</p>
             </div>
             <div class="row justify-content-center gy-2 gx-0 gx-md-4">
-                {#each stacks as stack (stack.url)}
+                {#each data.stacks as stack (stack.url)}
                     <StackCard title={stack.title} description={stack.description} link={stack.url}
                                aos_delay={stack.aos_delay}/>
                 {/each}
