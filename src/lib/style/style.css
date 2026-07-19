@@ -2,6 +2,14 @@
 
 :root {
     --primary-color: hsl(287, 100%, 65%);
+    --primary-color-soft: hsla(287, 100%, 65%, 0.18);
+    --primary-color-glow: hsla(287, 100%, 65%, 0.45);
+    --accent-crimson: hsl(0, 100%, 58%);
+    --surface-dark: hsla(281, 100%, 9%, 0.55);
+    --surface-darker: hsla(285, 100%, 6%, 0.72);
+    --border-glow: hsla(287, 100%, 65%, 0.28);
+    --border-glow-strong: hsla(287, 100%, 65%, 0.55);
+    --text-soft: hsla(300, 40%, 92%, 0.78);
     --background-gradient-start: hsl(279, 100%, 9%);
     --background-gradient-end: hsl(0, 100%, 10%);
     --scrollbar-thumb-color: hsl(281, 100%, 16%);
@@ -10,12 +18,130 @@
     --text-shadow-color: hsl(0, 0%, 0%);
     --font-family-sans-serif: 'Roboto', sans-serif;
     --text-shadow: 2px 2px var(--text-shadow-color);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --radius-card: 1rem;
+    --radius-panel: 1.25rem;
 }
 
 body {
     font-family: var(--font-family-sans-serif) !important;
     background: linear-gradient(105deg, var(--background-gradient-start) 50%, var(--background-gradient-end) 140%);
     color: var(--text-color-light);
+    min-height: 100vh;
+}
+
+/* Readable body copy on the dark neon gradient (Bootstrap text-muted is too dim) */
+.text-muted,
+.text-soft {
+    color: var(--text-soft) !important;
+}
+
+@keyframes lights {
+    0% {
+        filter: drop-shadow(0 0 0.35rem hsla(320, 100%, 55%, 0.35));
+    }
+    50% {
+        filter: drop-shadow(0 0 0.75rem hsla(0, 100%, 58%, 0.45));
+    }
+    100% {
+        filter: drop-shadow(0 0 0.35rem hsla(320, 100%, 55%, 0.35));
+    }
+}
+
+/* Shared page hero + ambient glow used by contacts / projects / university */
+.page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--radius-panel);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    background:
+        radial-gradient(ellipse 80% 70% at 12% 20%, hsla(287, 100%, 55%, 0.22), transparent 55%),
+        radial-gradient(ellipse 70% 60% at 88% 10%, hsla(0, 100%, 50%, 0.16), transparent 50%),
+        linear-gradient(145deg, hsla(0, 0%, 0%, 0.35), hsla(281, 100%, 9%, 0.2));
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.25), 0 20px 50px hsla(280, 100%, 4%, 0.35);
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: -40% auto auto 40%;
+    width: min(28rem, 70vw);
+    height: min(28rem, 70vw);
+    border-radius: 50%;
+    background: radial-gradient(circle, hsla(287, 100%, 65%, 0.18), transparent 65%);
+    pointer-events: none;
+    z-index: -1;
+    animation: hero-orb 10s ease-in-out infinite alternate;
+}
+
+.page-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-glow);
+    background: hsla(287, 100%, 65%, 0.1);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.page-hero__title {
+    margin: 0 0 0.75rem;
+    line-height: 1.15;
+    text-wrap: balance;
+}
+
+.page-hero__lead {
+    max-width: 42rem;
+    margin: 0;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--text-soft);
+    text-wrap: pretty;
+}
+
+.panel-surface {
+    background: var(--surface-dark);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-card);
+    box-shadow: 0 12px 32px hsla(280, 100%, 4%, 0.28);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes hero-orb {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.85;
+    }
+    to {
+        transform: translate3d(-8%, 12%, 0) scale(1.12);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-hero::before,
+    .neon,
+    .home-page .animate-text,
+    .home-page .custom-shadow,
+    .contacts-page .contacts-title,
+    .projects-page .projects-title,
+    .projects-page .webstack-title,
+    .university-page .university-title,
+    .university-page .lode-icon,
+    .university-page .current-score-card::before {
+        animation: none !important;
+    }
+
+    .page-hero::before {
+        opacity: 0.7;
+    }
 }
 
 body::-webkit-scrollbar {

@@ -61,6 +61,13 @@ export function scrollAnimation(element, options = {}) {
         threshold = 0.1,
         rootMargin = '0px'
     } = options;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+        return;
+    }
     
     const animationConfig = animations[animation] || animations['fade-up'];
     let hasAnimated = false;
@@ -69,7 +76,7 @@ export function scrollAnimation(element, options = {}) {
     const applyStyles = (styles) => {
         element.style.opacity = styles.opacity;
         element.style.transform = styles.transform;
-        element.style.transition = `all ${duration}ms ease-out`;
+        element.style.transition = `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
     };
     
     // Set initial state

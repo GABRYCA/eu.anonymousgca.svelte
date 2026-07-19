@@ -128,25 +128,69 @@
         if (score >= 110) return '110';
         return Math.round(score * 100) / 100;
     }
+
+    const cfuProgress = $derived(Math.min(100, (totalCfu / 180) * 100));
+    const progressCircumference = 2 * Math.PI * 52;
+    const progressOffset = $derived(progressCircumference - (cfuProgress / 100) * progressCircumference);
 </script>
 
 <div class="university-page">
     <div class="container-xxl mt-4 mt-md-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="text-center mb-5" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
-                    <h1 class="university-title mb-3">
-                        <i class="fas fa-graduation-cap me-3"></i>
+                <section class="page-hero text-center mb-4 mb-md-5" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
+                    <div class="page-hero__eyebrow mx-auto">
+                        <i class="fas fa-university" aria-hidden="true"></i>
+                        Insubria · DiSTA
+                    </div>
+                    <h1 class="university-title page-hero__title mb-3">
                         Simulatore Laurea Università
                     </h1>
-                    <p class="text-muted lead">
-                        Calcolatore e simulatore media ponderata + voto di laurea finale
+                    <p class="page-hero__lead mx-auto">
+                        Calcolatore e simulatore di media ponderata e voto di laurea finale.
+                        I dati restano solo sul tuo dispositivo.
                     </p>
-                </div>
+
+                    <div class="hero-metrics" aria-label="Riepilogo rapido">
+                        <div class="cfu-ring" aria-hidden={totalCfu === 0}>
+                            <svg viewBox="0 0 120 120" class="cfu-ring__svg">
+                                <circle class="cfu-ring__track" cx="60" cy="60" r="52"></circle>
+                                <circle
+                                    class="cfu-ring__value"
+                                    cx="60"
+                                    cy="60"
+                                    r="52"
+                                    stroke-dasharray={progressCircumference}
+                                    stroke-dashoffset={progressOffset}
+                                ></circle>
+                            </svg>
+                            <div class="cfu-ring__label">
+                                <span class="cfu-ring__num">{totalCfu}</span>
+                                <span class="cfu-ring__den">/180 CFU</span>
+                            </div>
+                        </div>
+                        <div class="hero-metric-cards">
+                            <div class="hero-metric-card">
+                                <span class="hero-metric-card__value">{exams.length}</span>
+                                <span class="hero-metric-card__label">Esami</span>
+                            </div>
+                            <div class="hero-metric-card">
+                                <span class="hero-metric-card__value text-accent">
+                                    {totalCfu > 0 ? currentAverage.toFixed(2) : '—'}
+                                </span>
+                                <span class="hero-metric-card__label">Media</span>
+                            </div>
+                            <div class="hero-metric-card">
+                                <span class="hero-metric-card__value text-warning">{totalLode}</span>
+                                <span class="hero-metric-card__label">Lodi</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Instructions Section -->
                 <div class="col-12 mb-4" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
-                    <div class="card border-custom bg-dark bg-opacity-75">
+                    <div class="card border-custom bg-dark bg-opacity-75 info-panel">
                         <div class="card-header bg-transparent border-bottom-0 pt-3">
                             <h5 class="mb-0">
                                 <i class="fas fa-info-circle me-2 text-accent"></i>
@@ -521,5 +565,106 @@
 <style>
     .bg-dark {
         background-color: hsla(285, 100%, 10%, 0.40) !important;
+    }
+
+    .hero-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem 1.75rem;
+        margin-top: 1.75rem;
+    }
+
+    .cfu-ring {
+        position: relative;
+        width: 7.5rem;
+        height: 7.5rem;
+        flex-shrink: 0;
+    }
+
+    .cfu-ring__svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .cfu-ring__track,
+    .cfu-ring__value {
+        fill: none;
+        stroke-width: 8;
+    }
+
+    .cfu-ring__track {
+        stroke: hsla(287, 100%, 65%, 0.15);
+    }
+
+    .cfu-ring__value {
+        stroke: var(--primary-color);
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 8px hsla(287, 100%, 65%, 0.55));
+        transition: stroke-dashoffset 0.6s var(--ease-out-expo);
+    }
+
+    .cfu-ring__label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.1;
+    }
+
+    .cfu-ring__num {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: var(--text-color-light);
+    }
+
+    .cfu-ring__den {
+        font-size: 0.72rem;
+        color: var(--text-soft);
+        margin-top: 0.15rem;
+    }
+
+    .hero-metric-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        justify-content: center;
+    }
+
+    .hero-metric-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 5.5rem;
+        padding: 0.7rem 0.9rem;
+        border-radius: 0.85rem;
+        border: 1px solid var(--border-glow);
+        background: hsla(0, 0%, 0%, 0.28);
+    }
+
+    .hero-metric-card__value {
+        font-size: 1.25rem;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .hero-metric-card__label {
+        margin-top: 0.2rem;
+        font-size: 0.78rem;
+        color: var(--text-soft);
+    }
+
+    .info-panel {
+        box-shadow: 0 14px 36px hsla(280, 100%, 4%, 0.28);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cfu-ring__value {
+            transition: none;
+        }
     }
 </style>
