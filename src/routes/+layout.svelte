@@ -13,10 +13,16 @@
     let {children} = $props();
 
     onMount(() => {
-        document.querySelectorAll('.nav-link').forEach((element) => {
-            element.addEventListener('click', () => {
-                document.querySelector('.navbar-collapse')?.classList.remove('show');
-            });
+        const collapseMenu = () => {
+            document.querySelector('.navbar-collapse')?.classList.remove('show');
+        };
+
+        document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach((element) => {
+            element.addEventListener('click', collapseMenu);
+        });
+
+        document.querySelectorAll('.dropdown-item').forEach((element) => {
+            element.addEventListener('click', collapseMenu);
         });
     });
 
@@ -52,9 +58,33 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/projects"><i class="fas fa-project-diagram"></i> Projects</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/utility/universita"><i class="fas fa-graduation-cap"></i>
-                                Università</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/utility/universita" role="button"
+                               data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"
+                               id="utilityDropdown" onclick={(e) => e.preventDefault()}>
+                                <i class="fas fa-toolbox"></i> Utility
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end utility-dropdown"
+                                aria-labelledby="utilityDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="/utility/universita">
+                                        <i class="fas fa-graduation-cap me-2"></i>Università
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/utility/ade">
+                                        <i class="fas fa-microchip me-2"></i>ADE
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/utility/game">
+                                        <i class="fas fa-gamepad me-2"></i>Game
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank"
@@ -166,6 +196,41 @@
         filter: drop-shadow(0 0 0.5rem var(--primary-color));
     }
 
+    .utility-dropdown {
+        --bs-dropdown-bg: hsla(281, 100%, 7%, 0.95);
+        --bs-dropdown-border-color: var(--border-glow);
+        --bs-dropdown-link-color: var(--text-color-light);
+        --bs-dropdown-link-hover-color: var(--primary-color);
+        --bs-dropdown-link-hover-bg: hsla(287, 100%, 65%, 0.12);
+        --bs-dropdown-link-active-color: var(--primary-color);
+        --bs-dropdown-link-active-bg: hsla(287, 100%, 65%, 0.18);
+        --bs-dropdown-divider-bg: hsla(287, 100%, 65%, 0.25);
+        margin-top: 0.4rem;
+        border-radius: 0.85rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 28px hsla(280, 100%, 4%, 0.45);
+        padding: 0.4rem;
+        min-width: 12rem;
+    }
+
+    .utility-dropdown .dropdown-item {
+        border-radius: 0.55rem;
+        padding: 0.55rem 0.85rem;
+        font-weight: 500;
+        transition: color 0.2s var(--ease-out-expo), background-color 0.2s var(--ease-out-expo), filter 0.2s;
+    }
+
+    .utility-dropdown .dropdown-item:hover,
+    .utility-dropdown .dropdown-item:focus {
+        filter: drop-shadow(0 0 0.35rem var(--primary-color-glow));
+    }
+
+    .utility-dropdown .dropdown-item i {
+        width: 1.1rem;
+        text-align: center;
+        opacity: 0.9;
+    }
+
     @keyframes neon {
         0% {
             text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px var(--primary-color), 0 0 35px var(--primary-color), 0 0 40px var(--primary-color), 0 0 50px var(--primary-color);
@@ -181,13 +246,54 @@
         will-change: transform, text-shadow;
     }
 
-    @media (max-width: 990px) {
+    @media (max-width: 991.98px) {
         .navbar-nav {
             width: 100%;
             justify-content: center;
+            text-align: center;
         }
 
-        .nav-link {
+        .navbar-nav .nav-item {
+            width: 100%;
+            text-align: center;
+        }
+
+        .navbar-nav .nav-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .navbar-nav .nav-item.dropdown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-item.dropdown > .nav-link {
+            width: 100%;
+            text-align: center;
+        }
+
+        .navbar-nav .nav-item.dropdown > .dropdown-toggle::before {
+            content: '';
+            display: inline-block;
+            width: 0.6em;
+            margin-right: 0.255em;
+            vertical-align: 0.255em;
+            visibility: hidden;
+        }
+
+        .utility-dropdown {
+            text-align: center;
+            width: min(100%, 18rem);
+            margin-inline: auto;
+            position: static !important;
+            transform: none !important;
+            inset: auto !important;
+        }
+
+        .utility-dropdown .dropdown-item {
             text-align: center;
         }
     }

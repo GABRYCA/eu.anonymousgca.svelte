@@ -6,14 +6,14 @@ export const load = async ({}) => {
         {
             title: 'MZEYFILMS',
             url: 'https://mzeyfilms.com',
-            description: 'Cinematic portfolio site for a film brand: bold visuals, modern layout, and a production-focused presence.',
-            tags: ['SvelteKit', 'Bootstrap', 'Responsive'],
+            description: 'MZEYFILMS\'s cinematic portfolio website',
+            tags: ['SvelteKit', 'Bootstrap', 'Pocketbase'],
             accent: 'crimson'
         },
         {
             title: 'Ristorante Aquazzurra Resort',
             url: 'https://ristoranteaquazzurrasveltekit.netlify.app/',
-            description: 'Restaurant and resort experience site with atmosphere-first design and clear booking-oriented structure.',
+            description: 'A simple Restaurant website',
             tags: ['SvelteKit', 'UI design', 'Static'],
             accent: 'violet'
         }

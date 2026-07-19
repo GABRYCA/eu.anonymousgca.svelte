@@ -36,8 +36,7 @@
             </div>
             <h1 class="projects-title page-hero__title">Projects</h1>
             <p class="page-hero__lead">
-                Live websites and the tools behind them. Expand a preview, open the real site,
-                or browse the stack I reach for most often.
+                Live websites and the tools behind them
             </p>
             <div class="hero-stats" aria-label="Project summary">
                 <div class="hero-stat">
@@ -143,7 +142,7 @@
     <div class="container-xxl pb-4 pb-md-5">
         <div class="section-heading text-center mb-4" use:scrollAnimation={{ animation: 'zoom-in', duration: 400 }}>
             <p class="h2 webstack-title mb-2">My Web Stack</p>
-            <p class="section-heading__sub">Favourite tools for building modern sites</p>
+            <p class="section-heading__sub">Long story short: my favourite tools</p>
         </div>
         <div class="row justify-content-center gy-3 gx-0 gx-md-4">
             {#each data.stacks as stack (stack.url)}
