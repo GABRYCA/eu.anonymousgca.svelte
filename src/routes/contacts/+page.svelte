@@ -5,7 +5,7 @@
     const professional = [
         {
             title: "Email",
-            description: "Best for opportunities, collaborations, and direct messages.",
+            description: "Send me an email, I'll check it out as soon as possible.",
             icon: "fas fa-envelope",
             link: "mailto:anonymousgca@anonymousgca.eu",
             aos_delay: 80,
@@ -13,7 +13,7 @@
         },
         {
             title: "LinkedIn",
-            description: "Professional profile, experience, and network.",
+            description: "Reach me out on LinkedIn.",
             icon: "fab fa-linkedin",
             link: "https://www.linkedin.com/in/gabriele-caretti-046408270/",
             aos_delay: 140,
@@ -32,7 +32,7 @@
     const social = [
         {
             title: "Discord",
-            description: "Chat, community, and quicker questions.",
+            description: "Chat and community.",
             icon: "fab fa-discord",
             link: "https://discord.gg/RSp2CSuMny",
             aos_delay: 100,
@@ -40,7 +40,7 @@
         },
         {
             title: "YouTube",
-            description: "Videos and channel updates.",
+            description: "Videos and casual stuff.",
             icon: "fab fa-youtube",
             link: "https://www.youtube.com/@anonymousgca5331",
             aos_delay: 160,
@@ -48,7 +48,7 @@
         },
         {
             title: "Reddit",
-            description: "Discussions and public threads.",
+            description: "Discussions, and more discussions, and fun.",
             icon: "fab fa-reddit",
             link: "https://www.reddit.com/u/AnonymousGCA",
             aos_delay: 220,
@@ -56,7 +56,7 @@
         },
         {
             title: "Web3",
-            description: "Crypto identity and web3 presence.",
+            description: "Crypto and web3.",
             icon: "fas fa-globe",
             link: "https://ud.me/anonymousgca.crypto",
             aos_delay: 280,
@@ -81,8 +81,7 @@
             </div>
             <h1 class="contacts-title page-hero__title">Connect With Me</h1>
             <p class="page-hero__lead">
-                Recruiter, collaborator, or curious visitor: pick the channel that fits.
-                Email and LinkedIn are the fastest paths for professional outreach.
+                Pick the channel that fits. I check messages regularly, especially Emails and LinkedIn.
             </p>
 
             <ul class="quick-links">
@@ -105,7 +104,7 @@
         <section class="mb-4 mb-md-5" aria-labelledby="professional-heading">
             <div class="section-heading" use:scrollAnimation={{ animation: 'fade-up', duration: 400 }}>
                 <h2 id="professional-heading" class="section-heading__title">Professional</h2>
-                <p class="section-heading__sub">Primary channels for work and opportunities</p>
+                <p class="section-heading__sub">Primary channels for work</p>
             </div>
             <div class="row g-3 g-md-4">
                 {#each professional as contact (contact.title)}
