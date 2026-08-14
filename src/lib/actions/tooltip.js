@@ -30,9 +30,13 @@ export function tooltip(node, params = {}) {
         tooltipElement = document.createElement('div');
         tooltipElement.className = `svelte-tooltip svelte-tooltip--${theme} svelte-tooltip--${placement}`;
         tooltipElement.innerHTML = `
-            <div class="svelte-tooltip__content">${text}</div>
+            <div class="svelte-tooltip__content"></div>
             <div class="svelte-tooltip__arrow"></div>
         `;
+        const contentEl = tooltipElement.querySelector('.svelte-tooltip__content');
+        if (contentEl) {
+            contentEl.textContent = text;
+        }
         tooltipElement.style.cssText = `
             position: absolute;
             z-index: 9999;
@@ -211,7 +215,7 @@ export function tooltip(node, params = {}) {
                 tooltipElement.className = `svelte-tooltip svelte-tooltip--${theme} svelte-tooltip--${placement}`;
                 const contentEl = tooltipElement.querySelector('.svelte-tooltip__content');
                 if (contentEl) {
-                    contentEl.innerHTML = text;
+                    contentEl.textContent = text;
                 }
                 tooltipElement.style.transition = `opacity ${duration}ms ease`;
                 positionTooltip();

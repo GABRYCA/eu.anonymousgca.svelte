@@ -1,42 +1,55 @@
 <script>
-    import {onMount} from "svelte";
+    import {page} from '$app/state';
 
     /** @type {{children?: import('svelte').Snippet}} */
     let {children} = $props();
 
-    onMount(() => {
-        const url = window.location.href;
-        const day = url.split('/insubria/')[1];
-        if (day) {
-            const button = document.getElementById(day);
-            if (button) {
-                button.classList.add('active');
-            }
-            const buttons = document.getElementsByClassName('btn');
-            for (let i = 0; i < buttons.length; i++) {
-                if (buttons[i].id !== day) {
-                    buttons[i].classList.remove('active');
-                }
-            }
-        }
-    });
+    /** @param {string} href */
+    function isActive(href) {
+        return page.url.pathname === href;
+    }
 </script>
 
 <div class="row justify-content-around border-bottom border-light-subtle pt-3 pb-2 mb-4 shadow">
     <div class="col-auto">
-        <a class="btn btn-outline-light" id="lunedi" href="/insubria/lunedi">Lunedì</a>
+        <a
+            class="btn btn-outline-light"
+            class:active={isActive('/insubria/lunedi')}
+            href="/insubria/lunedi"
+            aria-current={isActive('/insubria/lunedi') ? 'page' : undefined}
+        >Lunedì</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-outline-light" id="martedi" href="/insubria/martedi">Martedì</a>
+        <a
+            class="btn btn-outline-light"
+            class:active={isActive('/insubria/martedi')}
+            href="/insubria/martedi"
+            aria-current={isActive('/insubria/martedi') ? 'page' : undefined}
+        >Martedì</a>
     </div>
     <div class="col-auto">
-        <a class="btn btn-outline-light" id="mercoledi" href="/insubria/mercoledi">Mercoledì</a>
+        <a
+            class="btn btn-outline-light"
+            class:active={isActive('/insubria/mercoledi')}
+            href="/insubria/mercoledi"
+            aria-current={isActive('/insubria/mercoledi') ? 'page' : undefined}
+        >Mercoledì</a>
     </div>
-    <div class="col-auto">
-        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/giovedi" href="/insubria/giovedi">Giovedì</a>
+    <div class="col-auto mt-2 mt-sm-0">
+        <a
+            class="btn btn-outline-light"
+            class:active={isActive('/insubria/giovedi')}
+            href="/insubria/giovedi"
+            aria-current={isActive('/insubria/giovedi') ? 'page' : undefined}
+        >Giovedì</a>
     </div>
-    <div class="col-auto">
-        <a class="btn btn-outline-light mt-2 mt-sm-0" id="/insubria/venerdi" href="/insubria/venerdi">Venerdi</a>
+    <div class="col-auto mt-2 mt-sm-0">
+        <a
+            class="btn btn-outline-light"
+            class:active={isActive('/insubria/venerdi')}
+            href="/insubria/venerdi"
+            aria-current={isActive('/insubria/venerdi') ? 'page' : undefined}
+        >Venerdì</a>
     </div>
 </div>
 

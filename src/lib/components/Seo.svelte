@@ -64,7 +64,7 @@
         ...jsonld
     });
 
-    const tag = $state('script');
+    const tag = 'script';
 </script>
 
 <svelte:head>
