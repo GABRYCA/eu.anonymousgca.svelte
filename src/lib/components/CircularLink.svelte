@@ -1,5 +1,6 @@
 <script>
-    import {tooltip} from '$lib/actions/tooltip.js';
+    import {tooltip} from 'svelte-tooltip-gca';
+    import {primaryTooltipTheme} from '$lib/tooltipThemes.js';
 
     /** @type {{icon?: string, title?: string, link?: string}} */
     let {icon = 'fas fa-code', title = 'Code', link = '#'} = $props();
@@ -7,7 +8,7 @@
 
 <div class="col-3">
     <a href="{link}" target="_blank" aria-label="{link}"
-       use:tooltip={{ text: title, placement: 'top', theme: 'primary' }}>
+       use:tooltip={{ content: title, placement: 'top', theme: primaryTooltipTheme }}>
         <span class="fa-stack fa-2x light-span">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="{icon} fa-stack-1x fa-inverse hover-effect-icons"></i>

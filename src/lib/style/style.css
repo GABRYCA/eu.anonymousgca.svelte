@@ -1,5 +1,3 @@
-@import './tooltip.css';
-
 :root {
     --primary-color: hsl(287, 100%, 65%);
     --primary-color-soft: hsla(287, 100%, 65%, 0.18);
@@ -30,7 +28,6 @@ body {
     min-height: 100vh;
 }
 
-/* Readable body copy on the dark neon gradient (Bootstrap text-muted is too dim) */
 .text-muted,
 .text-soft {
     color: var(--text-soft) !important;
@@ -48,7 +45,6 @@ body {
     }
 }
 
-/* Shared page hero + ambient glow used by contacts / projects / university */
 .page-hero {
     position: relative;
     isolation: isolate;

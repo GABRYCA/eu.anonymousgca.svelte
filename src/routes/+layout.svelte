@@ -7,7 +7,8 @@
     import '@fortawesome/fontawesome-free/css/all.min.css';
     import '$lib/style/style.css';
     import Seo from "$lib/components/Seo.svelte";
-    import {tooltip} from '$lib/actions/tooltip.js';
+    import {tooltip} from 'svelte-tooltip-gca';
+    import {primaryTooltipTheme} from '$lib/tooltipThemes.js';
 
     /** @type {{children?: import('svelte').Snippet}} */
     let {children} = $props();
@@ -88,7 +89,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://discord.gg/RSp2CSuMny" target="_blank"
-                               use:tooltip={{ text: "External Link", placement: 'bottom', theme: 'primary' }}>
+                               use:tooltip={{ content: "External Link", placement: 'bottom', theme: primaryTooltipTheme }}>
                                 <i class="fas fa-external-link-alt"></i> Discord</a>
                         </li>
                     </ul>
@@ -127,20 +128,20 @@
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <a href="https://github.com/GABRYCA" target="_blank" class="text-light-hover"
-                                   use:tooltip={{ text: "Open Github", placement: 'right', theme: 'primary' }}>Github</a>
+                                   use:tooltip={{ content: "Open Github", placement: 'right', theme: primaryTooltipTheme }}>Github</a>
                             </li>
                             <li>
                                 <a href="https://discord.gg/RSp2CSuMny" target="_blank" class="text-light-hover"
-                                   use:tooltip={{ text: "Join Discord Server", placement: 'right', theme: 'primary' }}>Discord</a>
+                                   use:tooltip={{ content: "Join Discord Server", placement: 'right', theme: primaryTooltipTheme }}>Discord</a>
                             </li>
                             <li>
                                 <a href="mailto:anonymousgca@anonymousgca.eu" class="text-light-hover"
-                                   use:tooltip={{ text: "Send Email", placement: 'right', theme: 'primary' }}>Email</a>
+                                   use:tooltip={{ content: "Send Email", placement: 'right', theme: primaryTooltipTheme }}>Email</a>
                             </li>
                             <li>
                                 <a href="https://www.linkedin.com/in/gabriele-caretti-046408270/" target="_blank"
                                    class="text-light-hover"
-                                   use:tooltip={{ text: "View LinkedIn Profile", placement: 'right', theme: 'primary' }}>Linkedin</a>
+                                   use:tooltip={{ content: "View LinkedIn Profile", placement: 'right', theme: primaryTooltipTheme }}>Linkedin</a>
                             </li>
                         </ul>
                     </div>

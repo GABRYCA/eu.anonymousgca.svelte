@@ -1,5 +1,6 @@
 <script>
-    import {tooltip} from '$lib/actions/tooltip.js';
+    import {tooltip} from 'svelte-tooltip-gca';
+    import {darkTooltipTheme} from '$lib/tooltipThemes.js';
 
     const TRAGHETTO = 'traghetto';
     const TRENO = 'treno';
@@ -185,8 +186,8 @@
             {#each viaggio.andata.normale as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td use:tooltip={{ text: mezzo.luogoPartenza, placement: 'top', theme: 'dark' }}>{mezzo.oraPartenza}</td>
-                    <td use:tooltip={{ text: mezzo.luogoArrivo, placement: 'top', theme: 'dark' }}>{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{ content: mezzo.luogoPartenza, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{ content: mezzo.luogoArrivo, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.andata.normale, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.andata.normale, i)} min</td>
                 </tr>
@@ -218,8 +219,8 @@
             {#each viaggio.ritorno.normale as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td use:tooltip={{ text: mezzo.luogoPartenza, placement: 'top', theme: 'dark' }}>{mezzo.oraPartenza}</td>
-                    <td use:tooltip={{ text: mezzo.luogoArrivo, placement: 'top', theme: 'dark' }}>{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{ content: mezzo.luogoPartenza, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{ content: mezzo.luogoArrivo, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.ritorno.normale, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.ritorno.normale, i)} min</td>
                 </tr>
@@ -253,8 +254,8 @@
             {#each viaggio.andata.anticipatario as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td use:tooltip={{ text: mezzo.luogoPartenza, placement: 'top', theme: 'dark' }}>{mezzo.oraPartenza}</td>
-                    <td use:tooltip={{ text: mezzo.luogoArrivo, placement: 'top', theme: 'dark' }}>{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{ content: mezzo.luogoPartenza, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{ content: mezzo.luogoArrivo, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.andata.anticipatario, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.andata.anticipatario, i)} min</td>
                 </tr>
@@ -284,8 +285,8 @@
             {#each viaggio.ritorno.anticipatario as mezzo, i}
                 <tr>
                     <td><i class="fa fa-{mezzo.icona}"></i> {mezzo.nome}</td>
-                    <td use:tooltip={{ text: mezzo.luogoPartenza, placement: 'top', theme: 'dark' }}>{mezzo.oraPartenza}</td>
-                    <td use:tooltip={{ text: mezzo.luogoArrivo, placement: 'top', theme: 'dark' }}>{mezzo.oraArrivo}</td>
+                    <td use:tooltip={{ content: mezzo.luogoPartenza, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraPartenza}</td>
+                    <td use:tooltip={{ content: mezzo.luogoArrivo, placement: 'top', theme: darkTooltipTheme }}>{mezzo.oraArrivo}</td>
                     <td>{durataMezzo(viaggio.ritorno.anticipatario, i)} min</td>
                     <td>{attesaTraMezzi(viaggio.ritorno.anticipatario, i)} min</td>
                 </tr>

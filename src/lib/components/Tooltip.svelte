@@ -1,5 +1,12 @@
 <script>
-    import {tooltip} from '$lib/actions/tooltip.js';
+    import {tooltip} from 'svelte-tooltip-gca';
+    import {darkTooltipTheme, lightTooltipTheme, primaryTooltipTheme} from '$lib/tooltipThemes.js';
+
+    const THEME_MAP = {
+        dark: darkTooltipTheme,
+        light: lightTooltipTheme,
+        primary: primaryTooltipTheme
+    };
 
     let {
         text = '',
@@ -12,18 +19,19 @@
         children
     } = $props();
 
-    const tooltipParams = $derived(disabled ? null : {
-        text,
+    const tooltipParams = $derived({
+        content: text,
         placement,
+        theme: THEME_MAP[theme] ?? theme,
+        offset,
         delay,
-        duration,
-        theme,
-        offset
+        hideDelay: 80,
+        animationDuration: duration,
+        disabled
     });
 </script>
 
-<!-- 
-    Tooltip wrapper component
+<!--
     Usage:
     <Tooltip text="My tooltip" placement="top" theme="primary">
         <button>Hover me</button>
@@ -35,6 +43,7 @@
 
 <style>
     span {
-        display: contents;
+        display: inline;
+        max-width: 100%;
     }
 </style>
