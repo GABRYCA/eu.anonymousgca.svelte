@@ -1,0 +1,134 @@
+# AnonymousGCA — Official
+
+Full text content of the AnonymousGCA website (https://anonymousgca.eu).
+Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti), web developer, web designer, SvelteKit enthusiast, university student and soccer-robocup programmer based in Italy.
+
+---
+
+## 1. Home — https://anonymousgca.eu/
+
+Hi! I'm AnonymousGCA!
+
+I am:
+- A Web-Developer
+- A Web-Designer
+- A SvelteKit Enthusiast
+- A University Student
+
+Contact me:
+- Discord: https://discord.gg/RSp2CSuMny
+- LinkedIn: https://www.linkedin.com/in/gabriele-caretti-046408270/
+- Email: anonymousgca@anonymousgca.eu
+
+Socials and Development:
+- GitHub: https://github.com/GABRYCA
+- YouTube: https://www.youtube.com/channel/UCJgmoEFd6b9oOj2OvafuezQ
+- Crypto/Web3 (Unstoppable Domain): https://ud.me/anonymousgca.crypto
+- Reddit: https://www.reddit.com/u/AnonymousGCA
+
+---
+
+## 2. Projects — https://anonymousgca.eu/projects
+
+Selected work: live websites and the tools behind them.
+
+Featured sites (2):
+- MZEYFILMS — https://mzeyfilms.com — MZEYFILMS's cinematic portfolio website. Tech: SvelteKit, Bootstrap, Pocketbase.
+- Ristorante Aquazzurra Resort — https://ristoranteaquazzurrasveltekit.netlify.app/ — a simple restaurant website. Tech: SvelteKit, UI design, Static.
+
+Core tools (3):
+- SvelteKit — a framework for building web applications of all sizes with a powerful development experience. https://kit.svelte.dev
+- Bootstrap — a powerful, extensible and feature-packed frontend toolkit for responsive web development. https://getbootstrap.com/
+- PocketBase — an open source backend consisting of an embedded database with realtime subscriptions and built-in auth. https://pocketbase.io/
+
+---
+
+## 3. Contacts — https://anonymousgca.eu/contacts
+
+Connect with me. Pick the channel that fits. Messages are checked regularly, especially email and LinkedIn.
+
+Professional:
+- Email — anonymousgca@anonymousgca.eu — "Send me an email, I'll check it out as soon as possible."
+- LinkedIn — https://www.linkedin.com/in/gabriele-caretti-046408270/
+- GitHub — https://github.com/GABRYCA — repositories, experiments and open-source work.
+
+Social and community:
+- Discord — https://discord.gg/RSp2CSuMny — chat and community.
+- YouTube — https://www.youtube.com/@anonymousgca5331 — videos and casual stuff.
+- Reddit — https://www.reddit.com/u/AnonymousGCA — discussions.
+- Web3 — https://ud.me/anonymousgca.crypto — crypto and web3.
+
+---
+
+## 4. Collection (The Collection of Pi) — https://anonymousgca.eu/collection
+
+A collection of single-board computers.
+
+### Raspberry Pi Zero 2W (retired)
+Deployment: 25/12/2021. Status: Retired (December 2023). Replaced by Orange Pi Zero 2W 4GB.
+Specs: 512MB RAM (limitation), 4-core 64-bit ARM CPU, slow 2.4GHz WiFi (less than 40mbps), Bluetooth 4.2, 1x Micro-USB 2.0, 1x Mini HDMI, 1x Power Micro USB, 1x CSI camera connector, 1x GPIO 40-pin.
+History: served as an efficient low-power Linux server for years. Always swapping (killed a 128GB Samsung EVO Plus micro SD, luckily under warranty), slow WiFi, kept freezing and required a reboot. Terminal-only usage.
+Usage: Docker containers, background tasks (passive income), experiments and emulators (learned about binfmt and could run AMD64 programs), little Apache web server.
+Price at time of buy: about 23€ including shipping.
+
+### Orange Pi Zero 2W 4GB (operational)
+Deployment: 01/12/2023. Status: Operational.
+Specs: 4GB LPDDR4 RAM, 4-core 64-bit ARM CPU, 2.4/5GHz WiFi 5 handles easily 100mbps, Bluetooth 5.0 BLE, 1x USB-C 2.0, 1x Mini HDMI, 1x Power USB-C, 1x CSI camera connector, 1x GPIO 40-pin.
+Initial problems: unclear initial connection setup (an hidden first_run config file in the Ubuntu ISO enabled WiFi automatically), default apt Huawei repositories (changed back to ports.ubuntu.com).
+Usage: even more Docker containers, background tasks (passive income), experiments and emulators (still using binfmt), little Apache web server.
+Price at time of buy: about 27€ including shipping.
+
+---
+
+## 5. Neon Grove (Pixel RPG) — https://anonymousgca.eu/utility/game
+
+A simple web-RPG concept made by AnonymousGCA. Wander a neon forest, poke friendly NPCs, bonk glitch-slimes, and stitch the night back together with three Source Shards.
+
+How to play:
+- Start with Space, Enter, or the big Action button.
+- Walk with WASD / arrow keys, or the on-screen D-pad on mobile.
+- Talk and loot by facing Owlbit, Fox.exe, chests or shards, then pressing Action.
+- Battle when you bump a slime: Attack, drink a Glow Potion, or Flee.
+- Win by collecting all three shards and stepping on the purple portal.
+
+---
+
+## 6. Simulatore Università (University Grade Simulator) — https://anonymousgca.eu/utility/universita
+
+Calcolatore e simulatore di media ponderata e voto di laurea finale. The data stays only on the user's device (localStorage, no server).
+
+Based on the Italian university system, specifically Università degli Studi dell'Insubria (DiSTA).
+
+Key facts:
+- Weighted average (media ponderata) per the Italian system.
+- "Lode" counts as a normal 30 but adds 0.33 bonus points to the final grade, regardless of exam CFU weight.
+- Base score: (Weighted Average × 110) ÷ 30.
+- Lode bonus: number of lodes × 0.33 points.
+- Maximum: 110 e lode (if base is at least 110).
+- Total CFU: 180.
+- Projections: best scenario (all 30 in remaining exams) and worst scenario (all 18), estimated remaining exams assuming 6 CFU per exam.
+- Disclaimer: calculations and projections are purely indicative and may contain errors; nothing is saved or shared, the tool works entirely on the user's device.
+
+---
+
+## 7. ADE — Calcolatore Bit (Bit Calculator) — https://anonymousgca.eu/utility/ade
+
+Bit, memory and cache calculator for the computer architecture course (Architettura degli Elaboratori, Insubria).
+
+Tools included:
+- Power-of-two calculator: compute how many bits are needed for a given number (2, 4, 8, 16, 32, 64, 128, 256, 512) with KB/MB/GB scaling.
+- Bit to byte conversion: requires a multiple of 8.
+- Binary to decimal and decimal to binary conversion.
+- Memory word and cache addressing calculators with byte/KB/MB/GB scales.
+
+---
+
+## 8. Insubria (commute schedules) — https://anonymousgca.eu/insubria
+
+Public transport commutes from Intra/Laveno (Lake Maggiore) to the University of Insubria campus in Varese. Each weekday page lists the ferry (traghetto, Intra to Laveno), train (Trenord, Laveno Mombello Lago to Varese Nord) and bus (Linea C/RS, Morosini FS/FNM to Monte Generoso, 71 ASL) legs with departure and arrival times, plus alternative/anticipatario timings.
+
+- Lunedì (Monday): https://anonymousgca.eu/insubria/lunedi
+- Martedì (Tuesday): https://anonymousgca.eu/insubria/martedi
+- Mercoledì (Wednesday): https://anonymousgca.eu/insubria/mercoledi
+- Giovedì (Thursday): https://anonymousgca.eu/insubria/giovedi
+- Venerdì (Friday): https://anonymousgca.eu/insubria/venerdi

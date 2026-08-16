@@ -1,0 +1,25 @@
+# AnonymousGCA — Official
+
+> Personal website of AnonymousGCA (Gabriele Caretti), a web developer, web designer, SvelteKit enthusiast, university student and soccer-robocup programmer based in Italy. Showcases the portfolio, selected projects, contact channels and public utilities.
+
+## Pages
+
+- [Home](https://anonymousgca.eu/): Introduction to AnonymousGCA: web developer, web designer, SvelteKit enthusiast, university student. Lists skills, contact channels and socials (GitHub, YouTube, Reddit, Discord, Crypto/Web3 profile).
+- [Projects](https://anonymousgca.eu/projects): Selected live websites (MZEYFILMS, Ristorante Aquazzurra Resort) and the core web stack behind them: SvelteKit, Bootstrap, PocketBase.
+- [Contacts](https://anonymousgca.eu/contacts): Direct ways to reach AnonymousGCA: email, LinkedIn, GitHub, Discord, YouTube, Reddit, Web3 profile.
+- [Collection](https://anonymousgca.eu/collection): Raspberry Pi Zero 2W and Orange Pi Zero 2W single-board computer homelab: specs, usage, swap problems and lessons learned.
+- [Neon Grove (Pixel RPG)](https://anonymousgca.eu/utility/game): Free browser pixel RPG by AnonymousGCA. Wander a neon forest, talk to Owlbit and Fox.exe, fight glitch-slimes and restore the portal by collecting three Source Shards.
+- [Simulatore Università](https://anonymousgca.eu/utility/universita): Italian university grade simulator based on Università degli Studi dell'Insubria (DiSTA): weighted average, CFU progress, lode bonus and final degree grade projection. Client-side only, no data saved.
+- [ADE — Calcolatore Bit](https://anonymousgca.eu/utility/ade): Bit, memory and cache calculator for the computer architecture course (Insubria): powers of two, bit/byte conversions, binary to decimal, memory word and cache addressing.
+- [Insubria](https://anonymousgca.eu/insubria): Public transport commutes from Intra/Laveno to the Insubria campus in Varese: ferry, train and bus schedules.
+  - [Lunedì](https://anonymousgca.eu/insubria/lunedi): Monday commute schedule: ferry (Intra-Laveno), train (Laveno-Varese Nord) and bus to campus with alternative timings.
+  - [Martedì](https://anonymousgca.eu/insubria/martedi): Tuesday commute schedule: ferry, train and bus times from Laveno to Varese.
+  - [Mercoledì](https://anonymousgca.eu/insubria/mercoledi): Wednesday commute schedule: ferry, train and bus times from Laveno to Varese.
+  - [Giovedì](https://anonymousgca.eu/insubria/giovedi): Thursday commute schedule: ferry, train and bus times from Laveno to Varese.
+  - [Venerdì](https://anonymousgca.eu/insubria/venerdi): Friday commute schedule: ferry, train and bus times from Laveno to Varese.
+
+## Notes
+
+- Every page is fully prerendered static HTML (SvelteKit + adapter-static): content is available to crawlers without JavaScript.
+- The site explicitly allows AI crawlers (see robots.txt): content may be indexed and used to answer questions about AnonymousGCA.
+- Primary audience: recruiters and employers evaluating Gabriele Caretti as a web developer; secondary: fellow developers and university students using the utilities.

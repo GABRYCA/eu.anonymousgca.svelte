@@ -20,6 +20,7 @@
      * schemaOrg?: boolean,
      * schemaType?: string[],
      * socials?: string[],
+     * locale?: string,
      * jsonld?: Record<string, any>
      * }}
      */
@@ -46,22 +47,56 @@
     const socials = $derived(page.data.socials ?? rest.socials ?? []);
     const jsonld = $derived(page.data.jsonld ?? rest.jsonld ?? {});
 
+    const locale = $derived(page.data.locale ?? rest.locale ?? "en_US");
+    const origin = $derived(page.url.origin);
+    const pathname = $derived(page.url.pathname);
+
     const robotsContent = $derived(index ? `index, follow${imageURL ? ", max-image-preview:large" : ""}` : "noindex");
 
-    const jsonLdObject = $derived({
-        "@context": "https://schema.org",
-        "@type": schemaType.length > 1 ? schemaType : schemaType[0],
-        name: name,
-        url: page.url.origin,
-        image: imageURL,
-        logo: {
-            "@type": "ImageObject",
-            "url": logo,
-            "width": 48,
-            "height": 48
-        },
-        "sameAs": socials,
-        ...jsonld
+    const jsonLdGraph = $derived.by(() => {
+        if (!schemaOrg) return null;
+
+        const identityType = schemaType.length > 1 ? schemaType : schemaType[0];
+        const graph = [
+            {
+                '@type': 'WebSite',
+                '@id': `${origin}/#website`,
+                url: origin,
+                name: siteName || name || title,
+                inLanguage: locale.replace('_', '-'),
+                ...(imageURL ? {image: imageURL} : {}),
+                publisher: {'@id': `${origin}/#identity`}
+            },
+            {
+                '@type': identityType,
+                '@id': `${origin}/#identity`,
+                name,
+                ...(siteName ? {alternateName: siteName} : {}),
+                url: origin,
+                ...(imageURL ? {image: imageURL} : {}),
+                ...(logo ? {logo: {'@type': 'ImageObject', 'url': logo, 'width': 48, 'height': 48}} : {}),
+                ...(socials.length > 0 ? {sameAs: socials} : {}),
+                ...jsonld
+            }
+        ];
+
+        if (pathname !== '/') {
+            const segments = pathname.split('/').filter(Boolean);
+            let acc = '';
+            const itemListElement = [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': origin}];
+            segments.forEach((segment, index) => {
+                acc += `/${segment}`;
+                itemListElement.push({
+                    '@type': 'ListItem',
+                    'position': index + 2,
+                    'name': segment.charAt(0).toUpperCase() + segment.slice(1),
+                    'item': origin + acc
+                });
+            });
+            graph.push({'@type': 'BreadcrumbList', '@id': `${origin}/#breadcrumb`, 'itemListElement': itemListElement});
+        }
+
+        return {'@context': 'https://schema.org', '@graph': graph};
     });
 
     const tag = 'script';
@@ -87,6 +122,9 @@
     {/if}
 
     {#if openGraph}
+        {#if locale}
+            <meta property="og:locale" content={locale}>
+        {/if}
         {#if siteName}
             <meta property="og:site_name" content={siteName}>
         {/if}
@@ -100,6 +138,9 @@
         {/if}
         {#if imageURL}
             <meta property="og:image" content={imageURL}>
+            {#if title}
+                <meta property="og:image:alt" content={title}>
+            {/if}
         {/if}
         {#if logo}
             <meta property="og:logo" content={logo}>
@@ -121,12 +162,12 @@
         {/if}
     {/if}
 
-    {#if schemaOrg && (socials.length > 0 || logo || name)}
+    {#if schemaOrg && (name || siteName)}
         <svelte:element
                 this={tag}
                 type="application/ld+json"
         >
-            {JSON.stringify(jsonLdObject)}
+            {JSON.stringify(jsonLdGraph)}
         </svelte:element>
     {/if}
 
