@@ -31,6 +31,9 @@
 
 <svelte:head>
     <script rel="preload" src={scriptSrc}></script>
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="AnonymousGCA - llms.txt">
+    <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="AnonymousGCA - Full text">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </svelte:head>
 
 <Seo>

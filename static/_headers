@@ -1,0 +1,13 @@
+# Cloudflare Pages headers
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+# This file is copied verbatim to the root of the built site by SvelteKit.
+
+# Link headers advertise the machine-readable versions of the site to AI
+# crawlers and agents (Content Signals / Markdown for Agents / llms.txt).
+/*
+  Link: <https://anonymousgca.eu/llms.txt>; rel="alternate"; type="text/markdown"
+  Link: <https://anonymousgca.eu/llms-full.txt>; rel="alternate"; type="text/markdown"
+  Link: <https://anonymousgca.eu/sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: <https://anonymousgca.eu/robots.txt>; rel="alternate"; type="text/plain"
+  Link: <https://anonymousgca.eu/manifest.json>; rel="manifest"
+  X-Content-Type-Options: nosniff
