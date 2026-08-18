@@ -2,6 +2,7 @@
     import {page} from "$app/state";
     import {resolve} from "$app/paths";
     import {onNavigate} from "$app/navigation";
+    import {tick} from "svelte";
     import SVGWave from "$lib/components/SVGWave.svelte";
     import AnimatedWave from "$lib/components/AnimatedWave.svelte";
     import 'bootstrap/dist/css/bootstrap.min.css';
@@ -66,10 +67,38 @@
         return href === '/' ? pathname === '/' : pathname.startsWith(href);
     }
 
+    async function waitForMenuClose() {
+        await tick();
+
+        const collapse = document.querySelector('.navbar-collapse');
+        if (!collapse) return;
+
+        await new Promise((resolve) => {
+            let settled = false;
+            let timer;
+
+            const finish = () => {
+                if (settled) return;
+                settled = true;
+                collapse.removeEventListener('transitionend', onTransitionEnd);
+                clearTimeout(timer);
+                resolve();
+            };
+
+            const onTransitionEnd = (event) => {
+                if (event.target === collapse && (event.propertyName === 'grid-template-rows' || event.propertyName === 'visibility')) {
+                    finish();
+                }
+            };
+
+            collapse.addEventListener('transitionend', onTransitionEnd);
+            timer = setTimeout(finish, 400);
+        });
+    }
+
     onNavigate((navigation) => {
-        // Keep the navbar stable while the route transition runs: make sure it is
-        // visible in both the old and new snapshots and no stale scroll state
-        // decides to hide it mid-transition.
+        const wasMenuOpen = menuOpen;
+
         navHidden = false;
         lastScrollY = window.scrollY;
         if (scrollFrame) {
@@ -82,12 +111,21 @@
             return;
         }
 
-        return new Promise((resolveTransition) => {
+        const startTransition = () => new Promise((resolveTransition) => {
             document.startViewTransition(async () => {
                 resolveTransition();
                 await navigation.complete;
             });
         });
+
+        if (!wasMenuOpen) {
+            return startTransition();
+        }
+
+        return (async () => {
+            await waitForMenuClose();
+            return startTransition();
+        })();
     });
 
 </script>
@@ -120,13 +158,13 @@
                 <div class="collapse navbar-collapse" class:show={menuOpen} id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" class:active={isActive('/')} href={resolve('/')} aria-current={isActive('/') ? 'page' : undefined} onclick={closeMenu}><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+                            <a class="nav-link" class:active={isActive('/')} href={resolve('/')} aria-current={isActive('/') ? 'page' : undefined}><i class="fas fa-home" aria-hidden="true"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" class:active={isActive('/contacts')} href={resolve('/contacts')} aria-current={isActive('/contacts') ? 'page' : undefined} onclick={closeMenu}><i class="fas fa-address-book" aria-hidden="true"></i> Contacts</a>
+                            <a class="nav-link" class:active={isActive('/contacts')} href={resolve('/contacts')} aria-current={isActive('/contacts') ? 'page' : undefined}><i class="fas fa-address-book" aria-hidden="true"></i> Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" class:active={isActive('/projects')} href={resolve('/projects')} aria-current={isActive('/projects') ? 'page' : undefined} onclick={closeMenu}><i class="fas fa-project-diagram" aria-hidden="true"></i> Projects</a>
+                            <a class="nav-link" class:active={isActive('/projects')} href={resolve('/projects')} aria-current={isActive('/projects') ? 'page' : undefined}><i class="fas fa-project-diagram" aria-hidden="true"></i> Projects</a>
                         </li>
                         <li class="nav-item dropdown">
                             <button class="nav-link dropdown-toggle" class:active={isActive('/utility')} type="button"
@@ -137,12 +175,12 @@
                                 id="utilityMenu"
                                 aria-labelledby="utilityDropdown">
                                 <li>
-                                    <a class="dropdown-item" href={resolve('/utility/universita')} onclick={closeMenu}>
+                                    <a class="dropdown-item" href={resolve('/utility/universita')}>
                                         <i class="fas fa-graduation-cap me-2"></i>Università
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href={resolve('/utility/ade')} onclick={closeMenu}>
+                                    <a class="dropdown-item" href={resolve('/utility/ade')}>
                                         <i class="fas fa-microchip me-2"></i>ADE
                                     </a>
                                 </li>
@@ -150,7 +188,7 @@
                                     <hr class="dropdown-divider"/>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href={resolve('/utility/game')} onclick={closeMenu}>
+                                    <a class="dropdown-item" href={resolve('/utility/game')}>
                                         <i class="fas fa-gamepad me-2"></i>Game
                                     </a>
                                 </li>
