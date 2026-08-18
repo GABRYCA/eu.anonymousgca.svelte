@@ -2,17 +2,44 @@
     import SVGWave from "$lib/components/SVGWave.svelte";
     import StackCard from "$lib/components/StackCard.svelte";
     import {scrollAnimation} from "$lib/actions/scrollAnimation.js";
+    import {onMount} from "svelte";
+    import {quintOut} from "svelte/easing";
 
     let {data} = $props();
 
     /** @type {Record<string, boolean>} */
     let expanded = $state({});
+    let reducedMotion = $state(false);
+
+    onMount(() => {
+        const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const updateMotionPreference = () => reducedMotion = media.matches;
+        updateMotionPreference();
+        media.addEventListener('change', updateMotionPreference);
+
+        return () => media.removeEventListener('change', updateMotionPreference);
+    });
 
     /**
      * @param {string} id
      */
     function togglePreview(id) {
         expanded[id] = !expanded[id];
+    }
+
+    /**
+     * Smooth grid-rows reveal for the preview iframe.
+     * Avoids the end-of-transition "snap" caused by animating only the frame's
+     * height while its margin/gap are removed at the very last moment.
+     * @param {HTMLElement} node
+     * @param {{duration?: number}} options
+     */
+    function previewReveal(node, {duration = 360} = {}) {
+        return {
+            duration,
+            easing: quintOut,
+            css: (t) => `grid-template-rows: ${t}fr; opacity: ${t}; margin-top: ${(t - 1) * 0.9}rem;`
+        };
     }
 
     /**
@@ -113,20 +140,24 @@
                         </div>
 
                         {#if isOpen}
-                            <div class="browser-frame" id="preview-{index}">
-                                <div class="browser-frame__chrome" aria-hidden="true">
-                                    <span class="dot dot--red"></span>
-                                    <span class="dot dot--yellow"></span>
-                                    <span class="dot dot--green"></span>
-                                    <span class="browser-frame__url">{hostLabel(website.url)}</span>
+                            <div class="preview-reveal" transition:previewReveal={{duration: reducedMotion ? 0 : 360}}>
+                                <div class="preview-reveal__inner">
+                                    <div class="browser-frame" id="preview-{index}">
+                                        <div class="browser-frame__chrome" aria-hidden="true">
+                                            <span class="dot dot--red"></span>
+                                            <span class="dot dot--yellow"></span>
+                                            <span class="dot dot--green"></span>
+                                            <span class="browser-frame__url">{hostLabel(website.url)}</span>
+                                        </div>
+                                        <iframe
+                                            src={website.url}
+                                            class="browser-frame__viewport"
+                                            title="Live preview of {website.title}"
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer"
+                                        ></iframe>
+                                    </div>
                                 </div>
-                                <iframe
-                                    src={website.url}
-                                    class="browser-frame__viewport"
-                                    title="Live preview of {website.title}"
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer"
-                                ></iframe>
                             </div>
                         {/if}
                     </article>
@@ -362,6 +393,21 @@
         outline-offset: 2px;
     }
 
+    .btn-preview:active,
+    .btn-visit:active {
+        transform: scale(0.97);
+    }
+
+    .preview-reveal {
+        display: grid;
+        grid-template-rows: 1fr;
+    }
+
+    .preview-reveal__inner {
+        min-height: 0;
+        overflow: hidden;
+    }
+
     .browser-frame {
         margin-top: 0.35rem;
         border-radius: 0.9rem;
@@ -369,7 +415,7 @@
         border: 1px solid var(--border-glow);
         background: hsla(0, 0%, 0%, 0.45);
         box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.03);
-        animation: frame-in 0.4s var(--ease-out-expo);
+        transform-origin: top;
     }
 
     .browser-frame__chrome {
@@ -413,17 +459,6 @@
         background: hsl(280, 40%, 6%);
     }
 
-    @keyframes frame-in {
-        from {
-            opacity: 0;
-            transform: translateY(8px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
     @media (prefers-reduced-motion: reduce) {
         .project-card,
         .btn-preview,
@@ -435,7 +470,9 @@
 
         .project-card:hover,
         .btn-preview:hover,
-        .btn-visit:hover {
+        .btn-visit:hover,
+        .btn-preview:active,
+        .btn-visit:active {
             transform: none;
         }
     }

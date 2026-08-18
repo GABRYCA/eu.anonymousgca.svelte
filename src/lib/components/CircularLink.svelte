@@ -1,17 +1,24 @@
 <script>
     import {tooltip} from 'svelte-tooltip-gca';
+    import {resolve as resolvePath} from '$app/paths';
     import {primaryTooltipTheme} from '$lib/tooltipThemes.js';
 
     /** @type {{icon?: string, title?: string, link?: string}} */
     let {icon = 'fas fa-code', title = 'Code', link = '#'} = $props();
+    const external = $derived(!link.startsWith('/') && !link.startsWith('mailto:'));
+
+    function resolve(value) {
+        return value.startsWith('/') ? resolvePath(value) : value;
+    }
+
 </script>
 
 <div class="col-3">
-    <a href="{link}" target="_blank" aria-label="{link}"
+    <a href={resolve(link)} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} aria-label={title}
        use:tooltip={{ content: title, placement: 'top', theme: primaryTooltipTheme }}>
         <span class="fa-stack fa-2x light-span">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="{icon} fa-stack-1x fa-inverse hover-effect-icons"></i>
+            <i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="{icon} fa-stack-1x fa-inverse hover-effect-icons" aria-hidden="true"></i>
         </span>
     </a>
 </div>
@@ -36,6 +43,12 @@
         color: rgba(255, 0, 170, 0.5);
         filter: drop-shadow(0 0 0.5rem #d34cff);
         animation: shadow 3s infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fa-circle {
+            animation: none;
+        }
     }
 
     @keyframes shadow {

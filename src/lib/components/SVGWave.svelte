@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col px-0">
-        <svg id="wave" style="transform:rotate({rotation}deg);" viewBox="0 0 1440 {height}"
+        <svg aria-hidden="true" focusable="false" style="transform:rotate({rotation}deg);" viewBox="0 0 1440 {height}"
              xmlns="http://www.w3.org/2000/svg">
             <path fill-opacity="0.25"
                   d="{data}"></path>

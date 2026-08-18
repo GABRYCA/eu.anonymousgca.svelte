@@ -26,6 +26,67 @@ body {
     background: linear-gradient(105deg, var(--background-gradient-start) 50%, var(--background-gradient-end) 140%);
     color: var(--text-color-light);
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+html {
+    color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (view-transition-name: root) {
+        ::view-transition-old(root) {
+            animation: route-out 0.18s ease both;
+        }
+
+        ::view-transition-new(root) {
+            animation: route-in 0.3s var(--ease-out-expo) both;
+        }
+    }
+}
+
+@keyframes route-out {
+    to {
+        opacity: 0;
+        transform: translateY(-0.35rem);
+    }
+}
+
+@keyframes route-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.35rem);
+    }
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 1100;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.5rem;
+    background: var(--text-color-light);
+    color: var(--background-gradient-start);
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+h1,
+h2,
+h3 {
+    text-wrap: balance;
 }
 
 .text-muted,
@@ -155,21 +216,91 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .home-page .animate-text {
-    background-image: linear-gradient(
-            -225deg,
-            var(--primary-color) 0%,
-            hsl(1, 100%, 61%) 29%,
-            hsl(29, 100%, 63%) 67%,
-            var(--primary-color) 100%
-    );
-    background-size: 200% auto;
+    color: var(--primary-color);
+    text-shadow: 0 0 1rem var(--primary-color-glow);
+}
+
+.home-hero {
+    min-height: clamp(32rem, 72vh, 48rem);
+    padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.home-hero__title {
+    max-width: 17ch;
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.home-hero__lead {
+    max-width: 34rem;
+    margin: 1.25rem auto 0;
+    color: var(--text-soft);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.6;
+}
+
+.home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.home-hero__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.05rem;
+    border: 1px solid var(--border-glow);
+    border-radius: 999px;
     color: var(--text-color-light);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 5s linear infinite;
-    transform: translateZ(0);
-    will-change: transform, background-position;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.home-hero__action--primary {
+    border-color: var(--primary-color);
+    background: var(--primary-color-soft);
+    color: var(--text-color-light);
+}
+
+.home-hero__action:hover,
+.home-hero__action:focus-visible {
+    border-color: var(--primary-color);
+    background: hsla(287, 100%, 65%, 0.2);
+    color: var(--text-color-light);
+    transform: translateY(-2px);
+}
+
+.home-section {
+    scroll-margin-top: 5rem;
+}
+
+@media (min-width: 992px) {
+    .home-hero__lead {
+        margin-inline: 0;
+    }
+
+    .home-hero__actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .home-hero {
+        min-height: 35rem;
+    }
+
+    .home-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+        padding-inline: 1rem;
+    }
 }
 
 .home-page .custom-shadow {
@@ -203,29 +334,12 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-@keyframes textclip {
-    to {
-        background-position: 200% center;
-    }
-}
-
-@keyframes aitf {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
 /* From contacts/+page.svelte */
 .contacts-page .contacts-title {
-    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    text-shadow: 0 0 1rem var(--primary-color-glow);
     animation: lights 3s ease-in-out infinite;
-    font-size: 3rem;
+    font-size: clamp(2.25rem, 5vw, 3rem);
 }
 
 @media (min-width: 768px) {
@@ -258,31 +372,41 @@ body::-webkit-scrollbar-thumb:hover {
     color: rgba(48, 0, 35, 0.5);
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .skip-link,
+    .home-hero__action {
+        transition: none;
+    }
+
+    .home-hero__action:hover,
+    .home-hero__action:focus-visible {
+        transform: none;
+    }
+}
+
 .projects-page .projects-title {
-    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    text-shadow: 0 0 1rem var(--primary-color-glow);
     animation: lights 3s ease-in-out infinite;
-    font-size: 3rem;
+    font-size: clamp(2.25rem, 5vw, 3rem);
 }
 
 .projects-page .webstack-title {
-    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    text-shadow: 0 0 1rem var(--primary-color-glow);
     animation: lights 3s ease-in-out infinite;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .university-page .university-title {
-    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    text-shadow: 0 0 1rem var(--primary-color-glow);
     animation: lights 3s ease-in-out infinite;
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: bold;
 }
 

@@ -52,7 +52,7 @@ const animations = {
  */
 export function scrollAnimation(element, options = {}) {
     if (!browser) return;
-    
+
     const {
         animation = 'fade-up',
         delay = 0,
@@ -66,34 +66,58 @@ export function scrollAnimation(element, options = {}) {
     if (prefersReducedMotion) {
         element.style.opacity = '1';
         element.style.transform = 'none';
+        element.style.transition = 'none';
         return;
     }
-    
+
+    if (!('IntersectionObserver' in window)) {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+        element.style.transition = 'none';
+        return;
+    }
+
     const animationConfig = animations[animation] || animations['fade-up'];
     let hasAnimated = false;
-    
-    // Apply initial styles
-    const applyStyles = (styles) => {
+    let timer;
+
+    // Apply styles
+    const applyStyles = (styles, transition = true) => {
         element.style.opacity = styles.opacity;
         element.style.transform = styles.transform;
-        element.style.transition = `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+        element.style.transition = transition
+            ? `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`
+            : 'none';
     };
-    
-    // Set initial state
-    applyStyles(animationConfig.initial);
-    
+
+    const rect = element.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    const isAboveViewport = rect.bottom <= 0;
+
+    if (isInViewport || isAboveViewport) {
+        hasAnimated = true;
+        applyStyles(animationConfig.animate, false);
+    } else {
+        applyStyles(animationConfig.initial, false);
+    }
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     if (once && hasAnimated) return;
-                    
-                    setTimeout(() => {
+
+                    hasAnimated = true;
+                    timer = window.setTimeout(() => {
                         applyStyles(animationConfig.animate);
-                        hasAnimated = true;
                     }, delay);
                 } else if (!once) {
-                    applyStyles(animationConfig.initial);
+                    if (timer) {
+                        window.clearTimeout(timer);
+                        timer = undefined;
+                    }
+                    hasAnimated = false;
+                    applyStyles(animationConfig.initial, false);
                 }
             });
         },
@@ -102,15 +126,16 @@ export function scrollAnimation(element, options = {}) {
             rootMargin
         }
     );
-    
+
     observer.observe(element);
-    
+
     return {
         update(newOptions) {
             Object.assign(options, newOptions);
         },
         destroy() {
             observer.disconnect();
+            if (timer) window.clearTimeout(timer);
         }
     };
 }

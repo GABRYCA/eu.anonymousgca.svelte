@@ -5,7 +5,7 @@
 
 <div class="row mt-5 mb-5 pt-1 pt-5">
     <div class="col px-0">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        <svg class="waves" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
              viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
                 <path id="gentle-wave" d="{data}"/>
@@ -17,7 +17,7 @@
                 <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba({rgb},1.0)"/>
             </g>
         </svg>
-        <svg style="transform: rotate(180deg); height: 150px" class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        <svg style="transform: rotate(180deg); height: 150px" class="waves" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
              viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
                 <path id="gentle-wave-flip" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
@@ -79,6 +79,12 @@
         .waves {
             height: 40px;
             min-height: 40px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .parallax > use {
+            animation: none;
         }
     }
 </style>
