@@ -14,3 +14,9 @@ AGENTS.md
 /PRODUCT.md
 /.impeccable/
 /.vscode/
+
+# Bun
+bun.lockb
+.wrangler/
+.dev.vars
+

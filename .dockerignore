@@ -5,6 +5,9 @@
 .gitignore
 .vscode
 build/
+.svelte-kit/
+.wrangler/
 node_modules/
 npm-debug.log*
+bun-debug.log*
 README.md

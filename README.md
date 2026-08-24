@@ -1,29 +1,48 @@
-# Info
-Official AnonymousGCA's Website, now with SvelteKit!
+# AnonymousGCA Website — SvelteKit 2 + Svelte 5 + Bun 1.4
 
-[Online Website!](https://www.anonymousgca.eu/)
+Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** via `@sveltejs/adapter-static`.
 
-Please note: May have not been deployed yet, soon I'll deploy the SvelteKit version here, for now, there could be the older version made with vanilla HTML, CSS, AOS, Javascript and Bootstrap.
+🔗 [Live Website](https://www.anonymousgca.eu/)
+
+## Stack
+
+- **Runtime / Package Manager:** [Bun 1.4.0](https://bun.sh) — replaces Node.js / npm
+- **Framework:** SvelteKit `2.70.3` + Svelte `5.56.10`
+- **Build:** Vite `8.2.2` (Rolldown) running under Bun runtime — 3-4× faster than Node
+- **Adapter:** `@sveltejs/adapter-static` with `precompress: true` (generates `.br` + `.gz`)
+- **Deploy target:** `build/` → Cloudflare Pages (static, no Worker)
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Requires **Bun ≥1.4.0** (`bun --version` should show `1.4.0`). Install via https://bun.sh.
 
 ```bash
-npm run dev
+# install dependencies (uses bun.lock text lockfile, binary cache)
+bun install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# dev server — Vite + SvelteKit under Bun runtime
+bun run dev
+# or with explicit Bun runtime flag for max speed
+bun --bun run dev
+
+# open in browser
+bun run dev -- --open --host
 ```
 
 ## Building
 
-To create a production version of your app:
-
 ```bash
-npm run build
+# production static build → build/
+bun run build
+
+# preview the static output locally
+bun run preview
+# or explicitly
+bun --bun vite preview --host --port 3000
 ```
 
-You can preview the production build with `npm run preview`.
+> The project no longer requires Node.js. All scripts run under Bun. If you have `node`/`npm` installed they are ignored; `engines.bun` and `packageManager: bun@1.4.0` enforce Bun.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Deployment — Cloudflare Pages (static)
+
+See `Cloudflare` section below for dashboard steps.

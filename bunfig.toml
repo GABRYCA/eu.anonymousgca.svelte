@@ -1,0 +1,33 @@
+# Bun 1.4 configuration — optimized for SvelteKit + Vite
+# https://bun.sh/docs/runtime/bunfig
+
+[install]
+# Use the new text-based lockfile (bun.lock) — readable, git-friendly, faster diffs
+# Bun 1.4 defaults to bun.lock; lockfile migration from package-lock.json is automatic.
+frozenLockfile = false
+# Cache is enabled by default and stored in OS cache dir (~/.bun/install/cache)
+# Keep it enabled for fastest installs
+cache = true
+# Save exact versions by default? keep semver ranges
+exact = false
+# Auto-install peerDependencies
+auto = "auto"
+
+# Only esbuild needs a trusted lifecycle script (native binary download).
+# All other packages install without running untrusted scripts — faster + safer.
+[install.trustedDependencies]
+esbuild = true
+
+[run]
+# Use Bun's shell for package.json scripts (faster, cross-platform)
+shell = "bun"
+# Bun runtime for `bun run` — no Node.js needed
+bun = true
+
+[test]
+# Bun's test runner (not used here but configured for future)
+preload = []
+
+# Registry defaults (npmjs.org) — override only if you use a private registry
+# [install.registry]
+# url = "https://registry.npmjs.org"
