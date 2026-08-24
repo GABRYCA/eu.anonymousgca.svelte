@@ -4,6 +4,11 @@
 [install]
 # Use the new text-based lockfile (bun.lock) — readable, git-friendly, faster diffs
 # Bun 1.4 defaults to bun.lock; lockfile migration from package-lock.json is automatic.
+# CLOUDFLARE WORKAROUND (Aug 2026): Cloudflare Pages still auto-detects only bun.lockb (binary)
+# for `bun install`. This repo keeps BOTH: bun.lock (real, committed) + empty bun.lockb (0 bytes,
+# for detection). Bun locally prefers bun.lock, so empty bun.lockb is harmless but makes Pages
+# detect Bun. Even with that, Pages does NOT run install automatically — you MUST set Build command
+# to `bun install --frozen-lockfile && bun run build` (see README).
 frozenLockfile = false
 # Cache is enabled by default and stored in OS cache dir (~/.bun/install/cache)
 # Keep it enabled for fastest installs

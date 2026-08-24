@@ -45,4 +45,63 @@ bun --bun vite preview --host --port 3000
 
 ## Deployment — Cloudflare Pages (static)
 
-See `Cloudflare` section below for dashboard steps.
+This is a **static** site (`adapter-static` → `build/`). Cloudflare Pages serves `build/` directly — no Worker, no `wrangler.jsonc`.
+
+### Why `vite: command not found` happens and how to fix it
+
+```
+Detected tools: bun@1.4.0, nodejs@22.16.0
+Installing Bun v1.4.0...
+Executing user command: bun run build
+$ vite build
+bun: command not found: vite
+```
+
+Cloudflare **provisions** Bun when you set `BUN_VERSION`, but **does not** run `bun install` automatically for the new text lockfile `bun.lock` (Bun ≥1.2). It only auto-detects `bun.lockb` (binary), `package-lock.json`, `yarn.lock`, etc. So `node_modules/.bin/vite` is never created → build fails. This is a known Cloudflare Pages gap (see https://khaledwaleed.com/writing/bun-on-cloudflare-pages).
+
+This repo now includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`** (0 bytes) as a workaround — Bun locally prefers `bun.lock`, but Cloudflare detects `bun.lockb` and would auto-install. Even so, **you must chain the install** in the build command (the only reliable fix as of Aug 2026).
+
+### Cloudflare Dashboard — correct settings
+
+**Pages → your project → Settings → Builds & deployments → Build configuration → Edit:**
+
+| Setting | Value |
+|---|---|
+| **Framework preset** | `SvelteKit` (or `None`) |
+| **Build command** | `bun install --frozen-lockfile && bun run build` <br>*(if you get a 403 on Bun download, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)* |
+| **Build output directory** | `build` |
+| **Root directory** | `/` (leave empty) |
+| **Production branch** | `main` |
+
+**Pages → Settings → Variables and Secrets → Add:**
+
+| Variable | Value | Type |
+|---|---|---|
+| `BUN_VERSION` | `1.4.0` | Plaintext |
+| `SKIP_DEPENDENCY_INSTALL` | `true` | Plaintext *(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)* |
+| `NODE_VERSION` | *(delete if present — not needed; Bun replaces Node)* | — |
+
+**Do NOT** add `wrangler.jsonc` — not used for static Pages. The previous `wrangler.jsonc` (`assets: .svelte-kit/cloudflare`) was for `adapter-cloudflare` Workers and is now removed.
+
+### Verify
+
+Next deploy log should show:
+
+```
+Installing project dependencies: bun install --frozen-lockfile
+...
+56 packages installed
+...
+✓ built in ...s
+Wrote site to "build"
+```
+
+If you see `npm install` in the log while you use Bun, the `SKIP_DEPENDENCY_INSTALL=true` + chained build command is not set correctly.
+
+### Local → Cloudflare parity check
+
+```bash
+rm -rf node_modules build
+bun install --frozen-lockfile && bun run build
+# must succeed; if `bun run build` alone fails with `vite: command not found`, Cloudflare will also fail
+```

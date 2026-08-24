@@ -15,8 +15,11 @@ AGENTS.md
 /.impeccable/
 /.vscode/
 
-# Bun
-bun.lockb
+# Bun - keep BOTH lockfiles for Cloudflare Pages compat
+# bun.lock is the new text lockfile (Bun 1.4 default, committed)
+# bun.lockb is the legacy binary lockfile — keep empty file to trigger Cloudflare's Bun detection
+# (Bun locally prefers bun.lock, so empty bun.lockb is ignored)
+# Do NOT ignore bun.lockb here
 .wrangler/
 .dev.vars
 
