@@ -6,7 +6,7 @@ Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** vi
 
 ## Stack
 
-- **Runtime / Package Manager:** [Bun 1.4.0](https://bun.sh) — replaces Node.js / npm
+- **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh) — replaces Node.js / npm
 - **Framework:** SvelteKit `2.70.3` + Svelte `5.56.10`
 - **Build:** Vite `8.2.2` (Rolldown) running under Bun runtime — 3-4× faster than Node
 - **Adapter:** `@sveltejs/adapter-static` with `precompress: true` (generates `.br` + `.gz`)
@@ -14,7 +14,7 @@ Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** vi
 
 ## Developing
 
-Requires **Bun ≥1.4.0** (`bun --version` should show `1.4.0`). Install via https://bun.sh.
+Requires **Bun ≥1.4.2** (`bun --version` should show `1.4.2`). Install via https://bun.sh.
 
 ```bash
 # install dependencies (uses bun.lock text lockfile, binary cache)
@@ -41,7 +41,7 @@ bun run preview
 bun --bun vite preview --host --port 3000
 ```
 
-> The project no longer requires Node.js. All scripts run under Bun. If you have `node`/`npm` installed they are ignored; `engines.bun` and `packageManager: bun@1.4.0` enforce Bun.
+> The project no longer requires Node.js. All scripts run under Bun. If you have `node`/`npm` installed they are ignored; `engines.bun` and `packageManager: bun@1.4.2` enforce Bun.
 
 ## Deployment — Cloudflare Pages (static)
 
@@ -50,8 +50,8 @@ This is a **static** site (`adapter-static` → `build/`). Cloudflare Pages serv
 ### Why `vite: command not found` happens and how to fix it
 
 ```
-Detected tools: bun@1.4.0, nodejs@22.16.0
-Installing Bun v1.4.0...
+Detected tools: bun@1.4.2, nodejs@22.16.0
+Installing Bun v1.4.2...
 Executing user command: bun run build
 $ vite build
 bun: command not found: vite
@@ -77,7 +77,7 @@ This repo now includes **both** `bun.lock` (text, primary) and an **empty `bun.l
 
 | Variable | Value | Type |
 |---|---|---|
-| `BUN_VERSION` | `1.4.0` | Plaintext |
+| `BUN_VERSION` | `1.4.2` | Plaintext |
 | `SKIP_DEPENDENCY_INSTALL` | `true` | Plaintext *(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)* |
 | `NODE_VERSION` | *(delete if present — not needed; Bun replaces Node)* | — |
 
