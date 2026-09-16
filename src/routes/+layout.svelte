@@ -252,7 +252,7 @@
                     <div class="col-lg-6 col-md-12 mb-md-0">
                         <h2 class="h5 footer-heading">AnonymousGCA</h2>
                         <p class="footer-copy">
-                            Hi! I'm AnonymousGCA, a web developer, university student and RoboCup programmer.
+                            Hi! I'm AnonymousGCA, a full-stack developer, web, mobile, and university student.
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-md-0">
