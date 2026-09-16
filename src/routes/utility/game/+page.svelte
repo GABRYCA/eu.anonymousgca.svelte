@@ -6,8 +6,9 @@
     <header class="page-hero mb-4">
         <h1 class="page-hero__title game-title">Neon Grove</h1>
         <p class="page-hero__lead">
-            A simple web-RPG concept that I've made. Wander a neon forest, poke friendly NPCs,
-            bonk glitch-slimes, and stitch the night back together with three Source Shards.
+            A tiny web-RPG adventure in three levels. Wander the grove, haggle in the marsh,
+            and face the Null King in the Core — shards, stardust, level-ups and a boss that
+            carries the final shard. Progress autosaves in your browser until you erase it.
         </p>
     </header>
 
@@ -16,11 +17,13 @@
     <section class="panel-surface tips mt-4 p-3 p-md-4">
         <h2 class="h5 mb-3 tips-title">How to play</h2>
         <ul class="tips-list mb-0">
-            <li><strong>Start</strong> with Space, Enter, or the big Action button.</li>
+            <li><strong>Start</strong> with Space, Enter, or the big Action button — or Continue your saved run.</li>
             <li><strong>Walk</strong> with WASD / arrow keys, or the on-screen D-pad on mobile.</li>
-            <li><strong>Talk & loot</strong> by facing Owlbit, Fox.exe, chests, or shards, then pressing Action.</li>
-            <li><strong>Battle</strong> when you bump a slime: Attack, drink a Glow Potion, or Flee.</li>
-            <li><strong>Win</strong> by collecting all three shards and stepping on the portal.</li>
+            <li><strong>Talk & loot</strong> by facing Owlbit, Marrow, chests, keys, or shards, then pressing Action. Coins, hearts, and keys pop on touch.</li>
+            <li><strong>Battle</strong> when you bump a foe: Attack, drink a Glow Potion, or Flee (the Null King won't let you).</li>
+            <li><strong>Grow</strong>: bonking foes earns XP and stardust. Level up for +1 max HP; spend stardust at Marrow's shop.</li>
+            <li><strong>Win</strong>: clear Lv.1 Grove (3 shards), Lv.2 Marsh (4 shards + locked chest), then Lv.3 Core — where the boss holds the 5th shard.</li>
+            <li><strong>Saves</strong> persist in localStorage across visits; erase them only with the Erase button.</li>
         </ul>
     </section>
 </div>
