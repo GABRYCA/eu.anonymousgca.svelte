@@ -240,3 +240,17 @@
     -->
 
 </div>
+
+<style>
+    .bg-primary {
+        background: var(--azure-soft) !important;
+    }
+
+    .text-primary {
+        color: var(--azure) !important;
+    }
+
+    .rounded-3 {
+        border-radius: var(--radius-card) !important;
+    }
+</style>

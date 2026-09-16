@@ -30,16 +30,11 @@ Socials and Development:
 
 ## 2. Projects — https://anonymousgca.eu/projects
 
-Selected work: live websites and the tools behind them.
+Selected work: live websites, Svelte packages and components, university projects and VS Code tooling.
 
 Featured sites (2):
 - MZEYFILMS — https://mzeyfilms.com — MZEYFILMS's cinematic portfolio website. Tech: SvelteKit, Bootstrap, Pocketbase.
 - Ristorante Aquazzurra Resort — https://ristoranteaquazzurrasveltekit.netlify.app/ — a simple restaurant website. Tech: SvelteKit, UI design, Static.
-
-Core tools (3):
-- SvelteKit — a framework for building web applications of all sizes with a powerful development experience. https://kit.svelte.dev
-- Bootstrap — a powerful, extensible and feature-packed frontend toolkit for responsive web development. https://getbootstrap.com/
-- PocketBase — an open source backend consisting of an embedded database with realtime subscriptions and built-in auth. https://pocketbase.io/
 
 ---
 

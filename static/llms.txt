@@ -5,7 +5,7 @@
 ## Pages
 
 - [Home](https://anonymousgca.eu/): Introduction to AnonymousGCA: web developer, web designer, SvelteKit enthusiast, university student. Lists skills, contact channels and socials (GitHub, YouTube, Reddit, Discord, Crypto/Web3 profile).
-- [Projects](https://anonymousgca.eu/projects): Selected live websites (MZEYFILMS, Ristorante Aquazzurra Resort) and the core web stack behind them: SvelteKit, Bootstrap, PocketBase.
+- [Projects](https://anonymousgca.eu/projects): Live websites, Svelte packages and components, university projects and VS Code tooling.
 - [Contacts](https://anonymousgca.eu/contacts): Direct ways to reach AnonymousGCA: email, LinkedIn, GitHub, Discord, YouTube, Reddit, Web3 profile.
 - [Collection](https://anonymousgca.eu/collection): Raspberry Pi Zero 2W and Orange Pi Zero 2W single-board computer homelab: specs, usage, swap problems and lessons learned.
 - [Neon Grove (Pixel RPG)](https://anonymousgca.eu/utility/game): Free browser pixel RPG by AnonymousGCA. Wander a neon forest, talk to Owlbit and Fox.exe, fight glitch-slimes and restore the portal by collecting three Source Shards.

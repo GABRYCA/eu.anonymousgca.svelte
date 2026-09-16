@@ -23,3 +23,5 @@ AGENTS.md
 .wrangler/
 .dev.vars
 
+/DESIGN.md
+/CHANGELOG.md

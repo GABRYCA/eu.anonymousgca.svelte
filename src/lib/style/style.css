@@ -1,46 +1,147 @@
 :root {
-    --primary-color: hsl(287, 100%, 65%);
-    --primary-color-soft: hsla(287, 100%, 65%, 0.18);
-    --primary-color-glow: hsla(287, 100%, 65%, 0.45);
-    --accent-crimson: hsl(0, 100%, 58%);
-    --surface-dark: hsla(281, 100%, 9%, 0.55);
-    --surface-darker: hsla(285, 100%, 6%, 0.72);
-    --border-glow: hsla(287, 100%, 65%, 0.28);
-    --border-glow-strong: hsla(287, 100%, 65%, 0.55);
-    --text-soft: hsla(300, 40%, 92%, 0.78);
-    --background-gradient-start: hsl(279, 100%, 9%);
-    --background-gradient-end: hsl(0, 100%, 10%);
-    --scrollbar-thumb-color: hsl(281, 100%, 16%);
-    --scrollbar-thumb-hover-color: hsl(281, 100%, 26%);
-    --text-color-light: hsl(0, 0%, 100%);
-    --text-shadow-color: hsl(0, 0%, 0%);
-    --font-family-sans-serif: 'Roboto', sans-serif;
-    --text-shadow: 2px 2px var(--text-shadow-color);
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --radius-card: 1rem;
-    --radius-panel: 1.25rem;
-}
+    /* Ground — true black for OLED */
+    --bg: #000000;
+    --surface: #06080d;
+    --surface-2: #0b0f16;
+    --surface-ink: #0d1119;
 
-body {
-    font-family: var(--font-family-sans-serif) !important;
-    background: linear-gradient(105deg, var(--background-gradient-start) 50%, var(--background-gradient-end) 140%);
-    color: var(--text-color-light);
-    min-height: 100vh;
-    overflow-x: hidden;
+    /* EU azure — primary accent */
+    --azure: #4c8dff;
+    --azure-bright: #7fb2ff;
+    --azure-deep: #0a2a6b;
+    --azure-dark: #061a3f;
+    --azure-soft: rgba(76, 141, 255, 0.14);
+    --azure-line: rgba(76, 141, 255, 0.38);
+
+    /* EU gold — punctuation only */
+    --gold: #ffcc00;
+    --gold-soft: rgba(255, 204, 0, 0.14);
+    --gold-line: rgba(255, 204, 0, 0.45);
+
+    /* Ink */
+    --ink: #f4f1e9;
+    --ink-soft: rgba(244, 241, 233, 0.68);
+    --ink-faint: rgba(244, 241, 233, 0.42);
+    --line: rgba(244, 241, 233, 0.16);
+    --line-strong: rgba(244, 241, 233, 0.34);
+    --danger: #ff6b6b;
+    --success: #2ecc71;
+
+    /* Legacy aliases (utility pages keep working) */
+    --primary-color: var(--azure);
+    --primary-color-soft: var(--azure-soft);
+    --primary-color-glow: rgba(76, 141, 255, 0.4);
+    --accent-crimson: var(--gold);
+    --surface-dark: rgba(6, 8, 13, 0.92);
+    --surface-darker: rgba(6, 8, 13, 0.96);
+    --border-glow: var(--line);
+    --border-glow-strong: var(--line-strong);
+    --text-soft: var(--ink-soft);
+    --scrollbar-thumb-color: #13294f;
+    --scrollbar-thumb-hover-color: #1d3f78;
+    --text-color-light: var(--ink);
+    --text-shadow-color: rgba(0, 0, 0, 0.65);
+    --text-shadow: none;
+
+    /* Type */
+    --font-family-sans-serif: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: 'Archivo', 'Roboto', system-ui, sans-serif;
+    --font-mono: 'Roboto Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --radius-card: 0.25rem;
+    --radius-panel: 0.375rem;
 }
 
 html {
     color-scheme: dark;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--bg);
 }
+
+body {
+    font-family: var(--font-family-sans-serif) !important;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--azure);
+    color: #000;
+}
+
+:focus-visible {
+    outline: 2px solid var(--azure);
+    outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 110;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+.display-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 118;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+}
+
+.label {
+    display: inline-block;
+    font-family: var(--font-family-sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.text-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.ink-reveal {
+    animation: ink-reveal 0.75s var(--ease-out-expo) both;
+}
+
+@keyframes ink-reveal {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.text-muted,
+.text-soft {
+    color: var(--ink-soft) !important;
+}
+
+/* ── Route transitions: a left-to-right shutter ─────────────── */
 
 @media (prefers-reduced-motion: no-preference) {
     @supports (view-transition-name: root) {
         ::view-transition-old(root) {
-            animation: route-out 0.18s ease both;
+            animation: route-out 0.3s ease both;
         }
 
         ::view-transition-new(root) {
-            animation: route-in 0.3s var(--ease-out-expo) both;
+            animation: route-in 0.45s var(--ease-out-expo) both;
         }
     }
 }
@@ -48,20 +149,17 @@ html {
 @keyframes route-out {
     to {
         opacity: 0;
-        transform: translateY(-0.35rem);
+        transform: scale(0.99);
+        filter: blur(6px) brightness(0.75);
     }
 }
 
 @keyframes route-in {
     from {
         opacity: 0;
-        transform: translateY(0.35rem);
+        transform: scale(1.012);
+        filter: blur(6px) brightness(0.75);
     }
-}
-
-:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 3px;
 }
 
 .skip-link {
@@ -70,9 +168,9 @@ html {
     top: 0.75rem;
     left: 0.75rem;
     padding: 0.65rem 0.9rem;
-    border-radius: 0.5rem;
-    background: var(--text-color-light);
-    color: var(--background-gradient-start);
+    border-radius: var(--radius-card);
+    background: var(--azure);
+    color: #000;
     font-weight: 700;
     text-decoration: none;
     transform: translateY(-150%);
@@ -83,28 +181,7 @@ html {
     transform: translateY(0);
 }
 
-h1,
-h2,
-h3 {
-    text-wrap: balance;
-}
-
-.text-muted,
-.text-soft {
-    color: var(--text-soft) !important;
-}
-
-@keyframes lights {
-    0% {
-        filter: drop-shadow(0 0 0.35rem hsla(320, 100%, 55%, 0.35));
-    }
-    50% {
-        filter: drop-shadow(0 0 0.75rem hsla(0, 100%, 58%, 0.45));
-    }
-    100% {
-        filter: drop-shadow(0 0 0.35rem hsla(320, 100%, 55%, 0.35));
-    }
-}
+/* ── Page hero ──────────────────────────────────────────────── */
 
 .page-hero {
     position: relative;
@@ -112,46 +189,36 @@ h3 {
     overflow: hidden;
     border-radius: var(--radius-panel);
     padding: clamp(1.5rem, 4vw, 2.75rem);
-    background:
-        radial-gradient(ellipse 80% 70% at 12% 20%, hsla(287, 100%, 55%, 0.22), transparent 55%),
-        radial-gradient(ellipse 70% 60% at 88% 10%, hsla(0, 100%, 50%, 0.16), transparent 50%),
-        linear-gradient(145deg, hsla(0, 0%, 0%, 0.35), hsla(281, 100%, 9%, 0.2));
-    border: 1px solid var(--border-glow);
-    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.25), 0 20px 50px hsla(280, 100%, 4%, 0.35);
+    background: var(--surface);
+    border: 1px solid var(--line);
 }
 
 .page-hero::before {
     content: '';
     position: absolute;
-    inset: -40% auto auto 40%;
-    width: min(28rem, 70vw);
-    height: min(28rem, 70vw);
-    border-radius: 50%;
-    background: radial-gradient(circle, hsla(287, 100%, 65%, 0.18), transparent 65%);
+    top: -35%;
+    right: -7rem;
+    width: min(26rem, 60vw);
+    height: min(26rem, 60vw);
+    background: var(--azure-dark);
+    transform: rotate(12deg);
     pointer-events: none;
     z-index: -1;
-    animation: hero-orb 10s ease-in-out infinite alternate;
 }
 
-.page-hero__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.85rem;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    border: 1px solid var(--border-glow);
-    background: hsla(287, 100%, 65%, 0.1);
-    color: var(--primary-color);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+.page-hero::after {
+    content: '';
+    position: absolute;
+    left: clamp(1.5rem, 4vw, 2.75rem);
+    top: 0;
+    width: 4.5rem;
+    height: 3px;
+    background: var(--gold);
 }
 
 .page-hero__title {
     margin: 0 0 0.75rem;
-    line-height: 1.15;
-    text-wrap: balance;
+    line-height: 1.02;
 }
 
 .page-hero__lead {
@@ -159,65 +226,20 @@ h3 {
     margin: 0;
     font-size: clamp(1rem, 1.2vw, 1.125rem);
     line-height: 1.65;
-    color: var(--text-soft);
+    color: var(--ink-soft);
     text-wrap: pretty;
 }
 
 .panel-surface {
-    background: var(--surface-dark);
-    border: 1px solid var(--border-glow);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: var(--radius-card);
-    box-shadow: 0 12px 32px hsla(280, 100%, 4%, 0.28);
-    backdrop-filter: blur(10px);
 }
 
-@keyframes hero-orb {
-    from {
-        transform: translate3d(0, 0, 0) scale(1);
-        opacity: 0.85;
-    }
-    to {
-        transform: translate3d(-8%, 12%, 0) scale(1.12);
-        opacity: 1;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .page-hero::before,
-    .neon,
-    .home-page .animate-text,
-    .home-page .custom-shadow,
-    .contacts-page .contacts-title,
-    .projects-page .projects-title,
-    .projects-page .webstack-title,
-    .university-page .university-title,
-    .university-page .lode-icon,
-    .university-page .current-score-card::before {
-        animation: none !important;
-    }
-
-    .page-hero::before {
-        opacity: 0.7;
-    }
-}
-
-body::-webkit-scrollbar {
-    width: 10px;
-    background: var(--background-gradient-start);
-}
-
-body::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-color);
-    border-radius: 20px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover-color);
-}
+/* ── Home ───────────────────────────────────────────────────── */
 
 .home-page .animate-text {
-    color: var(--primary-color);
-    text-shadow: 0 0 1rem var(--primary-color-glow);
+    color: var(--azure);
 }
 
 .home-hero {
@@ -228,15 +250,17 @@ body::-webkit-scrollbar-thumb:hover {
 .home-hero__title {
     max-width: 17ch;
     margin: 0;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 112;
     font-size: clamp(2.25rem, 5vw, 4.8rem);
-    line-height: 1.05;
+    line-height: 1.02;
     letter-spacing: -0.03em;
 }
 
 .home-hero__lead {
     max-width: 34rem;
     margin: 1.25rem auto 0;
-    color: var(--text-soft);
+    color: var(--ink-soft);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.6;
 }
@@ -254,26 +278,32 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     justify-content: center;
     min-height: 2.9rem;
-    padding: 0.7rem 1.05rem;
-    border: 1px solid var(--border-glow);
-    border-radius: 999px;
-    color: var(--text-color-light);
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-card);
+    background: transparent;
+    color: var(--ink);
     font-weight: 700;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, background-color 0.2s ease;
+    transition:
+        transform 0.25s var(--ease-out-expo),
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .home-hero__action--primary {
-    border-color: var(--primary-color);
-    background: var(--primary-color-soft);
-    color: var(--text-color-light);
+    border-color: var(--azure);
+    background: var(--azure);
+    color: #000;
 }
 
 .home-hero__action:hover,
 .home-hero__action:focus-visible {
-    border-color: var(--primary-color);
-    background: hsla(287, 100%, 65%, 0.2);
-    color: var(--text-color-light);
+    border-color: var(--gold);
+    background: var(--gold);
+    color: #000;
     transform: translateY(-2px);
 }
 
@@ -303,43 +333,28 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-.home-page .custom-shadow {
-    filter: drop-shadow(0 0 0.5rem var(--primary-color));
-    animation: shadow 4s infinite, float 4s ease-in-out infinite;
+/* ── Page titles ────────────────────────────────────────────── */
+
+.contacts-page .contacts-title,
+.projects-page .projects-title,
+.university-page .university-title,
+.projects-page .webstack-title {
+    color: var(--ink);
+    text-shadow: none;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.contacts-page .contacts-title,
+.projects-page .projects-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
 }
 
-@keyframes shadow {
-    0% {
-        filter: drop-shadow(0 0 0.5rem var(--primary-color));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 0.5rem hsl(0, 100%, 58%));
-    }
-
-    100% {
-        filter: drop-shadow(0 0 0.5rem var(--primary-color));
-    }
+.projects-page .webstack-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-/* From contacts/+page.svelte */
-.contacts-page .contacts-title {
-    color: var(--primary-color);
-    text-shadow: 0 0 1rem var(--primary-color-glow);
-    animation: lights 3s ease-in-out infinite;
-    font-size: clamp(2.25rem, 5vw, 3rem);
+.university-page .university-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
 }
 
 @media (min-width: 768px) {
@@ -348,173 +363,103 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-.projects-page .btn {
-    background-color: hsla(310, 100%, 50%, 0.45) !important;
-    box-shadow: 3px 3px #000000 !important;
-    border: 1px solid hsla(310, 100%, 50%, 0) !important;
-    filter: drop-shadow(0 0 0.5rem var(--primary-color)) !important;
-    transition: all 0.15s ease-in-out;
-}
-
-.projects-page .btn:hover {
-    background-color: hsla(310, 100%, 50%, 0.3) !important;
-    border: 1px solid hsla(310, 100%, 50%, 0.8) !important;
-    color: var(--text-color-light) !important;
-}
-
-.projects-page .btn:focus {
-    background-color: hsla(310, 100%, 50%, 0.3) !important;
-    border: 1px solid hsla(310, 100%, 50%, 0.5) !important;
-    color: var(--text-color-light) !important;
-}
-
-.projects-page .fa-stack {
-    color: rgba(48, 0, 35, 0.5);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .skip-link,
-    .home-hero__action {
-        transition: none;
-    }
-
-    .home-hero__action:hover,
-    .home-hero__action:focus-visible {
-        transform: none;
-    }
-}
-
-.projects-page .projects-title {
-    color: var(--primary-color);
-    text-shadow: 0 0 1rem var(--primary-color-glow);
-    animation: lights 3s ease-in-out infinite;
-    font-size: clamp(2.25rem, 5vw, 3rem);
-}
-
-.projects-page .webstack-title {
-    color: var(--primary-color);
-    text-shadow: 0 0 1rem var(--primary-color-glow);
-    animation: lights 3s ease-in-out infinite;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-.university-page .university-title {
-    color: var(--primary-color);
-    text-shadow: 0 0 1rem var(--primary-color-glow);
-    animation: lights 3s ease-in-out infinite;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: bold;
-}
+/* ── Università (utility) ───────────────────────────────────── */
 
 .university-page .text-accent {
-    color: var(--primary-color) !important;
+    color: var(--azure) !important;
 }
 
 .university-page .border-custom {
-    border: 1px solid hsla(287, 100%, 65%, 0.3) !important;
+    border: 1px solid var(--azure-line) !important;
 }
 
 .university-page .form-control-custom {
-    background-color: hsla(281, 100%, 9%, 0.8) !important;
-    border: 1px solid hsla(287, 100%, 65%, 0.3) !important;
-    color: var(--text-color-light) !important;
-    transition: all 0.3s ease;
+    background-color: var(--surface-2) !important;
+    border: 1px solid var(--line) !important;
+    color: var(--ink) !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .university-page .form-control-custom:focus {
-    background-color: hsla(281, 100%, 9%, 0.9) !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 0.2rem hsla(287, 100%, 65%, 0.25) !important;
-    color: var(--text-color-light) !important;
+    background-color: var(--surface-ink) !important;
+    border-color: var(--azure) !important;
+    box-shadow: 0 0 0 0.2rem var(--azure-soft) !important;
+    color: var(--ink) !important;
 }
 
 .university-page .form-control-custom::placeholder {
-    color: hsla(0, 0%, 100%, 0.5) !important;
+    color: var(--ink-faint) !important;
 }
 
 .university-page .btn-custom {
-    background: linear-gradient(45deg, var(--primary-color), hsl(0, 100%, 58%));
+    background: var(--azure);
     border: none;
-    color: white;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.3);
+    border-radius: var(--radius-card);
+    color: #000;
+    font-weight: 700;
+    transition: background-color 0.25s ease, transform 0.25s var(--ease-out-expo), color 0.25s ease;
 }
 
 .university-page .btn-custom:hover:not(:disabled) {
+    background: var(--gold);
+    color: #000;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px hsla(287, 100%, 65%, 0.4);
-    filter: brightness(1.1);
 }
 
 .university-page .btn-custom:disabled {
-    opacity: 0.5;
+    opacity: 0.45;
     cursor: not-allowed;
 }
 
 .university-page .stat-card {
-    background: hsla(281, 100%, 9%, 0.6);
-    border: 1px solid hsla(287, 100%, 65%, 0.2);
-    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
     padding: 1rem;
-    transition: all 0.3s ease;
+    transition: border-color 0.25s ease, transform 0.25s var(--ease-out-expo);
 }
 
 .university-page .stat-card:hover {
-    border-color: hsla(287, 100%, 65%, 0.5);
-    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.2);
+    border-color: var(--azure-line);
+    transform: translateY(-2px);
 }
 
 .university-page .stat-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-color-light);
+    font-weight: 700;
+    color: var(--ink);
 }
 
 .university-page .stat-label {
     font-size: 0.9rem;
-    color: var(--primary-color);
+    color: var(--azure);
     font-weight: 600;
     margin-top: 0.25rem;
 }
 
 .university-page .projection-title {
-    color: var(--primary-color);
-    font-weight: bold;
+    color: var(--azure);
+    font-weight: 700;
     font-size: 1.25rem;
-    text-shadow: 0 0 10px hsla(287, 100%, 65%, 0.3);
 }
 
 .university-page .projection-section {
     padding: 1.5rem;
-    background: hsla(281, 100%, 9%, 0.3);
-    border-radius: 15px;
-    border: 1px solid hsla(287, 100%, 65%, 0.2);
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--line);
 }
 
 .university-page .current-score-card {
-    background: linear-gradient(135deg, hsla(287, 100%, 65%, 0.1), hsla(0, 100%, 58%, 0.1));
-    border: 2px solid hsla(287, 100%, 65%, 0.4);
-    border-radius: 12px;
+    background: var(--azure-dark);
+    border: 1px solid var(--azure-line);
+    border-radius: var(--radius-card);
     padding: 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-.university-page .current-score-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
-    animation: shimmer 3s infinite;
 }
 
 .university-page .score-header {
@@ -522,7 +467,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--azure);
     font-weight: 600;
 }
 
@@ -531,19 +476,20 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .university-page .score-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .university-page .current-score {
-    color: var(--text-color-light);
-    text-shadow: 0 0 15px hsla(287, 100%, 65%, 0.8);
+    color: var(--ink);
 }
 
 .university-page .score-max {
     font-size: 1.5rem;
-    color: hsla(0, 0%, 100%, 0.7);
+    color: var(--ink-soft);
 }
 
 .university-page .score-details {
@@ -557,33 +503,32 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .university-page .scenario-card {
-    background: hsla(281, 100%, 9%, 0.5);
-    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
     padding: 1.25rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: border-color 0.25s ease, transform 0.25s var(--ease-out-expo);
     position: relative;
 }
 
 .university-page .best-scenario {
-    border: 2px solid hsla(145, 63%, 49%, 0.5);
-    background: linear-gradient(135deg, hsla(145, 63%, 49%, 0.1), hsla(281, 100%, 9%, 0.5));
+    border-color: rgba(46, 204, 113, 0.5);
+    background: rgba(46, 204, 113, 0.08);
 }
 
 .university-page .best-scenario:hover {
-    border-color: hsla(145, 63%, 49%, 0.8);
-    box-shadow: 0 8px 25px hsla(145, 63%, 49%, 0.2);
+    border-color: rgba(46, 204, 113, 0.85);
     transform: translateY(-2px);
 }
 
 .university-page .worst-scenario {
-    border: 2px solid hsla(0, 84%, 60%, 0.5);
-    background: linear-gradient(135deg, hsla(0, 84%, 60%, 0.1), hsla(281, 100%, 9%, 0.5));
+    border-color: rgba(255, 107, 107, 0.5);
+    background: rgba(255, 107, 107, 0.08);
 }
 
 .university-page .worst-scenario:hover {
-    border-color: hsla(0, 84%, 60%, 0.8);
-    box-shadow: 0 8px 25px hsla(0, 84%, 60%, 0.2);
+    border-color: rgba(255, 107, 107, 0.85);
     transform: translateY(-2px);
 }
 
@@ -596,32 +541,32 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .university-page .best-scenario .scenario-header {
-    color: #22c55e;
+    color: var(--success);
 }
 
 .university-page .worst-scenario .scenario-header {
-    color: #ef4444;
+    color: var(--danger);
 }
 
 .university-page .scenario-score {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .university-page .best-score {
-    color: #22c55e;
-    text-shadow: 0 0 10px hsla(145, 63%, 49%, 0.5);
+    color: var(--success);
 }
 
 .university-page .worst-score {
-    color: #ef4444;
-    text-shadow: 0 0 10px hsla(0, 84%, 60%, 0.5);
+    color: var(--danger);
 }
 
 .university-page .scenario-details {
     margin-top: 0.5rem;
-    color: hsla(0, 0%, 100%, 0.7);
+    color: var(--ink-soft);
 }
 
 .university-page .exams-table {
@@ -631,11 +576,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .university-page .table-header th {
-    background: linear-gradient(135deg, hsla(287, 100%, 65%, 0.2), hsla(0, 100%, 58%, 0.2));
+    background: var(--azure-soft);
     border: none;
     padding: 1rem 0.75rem;
     font-weight: 600;
-    text-shadow: 0 0 8px hsla(287, 100%, 65%, 0.5);
+    color: var(--ink);
     position: relative;
 }
 
@@ -646,77 +591,72 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), hsl(0, 100%, 58%));
+    background: var(--azure);
 }
 
 .university-page .exam-name-col {
-    border-top-left-radius: 12px;
+    border-top-left-radius: var(--radius-card);
 }
 
 .university-page .actions-col {
-    border-top-right-radius: 12px;
+    border-top-right-radius: var(--radius-card);
 }
 
 .university-page .exam-row {
-    transition: all 0.3s ease;
-    background: hsla(281, 100%, 9%, 0.3);
+    transition: background-color 0.2s ease;
+    background: var(--surface);
 }
 
 .university-page .exam-row:hover {
-    background: hsla(287, 100%, 65%, 0.1) !important;
-    transform: scale(1.01);
+    background: var(--azure-soft) !important;
 }
 
 .university-page .exam-row td {
     border: none;
+    border-bottom: 1px solid var(--line);
     padding: 1rem 0.75rem;
     vertical-align: middle;
 }
 
 .university-page .exam-name {
-    color: var(--text-color-light);
+    color: var(--ink);
     font-size: 1rem;
 }
 
 .university-page .cfu-badge {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
+    background: var(--azure-deep);
+    color: var(--ink);
     padding: 0.5rem 0.75rem;
-    border-radius: 8px;
+    border-radius: var(--radius-card);
     font-weight: 600;
     font-size: 0.9rem;
-    box-shadow: 0 4px 10px hsla(224, 89%, 59%, 0.3);
-    border: 1px solid hsla(224, 89%, 59%, 0.5);
+    border: 1px solid var(--azure-line);
 }
 
 .university-page .grade-badge {
     padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: var(--radius-card);
+    font-weight: 700;
     font-size: 0.9rem;
-    text-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
     border: 1px solid;
 }
 
 .university-page .grade-excellent {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    border-color: hsla(145, 63%, 49%, 0.5);
-    box-shadow: 0 4px 10px hsla(145, 63%, 49%, 0.3);
+    background: var(--success);
+    color: #000;
+    border-color: var(--success);
 }
 
 .university-page .grade-good {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-    border-color: hsla(38, 92%, 52%, 0.5);
-    box-shadow: 0 4px 10px hsla(38, 92%, 52%, 0.3);
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
 }
 
 .university-page .grade-passing {
-    background: linear-gradient(135deg, #6b7280, #4b5563);
-    color: white;
-    border-color: hsla(220, 8%, 53%, 0.5);
-    box-shadow: 0 4px 10px hsla(220, 8%, 53%, 0.3);
+    background: #6b7280;
+    color: #fff;
+    border-color: #6b7280;
 }
 
 .university-page .lode-cell {
@@ -724,62 +664,57 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .university-page .lode-icon {
-    color: #fbbf24;
+    color: var(--gold);
     font-size: 1.2rem;
-    filter: drop-shadow(0 0 8px hsla(45, 96%, 56%, 0.6));
-    animation: pulse-gold 2s infinite;
 }
 
 .university-page .no-lode {
-    color: hsla(0, 0%, 100%, 0.3);
+    color: var(--ink-faint);
     font-size: 1.1rem;
 }
 
 .university-page .weight-cell {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
 }
 
 .university-page .weight-value {
-    background: hsla(287, 100%, 65%, 0.2);
-    color: var(--primary-color);
+    background: var(--azure-soft);
+    color: var(--azure-bright);
     padding: 0.4rem 0.6rem;
-    border-radius: 6px;
+    border-radius: var(--radius-card);
     font-weight: 600;
-    border: 1px solid hsla(287, 100%, 65%, 0.3);
+    border: 1px solid var(--azure-line);
 }
 
 .university-page .btn-delete {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-    border: 1px solid hsla(0, 84%, 60%, 0.5);
-    color: white;
+    background: var(--danger);
+    border: 1px solid var(--danger);
+    color: #000;
     padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px hsla(0, 84%, 60%, 0.3);
+    border-radius: var(--radius-card);
+    transition: filter 0.25s ease, transform 0.25s var(--ease-out-expo);
 }
 
 .university-page .btn-delete:hover {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    filter: brightness(1.12);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px hsla(0, 84%, 60%, 0.4);
 }
 
 .university-page .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem hsla(287, 100%, 65%, 0.25);
+    box-shadow: 0 0 0 0.25rem var(--azure-soft);
 }
 
 .university-page .info-section {
-    background: hsla(281, 100%, 9%, 0.3);
-    border: 1px solid hsla(287, 100%, 65%, 0.2);
-    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
     padding: 1rem;
     height: 100%;
-    transition: all 0.3s ease;
+    transition: border-color 0.25s ease;
 }
 
 .university-page .info-section:hover {
-    border-color: hsla(287, 100%, 65%, 0.4);
-    box-shadow: 0 4px 15px hsla(287, 100%, 65%, 0.1);
+    border-color: var(--azure-line);
 }
 
 .university-page .info-section h6 {
@@ -787,33 +722,14 @@ body::-webkit-scrollbar-thumb:hover {
     margin-bottom: 0.5rem;
 }
 
-.university-page .info-section p, .university-page .info-section ul {
+.university-page .info-section p,
+.university-page .info-section ul {
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
 .university-page .info-section ul li {
     margin-bottom: 0.25rem;
-}
-
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-@keyframes pulse-gold {
-    0%, 100% {
-        filter: drop-shadow(0 0 8px hsla(45, 96%, 56%, 0.6));
-        transform: scale(1);
-    }
-    50% {
-        filter: drop-shadow(0 0 15px hsla(45, 96%, 56%, 0.9));
-        transform: scale(1.1);
-    }
 }
 
 @media (max-width: 768px) {
@@ -863,16 +779,44 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 1rem;
     }
 
-    .university-page .info-section p, .university-page .info-section ul {
+    .university-page .info-section p,
+    .university-page .info-section ul {
         font-size: 0.85rem;
     }
 }
 
-.university-page .exam-row {
-    transition: all 0.3s ease;
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .ink-reveal {
+        animation: none;
+    }
+
+    .skip-link,
+    .home-hero__action {
+        transition: none;
+    }
+
+    .home-hero__action:hover,
+    .home-hero__action:focus-visible {
+        transform: none;
+    }
 }
 
-.university-page .exam-row:hover {
-    background-color: hsla(287, 100%, 65%, 0.1) !important;
-    transform: scale(1.01);
+body::-webkit-scrollbar {
+    width: 10px;
+    background: var(--bg);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 0;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover-color);
 }

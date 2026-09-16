@@ -37,7 +37,7 @@
         rel={external ? 'noopener noreferrer' : undefined}
         aria-label="{title}: {getUrlWithoutHttps(link)}"
     >
-        <div class="contact-card__glow" aria-hidden="true"></div>
+        <div class="contact-card__plane" aria-hidden="true"></div>
         <div class="contact-card__icon-ring" aria-hidden="true">
             <i class="{icon}"></i>
         </div>
@@ -45,10 +45,10 @@
             <h3 class="contact-card__title">{title}</h3>
             <p class="contact-card__desc">{description}</p>
             <span class="contact-card__link">
-                <span class="contact-card__url">{getUrlWithoutHttps(link)}</span>
+                <span class="contact-card__url text-mono">{getUrlWithoutHttps(link)}</span>
                 <span class="contact-card__cta">
                     {cta}
-                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </span>
             </span>
         </div>
@@ -61,7 +61,7 @@
     }
 
     .contact-card {
-        --card-accent: var(--primary-color);
+        --card-accent: var(--azure);
         position: relative;
         display: flex;
         flex-direction: column;
@@ -70,10 +70,8 @@
         min-height: 100%;
         padding: 1.35rem 1.25rem 1.25rem;
         border-radius: var(--radius-card);
-        border: 1px solid var(--border-glow);
-        background:
-            linear-gradient(160deg, hsla(287, 100%, 65%, 0.08), transparent 42%),
-            var(--surface-darker);
+        border: 1px solid var(--line);
+        background: var(--surface);
         color: inherit;
         text-decoration: none;
         overflow: hidden;
@@ -81,29 +79,25 @@
         transition:
             transform 0.35s var(--ease-out-expo),
             border-color 0.25s ease,
-            box-shadow 0.35s var(--ease-out-expo);
+            background-color 0.25s ease;
     }
 
     .contact-card--featured {
         min-height: 15.5rem;
         padding: 1.6rem 1.45rem 1.4rem;
-        background:
-            linear-gradient(145deg, hsla(287, 100%, 65%, 0.16), transparent 48%),
-            linear-gradient(320deg, hsla(0, 100%, 50%, 0.1), transparent 40%),
-            var(--surface-darker);
     }
 
-    .contact-card__glow {
+    .contact-card__plane {
         position: absolute;
-        inset: auto -20% -45% auto;
-        width: 12rem;
-        height: 12rem;
-        border-radius: 50%;
-        background: radial-gradient(circle, hsla(287, 100%, 65%, 0.28), transparent 68%);
-        opacity: 0.55;
+        right: -1.5rem;
+        top: -1.5rem;
+        width: 6rem;
+        height: 6rem;
+        background: var(--azure-dark);
+        transform: rotate(12deg);
         pointer-events: none;
         z-index: -1;
-        transition: opacity 0.35s ease, transform 0.45s var(--ease-out-expo);
+        transition: background-color 0.35s ease, transform 0.45s var(--ease-out-expo);
     }
 
     .contact-card__icon-ring {
@@ -111,23 +105,21 @@
         place-items: center;
         width: 3.5rem;
         height: 3.5rem;
-        border-radius: 1rem;
-        border: 1px solid var(--border-glow);
-        background: hsla(287, 100%, 65%, 0.12);
-        box-shadow: inset 0 0 18px hsla(287, 100%, 65%, 0.12);
-        transition: transform 0.35s var(--ease-out-expo), border-color 0.25s ease, box-shadow 0.35s ease;
+        border-radius: var(--radius-card);
+        border: 1px solid var(--line);
+        background: var(--azure-soft);
+        transition: background-color 0.35s ease, border-color 0.25s ease, color 0.35s ease;
     }
 
     .contact-card--featured .contact-card__icon-ring {
         width: 4rem;
         height: 4rem;
-        border-radius: 1.15rem;
     }
 
     .contact-card__icon-ring i {
         font-size: 1.55rem;
-        color: var(--primary-color);
-        filter: drop-shadow(0 0 0.55rem var(--primary-color-glow));
+        color: var(--azure);
+        transition: color 0.35s ease;
     }
 
     .contact-card--featured .contact-card__icon-ring i {
@@ -145,8 +137,8 @@
         margin: 0;
         font-size: 1.2rem;
         font-weight: 700;
-        letter-spacing: 0.01em;
-        color: var(--text-color-light);
+        letter-spacing: -0.01em;
+        color: var(--ink);
     }
 
     .contact-card--featured .contact-card__title {
@@ -155,7 +147,7 @@
 
     .contact-card__desc {
         margin: 0;
-        color: var(--text-soft);
+        color: var(--ink-soft);
         font-size: 0.95rem;
         line-height: 1.5;
         text-wrap: pretty;
@@ -170,8 +162,8 @@
     }
 
     .contact-card__url {
-        font-size: 0.82rem;
-        color: hsla(300, 50%, 88%, 0.62);
+        font-size: 0.78rem;
+        color: var(--ink-faint);
         word-break: break-all;
     }
 
@@ -180,52 +172,51 @@
         align-items: center;
         gap: 0.45rem;
         width: fit-content;
-        color: var(--primary-color);
+        color: var(--azure);
         font-weight: 600;
         font-size: 0.92rem;
-        transition: gap 0.25s var(--ease-out-expo), filter 0.25s ease;
+        transition: gap 0.25s var(--ease-out-expo), color 0.25s ease;
     }
 
     .contact-card:hover,
     .contact-card:focus-visible {
         transform: translateY(-4px);
-        border-color: var(--border-glow-strong);
-        box-shadow:
-            0 16px 40px hsla(280, 100%, 4%, 0.4),
-            0 0 0 1px hsla(287, 100%, 65%, 0.15),
-            0 0 28px hsla(287, 100%, 65%, 0.18);
+        border-color: var(--azure-line);
+        background: var(--surface-2);
         outline: none;
     }
 
-    .contact-card:hover .contact-card__glow,
-    .contact-card:focus-visible .contact-card__glow {
-        opacity: 1;
-        transform: scale(1.15);
+    .contact-card:hover .contact-card__plane,
+    .contact-card:focus-visible .contact-card__plane {
+        background: var(--azure);
+        transform: rotate(12deg) scale(1.12);
     }
 
     .contact-card:hover .contact-card__icon-ring,
     .contact-card:focus-visible .contact-card__icon-ring {
-        transform: scale(1.06);
-        border-color: var(--border-glow-strong);
-        box-shadow:
-            inset 0 0 18px hsla(287, 100%, 65%, 0.18),
-            0 0 18px hsla(287, 100%, 65%, 0.25);
+        background: var(--azure);
+        border-color: var(--azure);
+    }
+
+    .contact-card:hover .contact-card__icon-ring i,
+    .contact-card:focus-visible .contact-card__icon-ring i {
+        color: #000;
     }
 
     .contact-card:hover .contact-card__cta,
     .contact-card:focus-visible .contact-card__cta {
         gap: 0.7rem;
-        filter: drop-shadow(0 0 0.45rem var(--primary-color-glow));
+        color: var(--gold);
     }
 
     .contact-card:focus-visible {
-        outline: 2px solid var(--primary-color);
+        outline: 2px solid var(--azure);
         outline-offset: 3px;
     }
 
     @media (prefers-reduced-motion: reduce) {
         .contact-card,
-        .contact-card__glow,
+        .contact-card__plane,
         .contact-card__icon-ring,
         .contact-card__cta {
             transition: none;

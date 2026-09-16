@@ -60,4 +60,14 @@
     .zoom:hover {
         transform: scale(1.1);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+        .zoom {
+            transition: none;
+        }
+
+        .zoom:hover {
+            transform: none;
+        }
+    }
 </style>

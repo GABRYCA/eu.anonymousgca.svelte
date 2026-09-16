@@ -36,6 +36,10 @@ const animations = {
     'slide-up': {
         initial: { opacity: 0, transform: 'translateY(100px)' },
         animate: { opacity: 1, transform: 'translateY(0)' }
+    },
+    'ink-up': {
+        initial: { opacity: 0, transform: 'translateY(18px)' },
+        animate: { opacity: 1, transform: 'translateY(0)' }
     }
 };
 
@@ -66,6 +70,7 @@ export function scrollAnimation(element, options = {}) {
     if (prefersReducedMotion) {
         element.style.opacity = '1';
         element.style.transform = 'none';
+        element.style.clipPath = 'none';
         element.style.transition = 'none';
         return;
     }
@@ -73,11 +78,13 @@ export function scrollAnimation(element, options = {}) {
     if (!('IntersectionObserver' in window)) {
         element.style.opacity = '1';
         element.style.transform = 'none';
+        element.style.clipPath = 'none';
         element.style.transition = 'none';
         return;
     }
 
     const animationConfig = animations[animation] || animations['fade-up'];
+    const isInkReveal = animation === 'ink-up';
     let hasAnimated = false;
     let timer;
 
@@ -88,6 +95,12 @@ export function scrollAnimation(element, options = {}) {
         element.style.transition = transition
             ? `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`
             : 'none';
+    };
+
+    const playInkReveal = () => {
+        if (!isInkReveal) return;
+        element.classList.add('ink-reveal');
+        window.setTimeout(() => element.classList.remove('ink-reveal'), duration + 80);
     };
 
     const rect = element.getBoundingClientRect();
@@ -110,6 +123,7 @@ export function scrollAnimation(element, options = {}) {
                     hasAnimated = true;
                     timer = window.setTimeout(() => {
                         applyStyles(animationConfig.animate);
+                        playInkReveal();
                     }, delay);
                 } else if (!once) {
                     if (timer) {

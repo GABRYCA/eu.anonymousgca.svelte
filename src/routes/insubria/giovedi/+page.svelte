@@ -296,6 +296,11 @@
 </div>
 
 <style>
+    .row.rounded-5,
+    .rounded-4 {
+        border-radius: var(--radius-card) !important;
+    }
+
     .fa-bus {
         color: var(--color-bus) !important;
     }

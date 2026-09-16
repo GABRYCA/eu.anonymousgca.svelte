@@ -25,6 +25,6 @@ export const load = async ({url}) => {
         author: 'AnonymousGCA',
         name: 'AnonymousGCA',
         canonical: 'https://anonymousgca.eu' + url.pathname,
-        keywords: 'AnonymousGCA, Developer, Designer, Web Development, Svelte, SvelteKit, University Student'
+        keywords: 'AnonymousGCA, Developer, Web Development, Svelte, SvelteKit, University Student'
     }
 }

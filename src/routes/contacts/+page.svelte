@@ -74,11 +74,7 @@
 
 <div class="contacts-page">
     <div class="container-xxl mt-4 mt-md-5 mb-4 mb-md-5">
-        <section class="page-hero mb-4 mb-md-5" use:scrollAnimation={{ animation: 'fade-up', duration: 450 }}>
-            <div class="page-hero__eyebrow">
-                <i class="fas fa-satellite-dish" aria-hidden="true"></i>
-                Available for contact
-            </div>
+        <section class="page-hero mb-4 mb-md-5" use:scrollAnimation={{ animation: 'ink-up', duration: 600 }}>
             <h1 class="contacts-title page-hero__title">Connect With Me</h1>
             <p class="page-hero__lead">
                 Pick the channel that fits. I check messages regularly, especially Emails and LinkedIn.
@@ -159,7 +155,7 @@
         padding: 0.6rem 1rem;
         border-radius: 999px;
         border: 1px solid var(--border-glow);
-        background: hsla(0, 0%, 0%, 0.28);
+        background: var(--surface);
         color: var(--text-color-light);
         text-decoration: none;
         font-weight: 600;
@@ -172,16 +168,15 @@
     }
 
     .quick-link i {
-        color: var(--primary-color);
-        filter: drop-shadow(0 0 0.35rem var(--primary-color-glow));
+        color: var(--azure);
     }
 
     .quick-link:hover,
     .quick-link:focus-visible {
         transform: translateY(-2px);
-        border-color: var(--border-glow-strong);
-        color: var(--primary-color);
-        box-shadow: 0 0 20px hsla(287, 100%, 65%, 0.2);
+        border-color: var(--azure-line);
+        color: var(--azure);
+        background: var(--surface-2);
         outline: none;
     }
 

@@ -7,10 +7,25 @@ Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** vi
 ## Stack
 
 - **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh) — replaces Node.js / npm
-- **Framework:** SvelteKit `2.70.3` + Svelte `5.56.10`
-- **Build:** Vite `8.2.2` (Rolldown) running under Bun runtime — 3-4× faster than Node
+- **Framework:** SvelteKit `2.70.3` + Svelte `5.57.0`
+- **Build:** Vite `8.3.0` (Rolldown) running under Bun runtime — 3-4× faster than Node
 - **Adapter:** `@sveltejs/adapter-static` with `precompress: true` (generates `.br` + `.gz`)
 - **Deploy target:** `build/` → Cloudflare Pages (static, no Worker)
+
+## Design
+
+OLED-true-black ground with a EU azure accent and EU gold punctuation — flat planes, hairlines and measurement rulers, no gradients. Tokens live in `src/lib/style/style.css`; the full visual contract is documented in [`DESIGN.md`](./DESIGN.md).
+
+## Quality
+
+```bash
+# Svelte template/accessibility diagnostics (svelte-check)
+bun run check
+
+# Prettier check / write
+bun run format
+bun run format:write
+```
 
 ## Developing
 

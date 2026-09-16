@@ -168,18 +168,15 @@
         position: relative;
         overflow: hidden;
         padding: 0.65rem;
-        background:
-            radial-gradient(ellipse 70% 50% at 20% 0%, hsla(287, 100%, 55%, 0.16), transparent 55%),
-            var(--surface-dark);
+        background: var(--surface);
     }
 
     .rpg-canvas-wrap {
         width: 100%;
-        border-radius: 0.75rem;
+        border-radius: var(--radius-card);
         overflow: hidden;
-        border: 1px solid var(--border-glow);
-        background: #12001f;
-        box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.35);
+        border: 1px solid var(--line);
+        background: #05070d;
         line-height: 0;
     }
 
@@ -199,9 +196,9 @@
         gap: 0.55rem 0.85rem;
         margin-top: 0.7rem;
         padding: 0.55rem 0.75rem;
-        border-radius: 0.75rem;
-        background: hsla(285, 100%, 6%, 0.55);
-        border: 1px solid var(--border-glow);
+        border-radius: var(--radius-card);
+        background: var(--surface-2);
+        border: 1px solid var(--line);
     }
 
     .hud-stat {
@@ -210,19 +207,18 @@
         gap: 0.4rem;
         font-weight: 600;
         font-size: 0.92rem;
-        color: var(--text-color-light);
+        color: var(--ink);
     }
 
     .hud-stat i {
-        color: var(--primary-color);
-        filter: drop-shadow(0 0 0.35rem var(--primary-color-glow));
+        color: var(--azure);
     }
 
     .hud-quest {
         flex: 1 1 12rem;
         min-width: 0;
         font-size: 0.88rem;
-        color: var(--text-soft);
+        color: var(--ink-soft);
         text-align: right;
     }
 
@@ -235,20 +231,21 @@
 
     .rpg-btn {
         appearance: none;
-        border: 1px solid var(--border-glow-strong);
-        background: hsla(287, 100%, 65%, 0.18);
-        color: var(--text-color-light);
-        border-radius: 999px;
+        border: 1px solid var(--line-strong);
+        background: var(--azure-soft);
+        color: var(--ink);
+        border-radius: var(--radius-card);
         padding: 0.55rem 1rem;
         font-weight: 600;
         font-size: 0.9rem;
-        transition: background-color 0.2s var(--ease-out-expo), filter 0.2s, opacity 0.2s;
+        transition: background-color 0.2s var(--ease-out-expo), color 0.2s, opacity 0.2s;
     }
 
     .rpg-btn:hover:not(:disabled),
     .rpg-btn:focus-visible {
-        background: hsla(287, 100%, 65%, 0.32);
-        filter: drop-shadow(0 0 0.4rem var(--primary-color-glow));
+        background: var(--azure);
+        border-color: var(--azure);
+        color: #000;
         outline: none;
     }
 
@@ -258,13 +255,20 @@
     }
 
     .rpg-btn--soft {
-        border-color: hsla(330, 100%, 65%, 0.45);
-        background: hsla(330, 100%, 60%, 0.14);
+        border-color: var(--gold-line);
+        background: var(--gold-soft);
+    }
+
+    .rpg-btn--soft:hover:not(:disabled),
+    .rpg-btn--soft:focus-visible {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #000;
     }
 
     .rpg-btn--ghost {
-        border-color: hsla(0, 0%, 100%, 0.18);
-        background: hsla(0, 0%, 100%, 0.06);
+        border-color: var(--line);
+        background: transparent;
     }
 
     .rpg-controls {
@@ -285,24 +289,24 @@
 
     .pad-btn {
         appearance: none;
-        border: 1px solid var(--border-glow);
-        background: hsla(281, 100%, 9%, 0.75);
-        color: var(--text-color-light);
-        border-radius: 0.7rem;
+        border: 1px solid var(--line);
+        background: var(--surface-2);
+        color: var(--ink);
+        border-radius: var(--radius-card);
         font-size: 1.15rem;
         display: grid;
         place-items: center;
-        transition: background-color 0.15s var(--ease-out-expo), transform 0.1s, filter 0.15s;
+        transition: background-color 0.15s var(--ease-out-expo), transform 0.1s;
     }
 
     .pad-btn:active {
         transform: scale(0.94);
-        background: hsla(287, 100%, 65%, 0.22);
-        filter: drop-shadow(0 0 0.35rem var(--primary-color-glow));
+        background: var(--azure-soft);
+        border-color: var(--azure-line);
     }
 
     .pad-btn:focus-visible {
-        outline: 2px solid var(--primary-color);
+        outline: 2px solid var(--azure);
         outline-offset: 2px;
     }
 
@@ -322,21 +326,19 @@
         min-width: 7.5rem;
         min-height: 7.5rem;
         border-radius: 50%;
-        border: 2px solid var(--border-glow-strong);
-        background:
-            radial-gradient(circle at 35% 30%, hsla(287, 100%, 70%, 0.35), transparent 45%),
-            linear-gradient(160deg, hsla(287, 100%, 45%, 0.45), hsla(0, 100%, 40%, 0.35));
-        color: var(--text-color-light);
+        border: 1px solid var(--azure);
+        background: var(--azure);
+        color: #000;
         display: grid;
         place-content: center;
         gap: 0.2rem;
-        box-shadow: 0 8px 22px hsla(280, 100%, 4%, 0.35);
-        transition: transform 0.15s var(--ease-out-expo), filter 0.15s;
+        transition: transform 0.15s var(--ease-out-expo), background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .action-btn:hover,
     .action-btn:focus-visible {
-        filter: drop-shadow(0 0 0.55rem var(--primary-color-glow));
+        background: var(--gold);
+        border-color: var(--gold);
         outline: none;
     }
 
@@ -359,17 +361,17 @@
         max-width: 28rem;
         font-size: 0.85rem;
         line-height: 1.5;
-        color: var(--text-soft);
+        color: var(--ink-soft);
     }
 
     .controls-help kbd {
         display: inline-block;
         padding: 0.1rem 0.35rem;
-        border-radius: 0.3rem;
-        border: 1px solid var(--border-glow);
-        background: hsla(0, 0%, 0%, 0.35);
+        border-radius: var(--radius-card);
+        border: 1px solid var(--line);
+        background: var(--surface-2);
         font-size: 0.78rem;
-        color: var(--text-color-light);
+        color: var(--ink);
     }
 
     @media (max-width: 640px) {

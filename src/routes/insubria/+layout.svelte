@@ -80,8 +80,8 @@
 
 <style>
     :global(:root) {
-        --color-train: #29ff10;
-        --color-ship: #4868ff;
-        --color-bus: #ff7e00;
+        --color-train: var(--success);
+        --color-ship: var(--azure);
+        --color-bus: var(--gold);
     }
 </style>

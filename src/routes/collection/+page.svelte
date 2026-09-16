@@ -158,78 +158,28 @@
 <style>
 
     .h1.title {
-        color: #ffffff;
+        color: var(--ink);
         text-align: center;
         font-size: 2.5em;
-        text-shadow: 0 0 5px #29ff10, 0 0 25px #29ff10, 0 0 50px #29ff10, 0 0 200px #29ff10;
-        animation: glowing 2s infinite;
-        transform: translateZ(0);
-        will-change: transform, text-shadow;
     }
 
-    @keyframes glowing {
-        0% {
-            text-shadow: 0 0 5px #29ff10, 0 0 25px #29ff10, 0 0 50px #29ff10, 0 0 200px #29ff10;
-        }
-        50% {
-            text-shadow: 0 0 10px #29ff10, 0 0 20px #29ff10, 0 0 40px #29ff10, 0 0 80px #29ff10;
-        }
-        100% {
-            text-shadow: 0 0 5px #29ff10, 0 0 25px #29ff10, 0 0 50px #29ff10, 0 0 200px #29ff10;
-        }
+    .rounded-5 {
+        border-radius: var(--radius-card) !important;
     }
 
     /* Raspberry Pi */
     .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.raspberry {
         position: relative;
         overflow: hidden;
-    }
-
-    .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.raspberry::before,
-    .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.raspberry::after {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        background: linear-gradient(120deg, #000000, rgba(199, 5, 61, 0.25), #000000);
-        z-index: -1;
-        background-size: 300% 300%;
-        animation: wave 25s linear infinite;
-        transform: translateZ(0);
-        will-change: transform, background-position;
+        background: var(--surface) !important;
+        border: 1px solid var(--azure-line);
     }
 
     /* Orange Pi */
     .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.orange {
         position: relative;
         overflow: hidden;
-    }
-
-    .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.orange::before,
-    .bg-black.bg-opacity-50.p-4.pb-2.rounded-5.orange::after {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        background: linear-gradient(120deg, #000000, rgba(0, 89, 255, 0.2), #000000);
-        z-index: -1;
-        background-size: 300% 300%;
-        animation: wave 25s linear infinite;
-        transform: translateZ(0);
-        will-change: transform, background-position;
-    }
-
-    /* Keyframes for the wave animation */
-    @keyframes wave {
-        0% {
-            background-position: -100% 50%;
-        }
-        100% {
-            background-position: 200% 50%;
-        }
+        background: var(--surface) !important;
+        border: 1px solid var(--line);
     }
 </style>

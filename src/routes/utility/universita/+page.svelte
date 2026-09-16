@@ -139,10 +139,6 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <section class="page-hero text-center mb-4 mb-md-5" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
-                    <div class="page-hero__eyebrow mx-auto">
-                        <i class="fas fa-university" aria-hidden="true"></i>
-                        Insubria · DiSTA
-                    </div>
                     <h1 class="university-title page-hero__title mb-3">
                         Simulatore Laurea Università
                     </h1>
@@ -564,7 +560,7 @@
 
 <style>
     .bg-dark {
-        background-color: hsla(285, 100%, 10%, 0.40) !important;
+        background-color: var(--surface) !important;
     }
 
     .hero-metrics {
@@ -596,13 +592,12 @@
     }
 
     .cfu-ring__track {
-        stroke: hsla(287, 100%, 65%, 0.15);
+        stroke: var(--line);
     }
 
     .cfu-ring__value {
-        stroke: var(--primary-color);
+        stroke: var(--azure);
         stroke-linecap: round;
-        filter: drop-shadow(0 0 8px hsla(287, 100%, 65%, 0.55));
         transition: stroke-dashoffset 0.6s var(--ease-out-expo);
     }
 
@@ -641,9 +636,9 @@
         align-items: center;
         min-width: 5.5rem;
         padding: 0.7rem 0.9rem;
-        border-radius: 0.85rem;
-        border: 1px solid var(--border-glow);
-        background: hsla(0, 0%, 0%, 0.28);
+        border-radius: var(--radius-card);
+        border: 1px solid var(--azure-line);
+        background: var(--surface);
     }
 
     .hero-metric-card__value {
@@ -659,7 +654,7 @@
     }
 
     .info-panel {
-        box-shadow: 0 14px 36px hsla(280, 100%, 4%, 0.28);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     @media (prefers-reduced-motion: reduce) {

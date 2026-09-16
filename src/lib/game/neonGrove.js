@@ -50,7 +50,7 @@ const COLORS = {
 	grassB: '#40916c',
 	path: '#c4a574',
 	pathEdge: '#a9845a',
-	flower: '#f72585',
+	flower: '#ffcc00',
 	flowerCenter: '#ffd60a',
 	waterA: '#48cae4',
 	waterB: '#0077b6',
@@ -60,18 +60,18 @@ const COLORS = {
 	rock: '#6c757d',
 	rockLite: '#adb5bd',
 	bush: '#52b788',
-	portal: '#c77dff',
-	portalCore: '#e0aaff',
-	floor: '#3c096c',
+	portal: '#4c8dff',
+	portalCore: '#7fb2ff',
+	floor: '#061a3f',
 	shadow: 'rgba(0,0,0,0.28)'
 };
 
 const P = {
 	skin: '#ffcdb2',
-	hat: '#9b5de5',
-	hatBand: '#f15bb5',
+	hat: '#4c8dff',
+	hatBand: '#ffcc00',
 	shirt: '#00bbf9',
-	pants: '#3a0ca3',
+	pants: '#0a2a6b',
 	boots: '#3d2914',
 	eyes: '#1a1a2e'
 };
@@ -523,7 +523,7 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.scale(SCALE, SCALE);
 
 		// soft night sky behind map edges
-		ctx.fillStyle = '#12001f';
+		ctx.fillStyle = '#05070d';
 		ctx.fillRect(0, 0, viewW, viewH);
 
 		for (let y = 0; y < MAP_H; y++) {
@@ -636,7 +636,7 @@ export function createNeonGrove(onHud = () => {}) {
 		if (type === T.FLOOR) {
 			ctx.fillStyle = COLORS.floor;
 			ctx.fillRect(x, y, TILE, TILE);
-			ctx.fillStyle = '#5a189a';
+			ctx.fillStyle = '#0a2a6b';
 			ctx.fillRect(x + 1, y + 1, TILE - 2, TILE - 2);
 		}
 	}
@@ -698,9 +698,9 @@ export function createNeonGrove(onHud = () => {}) {
 		if (e.kind === 'shard') {
 			drawShadow(px, py);
 			const glow = 0.5 + 0.5 * Math.sin(anim * 5 + e.x);
-			ctx.fillStyle = '#c77dff';
+			ctx.fillStyle = '#4c8dff';
 			ctx.fillRect(px + 6, py + 4 - bob, 4, 8);
-			ctx.fillStyle = '#e0aaff';
+			ctx.fillStyle = '#7fb2ff';
 			ctx.fillRect(px + 7, py + 5 - bob, 2, 6);
 			ctx.fillStyle = `rgba(255,255,255,${0.4 + glow * 0.4})`;
 			ctx.fillRect(px + 7, py + 6 - bob, 2, 2);
@@ -721,7 +721,7 @@ export function createNeonGrove(onHud = () => {}) {
 		if (e.kind === 'slime') {
 			drawShadow(px, py);
 			const jiggle = Math.floor(anim * 5 + e.y) % 2;
-			ctx.fillStyle = e.name === 'Bug Jelly' ? '#80ed99' : e.name === 'Pixel Blob' ? '#4cc9f0' : '#f72585';
+			ctx.fillStyle = e.name === 'Bug Jelly' ? '#80ed99' : e.name === 'Pixel Blob' ? '#4cc9f0' : '#ffcc00';
 			ctx.fillRect(px + 3, py + 6 + jiggle, 10, 8);
 			ctx.fillRect(px + 4, py + 5 + jiggle, 8, 2);
 			ctx.fillStyle = '#fff';
@@ -777,10 +777,10 @@ export function createNeonGrove(onHud = () => {}) {
 		if (!ctx || !canvas || mode === 'title') return;
 		// bottom message
 		if (message && messageTimer > 0) {
-			ctx.fillStyle = 'rgba(18,0,31,0.82)';
+			ctx.fillStyle = 'rgba(5,7,13,0.82)';
 			roundRect(ctx, 16, canvas.height - 52, canvas.width - 32, 36, 8);
 			ctx.fill();
-			ctx.fillStyle = '#f8f0ff';
+			ctx.fillStyle = '#f4f1e9';
 			ctx.font = '600 14px Roboto, system-ui, sans-serif';
 			ctx.textAlign = 'center';
 			ctx.fillText(message, canvas.width / 2, canvas.height - 28);
@@ -789,16 +789,16 @@ export function createNeonGrove(onHud = () => {}) {
 
 	function drawTitle() {
 		if (!ctx || !canvas) return;
-		ctx.fillStyle = 'rgba(10,0,20,0.72)';
+		ctx.fillStyle = 'rgba(4,6,10,0.72)';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		const pulse = 0.85 + 0.15 * Math.sin(anim * 3);
 		ctx.textAlign = 'center';
-		ctx.fillStyle = `rgba(199,125,255,${pulse})`;
+		ctx.fillStyle = `rgba(76,141,255,${pulse})`;
 		ctx.font = '700 36px Roboto, system-ui, sans-serif';
 		ctx.fillText('NEON GROVE', canvas.width / 2, canvas.height * 0.32);
 
-		ctx.fillStyle = '#f15bb5';
+		ctx.fillStyle = '#ffcc00';
 		ctx.font = '600 16px Roboto, system-ui, sans-serif';
 		ctx.fillText('A tiny pixel RPG', canvas.width / 2, canvas.height * 0.32 + 28);
 
@@ -846,20 +846,20 @@ export function createNeonGrove(onHud = () => {}) {
 	function drawDialogue() {
 		if (!ctx || !canvas || !dialogue) return;
 		const boxY = canvas.height - 120;
-		ctx.fillStyle = 'rgba(18,0,31,0.92)';
+		ctx.fillStyle = 'rgba(5,7,13,0.92)';
 		roundRect(ctx, 18, boxY, canvas.width - 36, 100, 12);
 		ctx.fill();
-		ctx.strokeStyle = 'rgba(199,125,255,0.55)';
+		ctx.strokeStyle = 'rgba(76,141,255,0.55)';
 		ctx.lineWidth = 2;
 		roundRect(ctx, 18, boxY, canvas.width - 36, 100, 12);
 		ctx.stroke();
 
 		ctx.textAlign = 'left';
-		ctx.fillStyle = '#c77dff';
+		ctx.fillStyle = '#4c8dff';
 		ctx.font = '700 15px Roboto, system-ui, sans-serif';
 		ctx.fillText(dialogue.speaker, 36, boxY + 28);
 
-		ctx.fillStyle = '#f8f0ff';
+		ctx.fillStyle = '#f4f1e9';
 		ctx.font = '14px Roboto, system-ui, sans-serif';
 		wrapText(ctx, dialogue.lines[dialogue.index], 36, boxY + 52, canvas.width - 72, 18);
 
@@ -871,7 +871,7 @@ export function createNeonGrove(onHud = () => {}) {
 
 	function drawBattle() {
 		if (!ctx || !canvas || !battle) return;
-		ctx.fillStyle = 'rgba(12,0,22,0.78)';
+		ctx.fillStyle = 'rgba(5,7,13,0.78)';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		const shake = battle.anim > 0 ? Math.sin(battle.anim * 40) * 4 : 0;
@@ -882,7 +882,7 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.scale(6, 6);
 		const enemy = battle.enemy;
 		ctx.fillStyle =
-			enemy.name === 'Bug Jelly' ? '#80ed99' : enemy.name === 'Pixel Blob' ? '#4cc9f0' : '#f72585';
+			enemy.name === 'Bug Jelly' ? '#80ed99' : enemy.name === 'Pixel Blob' ? '#4cc9f0' : '#ffcc00';
 		ctx.fillRect(-5, -2, 10, 8);
 		ctx.fillRect(-4, -3, 8, 2);
 		ctx.fillStyle = '#fff';
@@ -899,7 +899,7 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.fillText(enemy.name ?? 'Slime', canvas.width / 2, canvas.height * 0.42);
 
 		// HP bars
-		drawBar(canvas.width / 2 - 80, canvas.height * 0.46, 160, 12, (enemy.hp ?? 0) / (enemy.maxHp ?? 1), '#f72585');
+		drawBar(canvas.width / 2 - 80, canvas.height * 0.46, 160, 12, (enemy.hp ?? 0) / (enemy.maxHp ?? 1), '#ffcc00');
 		ctx.fillStyle = 'rgba(255,255,255,0.75)';
 		ctx.font = '12px Roboto, system-ui, sans-serif';
 		ctx.fillText(`HP ${enemy.hp}/${enemy.maxHp}`, canvas.width / 2, canvas.height * 0.46 + 28);
@@ -916,7 +916,7 @@ export function createNeonGrove(onHud = () => {}) {
 		});
 
 		ctx.textAlign = 'center';
-		ctx.fillStyle = battle.playerTurn ? '#c77dff' : 'rgba(255,255,255,0.45)';
+		ctx.fillStyle = battle.playerTurn ? '#4c8dff' : 'rgba(255,255,255,0.45)';
 		ctx.font = '600 13px Roboto, system-ui, sans-serif';
 		ctx.fillText(
 			battle.playerTurn ? '1 Attack · 2 Potion · 3 Flee  (or use buttons)' : '…enemy turn…',
@@ -927,16 +927,16 @@ export function createNeonGrove(onHud = () => {}) {
 
 	function drawEnd(won) {
 		if (!ctx || !canvas) return;
-		ctx.fillStyle = 'rgba(10,0,20,0.8)';
+		ctx.fillStyle = 'rgba(4,6,10,0.8)';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 		ctx.textAlign = 'center';
-		ctx.fillStyle = won ? '#c77dff' : '#f15bb5';
+		ctx.fillStyle = won ? '#4c8dff' : '#ffcc00';
 		ctx.font = '700 32px Roboto, system-ui, sans-serif';
 		ctx.fillText(won ? 'Grove Restored!' : 'You fainted…', canvas.width / 2, canvas.height * 0.38);
-		ctx.fillStyle = '#f8f0ff';
+		ctx.fillStyle = '#f4f1e9';
 		ctx.font = '15px Roboto, system-ui, sans-serif';
 		if (won) {
-			ctx.fillText('The portal sings in purple light. Bytewood is stable again.', canvas.width / 2, canvas.height * 0.48);
+			ctx.fillText('The portal sings in azure light. Bytewood is stable again.', canvas.width / 2, canvas.height * 0.48);
 			ctx.fillText(`Shards ${player.shards} · Steps ${player.steps} · HP ${player.hp}`, canvas.width / 2, canvas.height * 0.48 + 26);
 		} else {
 			ctx.fillText('Even heroes need a potion break. Try again!', canvas.width / 2, canvas.height * 0.48);

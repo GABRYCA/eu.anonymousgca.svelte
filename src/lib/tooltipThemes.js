@@ -36,16 +36,16 @@ export const lightTooltipTheme = {
 
 /** @type {import('svelte-tooltip-gca').TooltipTheme} */
 export const primaryTooltipTheme = {
-    background: 'linear-gradient(135deg, hsl(287, 100%, 65%), hsl(0, 100%, 58%))',
-    color: '#ffffff',
-    border: 'rgba(255, 255, 255, 0.2)',
-    shadow: '0 4px 20px rgba(205, 61, 251, 0.3)',
-    borderRadius: '6px',
-    fontSize: '0.875rem',
+    background: '#0a2a6b',
+    color: '#f4f1e9',
+    border: 'rgba(76, 141, 255, 0.45)',
+    shadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
+    borderRadius: '4px',
+    fontSize: '0.8rem',
     fontFamily: 'var(--font-family-sans-serif)',
-    fontWeight: '500',
+    fontWeight: '600',
     padding: '8px 12px',
-    maxWidth: '200px',
+    maxWidth: '220px',
     arrowSize: 8,
     zIndex: 9999
 };
