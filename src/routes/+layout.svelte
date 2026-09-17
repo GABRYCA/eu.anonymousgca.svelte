@@ -171,9 +171,13 @@
                     <span class="brand-mark" aria-hidden="true"></span>
                     <span class="brand-word">AnonymousGCA</span>
                 </a>
-                <button class="navbar-toggler" type="button" aria-controls="navbarNav"
+                <button class="navbar-toggler menu-toggle" class:open={menuOpen} type="button" aria-controls="navbarNav"
                         aria-expanded={menuOpen} aria-label="Toggle navigation" onclick={toggleMenu}>
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="menu-toggle__box" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                 </button>
                 <div class="collapse navbar-collapse" class:show={menuOpen} id="navbarNav">
                     <ul class="navbar-nav ms-auto">
@@ -443,6 +447,103 @@
         height: 3.6rem;
     }
 
+    /* ── Menu toggle (custom hamburger → close morph) ───────────
+       Replaces Bootstrap's default hamburger glyph with a sharper
+       icon in the site's azure/gold language: three square-ended
+       bars that fold into a gold X when the menu is open. */
+    .navbar-toggler.menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-card);
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .navbar-toggler.menu-toggle:hover {
+        border-color: var(--azure-line);
+        background-color: var(--azure-soft);
+    }
+
+    .navbar-toggler.menu-toggle:focus {
+        box-shadow: none;
+    }
+
+    .navbar-toggler.menu-toggle:focus-visible {
+        outline: 2px solid var(--azure);
+        outline-offset: 2px;
+    }
+
+    /* Bootstrap hides the toggler on desktop via `.navbar-expand-lg`,
+       but the scoped `.navbar-toggler.menu-toggle` selector above
+       out-specifies it — re-hide explicitly on lg screens and up. */
+    @media (min-width: 992px) {
+        .navbar-toggler.menu-toggle {
+            display: none;
+        }
+    }
+
+    .menu-toggle__box {
+        position: relative;
+        display: block;
+        width: 1.3rem;
+        height: 1rem;
+    }
+
+    .menu-toggle__box > span {
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--azure);
+        transition:
+            top 0.35s var(--ease-out-expo),
+            bottom 0.35s var(--ease-out-expo),
+            transform 0.35s var(--ease-out-expo),
+            opacity 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    .menu-toggle__box > span:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-toggle__box > span:nth-child(2) {
+        top: calc(50% - 1px);
+    }
+
+    .menu-toggle__box > span:nth-child(3) {
+        bottom: 0;
+    }
+
+    .navbar-toggler.menu-toggle:hover .menu-toggle__box > span {
+        background: var(--azure-bright);
+    }
+
+    .menu-toggle.open .menu-toggle__box > span {
+        background: var(--gold);
+    }
+
+    .menu-toggle.open .menu-toggle__box > span:nth-child(1) {
+        top: calc(50% - 1px);
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.open .menu-toggle__box > span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .menu-toggle.open .menu-toggle__box > span:nth-child(3) {
+        bottom: auto;
+        top: calc(50% - 1px);
+        transform: rotate(-45deg);
+    }
+
     .utility-dropdown {
         --bs-dropdown-bg: rgba(4, 6, 10, 0.98);
         --bs-dropdown-border-color: var(--line);
@@ -663,6 +764,7 @@
         .navbar-collapse.collapse,
         .navbar-collapse > .navbar-nav,
         .nav-link::after,
+        .menu-toggle__box > span,
         .marquee__track {
             transition: none !important;
             animation: none !important;

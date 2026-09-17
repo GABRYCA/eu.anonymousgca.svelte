@@ -248,8 +248,9 @@
         </div>
 
         <div class="row gy-4">
-            <!-- Form -->
-            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-right', duration: 350 }}>
+            <!-- Form (fade-up: vertical motion never pushes past the viewport edge,
+                 unlike horizontal slides which caused x-overflow on mobile) -->
+            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
                     <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
@@ -337,8 +338,8 @@
                 </div>
             </div>
 
-            <!-- Statistics -->
-            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-left', duration: 350 }}>
+            <!-- Statistics (fade-up: see note above) -->
+            <div class="col-12 col-lg-6" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                 <div class="card border-custom bg-dark bg-opacity-75 h-100">
                     <div class="card-header bg-transparent border-bottom-0 pt-3">
                         <h4 class="mb-0">
@@ -559,6 +560,13 @@
 </div>
 
 <style>
+    .university-page {
+        /* Guard against any residual horizontal overflow on narrow
+           viewports (e.g. pre-animation reveal offsets). */
+        overflow-x: hidden;
+        overflow-x: clip;
+    }
+
     .bg-dark {
         background-color: var(--surface) !important;
     }

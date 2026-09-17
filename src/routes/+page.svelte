@@ -215,6 +215,13 @@
     }
 
     @media (max-width: 991.98px) {
+        .home-hero {
+            /* Breathing room between the fixed navbar and the portrait
+               on stacked (mobile/tablet) layouts. Desktop is unaffected:
+               there the hero is vertically centered by align-items. */
+            padding-top: clamp(1.5rem, 6vw, 2.5rem);
+        }
+
         .portrait-plate {
             width: min(17rem, 62vw);
             margin-bottom: 2.5rem;
