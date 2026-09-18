@@ -6,15 +6,11 @@ Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** vi
 
 ## Stack
 
-- **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh) — replaces Node.js / npm
+- **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh)
 - **Framework:** SvelteKit `2.70.3` + Svelte `5.57.0`
-- **Build:** Vite `8.3.0` (Rolldown) running under Bun runtime — 3-4× faster than Node
-- **Adapter:** `@sveltejs/adapter-static` with `precompress: true` (generates `.br` + `.gz`)
-- **Deploy target:** `build/` → Cloudflare Pages (static, no Worker)
-
-## Design
-
-OLED-true-black ground with a EU azure accent and EU gold punctuation — flat planes, hairlines and measurement rulers, no gradients. Tokens live in `src/lib/style/style.css`; the full visual contract is documented in [`DESIGN.md`](./DESIGN.md).
+- **Build:** Vite `8.3.0` (Rolldown) running under Bun runtime
+- **Adapter:** `@sveltejs/adapter-static`
+- **Deploy target:** `build/` → Cloudflare Pages (static)
 
 ## Quality
 
@@ -29,10 +25,10 @@ bun run format:write
 
 ## Developing
 
-Requires **Bun ≥1.4.2** (`bun --version` should show `1.4.2`). Install via https://bun.sh.
+Requires **Bun ≥1.4.2** (`bun --version` should show `1.4.2`)
 
 ```bash
-# install dependencies (uses bun.lock text lockfile, binary cache)
+# install dependencies
 bun install
 
 # dev server — Vite + SvelteKit under Bun runtime
@@ -56,12 +52,6 @@ bun run preview
 bun --bun vite preview --host --port 3000
 ```
 
-> The project no longer requires Node.js. All scripts run under Bun. If you have `node`/`npm` installed they are ignored; `engines.bun` and `packageManager: bun@1.4.2` enforce Bun.
-
-## Deployment — Cloudflare Pages (static)
-
-This is a **static** site (`adapter-static` → `build/`). Cloudflare Pages serves `build/` directly — no Worker, no `wrangler.jsonc`.
-
 ### Why `vite: command not found` happens and how to fix it
 
 ```
@@ -74,9 +64,9 @@ bun: command not found: vite
 
 Cloudflare **provisions** Bun when you set `BUN_VERSION`, but **does not** run `bun install` automatically for the new text lockfile `bun.lock` (Bun ≥1.2). It only auto-detects `bun.lockb` (binary), `package-lock.json`, `yarn.lock`, etc. So `node_modules/.bin/vite` is never created → build fails. This is a known Cloudflare Pages gap (see https://khaledwaleed.com/writing/bun-on-cloudflare-pages).
 
-This repo now includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`** (0 bytes) as a workaround — Bun locally prefers `bun.lock`, but Cloudflare detects `bun.lockb` and would auto-install. Even so, **you must chain the install** in the build command (the only reliable fix as of Aug 2026).
+This repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`** (0 bytes) as a workaround — Bun locally prefers `bun.lock`, but Cloudflare detects `bun.lockb` and would auto-install. Even so, **you must chain the install** in the build command (the only reliable fix as of Aug 2026).
 
-### Cloudflare Dashboard — correct settings
+### Cloudflare Dashboard
 
 **Pages → your project → Settings → Builds & deployments → Build configuration → Edit:**
 
@@ -96,11 +86,9 @@ This repo now includes **both** `bun.lock` (text, primary) and an **empty `bun.l
 | `SKIP_DEPENDENCY_INSTALL` | `true` | Plaintext *(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)* |
 | `NODE_VERSION` | *(delete if present — not needed; Bun replaces Node)* | — |
 
-**Do NOT** add `wrangler.jsonc` — not used for static Pages. The previous `wrangler.jsonc` (`assets: .svelte-kit/cloudflare`) was for `adapter-cloudflare` Workers and is now removed.
-
 ### Verify
 
-Next deploy log should show:
+Deploy log should show:
 
 ```
 Installing project dependencies: bun install --frozen-lockfile
