@@ -4,8 +4,8 @@ import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		adapter: adapter({
-            precompress: true,
-        }),
+			precompress: true
+		}),
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
 				console.warn(`Warning: ${message} - ${path} (referenced from ${referrer})`);
@@ -13,7 +13,7 @@ const config = {
 			handleMissingId: ({ path, id, referrers, message }) => {
 				console.warn(`Warning: ${message} - ${id} in ${path} (referenced from ${referrers})`);
 			},
-			origin: 'https://anonymousgca.eu',
+			origin: 'https://anonymousgca.eu'
 		}
 	}
 };

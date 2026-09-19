@@ -80,21 +80,21 @@ This repo now includes **both** `bun.lock` (text, primary) and an **empty `bun.l
 
 **Pages → your project → Settings → Builds & deployments → Build configuration → Edit:**
 
-| Setting | Value |
-|---|---|
-| **Framework preset** | `SvelteKit` (or `None`) |
-| **Build command** | `bun install --frozen-lockfile && bun run build` <br>*(if you get a 403 on Bun download, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)* |
-| **Build output directory** | `build` |
-| **Root directory** | `/` (leave empty) |
-| **Production branch** | `main` |
+| Setting                    | Value                                                                                                                                                                                                                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework preset**       | `SvelteKit` (or `None`)                                                                                                                                                                                                                                                               |
+| **Build command**          | `bun install --frozen-lockfile && bun run build` <br>_(if you get a 403 on Bun download, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)_ |
+| **Build output directory** | `build`                                                                                                                                                                                                                                                                               |
+| **Root directory**         | `/` (leave empty)                                                                                                                                                                                                                                                                     |
+| **Production branch**      | `main`                                                                                                                                                                                                                                                                                |
 
 **Pages → Settings → Variables and Secrets → Add:**
 
-| Variable | Value | Type |
-|---|---|---|
-| `BUN_VERSION` | `1.4.2` | Plaintext |
-| `SKIP_DEPENDENCY_INSTALL` | `true` | Plaintext *(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)* |
-| `NODE_VERSION` | *(delete if present — not needed; Bun replaces Node)* | — |
+| Variable                  | Value                                                 | Type                                                                                                                   |
+| ------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `BUN_VERSION`             | `1.4.2`                                               | Plaintext                                                                                                              |
+| `SKIP_DEPENDENCY_INSTALL` | `true`                                                | Plaintext _(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)_ |
+| `NODE_VERSION`            | _(delete if present — not needed; Bun replaces Node)_ | —                                                                                                                      |
 
 **Do NOT** add `wrangler.jsonc` — not used for static Pages. The previous `wrangler.jsonc` (`assets: .svelte-kit/cloudflare`) was for `adapter-cloudflare` Workers and is now removed.
 

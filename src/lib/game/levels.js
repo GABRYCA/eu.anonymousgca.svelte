@@ -49,8 +49,7 @@ export function parseMap(rows) {
 			const t = GLYPH[ch];
 			if (t === undefined) throw new Error(`Unknown map glyph "${ch}" at (${x},${y})`);
 			return t;
-		}
-		)
+		})
 	);
 }
 
@@ -250,10 +249,7 @@ export const LEVELS = [
 				y: 13,
 				kind: 'shop',
 				name: 'Marrow',
-				lines: [
-					'Psst. Potions, hearts, no questions asked.',
-					'Slimes drop stardust — I accept only shiny currency.'
-				]
+				lines: ['Psst. Potions, hearts, no questions asked.', 'Slimes drop stardust — I accept only shiny currency.']
 			},
 			{
 				x: 13,
@@ -347,8 +343,7 @@ export function validateLevels() {
 		const at = (x, y) => (lv.map[y] ? lv.map[y][x] : undefined);
 		let portalFound = false;
 		for (let y = 0; y < MAP_H; y++)
-			for (let x = 0; x < MAP_W; x++)
-				if (at(x, y) === T.PORTAL && reach.has(`${x},${y}`)) portalFound = true;
+			for (let x = 0; x < MAP_W; x++) if (at(x, y) === T.PORTAL && reach.has(`${x},${y}`)) portalFound = true;
 		if (!portalFound) problems.push(`[${lv.id}] portal unreachable from spawn`);
 		const shards = lv.entities.filter((e) => e.kind === 'shard');
 		const bossDrops = lv.entities.filter((e) => e.dropsShard).length;
@@ -376,7 +371,10 @@ export function validateLevels() {
 		}
 		// enemy stat sanity
 		for (const e of lv.entities) {
-			if (['slime', 'wisp', 'golem', 'boss'].includes(e.kind) && !ENEMIES[/** @type {keyof typeof ENEMIES} */ (e.enemyKind ?? e.kind)])
+			if (
+				['slime', 'wisp', 'golem', 'boss'].includes(e.kind) &&
+				!ENEMIES[/** @type {keyof typeof ENEMIES} */ (e.enemyKind ?? e.kind)]
+			)
 				problems.push(`[${lv.id}] enemy at (${e.x},${e.y}) has unknown tuning`);
 		}
 		if (i > 0) void 0;

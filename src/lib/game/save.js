@@ -26,8 +26,7 @@ export function readSave() {
 		if (!raw) return null;
 		const data = JSON.parse(raw);
 		if (!data || typeof data !== 'object' || data.version !== SAVE_VERSION) return null;
-		if (typeof data.levelIndex !== 'number' || data.levelIndex < 0 || data.levelIndex > 2)
-			return null;
+		if (typeof data.levelIndex !== 'number' || data.levelIndex < 0 || data.levelIndex > 2) return null;
 		return data;
 	} catch {
 		return null;
@@ -41,10 +40,7 @@ export function readSave() {
 export function writeSave(data) {
 	if (!storageAvailable()) return false;
 	try {
-		localStorage.setItem(
-			SAVE_KEY,
-			JSON.stringify({ ...data, version: SAVE_VERSION, timestamp: Date.now() })
-		);
+		localStorage.setItem(SAVE_KEY, JSON.stringify({ ...data, version: SAVE_VERSION, timestamp: Date.now() }));
 		return true;
 	} catch {
 		return false;

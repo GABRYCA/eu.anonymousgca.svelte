@@ -1479,11 +1479,7 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.fillStyle = 'rgba(255,255,255,0.55)';
 		ctx.font = '12px Roboto, system-ui, sans-serif';
 		ctx.textAlign = 'right';
-		ctx.fillText(
-			shopkeeper ? 'Space / Action · open shop' : 'Space / Action · continue',
-			canvas.width - 36,
-			boxY + 88
-		);
+		ctx.fillText(shopkeeper ? 'Space / Action · open shop' : 'Space / Action · continue', canvas.width - 36, boxY + 88);
 	}
 
 	function drawShop() {
@@ -1496,9 +1492,21 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.fillText(`${shopkeeper.name}'s wares`, canvas.width / 2, canvas.height * 0.3);
 		ctx.fillStyle = 'rgba(255,255,255,0.85)';
 		ctx.font = '14px Roboto, system-ui, sans-serif';
-		ctx.fillText(`Stardust: ${player.coins} · Potions: ${player.potions} · Max HP: ${player.maxHp}`, canvas.width / 2, canvas.height * 0.3 + 28);
-		ctx.fillText(`1 · Glow Potion (+${SHOP.potionHeal} HP in battle) — ${SHOP.potionPrice} stardust`, canvas.width / 2, canvas.height * 0.46);
-		ctx.fillText(`2 · Heartfruit (+1 max HP) — ${SHOP.heartPrice} stardust`, canvas.width / 2, canvas.height * 0.46 + 24);
+		ctx.fillText(
+			`Stardust: ${player.coins} · Potions: ${player.potions} · Max HP: ${player.maxHp}`,
+			canvas.width / 2,
+			canvas.height * 0.3 + 28
+		);
+		ctx.fillText(
+			`1 · Glow Potion (+${SHOP.potionHeal} HP in battle) — ${SHOP.potionPrice} stardust`,
+			canvas.width / 2,
+			canvas.height * 0.46
+		);
+		ctx.fillText(
+			`2 · Heartfruit (+1 max HP) — ${SHOP.heartPrice} stardust`,
+			canvas.width / 2,
+			canvas.height * 0.46 + 24
+		);
 		ctx.fillStyle = '#4c8dff';
 		ctx.font = '600 13px Roboto, system-ui, sans-serif';
 		ctx.fillText('Use the buttons below (or 1 / 2) · Space to leave', canvas.width / 2, canvas.height * 0.62);
@@ -1537,11 +1545,7 @@ export function createNeonGrove(onHud = () => {}) {
 		ctx.textAlign = 'center';
 		ctx.fillStyle = '#fff';
 		ctx.font = '700 18px Roboto, system-ui, sans-serif';
-		ctx.fillText(
-			`${enemy.name ?? 'Slime'}${enemy.dropsShard ? ' 👑' : ''}`,
-			canvas.width / 2,
-			canvas.height * 0.42
-		);
+		ctx.fillText(`${enemy.name ?? 'Slime'}${enemy.dropsShard ? ' 👑' : ''}`, canvas.width / 2, canvas.height * 0.42);
 
 		drawBar(canvas.width / 2 - 80, canvas.height * 0.46, 160, 12, (enemy.hp ?? 0) / (enemy.maxHp ?? 1), '#ffcc00');
 		ctx.fillStyle = 'rgba(255,255,255,0.75)';
@@ -1616,7 +1620,11 @@ export function createNeonGrove(onHud = () => {}) {
 			if (bestSteps !== null)
 				ctx.fillText(`Best adventure: ${bestSteps} steps`, canvas.width / 2, canvas.height * 0.46 + 52);
 		} else {
-			ctx.fillText('Even heroes need a potion break. Retry from your checkpoint!', canvas.width / 2, canvas.height * 0.46);
+			ctx.fillText(
+				'Even heroes need a potion break. Retry from your checkpoint!',
+				canvas.width / 2,
+				canvas.height * 0.46
+			);
 			ctx.fillText(
 				`${currentLevel().name} · Shards ${player.shards}/${currentLevel().shardsNeeded}`,
 				canvas.width / 2,

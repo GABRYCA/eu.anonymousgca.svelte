@@ -1,24 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-bs-theme="dark">
 	<head>
-		<meta charset="utf-8">
-		<link rel="icon" href="%sveltekit.assets%/favicon.ico">
-		<link rel="icon" type="image/webp" href="%sveltekit.assets%/favicon.webp">
-		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.png">
-		<link rel="manifest" href="%sveltekit.assets%/manifest.json">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#000000">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;500;700;900&display=swap"
-			rel="stylesheet"
-		>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<link rel="icon" type="image/webp" href="%sveltekit.assets%/favicon.webp" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<!-- Fonts are self-hosted via @fontsource-variable imports in +layout.svelte:
+		     no third-party font requests (GDPR-friendly, zero render-blocking CSS). -->
 
 		%sveltekit.head%
-
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents;">%sveltekit.body%</div>
+		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
