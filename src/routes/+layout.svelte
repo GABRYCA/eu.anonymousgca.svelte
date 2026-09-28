@@ -261,6 +261,11 @@
 									</a>
 								</li>
 								<li>
+									<a class="dropdown-item" href={resolve('/utility/energy')}>
+										<i class="fas fa-bolt me-2" aria-hidden="true"></i>Energia
+									</a>
+								</li>
+								<li>
 									<hr class="dropdown-divider" />
 								</li>
 								<li>
