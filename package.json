@@ -1,6 +1,6 @@
 {
 	"name": "anonymousgca-website",
-	"version": "1.7.1",
+	"version": "1.8.2",
 	"private": true,
 	"packageManager": "bun@1.4.2",
 	"engines": {
@@ -11,7 +11,8 @@
 	],
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "bun scripts/check-energy-history.mjs && vite build",
+		"data:energy": "bun scripts/fetch-energy-history.mjs",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"format": "prettier --check .",
