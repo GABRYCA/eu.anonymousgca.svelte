@@ -1,6 +1,6 @@
 <script>
 	import { tooltip } from 'svelte-tooltip-gca';
-	import { darkTooltipTheme } from '$lib/tooltipThemes.js';
+	import { darkTooltipTheme } from '#lib/tooltipThemes.js';
 
 	const TRAGHETTO = 'traghetto';
 	const TRENO = 'treno';

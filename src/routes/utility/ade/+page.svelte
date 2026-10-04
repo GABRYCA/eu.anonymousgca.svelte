@@ -1,5 +1,5 @@
 <script>
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 
 	const unitPowers = {
 		Byte: 0,

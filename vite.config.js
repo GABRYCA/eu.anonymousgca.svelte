@@ -1,8 +1,23 @@
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [
+		sveltekit({
+			adapter: adapter({ precompress: true }),
+			prerender: {
+				handleHttpError: ({ path, referrer, message }) => {
+					console.warn(`Warning: ${message} - ${path} (referenced from ${referrer})`);
+				},
+
+				handleMissingId: ({ path, id, referrers, message }) => {
+					console.warn(`Warning: ${message} - ${id} in ${path} (referenced from ${referrers})`);
+				}
+			},
+			paths: { origin: 'https://anonymousgca.eu' }
+		})
+	],
 	// --- Bun 1.4 optimizations ---
 	// Vite 8 + Bun: native Bun runtime is ~3-4x faster than Node for dev/build.
 	// These options reduce cold-start and improve HMR for SvelteKit static builds.

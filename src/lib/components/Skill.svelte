@@ -1,5 +1,5 @@
 <script>
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 
 	/** @type {{title?: string, icon?: string, icon_color?: string, title_color?: string}} */
 	let { title = 'Skill Title', icon = 'fas fa-code', icon_color = '', title_color = '' } = $props();

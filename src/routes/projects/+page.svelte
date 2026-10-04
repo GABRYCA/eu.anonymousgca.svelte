@@ -1,6 +1,6 @@
 <script>
-	import RuleBand from '$lib/components/RuleBand.svelte';
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import RuleBand from '#lib/components/RuleBand.svelte';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 	import { onMount } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';

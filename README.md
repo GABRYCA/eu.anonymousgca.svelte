@@ -1,14 +1,16 @@
-# AnonymousGCA Website — SvelteKit 2 + Svelte 5 + Bun 1.4
+# AnonymousGCA Website
 
-Official AnonymousGCA's Website. Static site deployed on **Cloudflare Pages** via `@sveltejs/adapter-static`.
+Official AnonymousGCA's Website.
+
+Made with SvelteKit 2 + Svelte 5 + Bun 1.4.2.
 
 🔗 [Live Website](https://www.anonymousgca.eu/)
 
 ## Stack
 
 - **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh)
-- **Framework:** SvelteKit `2.70.3` + Svelte `5.57.0`
-- **Build:** Vite `8.3.0` (Rolldown) running under Bun runtime
+- **Framework:** SvelteKit 3 + Svelte 5
+- **Build:** Vite 8 (Rolldown) running under Bun runtime
 - **Adapter:** `@sveltejs/adapter-static`
 - **Deploy target:** `build/` → Cloudflare Pages (static)
 
@@ -25,7 +27,7 @@ bun run format:write
 
 ## Developing
 
-Requires **Bun ≥1.4.2** (`bun --version` should show `1.4.2`)
+Requires **Bun ≥1.4.2**
 
 ```bash
 # install dependencies
@@ -52,7 +54,7 @@ bun run preview
 bun --bun vite preview --host --port 3000
 ```
 
-### Why `vite: command not found` happens and how to fix it
+### DEBUG: Error `vite: command not found`
 
 ```
 Detected tools: bun@1.4.2, nodejs@22.16.0
@@ -62,21 +64,21 @@ $ vite build
 bun: command not found: vite
 ```
 
-Cloudflare **provisions** Bun when you set `BUN_VERSION`, but **does not** run `bun install` automatically for the new text lockfile `bun.lock` (Bun ≥1.2). It only auto-detects `bun.lockb` (binary), `package-lock.json`, `yarn.lock`, etc. So `node_modules/.bin/vite` is never created → build fails. This is a known Cloudflare Pages gap (see https://khaledwaleed.com/writing/bun-on-cloudflare-pages).
+Cloudflare **provisions** Bun when `BUN_VERSION` is set, but **does not** run `bun install` automatically for the text lockfile `bun.lock` (Bun ≥1.2). It only auto-detects `bun.lockb` (binary), `package-lock.json`, `yarn.lock`, etc. So `node_modules/.bin/vite` is never created and the build fails. This is a known Cloudflare Pages gap (see https://khaledwaleed.com/writing/bun-on-cloudflare-pages).
 
-This repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`** (0 bytes) as a workaround — Bun locally prefers `bun.lock`, but Cloudflare detects `bun.lockb` and would auto-install. Even so, **you must chain the install** in the build command (the only reliable fix as of Aug 2026).
+The repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`** (0 bytes) as a workaround. Bun locally prefers `bun.lock`, but Cloudflare detects `bun.lockb`. Even so, **chain the install** in the build command.
 
 ### Cloudflare Dashboard
 
-**Pages → your project → Settings → Builds & deployments → Build configuration → Edit:**
+**Pages → your project → Settings → Builds/deployments → Build configuration → Edit:**
 
-| Setting                    | Value                                                                                                                                                                                                                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Framework preset**       | `SvelteKit` (or `None`)                                                                                                                                                                                                                                                               |
-| **Build command**          | `bun install --frozen-lockfile && bun run build` <br>_(if you get a 403 on Bun download, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)_ |
-| **Build output directory** | `build`                                                                                                                                                                                                                                                                               |
-| **Root directory**         | `/` (leave empty)                                                                                                                                                                                                                                                                     |
-| **Production branch**      | `main`                                                                                                                                                                                                                                                                                |
+| Setting                    | Value                                                                                                                                                                                                                                                                                    |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Framework preset**       | `SvelteKit` (or `None`)                                                                                                                                                                                                                                                                  |
+| **Build command**          | `bun install --frozen-lockfile && bun run build` <br>_(In case of a 403 bun download error, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)_ |
+| **Build output directory** | `build`                                                                                                                                                                                                                                                                                  |
+| **Root directory**         | `/` (leave empty)                                                                                                                                                                                                                                                                        |
+| **Production branch**      | `main`                                                                                                                                                                                                                                                                                   |
 
 **Pages → Settings → Variables and Secrets → Add:**
 
@@ -84,7 +86,6 @@ This repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb
 | ------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `BUN_VERSION`             | `1.4.2`                                               | Plaintext                                                                                                              |
 | `SKIP_DEPENDENCY_INSTALL` | `true`                                                | Plaintext _(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)_ |
-| `NODE_VERSION`            | _(delete if present — not needed; Bun replaces Node)_ | —                                                                                                                      |
 
 ### Verify
 
@@ -93,7 +94,7 @@ Deploy log should show:
 ```
 Installing project dependencies: bun install --frozen-lockfile
 ...
-56 packages installed
+XYZ packages installed
 ...
 ✓ built in ...s
 Wrote site to "build"
@@ -106,5 +107,5 @@ If you see `npm install` in the log while you use Bun, the `SKIP_DEPENDENCY_INST
 ```bash
 rm -rf node_modules build
 bun install --frozen-lockfile && bun run build
-# must succeed; if `bun run build` alone fails with `vite: command not found`, Cloudflare will also fail
+# must succeed. If `bun run build` alone fails with `vite: command not found`, Cloudflare will also fail
 ```

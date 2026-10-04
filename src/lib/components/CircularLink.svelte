@@ -1,7 +1,7 @@
 <script>
 	import { tooltip } from 'svelte-tooltip-gca';
 	import { resolve as resolvePath } from '$app/paths';
-	import { primaryTooltipTheme } from '$lib/tooltipThemes.js';
+	import { primaryTooltipTheme } from '#lib/tooltipThemes.js';
 
 	/** @type {{icon?: string, title?: string, link?: string}} */
 	let { icon = 'fas fa-code', title = 'Code', link = '#' } = $props();
@@ -9,7 +9,9 @@
 	const label = $derived(title.replace(/^(Open|Send|Visit|View|Join|Write|Watch|Connect)\s+/i, ''));
 
 	function resolve(value) {
-		return value.startsWith('/') ? resolvePath(value) : value;
+		// SvelteKit 3: pathnames passed to `resolve` carry no leading `/`
+		// (only route IDs start with `/`), so strip it first.
+		return value.startsWith('/') ? resolvePath(value.slice(1)) : value;
 	}
 </script>
 

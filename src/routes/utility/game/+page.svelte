@@ -1,5 +1,5 @@
 <script>
-	import PixelRPG from '$lib/components/PixelRPG.svelte';
+	import PixelRPG from '#lib/components/PixelRPG.svelte';
 </script>
 
 <div class="game-page container py-3 py-md-4">

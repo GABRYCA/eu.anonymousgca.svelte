@@ -9,10 +9,10 @@
 	import '@fontsource-variable/archivo/wdth.css';
 	import '@fontsource-variable/roboto';
 	import '@fontsource-variable/roboto-mono';
-	import '$lib/style/style.css';
-	import Seo from '$lib/components/Seo.svelte';
+	import '#lib/style/style.css';
+	import Seo from '#lib/components/Seo.svelte';
 	import { tooltip } from 'svelte-tooltip-gca';
-	import { primaryTooltipTheme } from '$lib/tooltipThemes.js';
+	import { primaryTooltipTheme } from '#lib/tooltipThemes.js';
 
 	/** @type {{children?: import('svelte').Snippet}} */
 	let { children } = $props();
@@ -119,6 +119,8 @@
 	}
 
 	onNavigate((navigation) => {
+		if (navigation.shallow) return;
+
 		const wasMenuOpen = menuOpen;
 
 		navHidden = false;
@@ -139,11 +141,11 @@
 
 		const startTransition = () =>
 			new Promise((resolveTransition) => {
-				document.startViewTransition(async () => {
-					resolveTransition();
-					await navigation.complete;
-				});
+			document.startViewTransition(async () => {
+				resolveTransition();
+				await navigation.complete;
 			});
+		});
 
 		if (!wasMenuOpen) {
 			return startTransition();
@@ -162,14 +164,14 @@
 	<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 </svelte:head>
 
-<Seo></Seo>
+<Seo />
 
 <svelte:window
 	onkeydown={handleKeydown}
 	onscroll={handleScroll}
 	onmousemove={handlePointerMove}
 	onclick={handleWindowClick}
-/>
+></svelte:window>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -198,14 +200,13 @@
 					aria-expanded={menuOpen}
 					aria-label="Toggle navigation"
 					onclick={toggleMenu}
+				><span class="menu-toggle__box" aria-hidden="true"><span></span><span></span><span></span></span></button>
+
+				<div
+					class="collapse navbar-collapse"
+					class:show={menuOpen}
+					id="navbarNav"
 				>
-					<span class="menu-toggle__box" aria-hidden="true">
-						<span></span>
-						<span></span>
-						<span></span>
-					</span>
-				</button>
-				<div class="collapse navbar-collapse" class:show={menuOpen} id="navbarNav">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
 							<a
@@ -219,17 +220,17 @@
 							<a
 								class="nav-link"
 								class:active={isActive('/contacts')}
-								href={resolve('/contacts')}
-								aria-current={isActive('/contacts') ? 'page' : undefined}>Contacts</a
-							>
+								href={resolve('contacts')}
+								aria-current={isActive('/contacts') ? 'page' : undefined}
+							>Contacts</a>
 						</li>
 						<li class="nav-item">
 							<a
 								class="nav-link"
 								class:active={isActive('/projects')}
-								href={resolve('/projects')}
-								aria-current={isActive('/projects') ? 'page' : undefined}>Projects</a
-							>
+								href={resolve('projects')}
+								aria-current={isActive('/projects') ? 'page' : undefined}
+							>Projects</a>
 						</li>
 						<li class="nav-item dropdown">
 							<button
@@ -251,26 +252,46 @@
 								aria-labelledby="utilityDropdown"
 							>
 								<li>
-									<a class="dropdown-item" href={resolve('/utility/universita')}>
-										<i class="fas fa-graduation-cap me-2" aria-hidden="true"></i>Università
+									<a
+										class="dropdown-item"
+										href={resolve('utility/universita')}
+									>
+										<i
+											class="fas fa-graduation-cap me-2"
+											aria-hidden="true"
+										></i>
+
+										Università
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href={resolve('/utility/ade')}>
-										<i class="fas fa-microchip me-2" aria-hidden="true"></i>ADE
+									<a
+										class="dropdown-item"
+										href={resolve('utility/ade')}
+									>
+										<i class="fas fa-microchip me-2" aria-hidden="true"></i>
+										ADE
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href={resolve('/utility/energy')}>
-										<i class="fas fa-bolt me-2" aria-hidden="true"></i>Energia
+									<a
+										class="dropdown-item"
+										href={resolve('utility/energy')}
+									>
+										<i class="fas fa-bolt me-2" aria-hidden="true"></i>
+										Energia
 									</a>
 								</li>
+
+								<li><hr class="dropdown-divider" /></li>
+
 								<li>
-									<hr class="dropdown-divider" />
-								</li>
-								<li>
-									<a class="dropdown-item" href={resolve('/utility/game')}>
-										<i class="fas fa-gamepad me-2" aria-hidden="true"></i>Game
+									<a
+										class="dropdown-item"
+										href={resolve('utility/game')}
+									>
+										<i class="fas fa-gamepad me-2" aria-hidden="true"></i>
+										Game
 									</a>
 								</li>
 							</ul>
@@ -305,9 +326,16 @@
 					<div class="marquee__half" class:marquee__half--duplicate={duplicate} aria-hidden={duplicate}>
 						{#each [0, 1] as copy}
 							<span class="marquee__seq">
-								Open to work <i></i> SvelteKit enthusiast <i></i> University of Insubria <i></i> EU-based developer
+								Open to work 
 								<i></i>
-								RoboCup programmer <i></i>
+								SvelteKit enthusiast 
+								<i></i>
+								University of Insubria 
+								<i></i>
+								EU-based developer 
+								<i></i>
+								RoboCup programmer 
+								<i></i>
 							</span>
 						{/each}
 					</div>
@@ -362,11 +390,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row text-center footer-copyright pb-3">
-				<div class="col">
-					<p class="h6">&copy; {new Date().getFullYear()} AnonymousGCA</p>
-				</div>
-			</div>
+
+			<div class="row text-center footer-copyright pb-3"><div class="col"><p class="h6">© {new Date().getFullYear()} AnonymousGCA</p></div></div>
 		</footer>
 	</div>
 </div>
@@ -507,12 +532,12 @@
 	}
 
 	.navbar .nav-link.active,
-	.navbar .nav-link.dropdown-toggle[aria-expanded='true'] {
+	.navbar .nav-link.dropdown-toggle[aria-expanded="true"] {
 		color: var(--ink);
 	}
 
 	.navbar .nav-link.active::after,
-	.navbar .nav-link.dropdown-toggle[aria-expanded='true']::after {
+	.navbar .nav-link.dropdown-toggle[aria-expanded="true"]::after {
 		transform: scaleX(1);
 	}
 

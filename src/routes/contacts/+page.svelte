@@ -1,6 +1,6 @@
 <script>
-	import ContactCard from '$lib/components/ContactCard.svelte';
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import ContactCard from '#lib/components/ContactCard.svelte';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 
 	const professional = [
 		{

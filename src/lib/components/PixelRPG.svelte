@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	import { createNeonGrove } from '$lib/game/neonGrove.js';
-	import { LEVELS } from '$lib/game/levels.js';
+	import { createNeonGrove } from '#lib/game/neonGrove.js';
+	import { LEVELS } from '#lib/game/levels.js';
 
 	/** @type {HTMLCanvasElement | undefined} */
 	let canvasEl = $state();

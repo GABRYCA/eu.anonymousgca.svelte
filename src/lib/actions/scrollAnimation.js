@@ -1,4 +1,4 @@
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 /* Motion presets — short travel distances keep reveals feeling precise
    rather than theatrical, and every variant eases with the site's

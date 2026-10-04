@@ -300,7 +300,7 @@ export function saveTrendCache(span, days) {
  * real day summaries in the `toDaySummaries()` shape, frozen at build time.
  * Same-origin static JSON → no CORS, no proxy, no console spam. Past days
  * are immutable, so only the tail can be stale (covered by the live overlay).
- * @param {string} bakedUrl absolute app path, e.g. `resolve('/data/energy-history.json')`
+ * @param {string} bakedUrl absolute app path, e.g. `asset('data/energy-history.json')`
  * @returns {Promise<{ days: ReturnType<typeof toDaySummaries>, generatedAt: string } | null>}
  */
 let bakedPromise = null;

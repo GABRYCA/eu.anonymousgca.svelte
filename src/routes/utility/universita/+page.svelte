@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 
 	let exams = $state([]);
 	let currentExam = $state({

@@ -1,9 +1,9 @@
 <script>
-	import ozerofront from '$lib/images/o-zero2w-front-optimized.webp';
-	import ozeroangle from '$lib/images/o-zero2w-angled-optimized.webp';
-	import orangelogo from '$lib/images/orange-logo-optimized.webp';
+	import ozerofront from '#lib/images/o-zero2w-front-optimized.webp';
+	import ozeroangle from '#lib/images/o-zero2w-angled-optimized.webp';
+	import orangelogo from '#lib/images/orange-logo-optimized.webp';
 	import { onMount } from 'svelte';
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 </script>
 
 <div class="container-xxl">

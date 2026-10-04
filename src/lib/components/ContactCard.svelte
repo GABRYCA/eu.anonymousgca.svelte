@@ -1,5 +1,5 @@
 <script>
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 
 	/** @type {{aos_animation?: string, aos_delay?: number, title?: string, description?: string, icon?: string, link?: string, featured?: boolean, cta?: string}} */
 	let {

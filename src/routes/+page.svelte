@@ -1,10 +1,10 @@
 <script>
-	import Skill from '$lib/components/Skill.svelte';
-	import CircularLink from '$lib/components/CircularLink.svelte';
-	import RuleBand from '$lib/components/RuleBand.svelte';
-	import favicon from '$lib/images/favicon.webp';
+	import Skill from '#lib/components/Skill.svelte';
+	import CircularLink from '#lib/components/CircularLink.svelte';
+	import RuleBand from '#lib/components/RuleBand.svelte';
+	import favicon from '#lib/images/favicon.webp';
 	import { resolve } from '$app/paths';
-	import { scrollAnimation } from '$lib/actions/scrollAnimation.js';
+	import { scrollAnimation } from '#lib/actions/scrollAnimation.js';
 </script>
 
 <div class="home-page">
@@ -35,8 +35,15 @@
 				aria-label="Homepage actions"
 				use:scrollAnimation={{ animation: 'fade-up', duration: 700, delay: 380 }}
 			>
-				<a class="home-hero__action home-hero__action--primary" href={resolve('/projects')}>Explore my projects</a>
-				<a class="home-hero__action" href={resolve('/contacts')}>Get in touch</a>
+				<a
+					class="home-hero__action home-hero__action--primary"
+					href={resolve('projects')}
+				>Explore my projects</a>
+
+				<a
+					class="home-hero__action"
+					href={resolve('contacts')}
+				>Get in touch</a>
 			</div>
 		</div>
 	</section>
@@ -73,7 +80,12 @@
 				class="row justify-content-center text-center mt-4"
 				use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}
 			>
-				<CircularLink link="https://discord.gg/RSp2CSuMny" icon="fab fa-discord" title="Open Discord" />
+				<CircularLink
+					link="https://discord.gg/RSp2CSuMny"
+					icon="fab fa-discord"
+					title="Open Discord"
+				/>
+
 				<CircularLink
 					link="https://www.linkedin.com/in/gabriele-caretti-046408270/"
 					icon="fab fa-linkedin"
@@ -94,7 +106,12 @@
 				class="row justify-content-center text-center mt-4"
 				use:scrollAnimation={{ animation: 'zoom-in', duration: 350 }}
 			>
-				<CircularLink link="https://github.com/GABRYCA" icon="fab fa-github" title="Open Github" />
+				<CircularLink
+					link="https://github.com/GABRYCA"
+					icon="fab fa-github"
+					title="Open Github"
+				/>
+
 				<CircularLink
 					link="https://www.youtube.com/channel/UCJgmoEFd6b9oOj2OvafuezQ"
 					icon="fab fa-youtube"
