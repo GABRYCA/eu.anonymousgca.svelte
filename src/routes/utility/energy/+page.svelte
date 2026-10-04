@@ -691,7 +691,7 @@
 								<div
 									class="chart-tip"
 									style:left="{hovered.x / chart.W * 100}%"
-									style:top="{/** @type {number} */ (hovered.y / chart.H * 100)}%"
+									style:top="{(/** @type {number} */ (hovered.y / chart.H * 100))}%"
 									role="status"
 								>
 									<strong>{hourRange(hovered.i)}</strong>
@@ -798,7 +798,7 @@
 								<div
 									class="chart-tip"
 									style:left="{trendHovered.x / trendChart.W * 100}%"
-									style:top="{/** @type {number} */ (trendHovered.y / trendChart.H * 100)}%"
+									style:top="{(/** @type {number} */ (trendHovered.y / trendChart.H * 100))}%"
 									role="status"
 								>
 									<strong>{trendTipTitle(/** @type {number} */ (trendHover))}</strong>
