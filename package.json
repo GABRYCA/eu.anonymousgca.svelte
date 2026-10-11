@@ -1,10 +1,10 @@
 {
 	"name": "anonymousgca-website",
-	"version": "1.9.1",
+	"version": "1.9.2",
 	"private": true,
-	"packageManager": "bun@1.4.2",
+	"packageManager": "bun@1.4.3",
 	"engines": {
-		"bun": ">=1.4.2"
+		"bun": ">=1.4.3"
 	},
 	"trustedDependencies": [
 		"esbuild"
@@ -15,6 +15,7 @@
 		"data:energy": "bun scripts/fetch-energy-history.mjs",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:types": "bun --check",
 		"format": "prettier --check .",
 		"format:write": "prettier --write ."
 	},
@@ -24,16 +25,16 @@
 		"@fontsource-variable/roboto-mono": "^5.3.0",
 		"@fortawesome/fontawesome-free": "^7.3.1",
 		"@sveltejs/adapter-static": "^4.0.0",
-		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/kit": "^3.0.1",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"bootstrap": "^5.3.8",
-		"prettier": "^3.9.9",
+		"prettier": "^3.9.10",
 		"prettier-plugin-svelte": "^4.1.1",
 		"super-sitemap": "^2.0.6",
-		"svelte": "^5.57.1",
+		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.6",
 		"svelte-tooltip-gca": "^1.0.5",
-		"vite": "^8.3.2"
+		"vite": "^8.3.4"
 	},
 	"type": "module",
 	"imports": {

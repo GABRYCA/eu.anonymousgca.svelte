@@ -2,13 +2,13 @@
 
 Official AnonymousGCA's Website.
 
-Made with SvelteKit 2 + Svelte 5 + Bun 1.4.2.
+Made with SvelteKit 2 + Svelte 5 + Bun 1.4.3.
 
 🔗 [Live Website](https://www.anonymousgca.eu/)
 
 ## Stack
 
-- **Runtime / Package Manager:** [Bun 1.4.2](https://bun.sh)
+- **Runtime / Package Manager:** [Bun 1.4.3](https://bun.sh)
 - **Framework:** SvelteKit 3 + Svelte 5
 - **Build:** Vite 8 (Rolldown) running under Bun runtime
 - **Adapter:** `@sveltejs/adapter-static`
@@ -20,6 +20,9 @@ Made with SvelteKit 2 + Svelte 5 + Bun 1.4.2.
 # Svelte template/accessibility diagnostics (svelte-check)
 bun run check
 
+# JS typecheck via Bun 1.4.3's built-in checker
+bun run check:types
+
 # Prettier check / write
 bun run format
 bun run format:write
@@ -27,7 +30,7 @@ bun run format:write
 
 ## Developing
 
-Requires **Bun ≥1.4.2**
+Requires **Bun ≥1.4.3**
 
 ```bash
 # install dependencies
@@ -57,8 +60,8 @@ bun --bun vite preview --host --port 3000
 ### DEBUG: Error `vite: command not found`
 
 ```
-Detected tools: bun@1.4.2, nodejs@22.16.0
-Installing Bun v1.4.2...
+Detected tools: bun@1.4.3, nodejs@22.16.0
+Installing Bun v1.4.3...
 Executing user command: bun run build
 $ vite build
 bun: command not found: vite
@@ -84,7 +87,7 @@ The repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`
 
 | Variable                  | Value                                                 | Type                                                                                                                   |
 | ------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `BUN_VERSION`             | `1.4.2`                                               | Plaintext                                                                                                              |
+| `BUN_VERSION`             | `1.4.3`                                               | Plaintext                                                                                                              |
 | `SKIP_DEPENDENCY_INSTALL` | `true`                                                | Plaintext _(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)_ |
 
 ### Verify
