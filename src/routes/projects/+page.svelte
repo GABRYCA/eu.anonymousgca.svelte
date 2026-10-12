@@ -363,8 +363,6 @@
 		border: 1px solid var(--line);
 		border-radius: var(--radius-card);
 		background: var(--bg);
-		/* NOTE: hover lift uses the independent `translate` property (not `transform`)
-           so it never fights with Svelte's fly transition which animates `transform`. */
 		transition:
 			border-color 0.25s ease,
 			translate 0.35s var(--ease-out-expo);

@@ -1,10 +1,6 @@
 export const prerender = true;
 
 export const load = async ({}) => {
-	// NOTE: `updatedAt` mirrors each repo's last push (GitHub `pushed_at`, a good
-	// proxy for the last commit date) and drives the catalogue sort order below.
-	// Refresh a date with: `gh repo view GABRYCA/<repo> --json pushedAt -q .pushedAt`
-	// Projects without a public repo (e.g. Ristorante Aquazzurra) omit it and sort last.
 	const projects = [
 		{
 			kind: 'web',
@@ -154,7 +150,6 @@ export const load = async ({}) => {
 				uni: 'University',
 				tool: 'VS Code'
 			}[project.kind]
-			// Most recently active first; projects without `updatedAt` sort last.
 		}))
 		.sort((a, b) => (b.updatedAt ?? '').localeCompare(a.updatedAt ?? ''));
 

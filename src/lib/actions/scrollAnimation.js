@@ -1,8 +1,5 @@
 import { browser } from '$app/env';
 
-/* Motion presets — short travel distances keep reveals feeling precise
-   rather than theatrical, and every variant eases with the site's
-   expo-out curve so entrances share one motion language. */
 const animations = {
 	'fade-up': {
 		initial: { opacity: 0, transform: 'translateY(24px)' },
