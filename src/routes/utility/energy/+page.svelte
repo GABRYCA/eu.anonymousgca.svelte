@@ -79,7 +79,7 @@
         if (!selected) return null;
         if (basis === 'min') return selected.min;
         if (basis === 'max') return selected.max;
-        if (basis === 'now') return isToday ? hourly[nowHour] ?? selected.avg : selected.avg;
+        if (basis === 'now') return isToday ? (hourly[nowHour] ?? selected.avg) : selected.avg;
         return selected.avg;
     });
 
@@ -91,7 +91,7 @@
         const padR = 14;
         const padT = 14;
         const padB = 30;
-        const vals = hourly.map((v) => typeof v === 'number' ? unit === 'ckwh' ? v / 10 : v : null);
+        const vals = hourly.map((v) => (typeof v === 'number' ? (unit === 'ckwh' ? v / 10 : v) : null));
         const nums = vals.filter((v) => typeof v === 'number');
         if (nums.length === 0) return null;
         let lo = Math.min(...nums);
@@ -105,10 +105,13 @@
         hi += spanPad;
         const innerW = W - padL - padR;
         const innerH = H - padT - padB;
-        const x = (/** @type {number} */ i) => padL + i / 23 * innerW;
+        const x = (/** @type {number} */ i) => padL + (i / 23) * innerW;
         const y = (/** @type {number} */ v) => padT + (1 - (v - lo) / (hi - lo)) * innerH;
         const pts = vals.map((v, i) => ({i, v, x: x(i), y: v === null ? null : y(v)}));
-        const line = pts.filter((p) => p.y !== null).map((p, k) => `${k === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${/** @type {number} */ (p.y.toFixed(1))}`).join(' ');
+        const line = pts
+            .filter((p) => p.y !== null)
+            .map((p, k) => `${k === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${/** @type {number} */ (p.y.toFixed(1))}`)
+            .join(' ');
         const first = pts.find((p) => p.y !== null);
         const last = [...pts].reverse().find((p) => p.y !== null);
         const area =
@@ -116,13 +119,13 @@
                 ? `${line} L${last.x.toFixed(1)},${(padT + innerH).toFixed(1)} L${first.x.toFixed(1)},${(padT + innerH).toFixed(1)} Z`
                 : '';
         const ticks = [0, 1, 2, 3].map((k) => {
-            const v = lo + (hi - lo) * k / 3;
+            const v = lo + ((hi - lo) * k) / 3;
             return {v, y: y(v)};
         });
         return {W, H, padL, padR, padT, padB, innerW, innerH, pts, line, area, ticks, lo, hi};
     });
 
-    const hovered = $derived(hoverIndex !== null && chart ? chart.pts[hoverIndex] ?? null : null);
+    const hovered = $derived(hoverIndex !== null && chart ? (chart.pts[hoverIndex] ?? null) : null);
 
     // Trend derived (period stats + variable-length chart)
     const periodStats = $derived.by(() => {
@@ -132,9 +135,9 @@
             if (valid.length === 0) return null;
 
             const avgs = valid.map((m /** @type {number} */) => m.avg);
-            const avg = Math.round(avgs.reduce((a, b) => a + b, 0) / avgs.length * 100) / 100;
-            const minM = valid.reduce((a, b /** @type {number} */) => a.avg <= /** @type {number} */ (b.avg) ? a : b);
-            const maxM = valid.reduce((a, b /** @type {number} */) => a.avg >= /** @type {number} */ (b.avg) ? a : b);
+            const avg = Math.round((avgs.reduce((a, b) => a + b, 0) / avgs.length) * 100) / 100;
+            const minM = valid.reduce((a, b /** @type {number} */) => (a.avg <= /** @type {number} */ (b.avg) ? a : b));
+            const maxM = valid.reduce((a, b /** @type {number} */) => (a.avg >= /** @type {number} */ (b.avg) ? a : b));
 
             return {
                 avg,
@@ -150,9 +153,9 @@
         if (valid.length === 0) return null;
 
         const avgs = valid.map((d /** @type {number} */) => d.avg);
-        const avg = Math.round(avgs.reduce((a, b) => a + b, 0) / avgs.length * 100) / 100;
-        const minD = valid.reduce((a, b /** @type {number} */) => a.avg <= /** @type {number} */ (b.avg) ? a : b);
-        const maxD = valid.reduce((a, b /** @type {number} */) => a.avg >= /** @type {number} */ (b.avg) ? a : b);
+        const avg = Math.round((avgs.reduce((a, b) => a + b, 0) / avgs.length) * 100) / 100;
+        const minD = valid.reduce((a, b /** @type {number} */) => (a.avg <= /** @type {number} */ (b.avg) ? a : b));
+        const maxD = valid.reduce((a, b /** @type {number} */) => (a.avg >= /** @type {number} */ (b.avg) ? a : b));
 
         return {
             avg,
@@ -175,7 +178,7 @@
         const padB = 30;
         const raw = range === '12m' ? monthly.map((m) => m.avg) : trend.map((d) => d.avg);
         if (raw.length === 0) return null;
-        const vals = raw.map((v) => typeof v === 'number' ? unit === 'ckwh' ? v / 10 : v : null);
+        const vals = raw.map((v) => (typeof v === 'number' ? (unit === 'ckwh' ? v / 10 : v) : null));
         const nums = vals.filter((v) => typeof v === 'number');
         if (nums.length === 0) return null;
         let lo = Math.min(...nums);
@@ -190,10 +193,13 @@
         const innerW = W - padL - padR;
         const innerH = H - padT - padB;
         const n = vals.length;
-        const x = (/** @type {number} */ i) => n === 1 ? padL + innerW / 2 : padL + i / (n - 1) * innerW;
+        const x = (/** @type {number} */ i) => (n === 1 ? padL + innerW / 2 : padL + (i / (n - 1)) * innerW);
         const y = (/** @type {number} */ v) => padT + (1 - (v - lo) / (hi - lo)) * innerH;
         const pts = vals.map((v, i) => ({i, v, x: x(i), y: v === null ? null : y(v)}));
-        const line = pts.filter((p) => p.y !== null).map((p, k) => `${k === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${/** @type {number} */ (p.y.toFixed(1))}`).join(' ');
+        const line = pts
+            .filter((p) => p.y !== null)
+            .map((p, k) => `${k === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${/** @type {number} */ (p.y.toFixed(1))}`)
+            .join(' ');
         const first = pts.find((p) => p.y !== null);
         const last = [...pts].reverse().find((p) => p.y !== null);
         const area =
@@ -201,17 +207,14 @@
                 ? `${line} L${last.x.toFixed(1)},${(padT + innerH).toFixed(1)} L${first.x.toFixed(1)},${(padT + innerH).toFixed(1)} Z`
                 : '';
         const ticks = [0, 1, 2, 3].map((k) => {
-            const v = lo + (hi - lo) * k / 3;
+            const v = lo + ((hi - lo) * k) / 3;
             return {v, y: y(v)};
         });
-        const labels =
-            range === '12m'
-                ? monthly.map((m) => monthLabel(m.month))
-                : trend.map((d) => d.date.slice(5));
+        const labels = range === '12m' ? monthly.map((m) => monthLabel(m.month)) : trend.map((d) => d.date.slice(5));
         return {W, H, padL, padR, padT, padB, innerW, innerH, pts, line, area, ticks, lo, hi, labels};
     });
 
-    const trendHovered = $derived(trendHover !== null && trendChart ? trendChart.pts[trendHover] ?? null : null);
+    const trendHovered = $derived(trendHover !== null && trendChart ? (trendChart.pts[trendHover] ?? null) : null);
 
     const trendUpdatedLabel = $derived.by(() => {
         if (!trendFetchedAt) return '';
@@ -281,7 +284,7 @@
             fetchedAt = res.fetchedAt;
             note = res.note ?? '';
             if (!selectedDate || !days.some((d) => d.date === selectedDate)) {
-                selectedDate = days.some((d) => d.date === nowKey) ? nowKey : days[days.length - 1]?.date ?? null;
+                selectedDate = days.some((d) => d.date === nowKey) ? nowKey : (days[days.length - 1]?.date ?? null);
             }
         } catch (e) {
             days = getSampleDays();
@@ -365,7 +368,7 @@
             days = cached.days;
             source = 'cache';
             fetchedAt = cached.ts;
-            selectedDate = days.some((d) => d.date === nowKey) ? nowKey : days[days.length - 1]?.date ?? null;
+            selectedDate = days.some((d) => d.date === nowKey) ? nowKey : (days[days.length - 1]?.date ?? null);
         } else {
             days = getSampleDays();
             source = 'sample';
@@ -400,7 +403,7 @@
         const svg = /** @type {SVGElement} */ (event.currentTarget);
         const rect = svg.getBoundingClientRect();
         if (rect.width <= 0) return;
-        const px = (event.clientX - rect.left) / rect.width * chart.W;
+        const px = ((event.clientX - rect.left) / rect.width) * chart.W;
         const frac = (px - chart.padL) / chart.innerW;
         hoverIndex = Math.max(0, Math.min(23, Math.round(frac * 23)));
     }
@@ -448,7 +451,7 @@
         const svg = /** @type {SVGElement} */ (event.currentTarget);
         const rect = svg.getBoundingClientRect();
         if (rect.width <= 0) return;
-        const px = (event.clientX - rect.left) / rect.width * trendChart.W;
+        const px = ((event.clientX - rect.left) / rect.width) * trendChart.W;
         const n = trendChart.pts.length;
         if (n <= 1) {
             trendHover = 0;
@@ -486,7 +489,7 @@
 
     /** Trend tooltip value for point i (daily/monthly mean in the active unit). */
     function trendTipValue(/** @type {number} */ i) {
-        const v = range === '12m' ? monthly[i]?.avg ?? null : trend[i]?.avg ?? null;
+        const v = range === '12m' ? (monthly[i]?.avg ?? null) : (trend[i]?.avg ?? null);
         return typeof v === 'number' ? formatPrice(v, unit) : '—';
     }
 </script>
@@ -497,7 +500,8 @@
                  use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
             <h1 class="energy-title page-hero__title mb-3">Energia · Costo</h1>
             <p class="page-hero__lead mx-auto">
-                Costo orario "day-ahead" della componente elettrica in Italia, tramite (MGP).
+                Costo orario "day-ahead" della componente elettrica in Italia, tramite il Mercato del Giorno Prima
+                (MGP).
             </p>
             <div class="hero-badges">
 				<span class="source-badge {heroSourceMeta.cls}" role="status">
@@ -508,14 +512,16 @@
                     <span class="hero-price text-mono">{formatPrice(periodStats.avg, unit)}</span>
 
                     <span class="hero-price-sub">
-						media {range === '12m'
-                        ? 'ultimi 12 mesi'
-                        : range === '30g' ? 'ultimi 30 giorni' : 'ultimi 7 giorni'}
+						media {range === '12m' ? 'ultimi 12 mesi' : range === '30g' ? 'ultimi 30 giorni' : 'ultimi 7 giorni'}
 					</span>
                 {:else if selected}
-                    <span class="hero-price text-mono">{formatPrice(isToday ? hourly[nowHour] ?? selected.avg : selected.avg, unit)}</span>
-                    <span class="hero-price-sub">{isToday ? 'ora in corso ·' : ''}
-                        media {dayLabel(selected.date).toLowerCase()}</span>
+					<span class="hero-price text-mono"
+                    >{formatPrice(isToday ? (hourly[nowHour] ?? selected.avg) : selected.avg, unit)}</span
+                    >
+                    <span class="hero-price-sub"
+                    >{isToday ? 'ora in corso ·' : ''}
+                        media {dayLabel(selected.date).toLowerCase()}</span
+                    >
                 {/if}
             </div>
         </section>
@@ -561,17 +567,33 @@
                 {/if}
                 <div class="head-controls">
                     <div class="range-toggle" role="group" aria-label="Intervallo di tempo">
-                        <button type="button" class:active={range === '3g'} aria-pressed={range === '3g'}
-                                onclick={() => selectRange('3g')}>3 gg
+                        <button
+                                type="button"
+                                class:active={range === '3g'}
+                                aria-pressed={range === '3g'}
+                                onclick={() => selectRange('3g')}
+                        >3 gg
                         </button>
-                        <button type="button" class:active={range === '7g'} aria-pressed={range === '7g'}
-                                onclick={() => selectRange('7g')}>7 gg
+                        <button
+                                type="button"
+                                class:active={range === '7g'}
+                                aria-pressed={range === '7g'}
+                                onclick={() => selectRange('7g')}
+                        >7 gg
                         </button>
-                        <button type="button" class:active={range === '30g'} aria-pressed={range === '30g'}
-                                onclick={() => selectRange('30g')}>30 gg
+                        <button
+                                type="button"
+                                class:active={range === '30g'}
+                                aria-pressed={range === '30g'}
+                                onclick={() => selectRange('30g')}
+                        >30 gg
                         </button>
-                        <button type="button" class:active={range === '12m'} aria-pressed={range === '12m'}
-                                onclick={() => selectRange('12m')}>12 mesi
+                        <button
+                                type="button"
+                                class:active={range === '12m'}
+                                aria-pressed={range === '12m'}
+                                onclick={() => selectRange('12m')}
+                        >12 mesi
                         </button>
                     </div>
                     <div class="unit-toggle" role="group" aria-label="Unità di misura">
@@ -579,26 +601,36 @@
                                 type="button"
                                 class:active={unit === 'eur-mwh'}
                                 aria-pressed={unit === 'eur-mwh'}
-                                onclick={() => unit = 'eur-mwh'}
+                                onclick={() => (unit = 'eur-mwh')}
                         >€/MWh
                         </button>
                         <button
                                 type="button"
                                 class:active={unit === 'ckwh'}
                                 aria-pressed={unit === 'ckwh'}
-                                onclick={() => unit = 'ckwh'}
+                                onclick={() => (unit = 'ckwh')}
                         >c€/kWh
                         </button>
                     </div>
                     {#if range === '3g'}
-                        <button type="button" class="btn-refresh" onclick={() => load(true)} disabled={refreshing}
-                                aria-live="polite">
+                        <button
+                                type="button"
+                                class="btn-refresh"
+                                onclick={() => load(true)}
+                                disabled={refreshing}
+                                aria-live="polite"
+                        >
                             <i class="fas fa-rotate" aria-hidden="true"></i>
                             {refreshing ? 'Aggiorno…' : 'Aggiorna'}
                         </button>
                     {:else}
-                        <button type="button" class="btn-refresh" onclick={() => loadTrend()} disabled={trendLoading}
-                                aria-live="polite">
+                        <button
+                                type="button"
+                                class="btn-refresh"
+                                onclick={() => loadTrend()}
+                                disabled={trendLoading}
+                                aria-live="polite"
+                        >
                             <i class="fas fa-rotate" aria-hidden="true"></i>
                             {trendLoading ? 'Aggiorno…' : 'Aggiorna'}
                         </button>
@@ -645,7 +677,7 @@
                                 {/each}
                                 {#each [0, 6, 12, 18, 23] as h (h)}
                                     <text
-                                            x={(chart.padL + h / 23 * chart.innerW).toFixed(1)}
+                                            x={(chart.padL + (h / 23) * chart.innerW).toFixed(1)}
                                             y={chart.H - 10}
                                             text-anchor="middle"
                                             class="tick"
@@ -664,9 +696,9 @@
 
                                 {#if cheap3h}
                                     <rect
-                                            x={(chart.padL + cheap3h.startHour / 23 * chart.innerW).toFixed(1)}
+                                            x={(chart.padL + (cheap3h.startHour / 23) * chart.innerW).toFixed(1)}
                                             y={chart.padT}
-                                            width={(3 / 23 * chart.innerW).toFixed(1)}
+                                            width={((3 / 23) * chart.innerW).toFixed(1)}
                                             height={chart.innerH}
                                             class="cheap-band"
                                     ></rect>
@@ -674,8 +706,8 @@
 
                                 {#if isToday}
                                     <line
-                                            x1={(chart.padL + nowHour / 23 * chart.innerW).toFixed(1)}
-                                            x2={(chart.padL + nowHour / 23 * chart.innerW).toFixed(1)}
+                                            x1={(chart.padL + (nowHour / 23) * chart.innerW).toFixed(1)}
+                                            x2={(chart.padL + (nowHour / 23) * chart.innerW).toFixed(1)}
                                             y1={chart.padT}
                                             y2={chart.padT + chart.innerH}
                                             class="now-line"
@@ -706,8 +738,8 @@
                             {#if hovered && hovered.v !== null && typeof hourly[hovered.i] === 'number'}
                                 <div
                                         class="chart-tip"
-                                        style:left="{hovered.x / chart.W * 100}%"
-                                        style:top="{(/** @type {number} */ (hovered.y / chart.H * 100))}%"
+                                        style:left="{(hovered.x / chart.W) * 100}%"
+                                        style:top="{(hovered.y / chart.H) * 100}%"
                                         role="status"
                                 >
                                     <strong>{hourRange(hovered.i)}</strong>
@@ -726,12 +758,12 @@
 								{:else if source === 'cache'}
 									Ultimo aggiornamento {updatedLabel}
                                     {#if note}
-                                        · {note}
+                                        ({note})
                                     {:else}
-                                        · in attesa della rete.
+                                        (in attesa della rete)
                                     {/if}
 								{:else}
-									Aggiornato {updatedLabel} · zona Nord, prezzi day-ahead.
+									Aggiornato {updatedLabel}. Zona Nord, prezzi day-ahead.
 								{/if}
 							</span>
                             <label class="auto-refresh">
@@ -745,7 +777,9 @@
                         <div class="chart-skeleton" aria-label="Caricamento storico">
                             <div class="chart-skeleton__bar"></div>
                             <p class="mb-0">
-                                {range === '12m' ? 'Caricamento ultimi 12 mesi… (può richiedere qualche secondo)' : 'Caricamento storico…'}
+                                {range === '12m'
+                                    ? 'Caricamento ultimi 12 mesi… (può richiedere qualche secondo)'
+                                    : 'Caricamento storico…'}
                             </p>
                         </div>
                     {:else if !trendChart}
@@ -763,7 +797,9 @@
                                 aria-valuemin={0}
                                 aria-valuemax={trendChart.pts.length - 1}
                                 aria-valuenow={trendHover ?? Math.floor(trendChart.pts.length / 2)}
-                                aria-valuetext={trendHover !== null ? `${trendTipTitle(trendHover)}: ${trendTipValue(trendHover)}` : 'Nessun punto selezionato'}
+                                aria-valuetext={trendHover !== null
+								? `${trendTipTitle(trendHover)}: ${trendTipValue(trendHover)}`
+								: 'Nessun punto selezionato'}
                                 onpointermove={handleTrendPointer}
                                 onpointerleave={clearTrendHover}
                                 onkeydown={handleTrendKeys}
@@ -813,16 +849,21 @@
                                 {/each}
 
                                 {#if trendHovered && trendHovered.y !== null}
-                                    <line x1={trendHovered.x} x2={trendHovered.x} y1={trendChart.padT}
-                                          y2={trendChart.padT + trendChart.innerH} class="hover-line"></line>
+                                    <line
+                                            x1={trendHovered.x}
+                                            x2={trendHovered.x}
+                                            y1={trendChart.padT}
+                                            y2={trendChart.padT + trendChart.innerH}
+                                            class="hover-line"
+                                    ></line>
                                 {/if}
                             </svg>
 
                             {#if trendHovered && trendHovered.v !== null && trendHover !== null}
                                 <div
                                         class="chart-tip"
-                                        style:left="{trendHovered.x / trendChart.W * 100}%"
-                                        style:top="{(/** @type {number} */ (trendHovered.y / trendChart.H * 100))}%"
+                                        style:left="{(trendHovered.x / trendChart.W) * 100}%"
+                                        style:top="{(trendHovered.y / trendChart.H) * 100}%"
                                         role="status"
                                 >
                                     <strong>{trendTipTitle(/** @type {number} */ (trendHover))}</strong>
@@ -844,10 +885,15 @@
 							<span>
 								{#if trendSource === 'sample'}
 									Dati dimostrativi: la rete non ha risposto
-                                    {#if trendNote} ({trendNote}){/if}. Riprova con “Aggiorna”.
+                                    {#if trendNote}
+                                        ({trendNote})
+                                    {/if}. Riprova con “Aggiorna”.
 								{:else if trendSource === 'cache'}
 									Ultimo aggiornamento {trendUpdatedLabel}
-                                    {#if trendNote} · {trendNote}{:else} · in attesa della rete.{/if}
+                                    {#if trendNote}
+                                        · {trendNote}{:else}
+                                        · in attesa della rete.
+                                    {/if}
 								{:else}
 									Aggiornato {trendUpdatedLabel}
                                     · {range === '12m' ? 'medie mensili' : 'medie giornaliere'}, zona Nord.
@@ -864,7 +910,7 @@
         </section>
 
         <!-- Stats -->
-        {#if range === '3g' && selected || isTrend && periodStats}
+        {#if (range === '3g' && selected) || (isTrend && periodStats)}
             {#if range === '3g' && selected}
                 <div class="row gy-3 mb-4" use:scrollAnimation={{ animation: 'fade-up', duration: 350 }}>
                     <div class="col-6 col-lg-3">
@@ -952,27 +998,17 @@
                             />
                             <label class="form-label fw-bold" for="basisSelect">Tariffa di riferimento</label>
 
-                            <select
-                                    id="basisSelect"
-                                    class="form-select form-control-custom mb-3"
-                                    bind:value={basis}
-                            >
+                            <select id="basisSelect" class="form-select form-control-custom mb-3" bind:value={basis}>
                                 <option value="avg">
-                                    {isTrend
-                                        ? range === '12m' ? 'Media 12 mesi' : 'Media periodo'
-                                        : 'Media del giorno'}
+                                    {isTrend ? (range === '12m' ? 'Media 12 mesi' : 'Media periodo') : 'Media del giorno'}
                                 </option>
 
                                 <option value="min">
-                                    {isTrend
-                                        ? range === '12m' ? 'Mese più economico' : 'Giorno più economico'
-                                        : 'Ora più economica'}
+                                    {isTrend ? (range === '12m' ? 'Mese più economico' : 'Giorno più economico') : 'Ora più economica'}
                                 </option>
 
                                 <option value="max">
-                                    {isTrend
-                                        ? range === '12m' ? 'Mese più caro' : 'Giorno più caro'
-                                        : 'Ora più cara'}
+                                    {isTrend ? (range === '12m' ? 'Mese più caro' : 'Giorno più caro') : 'Ora più cara'}
                                 </option>
 
                                 {#if !isTrend}
@@ -997,13 +1033,16 @@
                         <div class="card-header energy-card__head">
                             <h2 class="h5 mb-0">
                                 {#if range === '3g'}
-                                    <i class="fas fa-table-list me-2 text-accent"></i>Prezzi per ora
-                                    · {selected ? dayLabel(selected.date) : ''}
+                                    <i class="fas fa-table-list me-2 text-accent"></i>Prezzi per ora · {selected
+                                    ? dayLabel(selected.date)
+                                    : ''}
                                 {:else if range === '12m'}
                                     <i class="fas fa-table-list me-2 text-accent"></i>Medie mensili · ultimi 12 mesi
                                 {:else}
                                     <i class="fas fa-table-list me-2 text-accent"></i>Medie giornaliere
-                                    · {range === '30g' ? 'ultimi 30 giorni' : 'ultimi 7 giorni'}
+                                    · {range === '30g'
+                                    ? 'ultimi 30 giorni'
+                                    : 'ultimi 7 giorni'}
                                 {/if}
                             </h2>
                         </div>
@@ -1036,9 +1075,8 @@
                                                 </td>
                                                 <td class="bar-cell">
                                                     {#if typeof price === 'number' && typeof selected.max === 'number' && selected.max > 0}
-															<span
-                                                                    class="bar"
-                                                                    style:width={`${Math.max(4, price / selected.max * 100).toFixed(1)}%`}
+															<span class="bar"
+                                                                  style:width={`${Math.max(4, (price / selected.max) * 100).toFixed(1)}%`}
                                                             ></span>
                                                     {/if}
                                                 </td>
@@ -1058,15 +1096,17 @@
                                                     {#if periodStats && m.avg === periodStats.maxVal}<span
                                                             class="badge-max">max</span>{/if}
                                                     {#if typeof m.min === 'number' && typeof m.max === 'number'}
-                                                        <small class="d-block text-muted">{formatPrice(m.min, unit)}
-                                                            – {formatPrice(m.max, unit)}</small>
+                                                        <small class="d-block text-muted"
+                                                        >{formatPrice(m.min, unit)}
+                                                            – {formatPrice(m.max, unit)}</small
+                                                        >
                                                     {/if}
                                                 </td>
                                                 <td class="bar-cell">
                                                     {#if typeof m.avg === 'number' && periodStats && typeof periodStats.maxVal === 'number' && periodStats.maxVal > 0}
 															<span
                                                                     class="bar"
-                                                                    style:width={`${Math.max(4, m.avg / periodStats.maxVal * 100).toFixed(1)}%`}
+                                                                    style:width={`${Math.max(4, (m.avg / periodStats.maxVal) * 100).toFixed(1)}%`}
                                                             ></span>
                                                     {/if}
                                                 </td>
@@ -1078,8 +1118,10 @@
                                                     class:row-min={periodStats && d.avg === periodStats.minVal}
                                                     class:row-max={periodStats && d.avg === periodStats.maxVal}
                                             >
-                                                <th scope="row" class="text-mono">{dayLabel(d.date)} <small
-                                                        class="text-muted">{d.date.slice(5)}</small></th>
+                                                <th scope="row" class="text-mono"
+                                                >{dayLabel(d.date)} <small class="text-muted">{d.date.slice(5)}</small>
+                                                </th
+                                                >
                                                 <td class="text-end text-mono">
                                                     {formatPrice(d.avg, unit)}
                                                     {#if periodStats && d.avg === periodStats.minVal}<span
@@ -1087,15 +1129,17 @@
                                                     {#if periodStats && d.avg === periodStats.maxVal}<span
                                                             class="badge-max">max</span>{/if}
                                                     {#if typeof d.min === 'number' && typeof d.max === 'number'}
-                                                        <small class="d-block text-muted">{formatPrice(d.min, unit)}
-                                                            – {formatPrice(d.max, unit)}</small>
+                                                        <small class="d-block text-muted"
+                                                        >{formatPrice(d.min, unit)}
+                                                            – {formatPrice(d.max, unit)}</small
+                                                        >
                                                     {/if}
                                                 </td>
                                                 <td class="bar-cell">
                                                     {#if typeof d.avg === 'number' && periodStats && typeof periodStats.maxVal === 'number' && periodStats.maxVal > 0}
 															<span
                                                                     class="bar"
-                                                                    style:width={`${Math.max(4, d.avg / periodStats.maxVal * 100).toFixed(1)}%`}
+                                                                    style:width={`${Math.max(4, (d.avg / periodStats.maxVal) * 100).toFixed(1)}%`}
                                                             ></span>
                                                     {/if}
                                                 </td>
@@ -1119,7 +1163,7 @@
                         <i class="fas fa-circle-info me-1"></i>
                         Valori a scopo informativo (materia energia, IVA e oneri esclusi), non costituiscono la
                         bolletta. Fonte dati:
-                        GME – Gestore dei Mercati Energetici (mercatoelettrico.org) · prezzi zona Nord via
+                        GME (Gestore dei Mercati Energetici, mercatoelettrico.org). Prezzi zona Nord via
                         energy-charts.info / Fraunhofer
                         ISE (CC BY 4.0, dati Bundesnetzagentur | SMARD.de).
                         {validCount < 24 && selected

@@ -395,7 +395,7 @@
                 >
                     Title
                 </button>
-                <span class="save-label">Progress autosaves — {kills} foe(s) bonked</span>
+                <span class="save-label">Progress autosaves. {kills} foe(s) bonked</span>
             </div>
         {/if}
     </div>

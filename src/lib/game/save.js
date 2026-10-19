@@ -8,11 +8,11 @@ export const SAVE_VERSION = 1;
 
 /** @returns {boolean} */
 export function storageAvailable() {
-	try {
-		return typeof localStorage !== 'undefined';
-	} catch {
-		return false;
-	}
+    try {
+        return typeof localStorage !== 'undefined';
+    } catch {
+        return false;
+    }
 }
 
 /**
@@ -20,17 +20,17 @@ export function storageAvailable() {
  * Never throws.
  */
 export function readSave() {
-	if (!storageAvailable()) return null;
-	try {
-		const raw = localStorage.getItem(SAVE_KEY);
-		if (!raw) return null;
-		const data = JSON.parse(raw);
-		if (!data || typeof data !== 'object' || data.version !== SAVE_VERSION) return null;
-		if (typeof data.levelIndex !== 'number' || data.levelIndex < 0 || data.levelIndex > 2) return null;
-		return data;
-	} catch {
-		return null;
-	}
+    if (!storageAvailable()) return null;
+    try {
+        const raw = localStorage.getItem(SAVE_KEY);
+        if (!raw) return null;
+        const data = JSON.parse(raw);
+        if (!data || typeof data !== 'object' || data.version !== SAVE_VERSION) return null;
+        if (typeof data.levelIndex !== 'number' || data.levelIndex < 0 || data.levelIndex > 2) return null;
+        return data;
+    } catch {
+        return null;
+    }
 }
 
 /**
@@ -38,20 +38,20 @@ export function readSave() {
  * @returns {boolean} true when persisted
  */
 export function writeSave(data) {
-	if (!storageAvailable()) return false;
-	try {
-		localStorage.setItem(SAVE_KEY, JSON.stringify({ ...data, version: SAVE_VERSION, timestamp: Date.now() }));
-		return true;
-	} catch {
-		return false;
-	}
+    if (!storageAvailable()) return false;
+    try {
+        localStorage.setItem(SAVE_KEY, JSON.stringify({...data, version: SAVE_VERSION, timestamp: Date.now()}));
+        return true;
+    } catch {
+        return false;
+    }
 }
 
 export function clearSave() {
-	if (!storageAvailable()) return;
-	try {
-		localStorage.removeItem(SAVE_KEY);
-	} catch {
-		/* ignore */
-	}
+    if (!storageAvailable()) return;
+    try {
+        localStorage.removeItem(SAVE_KEY);
+    } catch {
+        /* ignore */
+    }
 }

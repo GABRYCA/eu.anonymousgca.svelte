@@ -13,7 +13,7 @@
         },
         {
             title: 'LinkedIn',
-            description: 'Reach me out on LinkedIn.',
+            description: 'Reach me on LinkedIn.',
             icon: 'fab fa-linkedin',
             link: 'https://www.linkedin.com/in/gabriele-caretti-046408270/',
             aos_delay: 140,
@@ -77,7 +77,7 @@
         <section class="page-hero mb-4 mb-md-5" use:scrollAnimation={{ animation: 'ink-up', duration: 600 }}>
             <h1 class="contacts-title page-hero__title">Connect With Me</h1>
             <p class="page-hero__lead">
-                Pick the channel that fits. I check messages regularly, especially Emails and LinkedIn.
+                Pick the channel that fits. I check messages regularly.
             </p>
 
             <ul class="quick-links">
@@ -119,7 +119,7 @@
 
         <section aria-labelledby="social-heading">
             <div class="section-heading" use:scrollAnimation={{ animation: 'fade-up', duration: 400 }}>
-                <h2 id="social-heading" class="section-heading__title">Social & community</h2>
+                <h2 id="social-heading" class="section-heading__title">Social and community</h2>
                 <p class="section-heading__sub">Where I hang out beyond the inbox</p>
             </div>
             <div class="row g-3 g-md-4">

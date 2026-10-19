@@ -170,7 +170,7 @@
         onscroll={handleScroll}
         onmousemove={handlePointerMove}
         onclick={handleWindowClick}
-></svelte:window>
+/>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -202,11 +202,7 @@
                 ><span class="menu-toggle__box" aria-hidden="true"><span></span><span></span><span></span></span>
                 </button>
 
-                <div
-                        class="collapse navbar-collapse"
-                        class:show={menuOpen}
-                        id="navbarNav"
-                >
+                <div class="collapse navbar-collapse" class:show={menuOpen} id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a
@@ -221,16 +217,16 @@
                                     class="nav-link"
                                     class:active={isActive('/contacts')}
                                     href={resolve('contacts')}
-                                    aria-current={isActive('/contacts') ? 'page' : undefined}
-                            >Contacts</a>
+                                    aria-current={isActive('/contacts') ? 'page' : undefined}>Contacts</a
+                            >
                         </li>
                         <li class="nav-item">
                             <a
                                     class="nav-link"
                                     class:active={isActive('/projects')}
                                     href={resolve('projects')}
-                                    aria-current={isActive('/projects') ? 'page' : undefined}
-                            >Projects</a>
+                                    aria-current={isActive('/projects') ? 'page' : undefined}>Projects</a
+                            >
                         </li>
                         <li class="nav-item dropdown">
                             <button
@@ -252,32 +248,19 @@
                                     aria-labelledby="utilityDropdown"
                             >
                                 <li>
-                                    <a
-                                            class="dropdown-item"
-                                            href={resolve('utility/universita')}
-                                    >
-                                        <i
-                                                class="fas fa-graduation-cap me-2"
-                                                aria-hidden="true"
-                                        ></i>
-
+                                    <a class="dropdown-item" href={resolve('utility/universita')}>
+                                        <i class="fas fa-graduation-cap me-2" aria-hidden="true"></i>
                                         Università
                                     </a>
                                 </li>
                                 <li>
-                                    <a
-                                            class="dropdown-item"
-                                            href={resolve('utility/ade')}
-                                    >
+                                    <a class="dropdown-item" href={resolve('utility/ade')}>
                                         <i class="fas fa-microchip me-2" aria-hidden="true"></i>
                                         ADE
                                     </a>
                                 </li>
                                 <li>
-                                    <a
-                                            class="dropdown-item"
-                                            href={resolve('utility/energy')}
-                                    >
+                                    <a class="dropdown-item" href={resolve('utility/energy')}>
                                         <i class="fas fa-bolt me-2" aria-hidden="true"></i>
                                         Energia
                                     </a>
@@ -288,10 +271,7 @@
                                 </li>
 
                                 <li>
-                                    <a
-                                            class="dropdown-item"
-                                            href={resolve('utility/game')}
-                                    >
+                                    <a class="dropdown-item" href={resolve('utility/game')}>
                                         <i class="fas fa-gamepad me-2" aria-hidden="true"></i>
                                         Game
                                     </a>
@@ -328,15 +308,15 @@
                     <div class="marquee__half" class:marquee__half--duplicate={duplicate} aria-hidden={duplicate}>
                         {#each [0, 1] as copy}
 							<span class="marquee__seq">
-								Open to work 
+								Open to work
 								<i></i>
-								SvelteKit enthusiast 
+								Full-Stack enthusiasts
 								<i></i>
-								University of Insubria 
+								University of Insubria
 								<i></i>
-								EU-based developer 
+								EU-based developer
 								<i></i>
-								RoboCup programmer 
+								RoboCup programmer
 								<i></i>
 							</span>
                         {/each}
@@ -350,7 +330,8 @@
                     <div class="col-lg-6 col-md-12 mb-md-0">
                         <h2 class="h5 footer-heading">AnonymousGCA</h2>
                         <p class="footer-copy">
-                            Hi! I'm AnonymousGCA, a full-stack developer, web, mobile, and university student.
+                            Hi! I'm AnonymousGCA, a full-stack developer with experience on Web and Mobile, and BSc
+                            graduate in Computer Science.
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-md-0">
@@ -530,12 +511,12 @@
     }
 
     .navbar .nav-link.active,
-    .navbar .nav-link.dropdown-toggle[aria-expanded="true"] {
+    .navbar .nav-link.dropdown-toggle[aria-expanded='true'] {
         color: var(--ink);
     }
 
     .navbar .nav-link.active::after,
-    .navbar .nav-link.dropdown-toggle[aria-expanded="true"]::after {
+    .navbar .nav-link.dropdown-toggle[aria-expanded='true']::after {
         transform: scaleX(1);
     }
 

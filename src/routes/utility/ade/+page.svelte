@@ -218,7 +218,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Calcola
                             </button>
                         </form>
@@ -228,8 +229,12 @@
                             {:else}
                                 <p class="calc-result">
                                     2<sup class="text-warning-gca">{bitsResult.totalPower}</sup>
-                                    <span class="calc-result__note">({bitsResult.needed} {bitsResult.totalPower} {bitsResult.unit}
-                                        )</span>
+                                    <span class="calc-result__note"
+                                    >({bitsResult.needed}
+                                        {bitsResult.totalPower}
+                                        {bitsResult.unit}
+                                        )</span
+                                    >
                                 </p>
                             {/if}
                         {/if}
@@ -260,7 +265,8 @@
                                         required
                                 />
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Converti
                             </button>
                         </form>
@@ -269,10 +275,12 @@
                                 <p class="calc-result calc-result--error">{bitsToBytesResult.error}</p>
                             {:else}
                                 <p class="calc-result">
-                                    {bitsToBytesResult.bytes} Byte — 2<sup
+                                    {bitsToBytesResult.bytes} Byte: 2<sup
                                         class="text-warning-gca">{bitsToBytesResult.power}</sup>
                                     <span class="calc-result__note"
-                                    >({bitsToBytesResult.needed} {bitsToBytesResult.power} {bitsToBytesResult.unit}
+                                    >({bitsToBytesResult.needed}
+                                        {bitsToBytesResult.power}
+                                        {bitsToBytesResult.unit}
                                         )</span
                                     >
                                 </p>
@@ -316,7 +324,8 @@
                                     />
                                 </div>
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Calcola
                             </button>
                         </form>
@@ -324,8 +333,10 @@
                             {#if powerResult.error}
                                 <p class="calc-result calc-result--error">{powerResult.error}</p>
                             {:else}
-                                <p class="calc-result">2<sup class="text-warning-gca">{exponentInput}</sup>
-                                    = {powerResult.value}</p>
+                                <p class="calc-result">
+                                    2<sup class="text-warning-gca">{exponentInput}</sup>
+                                    = {powerResult.value}
+                                </p>
                             {/if}
                         {/if}
                     </div>
@@ -365,7 +376,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Calcola
                             </button>
                         </form>
@@ -427,7 +439,8 @@
                                     />
                                 </div>
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Calcola
                             </button>
                         </form>
@@ -440,7 +453,7 @@
                                     <span class="calc-result__note"
                                     >({blockResult.needed}
                                         {blockResult.totalPower}
-                                        {blockResult.unit} — parole: 2<sup>{blockResult.wordBits}</sup>, offset: 2<sup
+                                        {blockResult.unit}; parole: 2<sup>{blockResult.wordBits}</sup>, offset: 2<sup
                                         >{blockResult.offsetBits}</sup
                                         >)</span
                                     >
@@ -485,7 +498,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="calc-btn"><i class="fas fa-check" aria-hidden="true"></i>
+                            <button type="submit" class="calc-btn"
+                            ><i class="fas fa-check" aria-hidden="true"></i>
                                 Calcola
                             </button>
                         </form>

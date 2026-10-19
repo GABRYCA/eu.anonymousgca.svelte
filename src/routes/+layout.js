@@ -8,7 +8,7 @@ export const load = async ({url}) => {
         schemaOrg: true,
         locale: 'en_US',
         description:
-            'AnonymousGCA - Web Developer, Mobile Developer, Full-Stack Developer, University Student, SvelteKit enthusiast',
+            'AnonymousGCA - Web Developer, Mobile Developer, Full-Stack Developer, Graduate in Computer Science, SvelteKit enthusiast',
         siteName: 'AnonymousGCA - Official',
         socials: [
             'https://github.com/GABRYCA',
@@ -25,6 +25,6 @@ export const load = async ({url}) => {
         author: 'AnonymousGCA',
         name: 'AnonymousGCA',
         canonical: 'https://anonymousgca.eu' + url.pathname,
-        keywords: 'AnonymousGCA, Developer, Web Development, App Development, Svelte, SvelteKit, University Student'
+        keywords: 'AnonymousGCA, Developer, Web Development, App Development, Svelte, SvelteKit, Graduate in Computer Science'
     };
 };

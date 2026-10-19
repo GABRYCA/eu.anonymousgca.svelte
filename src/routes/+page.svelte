@@ -29,7 +29,7 @@
                                                  style="--i: 1;">AnonymousGCA</span></span>
             </h1>
             <p class="home-hero__lead" use:scrollAnimation={{ animation: 'fade-up', duration: 700, delay: 250 }}>
-                Full-Stack developer, university student, and SvelteKit enthusiast.
+                BSc graduate in Computer Science with experience on web and mobile development, Full-Stack.
             </p>
             <div
                     class="home-hero__actions"
@@ -63,10 +63,10 @@
 
         <div class="container">
             <div class="row justify-content-around gy-4 px-2 px-md-0">
+                <Skill title="A Graduate in Computer Science" icon="fas fa-graduation-cap"/>
                 <Skill title="A Mobile Developer" icon="fas fa-code"/>
                 <Skill title="A Full-Stack Developer" icon="fas fa-layer-group"/>
                 <Skill title="A SvelteKit Enthusiast" icon="fas fa-bolt"/>
-                <Skill title="A University Student" icon="fas fa-graduation-cap"/>
             </div>
         </div>
     </section>

@@ -161,7 +161,7 @@
                     <ul>
                         <li>Even more Docker Containers</li>
                         <li>Background Tasks (Passive Income)</li>
-                        <li>Many experiments and emulators (Still using binfmt, and can run AMD64 programs thanks
+                        <li>Many experiments and emulators (Still using binfmt, and can run AMD64 programs thanks to
                             that)
                         </li>
                         <li>Little Webserver (APACHE)</li>

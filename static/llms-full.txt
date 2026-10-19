@@ -1,19 +1,19 @@
-# AnonymousGCA — Official
+# AnonymousGCA - Official
 
 Full text content of the AnonymousGCA website (https://anonymousgca.eu).
-Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti), web developer, web designer, SvelteKit enthusiast, university student and soccer-robocup programmer based in Italy.
+Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti), web developer, web designer, SvelteKit enthusiast, Graduate in Computer Science and soccer-robocup programmer based in Italy.
 
 ---
 
-## 1. Home — https://anonymousgca.eu/
+## 1. Home - https://anonymousgca.eu/
 
 Hi! I'm AnonymousGCA!
 
 I am:
-- A Web-Developer
-- A Web-Designer
+- A Mobile Developer
+- A Full-Stack Developer
 - A SvelteKit Enthusiast
-- A University Student
+- A Graduate in Computer Science
 
 Contact me:
 - Discord: https://discord.gg/RSp2CSuMny
@@ -28,34 +28,34 @@ Socials and Development:
 
 ---
 
-## 2. Projects — https://anonymousgca.eu/projects
+## 2. Projects - https://anonymousgca.eu/projects
 
 Selected work: live websites, Svelte packages and components, university projects and VS Code tooling.
 
 Featured sites (2):
-- MZEYFILMS — https://mzeyfilms.com — MZEYFILMS's cinematic portfolio website. Tech: SvelteKit, Bootstrap, Pocketbase.
-- Ristorante Aquazzurra Resort — https://ristoranteaquazzurrasveltekit.netlify.app/ — a simple restaurant website. Tech: SvelteKit, UI design, Static.
+- MZEYFILMS: https://mzeyfilms.com (MZEYFILMS's cinematic portfolio website). Tech: SvelteKit, Bootstrap, Pocketbase.
+- Ristorante Aquazzurra Resort: https://ristoranteaquazzurrasveltekit.netlify.app/ (a simple restaurant website). Tech: SvelteKit, UI design, Static.
 
 ---
 
-## 3. Contacts — https://anonymousgca.eu/contacts
+## 3. Contacts - https://anonymousgca.eu/contacts
 
 Connect with me. Pick the channel that fits. Messages are checked regularly, especially email and LinkedIn.
 
 Professional:
-- Email — anonymousgca@anonymousgca.eu — "Send me an email, I'll check it out as soon as possible."
-- LinkedIn — https://www.linkedin.com/in/gabriele-caretti-046408270/
-- GitHub — https://github.com/GABRYCA — repositories, experiments and open-source work.
+- Email: anonymousgca@anonymousgca.eu ("Send me an email, I'll check it out as soon as possible.")
+- LinkedIn: https://www.linkedin.com/in/gabriele-caretti-046408270/
+- GitHub: https://github.com/GABRYCA (repositories, experiments and open-source work)
 
 Social and community:
-- Discord — https://discord.gg/RSp2CSuMny — chat and community.
-- YouTube — https://www.youtube.com/@anonymousgca5331 — videos and casual stuff.
-- Reddit — https://www.reddit.com/u/AnonymousGCA — discussions.
-- Web3 — https://ud.me/anonymousgca.crypto — crypto and web3.
+- Discord: https://discord.gg/RSp2CSuMny (chat and community)
+- YouTube: https://www.youtube.com/@anonymousgca5331 (videos and casual stuff)
+- Reddit: https://www.reddit.com/u/AnonymousGCA (discussions)
+- Web3: https://ud.me/anonymousgca.crypto (crypto and web3)
 
 ---
 
-## 4. Collection (The Collection of Pi) — https://anonymousgca.eu/collection
+## 4. Collection (The Collection of Pi) - https://anonymousgca.eu/collection
 
 A collection of single-board computers.
 
@@ -75,20 +75,20 @@ Price at time of buy: about 27€ including shipping.
 
 ---
 
-## 5. Neon Grove (Pixel RPG) — https://anonymousgca.eu/utility/game
+## 5. Neon Grove (Pixel RPG) - https://anonymousgca.eu/utility/game
 
-A simple web-RPG concept made by AnonymousGCA. Wander a neon forest, poke friendly NPCs, bonk glitch-slimes, and stitch the night back together with three Source Shards.
+A simple web-RPG concept made by AnonymousGCA, across three levels (Neon Grove, Murk Marsh and Null Core). Wander the map, poke friendly NPCs such as Owlbit, Marrow and Sage Root, bonk glitch-slimes, and collect the Source Shards each level needs to open its portal.
 
 How to play:
 - Start with Space, Enter, or the big Action button.
 - Walk with WASD / arrow keys, or the on-screen D-pad on mobile.
 - Talk and loot by facing Owlbit, Fox.exe, chests or shards, then pressing Action.
 - Battle when you bump a slime: Attack, drink a Glow Potion, or Flee.
-- Win by collecting all three shards and stepping on the purple portal.
+- Win by collecting the shards a level needs (3 in the grove, 4 in the marsh, 5 in the core) and stepping on the purple portal; the fifth shard drops from the Null King.
 
 ---
 
-## 6. Simulatore Università (University Grade Simulator) — https://anonymousgca.eu/utility/universita
+## 6. Simulatore Università (University Grade Simulator) - https://anonymousgca.eu/utility/universita
 
 Calcolatore e simulatore di media ponderata e voto di laurea finale. The data stays only on the user's device (localStorage, no server).
 
@@ -106,7 +106,7 @@ Key facts:
 
 ---
 
-## 7. ADE — Calcolatore Bit (Bit Calculator) — https://anonymousgca.eu/utility/ade
+## 7. ADE - Calcolatore Bit (Bit Calculator) - https://anonymousgca.eu/utility/ade
 
 Bit, memory and cache calculator for the computer architecture course (Architettura degli Elaboratori, Insubria).
 
@@ -118,7 +118,7 @@ Tools included:
 
 ---
 
-## 8. Insubria (commute schedules) — https://anonymousgca.eu/insubria
+## 8. Insubria (commute schedules) - https://anonymousgca.eu/insubria
 
 Public transport commutes from Intra/Laveno (Lake Maggiore) to the University of Insubria campus in Varese. Each weekday page lists the ferry (traghetto, Intra to Laveno), train (Trenord, Laveno Mombello Lago to Varese Nord) and bus (Linea C/RS, Morosini FS/FNM to Monte Generoso, 71 ASL) legs with departure and arrival times, plus alternative/anticipatario timings.
 
