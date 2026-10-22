@@ -1,16 +1,17 @@
 # AnonymousGCA - Official
 
-> Personal website of AnonymousGCA (Gabriele Caretti), a web developer, web designer, SvelteKit enthusiast, Graduate in Computer Science and soccer-robocup programmer based in Italy. Showcases the portfolio, selected projects, contact channels and public utilities.
+> Personal website of AnonymousGCA (Gabriele Caretti), a full-stack and mobile developer, SvelteKit enthusiast and BSc graduate in Computer Science based in Italy. Showcases the portfolio, selected projects, contact channels and public utilities.
 
 ## Pages
 
-- [Home](https://anonymousgca.eu/): Introduction to AnonymousGCA: web developer, web designer, SvelteKit enthusiast, Graduate in Computer Science. Lists skills, contact channels and socials (GitHub, YouTube, Reddit, Discord, Crypto/Web3 profile).
-- [Projects](https://anonymousgca.eu/projects): Live websites, Svelte packages and components, university projects and VS Code tooling.
+- [Home](https://anonymousgca.eu/): Introduction to AnonymousGCA: BSc graduate in Computer Science with experience on web and mobile development, Full-Stack. Lists skills, contact channels and socials (GitHub, YouTube, Reddit, Discord, Crypto/Web3 profile).
+- [Projects](https://anonymousgca.eu/projects): Live websites, Svelte packages and components, university work and developer tooling, open and sorted by most recent activity. Category filters, tech tags, grades, npm packages and a live preview for the websites.
 - [Contacts](https://anonymousgca.eu/contacts): Direct ways to reach AnonymousGCA: email, LinkedIn, GitHub, Discord, YouTube, Reddit, Web3 profile.
 - [Collection](https://anonymousgca.eu/collection): Raspberry Pi Zero 2W and Orange Pi Zero 2W single-board computer homelab: specs, usage, swap problems and lessons learned.
-- [Neon Grove (Pixel RPG)](https://anonymousgca.eu/utility/game): Free browser pixel RPG by AnonymousGCA. Wander the neon grove, the murk marsh and the null core, talk to Owlbit and Marrow, fight glitch-slimes and collect the Source Shards across three levels (the fifth one is carried by the Null King).
 - [Simulatore Università](https://anonymousgca.eu/utility/universita): Italian university grade simulator based on Università degli Studi dell'Insubria (DiSTA): weighted average, CFU progress, lode bonus and final degree grade projection. Client-side only, no data saved.
-- [ADE - Calcolatore Bit](https://anonymousgca.eu/utility/ade): Bit, memory and cache calculator for the computer architecture course (Insubria): powers of two, bit/byte conversions, binary to decimal, memory word and cache addressing.
+- [ADE - Calcolatore Bit](https://anonymousgca.eu/utility/ade): Bit, memory and cache calculators for the computer architecture course (Architettura degli Elaboratori, Insubria): powers of two, bit to byte conversion, total memory, block size and cache sizing, plus binary and decimal converters.
+- [Energia - Prezzi elettricità Italia](https://anonymousgca.eu/utility/energy): Hourly day-ahead electricity prices for Italy through the Mercato del Giorno Prima (MGP), bidding zone Nord as an honest PUN proxy: 3-day view with day tabs, 7 and 30 day trends, 12 months of history, cheapest 3-hour slot, stats, tables and a cost estimator. Data fetched client-side from energy-charts.info, official source GME.
+- [Neon Grove (Pixel RPG)](https://anonymousgca.eu/utility/game): Free browser pixel RPG by AnonymousGCA. Wander the grove, haggle in the marsh and face the Null King in the Core across three levels; collect the Source Shards, level up, spend stardust at Marrow's shop and keep an autosaved progress in the browser.
 - [Insubria](https://anonymousgca.eu/insubria): Public transport commutes from Intra/Laveno to the Insubria campus in Varese: ferry, train and bus schedules.
   - [Lunedì](https://anonymousgca.eu/insubria/lunedi): Monday commute schedule: ferry (Intra-Laveno), train (Laveno-Varese Nord) and bus to campus with alternative timings.
   - [Martedì](https://anonymousgca.eu/insubria/martedi): Tuesday commute schedule: ferry, train and bus times from Laveno to Varese.
@@ -20,6 +21,7 @@
 
 ## Notes
 
-- Every page is fully prerendered static HTML (SvelteKit + adapter-static): content is available to crawlers without JavaScript.
+- Every page is fully prerendered static HTML (SvelteKit + adapter-static on Bun): content is available to crawlers without JavaScript.
 - The site explicitly allows AI crawlers (see robots.txt): content may be indexed and used to answer questions about AnonymousGCA.
+- The utilities are client-side and privacy-friendly: the grade simulator and the game keep data on the device only (localStorage), and the energy page fetches its data from the browser (baked same-origin history plus live refreshes).
 - Primary audience: recruiters and employers evaluating Gabriele Caretti as a web developer; secondary: fellow developers and university students using the utilities.

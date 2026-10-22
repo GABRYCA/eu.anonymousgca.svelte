@@ -1,7 +1,7 @@
 # AnonymousGCA - Official
 
 Full text content of the AnonymousGCA website (https://anonymousgca.eu).
-Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti), web developer, web designer, SvelteKit enthusiast, Graduate in Computer Science and soccer-robocup programmer based in Italy.
+Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti), full-stack and mobile developer, SvelteKit enthusiast and BSc graduate in Computer Science based in Italy.
 
 ---
 
@@ -9,11 +9,15 @@ Site: personal portfolio and public utilities of AnonymousGCA (Gabriele Caretti)
 
 Hi! I'm AnonymousGCA!
 
+BSc graduate in Computer Science with experience on web and mobile development, Full-Stack.
+
+Actions on the hero: "Explore my projects" and "Get in touch".
+
 I am:
+- A Graduate in Computer Science
 - A Mobile Developer
 - A Full-Stack Developer
 - A SvelteKit Enthusiast
-- A Graduate in Computer Science
 
 Contact me:
 - Discord: https://discord.gg/RSp2CSuMny
@@ -22,35 +26,59 @@ Contact me:
 
 Socials and Development:
 - GitHub: https://github.com/GABRYCA
-- YouTube: https://www.youtube.com/channel/UCJgmoEFd6b9oOj2OvafuezQ
+- YouTube: https://www.youtube.com/channel/UCJgmoEFd6b9oOj2OvafuezQ (also reachable as https://www.youtube.com/@anonymousgca5331)
 - Crypto/Web3 (Unstoppable Domain): https://ud.me/anonymousgca.crypto
 - Reddit: https://www.reddit.com/u/AnonymousGCA
+
+Marquee band across the site: Open to work, Full-Stack enthusiasts, University of Insubria, EU-based developer, RoboCup programmer.
 
 ---
 
 ## 2. Projects - https://anonymousgca.eu/projects
 
-Selected work: live websites, Svelte packages and components, university projects and VS Code tooling.
+Live websites, Svelte packages and components, university work and developer tooling. Everything here is shipped and open, sorted by most recent activity. Pick a category and dive in: Everything, Websites, Svelte works, University, VS Code. Cards show the kind, tech tags and fact badges (grades, npm, extension); the live websites also offer a preview.
 
-Featured sites (2):
-- MZEYFILMS: https://mzeyfilms.com (MZEYFILMS's cinematic portfolio website). Tech: SvelteKit, Bootstrap, Pocketbase.
-- Ristorante Aquazzurra Resort: https://ristoranteaquazzurrasveltekit.netlify.app/ (a simple restaurant website). Tech: SvelteKit, UI design, Static.
+Websites:
+- MZEYFILMS: https://mzeyfilms.com. MZEYFILMS's cinematic portfolio website: photography and video work, content managed with PocketBase. Tech: SvelteKit, Bootstrap, PocketBase.
+- Ristorante Aquazzurra Resort: https://ristoranteaquazzurrasveltekit.netlify.app/. Multilingual restaurant website in Italian, English and German with menu, gallery and contact flow, designed and shipped end to end. Tech: SvelteKit, Paraglide i18n, Static.
+
+Svelte works:
+- svelte-tooltip-gca (npm): https://www.npmjs.com/package/svelte-tooltip-gca. Theme-aware tooltip action for Svelte 5 with automatic light/dark themes, native Popover API top-layer rendering and mobile-friendly behavior. Published on npm and used by this site. Tech: Svelte 5, npm package, Action.
+- svelte-image-compressor: https://github.com/GABRYCA/svelte-image-compressor. SvelteKit image compressor and converter to WebP built on Sharp, with a minimal API and token authentication. Tech: SvelteKit, Sharp, WebP.
+- svelte-image-proxy: https://github.com/GABRYCA/svelte-image-proxy. Image compression service with an API, built with Svelte 5 and SvelteKit. Tech: Svelte 5, API, Service.
+- eu.anonymousgca.svelte (this site): https://github.com/GABRYCA/eu.anonymousgca.svelte. This website, built with SvelteKit 3 and Svelte 5 on Bun, statically rendered for Cloudflare Pages. Tech: SvelteKit 3, Svelte 5, Bun.
+
+University:
+- MelanomaTNM (grade: 30/30): https://github.com/GABRYCA/MelanomaTNM. Melanoma staging app built with Kotlin Multiplatform and Compose Multiplatform, targeting Android and iOS, backed by Firebase Firestore. Mobile programming exam project. Tech: Kotlin Multiplatform, Compose Multiplatform, Firebase.
+- ml-stress-rest (grade: 30/30): https://github.com/GABRYCA/ml-stress-rest. Machine learning study classifying stress and rest from wearable sensor data: EDA, logistic regression, SVM and random forests. Tech: Machine Learning, MATLAB, Data analysis.
+- ArtigianatoOnline (grade: 30 e lode): https://github.com/GABRYCA/ArtigianatoOnline. Full-stack marketplace for Italian artisans: Node.js and Express API, PostgreSQL database, Bootstrap front end, shipped with Docker. Tech: Node.js, Express, PostgreSQL.
+- BookRecommender: https://github.com/GABRYCA/BookRecommender. Book recommendation system from the LabA and LabB labs: JavaFX client, multithreaded socket server and PostgreSQL storage. Tech: Java, JavaFX, PostgreSQL.
+- Algoritmi_Scuola: https://github.com/GABRYCA/Algoritmi_Scuola. Collected algorithms, exercises and notes from school and university: Java, C and JavaScript. Tech: Java, C, Algorithms.
+- HCI lecture notes: https://github.com/GABRYCA/appunti-interazione-uomo-macchina. LaTeX lecture notes and compiled PDFs for Interazione Uomo-Macchina, University of Insubria 2025/26, plus an interactive web guide with labs, quizzes and a formula sheet. Tech: LaTeX, PDF, Web guide.
+- Mobile development notes: https://github.com/GABRYCA/appunti-programmazione-dispositivi-mobili. LaTeX lecture notes and compiled PDFs for Programmazione di Dispositivi Mobili, University of Insubria 2025/26, with a web version on GitHub Pages. Tech: LaTeX, Android, Kotlin.
+
+VS Code:
+- baan-c-vscode (extension): https://github.com/GABRYCA/baan-c-vscode. Visual Studio Code extension adding complete language support for Baan C and Infor LN (3GL and 4GL): syntax highlighting, formatting, diagnostics and over 1,100 API completions. Tech: VS Code, Language support, esbuild.
+
+More on GitHub: https://github.com/GABRYCA?tab=repositories (repositories, forks and experiments, all public).
 
 ---
 
 ## 3. Contacts - https://anonymousgca.eu/contacts
 
-Connect with me. Pick the channel that fits. Messages are checked regularly, especially email and LinkedIn.
+Connect With Me. Pick the channel that fits; messages are checked regularly.
 
-Professional:
+Quick links: Email, LinkedIn, GitHub, Discord.
+
+Professional (primary channels for work):
 - Email: anonymousgca@anonymousgca.eu ("Send me an email, I'll check it out as soon as possible.")
-- LinkedIn: https://www.linkedin.com/in/gabriele-caretti-046408270/
-- GitHub: https://github.com/GABRYCA (repositories, experiments and open-source work)
+- LinkedIn: https://www.linkedin.com/in/gabriele-caretti-046408270/ ("Reach me on LinkedIn.")
+- GitHub: https://github.com/GABRYCA ("Repositories, experiments, and open-source work.")
 
 Social and community:
 - Discord: https://discord.gg/RSp2CSuMny (chat and community)
 - YouTube: https://www.youtube.com/@anonymousgca5331 (videos and casual stuff)
-- Reddit: https://www.reddit.com/u/AnonymousGCA (discussions)
+- Reddit: https://www.reddit.com/u/AnonymousGCA (discussions, and more discussions, and fun)
 - Web3: https://ud.me/anonymousgca.crypto (crypto and web3)
 
 ---
@@ -63,67 +91,98 @@ A collection of single-board computers.
 Deployment: 25/12/2021. Status: Retired (December 2023). Replaced by Orange Pi Zero 2W 4GB.
 Specs: 512MB RAM (limitation), 4-core 64-bit ARM CPU, slow 2.4GHz WiFi (less than 40mbps), Bluetooth 4.2, 1x Micro-USB 2.0, 1x Mini HDMI, 1x Power Micro USB, 1x CSI camera connector, 1x GPIO 40-pin.
 History: served as an efficient low-power Linux server for years. Always swapping (killed a 128GB Samsung EVO Plus micro SD, luckily under warranty), slow WiFi, kept freezing and required a reboot. Terminal-only usage.
-Usage: Docker containers, background tasks (passive income), experiments and emulators (learned about binfmt and could run AMD64 programs), little Apache web server.
-Price at time of buy: about 23€ including shipping.
+Usage: Docker containers, background tasks (passive income), experiments and emulators (learned about binfmt and could run AMD64 programs thanks to that), little Apache web server.
+Price at time of buy: 23€ including shipping fees.
 
 ### Orange Pi Zero 2W 4GB (operational)
-Deployment: 01/12/2023. Status: Operational.
+Deployment: 01/12/2023. Status: Operational. Bought for the specs and the deal (28$).
 Specs: 4GB LPDDR4 RAM, 4-core 64-bit ARM CPU, 2.4/5GHz WiFi 5 handles easily 100mbps, Bluetooth 5.0 BLE, 1x USB-C 2.0, 1x Mini HDMI, 1x Power USB-C, 1x CSI camera connector, 1x GPIO 40-pin.
-Initial problems: unclear initial connection setup (an hidden first_run config file in the Ubuntu ISO enabled WiFi automatically), default apt Huawei repositories (changed back to ports.ubuntu.com).
-Usage: even more Docker containers, background tasks (passive income), experiments and emulators (still using binfmt), little Apache web server.
-Price at time of buy: about 27€ including shipping.
+Initial problems: unclear initial connection setup (an hidden first_run config file in the Ubuntu ISO enabled WiFi automatically after editing), default apt Huawei repositories (changed back to ports.ubuntu.com).
+Usage: even more Docker containers, background tasks (passive income), experiments and emulators (still using binfmt to run AMD64 programs), little Apache web server.
+Price: about 27€ including shipping fees after change.
 
 ---
 
-## 5. Neon Grove (Pixel RPG) - https://anonymousgca.eu/utility/game
+## 5. Simulatore Laurea Università (University Grade Simulator) - https://anonymousgca.eu/utility/universita
 
-A simple web-RPG concept made by AnonymousGCA, across three levels (Neon Grove, Murk Marsh and Null Core). Wander the map, poke friendly NPCs such as Owlbit, Marrow and Sage Root, bonk glitch-slimes, and collect the Source Shards each level needs to open its portal.
+Calcolatore e simulatore di media ponderata e voto di laurea finale. I dati restano solo sul tuo dispositivo: everything is stored in localStorage on the user's device, no server involved.
 
-How to play:
-- Start with Space, Enter, or the big Action button.
-- Walk with WASD / arrow keys, or the on-screen D-pad on mobile.
-- Talk and loot by facing Owlbit, Fox.exe, chests or shards, then pressing Action.
-- Battle when you bump a slime: Attack, drink a Glow Potion, or Flee.
-- Win by collecting the shards a level needs (3 in the grove, 4 in the marsh, 5 in the core) and stepping on the purple portal; the fifth shard drops from the Null King.
+Based on the Italian university system, specifically the Università degli Studi dell'Insubria (DiSTA).
 
----
-
-## 6. Simulatore Università (University Grade Simulator) - https://anonymousgca.eu/utility/universita
-
-Calcolatore e simulatore di media ponderata e voto di laurea finale. The data stays only on the user's device (localStorage, no server).
-
-Based on the Italian university system, specifically Università degli Studi dell'Insubria (DiSTA).
+How it works:
+- Add exams with name, CFU (1 to 30), grade (18 to 30) and lode (only for a grade of 30).
+- The exam table lists every exam with CFU, vote, lode and weight (vote × CFU).
+- Stats: CFU acquired (out of 180), exams taken, weighted average (out of 30) and lodes (+0.33 bonus each).
+- Projection (Voto di Laurea): voto attuale from completed CFU, scenario migliore (all 30 in the remaining exams, with potential lodes) and scenario peggiore (all 18); remaining exams are estimated from the average CFU per exam.
 
 Key facts:
-- Weighted average (media ponderata) per the Italian system.
+- Weighted average (media ponderata) per the Italian system (Insubria's rules).
 - "Lode" counts as a normal 30 but adds 0.33 bonus points to the final grade, regardless of exam CFU weight.
-- Base score: (Weighted Average × 110) ÷ 30.
+- Base score: (Media Ponderata × 110) ÷ 30.
 - Lode bonus: number of lodes × 0.33 points.
 - Maximum: 110 e lode (if base is at least 110).
 - Total CFU: 180.
-- Projections: best scenario (all 30 in remaining exams) and worst scenario (all 18), estimated remaining exams assuming 6 CFU per exam.
-- Disclaimer: calculations and projections are purely indicative and may contain errors; nothing is saved or shared, the tool works entirely on the user's device.
+
+Disclaimer (as shown): "I calcoli e le proiezioni mostrate sono puramente indicativi e possono contenere errori. Non si assumono responsabilità per eventuali inesattezze o differenze rispetto ai calcoli ufficiali dell'ateneo. Nessun genere di informazione sui dati inseriti viene salvata o condivisa, lo strumento funziona totalmente sul dispositivo dell'utente finale."
 
 ---
 
-## 7. ADE - Calcolatore Bit (Bit Calculator) - https://anonymousgca.eu/utility/ade
+## 6. ADE - Architettura degli Elaboratori (Bit Calculator) - https://anonymousgca.eu/utility/ade
 
-Bit, memory and cache calculator for the computer architecture course (Architettura degli Elaboratori, Insubria).
+Calcolatori per ADE: bit per la memoria e per la cache, conversione bit e byte, potenze di 2, indirizzamenti di memoria e conversioni binario/decimale. Bit, memory and cache calculators for the computer architecture course (Architettura degli Elaboratori, Insubria). All calculations run entirely in the browser.
 
-Tools included:
-- Power-of-two calculator: compute how many bits are needed for a given number (2, 4, 8, 16, 32, 64, 128, 256, 512) with KB/MB/GB scaling.
-- Bit to byte conversion: requires a multiple of 8.
-- Binary to decimal and decimal to binary conversion.
-- Memory word and cache addressing calculators with byte/KB/MB/GB scales.
+Tools included (eight calculators):
+- Bit Memoria/Cache: how many bits an address needs for a power-of-two quantity (2, 4, 8, 16... 512) expressed in Byte, KB, MB or GB.
+- Convertitore Bit a Byte: bits to bytes (multiples of 8, usually 16, 32, 64...) with the addressing bits (powers of two).
+- Potenza di 2: computes 2 to the given exponent.
+- Memoria Totale: total bits for a memory quantity (power of two) in the chosen scale (Byte/KB/MB/GB).
+- Dimensione Blocco/offset: block size in bits from words and bits per word (word bits + offset bits, bits per word must be a multiple of 8).
+- Dimensione Memoria Cache: cache size in bits from the cache quantity (power of two) and scale.
+- Binario a Decimale and Decimale a Binario converters; input is validated (binary: only 0 and 1; decimal: digits only) with a friendly Italian message on invalid values, and conversions run through BigInt so long inputs stay exact.
 
 ---
 
-## 8. Insubria (commute schedules) - https://anonymousgca.eu/insubria
+## 7. Energia (Electricity Prices) - https://anonymousgca.eu/utility/energy
 
-Public transport commutes from Intra/Laveno (Lake Maggiore) to the University of Insubria campus in Varese. Each weekday page lists the ferry (traghetto, Intra to Laveno), train (Trenord, Laveno Mombello Lago to Varese Nord) and bus (Linea C/RS, Morosini FS/FNM to Monte Generoso, 71 ASL) legs with departure and arrival times, plus alternative/anticipatario timings.
+Grafico in tempo reale dei prezzi dell'elettricità in Italia: costo orario "day-ahead" della componente elettrica, tramite il Mercato del Giorno Prima (MGP). All data handling is client-side (static-site friendly).
+
+Features:
+- Custom zero-dependency SVG chart of the 24 hourly prices with day tabs (Ieri/Oggi/Domani as available), hover/touch tooltip, and keyboard exploration (slider role, arrow keys); an accessible per-hour table mirrors the chart.
+- Unit toggle: €/MWh and c€/kWh.
+- Cheapest 3-hour band, now marker, min/max hour dots and min/max badges in the table.
+- Time ranges: "3 gg" hourly view with day tabs, "7 gg" and "30 gg" daily-mean trend charts with period stats (period average, cheapest and priciest day, coverage) and a per-day table, "12 mesi" monthly means with per-month table.
+- "Quanto mi costa?" estimator: consumption in kWh times the reference price (media del giorno/ora più economica/ora più cara/ora corrente; over a range the period or month equivalents). It estimates the energy-only cost (senza oneri, IVA e quota fissa); it is not a bill.
+- Data chain: real day-ahead history (about 400 days) baked at build time into a same-origin JSON file, so long views always have true data; recent days refresh live through public CORS proxies; auto-refresh every 15 minutes (pauses in background tabs, can be turned off). An honest badge states the source of the current view: Live, proxy, Cache (with an honest note) or Demo when the network never answered.
+- Sources and attribution: GME (Gestore dei Mercati Energetici, mercatoelettrico.org) for the official PUN; zona Nord prices via energy-charts.info / Fraunhofer ISE (CC BY 4.0, dati Bundesnetzagentur | SMARD.de). Zone Nord is used honestly as a PUN proxy; the exact PUN comes from GME.
+- Disclaimer (as shown): "Valori a scopo informativo (materia energia, IVA e oneri esclusi), non costituiscono la bolletta."
+
+---
+
+## 8. Neon Grove (Pixel RPG) - https://anonymousgca.eu/utility/game
+
+A tiny web-RPG adventure in three levels by AnonymousGCA: Lv.1 Neon Grove, Lv.2 Murk Marsh and Lv.3 Null Core. Wander the grove, haggle in the marsh, and face the Null King in the Core. Collect shards and stardust, level up, and beat the boss that carries the final shard. Progress autosaves in your browser until you erase it.
+
+Friendly NPCs: Owlbit, Fox.exe, Marrow and Sage Root. Marrow's shop sells Glow Potions and heartfruit; the marsh hides a brass key and a locked chest; the core is a lava fortress guarded by the Null King boss.
+
+How to play:
+- Start with Space, Enter, or the big Action button, or Continue your saved run.
+- Walk with WASD / arrow keys, or the on-screen D-pad on mobile.
+- Talk and loot: face Owlbit, Marrow, chests, keys, or shards, then press Action. Coins, hearts, and keys pop on touch.
+- Battle when you bump a foe: Attack, drink a Glow Potion, or Flee (the Null King won't let you).
+- Grow: bonking foes earns XP and stardust. Level up for +1 max HP; spend stardust at Marrow's shop.
+- Win: clear Lv.1 Grove (3 shards), Lv.2 Marsh (4 shards + locked chest), then Lv.3 Core, where the boss holds the 5th shard.
+- Saves persist in localStorage across visits; erase them only with the Erase button.
+
+---
+
+## 9. Insubria (commute schedules) - https://anonymousgca.eu/insubria
+
+Public transport commutes from Intra/Laveno (Lake Maggiore) to the University of Insubria campus in Varese. The index page asks to pick a day ("Scegli un giorno"). Each weekday page lists the ferry (traghetto, Intra to Laveno), train (Trenord, Laveno Mombello Lago to Varese Nord) and bus (Linea C/RS, Morosini FS/FNM to Monte Generoso, 71 ASL) legs with departure and arrival times, duration and wait between legs, plus normale/anticipatario alternatives.
 
 - Lunedì (Monday): https://anonymousgca.eu/insubria/lunedi
 - Martedì (Tuesday): https://anonymousgca.eu/insubria/martedi
 - Mercoledì (Wednesday): https://anonymousgca.eu/insubria/mercoledi
 - Giovedì (Thursday): https://anonymousgca.eu/insubria/giovedi
 - Venerdì (Friday): https://anonymousgca.eu/insubria/venerdi
+
+Official timetables linked on every day page: the Insubria bus line PDF (uninsubria.it), CTPi Linea C and Linea E, Trenitalia trains and Navigazione Laghi (Lake Maggiore boats).

@@ -16,9 +16,11 @@ export const load = async ({}) => {
         {
             kind: 'web',
             title: 'Ristorante Aquazzurra Resort',
-            url: 'https://ristoranteaquazzurasveltekit.netlify.app/',
-            description: 'Restaurant website with menu, gallery and contact flow, designed and shipped end to end.',
-            tags: ['SvelteKit', 'UI design', 'Static'],
+            url: 'https://ristoranteaquazzurrasveltekit.netlify.app/',
+            updatedAt: '2026-09-16T21:28:22Z',
+            description:
+                'Multilingual restaurant website in Italian, English and German with menu, gallery and contact flow, designed and shipped end to end.',
+            tags: ['SvelteKit', 'Paraglide i18n', 'Static'],
             live: true
         },
         {
@@ -26,9 +28,9 @@ export const load = async ({}) => {
             title: 'svelte-tooltip-gca',
             url: 'https://www.npmjs.com/package/svelte-tooltip-gca',
             repo: 'GABRYCA/svelte-tooltip-gca',
-            updatedAt: '2026-08-17T20:46:26Z',
+            updatedAt: '2026-10-18T13:07:13Z',
             description:
-                'Theme-aware tooltip action for Svelte 5 with automatic light/dark themes and mobile-friendly behavior. Published on npm and used by this site.',
+                'Theme-aware tooltip action for Svelte 5 with automatic light/dark themes, native Popover API top-layer rendering and mobile-friendly behavior. Published on npm and used by this site.',
             tags: ['Svelte 5', 'npm package', 'Action'],
             meta: 'npm'
         },
@@ -56,9 +58,9 @@ export const load = async ({}) => {
             title: 'eu.anonymousgca.svelte',
             url: 'https://github.com/GABRYCA/eu.anonymousgca.svelte',
             repo: 'GABRYCA/eu.anonymousgca.svelte',
-            updatedAt: '2026-09-16T19:41:50Z',
-            description: 'This website: SvelteKit 2 and Svelte 5 running on Bun, statically rendered for Cloudflare Pages.',
-            tags: ['SvelteKit 2', 'Svelte 5', 'Bun'],
+            updatedAt: '2026-10-19T19:54:39Z',
+            description: 'This website: SvelteKit 3 and Svelte 5 running on Bun, statically rendered for Cloudflare Pages.',
+            tags: ['SvelteKit 3', 'Svelte 5', 'Bun'],
             meta: 'this site'
         },
         {
@@ -68,8 +70,8 @@ export const load = async ({}) => {
             repo: 'GABRYCA/MelanomaTNM',
             updatedAt: '2026-08-10T10:52:34Z',
             description:
-                'Android application classifying melanoma stages with the TNM system. Mobile programming exam project, built with Kotlin and Jetpack Compose.',
-            tags: ['Kotlin', 'Android', 'Jetpack Compose'],
+                'Melanoma staging app built with Kotlin Multiplatform and Compose Multiplatform, targeting Android and iOS, backed by Firebase Firestore. Mobile programming exam project.',
+            tags: ['Kotlin Multiplatform', 'Compose Multiplatform', 'Firebase'],
             meta: '30/30'
         },
         {
@@ -89,8 +91,9 @@ export const load = async ({}) => {
             url: 'https://github.com/GABRYCA/ArtigianatoOnline',
             repo: 'GABRYCA/ArtigianatoOnline',
             updatedAt: '2025-06-08T21:02:34Z',
-            description: 'Full-stack marketplace for Italian artisans, built for the web technologies course.',
-            tags: ['Node.js', 'Express', 'Bootstrap'],
+            description:
+                'Full-stack marketplace for Italian artisans: Node.js and Express API, PostgreSQL database, Bootstrap front end, shipped with Docker.',
+            tags: ['Node.js', 'Express', 'PostgreSQL'],
             meta: '30 e lode'
         },
         {
@@ -99,8 +102,9 @@ export const load = async ({}) => {
             url: 'https://github.com/GABRYCA/BookRecommender',
             repo: 'GABRYCA/BookRecommender',
             updatedAt: '2025-06-13T13:37:01Z',
-            description: 'Book recommendation web application from the LabA and LabB course labs.',
-            tags: ['Web', 'Lab project']
+            description:
+                'Book recommendation system from the LabA and LabB labs: JavaFX client, multithreaded socket server and PostgreSQL storage.',
+            tags: ['Java', 'JavaFX', 'PostgreSQL']
         },
         {
             kind: 'uni',
@@ -118,8 +122,8 @@ export const load = async ({}) => {
             repo: 'GABRYCA/appunti-interazione-uomo-macchina',
             updatedAt: '2026-09-08T14:35:25Z',
             description:
-                'LaTeX lecture notes and compiled PDFs for Interazione Uomo-Macchina, University of Insubria 2025/26.',
-            tags: ['LaTeX', 'PDF', 'HCI']
+                'LaTeX lecture notes and compiled PDFs for Interazione Uomo-Macchina, University of Insubria 2025/26, plus an interactive web guide with labs, quizzes and a formula sheet.',
+            tags: ['LaTeX', 'PDF', 'Web guide']
         },
         {
             kind: 'uni',
@@ -127,7 +131,8 @@ export const load = async ({}) => {
             url: 'https://github.com/GABRYCA/appunti-programmazione-dispositivi-mobili',
             repo: 'GABRYCA/appunti-programmazione-dispositivi-mobili',
             updatedAt: '2026-09-08T14:29:41Z',
-            description: 'LaTeX lecture notes for Programmazione di Dispositivi Mobili, University of Insubria 2025/26.',
+            description:
+                'LaTeX lecture notes and compiled PDFs for Programmazione di Dispositivi Mobili, University of Insubria 2025/26, with a web version on GitHub Pages.',
             tags: ['LaTeX', 'Android', 'Kotlin']
         },
         {
@@ -135,9 +140,9 @@ export const load = async ({}) => {
             title: 'baan-c-vscode',
             url: 'https://github.com/GABRYCA/baan-c-vscode',
             repo: 'GABRYCA/baan-c-vscode',
-            updatedAt: '2026-08-07T09:47:11Z',
+            updatedAt: '2026-10-21T12:57:52Z',
             description:
-                'Visual Studio Code extension adding complete language support for Baan C and Infor LN (3GL and 4GL).',
+                'Visual Studio Code extension adding complete language support for Baan C and Infor LN (3GL and 4GL): syntax highlighting, formatting, diagnostics and over 1,100 API completions.',
             tags: ['VS Code', 'Language support', 'esbuild'],
             meta: 'extension'
         }

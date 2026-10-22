@@ -2,7 +2,7 @@
 
 Official AnonymousGCA's Website.
 
-Made with SvelteKit 2 + Svelte 5 + Bun 1.4.3.
+Made with SvelteKit 3 + Svelte 5 + Bun 1.4.3.
 
 🔗 [Live Website](https://www.anonymousgca.eu/)
 
