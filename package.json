@@ -1,10 +1,10 @@
 {
 	"name": "anonymousgca-website",
-	"version": "1.9.6",
+	"version": "1.9.7",
 	"private": true,
-	"packageManager": "bun@1.4.3",
+	"packageManager": "bun@1.4.4",
 	"engines": {
-		"bun": ">=1.4.3"
+		"bun": ">=1.4.4"
 	},
 	"trustedDependencies": [
 		"esbuild"
@@ -14,10 +14,10 @@
 		"build": "bun scripts/check-energy-history.mjs && vite build",
 		"data:energy": "bun scripts/fetch-energy-history.mjs",
 		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:types": "bun --check",
-		"format": "prettier --check .",
-		"format:write": "prettier --write ."
+		"check": "svelte-kit sync && bun --no-env-file check --no-script && svelte-check --tsconfig ./jsconfig.json",
+		"check:types": "bun --no-env-file check --no-script",
+		"format": "bun fmt --check --changed",
+		"format:write": "bun fmt --changed"
 	},
 	"devDependencies": {
 		"@fontsource-variable/archivo": "^5.3.0",
@@ -28,8 +28,6 @@
 		"@sveltejs/kit": "^3.1.0",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"bootstrap": "^5.3.8",
-		"prettier": "^3.9.10",
-		"prettier-plugin-svelte": "^4.1.1",
 		"super-sitemap": "^2.0.6",
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",

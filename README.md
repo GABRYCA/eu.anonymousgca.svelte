@@ -2,13 +2,13 @@
 
 Official AnonymousGCA's Website.
 
-Made with SvelteKit 3 + Svelte 5 + Bun 1.4.3.
+Made with SvelteKit 3 + Svelte 5 + Bun 1.4.4.
 
 🔗 [Live Website](https://www.anonymousgca.eu/)
 
 ## Stack
 
-- **Runtime / Package Manager:** [Bun 1.4.3](https://bun.sh)
+- **Runtime / Package Manager:** [Bun 1.4.4](https://bun.sh)
 - **Framework:** SvelteKit 3 + Svelte 5
 - **Build:** Vite 8 (Rolldown) running under Bun runtime
 - **Adapter:** `@sveltejs/adapter-static`
@@ -17,20 +17,21 @@ Made with SvelteKit 3 + Svelte 5 + Bun 1.4.3.
 ## Quality
 
 ```bash
-# Svelte template/accessibility diagnostics (svelte-check)
+# Svelte diagnostics + JS typecheck (svelte-check + `bun check --no-script`)
 bun run check
 
-# JS typecheck via Bun 1.4.3's built-in checker
+# Fast JS typecheck via Bun 1.4.4's built-in checker
 bun run check:types
 
-# Prettier check / write
-bun run format
-bun run format:write
+# Bun's built-in Prettier-compatible formatter (Svelte support included)
+bun run format        # check files changed from the default branch
+bun run format:write  # format those files
+bun fmt               # format the whole tree
 ```
 
 ## Developing
 
-Requires **Bun ≥1.4.3**
+Requires **Bun ≥1.4.4**
 
 ```bash
 # install dependencies
@@ -57,11 +58,20 @@ bun run preview
 bun --bun vite preview --host --port 3000
 ```
 
+### Docker
+
+The multi-stage `Dockerfile` uses Bun 1.4.4's `bun pm fetch` to populate the install cache before copying source, then installs offline with `--frozen-lockfile`. The runtime stage serves the adapter-static `build` directory through `vite preview --outDir build`.
+
+```bash
+docker build -t anonymousgca-website .
+docker run --rm -p 3000:3000 anonymousgca-website
+```
+
 ### DEBUG: Error `vite: command not found`
 
 ```
-Detected tools: bun@1.4.3, nodejs@22.16.0
-Installing Bun v1.4.3...
+Detected tools: bun@1.4.4, nodejs@22.16.0
+Installing Bun v1.4.4...
 Executing user command: bun run build
 $ vite build
 bun: command not found: vite
@@ -76,7 +86,7 @@ The repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`
 **Pages → your project → Settings → Builds/deployments → Build configuration → Edit:**
 
 | Setting                    | Value                                                                                                                                                                                                                                                                                    |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Framework preset**       | `SvelteKit` (or `None`)                                                                                                                                                                                                                                                                  |
 | **Build command**          | `bun install --frozen-lockfile && bun run build` <br>_(In case of a 403 bun download error, use `npm install -g --allow-scripts=bun bun && export PATH="$(npm prefix -g)/bin:$PATH" && bun install --frozen-lockfile && bun run build` — see https://m.ac/latest-bun-cloudflare-pages/)_ |
 | **Build output directory** | `build`                                                                                                                                                                                                                                                                                  |
@@ -85,10 +95,10 @@ The repo includes **both** `bun.lock` (text, primary) and an **empty `bun.lockb`
 
 **Pages → Settings → Variables and Secrets → Add:**
 
-| Variable                  | Value                                                 | Type                                                                                                                   |
-| ------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `BUN_VERSION`             | `1.4.3`                                               | Plaintext                                                                                                              |
-| `SKIP_DEPENDENCY_INSTALL` | `true`                                                | Plaintext _(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)_ |
+| Variable                  | Value   | Type                                                                                                                   |
+| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `BUN_VERSION`             | `1.4.4` | Plaintext                                                                                                              |
+| `SKIP_DEPENDENCY_INSTALL` | `true`  | Plaintext _(optional but recommended — prevents Cloudflare from running `npm install` when it mis-detects `bun.lock`)_ |
 
 ### Verify
 
